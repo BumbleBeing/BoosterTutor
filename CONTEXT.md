@@ -84,15 +84,11 @@ _Avoid_: colour fit penalty, off-colour, mismatch
 Average Last Seen At: the pick by which a card has usually gone from a pack,
 averaged over every pack it appeared in. A measure of what drafters believe
 a card is worth, not of what it is worth. Low for bombs, and also for rares
-taken early for collection value.
+taken early for collection value. Shown to the reader and passed to the
+brief, but **not a scoring input**: ADR 0018 retired the one term that read
+it, on the finding that what drafters believe adds nothing to what the win
+rate says is true.
 _Avoid_: pick order, average pick, ATA
-
-**Openness**:
-Evidence that a colour is under-drafted at this table, in percentage points:
-what a card earns for still being in the pack later than its ALSA. Paid only
-for cards worth playing, at a rate that falls as the ALSA rises, and only
-while there is draft left to steer. See ADR 0014.
-_Avoid_: lateness, wheeling, signal
 
 **Relevant Pick**:
 A pick that earns a written explanation: its verdict is `mistake`. All other
