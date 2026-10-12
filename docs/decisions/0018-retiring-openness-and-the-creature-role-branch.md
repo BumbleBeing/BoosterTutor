@@ -177,13 +177,42 @@ fit is 0.062pp of pick-agreement loss (1.4454 → 1.3833), and target 2's
 correlation is flat (−0.1299 → −0.1294) — so this is a simplification that
 pays for itself slightly, not a leap.
 
-**The feature cache is invalidated.** Its fingerprint covers `fitness.py`,
-so `fit` will refuse until `extract` is re-run (~31 min). The constants in
-the table above come from the pre-change cache and are correct for the old
-code; re-fitting on the new 8-constant grid is the next step, and may move
-the four adopted values again now that two terms no longer compete with them.
+**The feature cache was invalidated** — its fingerprint covers
+`fitness.py` — and has been rebuilt. It is 562 MB rather than 711 MB, the
+three dropped per-card features being `alsa`, `has_creature` and
+`oncolor_creature`.
 
-**Revisit when:** the re-fit lands, since every leverage figure here is
-conditional on constants that have now changed; or if marginal role is
-built, per §4; or if a table-reading signal is wanted again, in which case
-start from the gap between ALSA and ATA rather than from ALSA alone.
+### Confirmed by the re-fit (2026-10-12, same day)
+
+The re-extract and re-fit on the new 8-constant grid have now run, and
+**no constant moved**. The four values adopted above are therefore
+measured on a clean cache, not inherited from a fit in which two
+about-to-be-deleted terms were still competing with them:
+
+| constant | value | leverage |
+|---|---|---|
+| `ramp_start` | 0 | 23.0% |
+| `ramp_span` | 14 | 23.2% |
+| `tax_value` | 6.0 | 43.5% |
+| `curve_weight` | 0.25 | 30.4% |
+| `removal_weight` | 0.5 | 13.1% |
+| `target_removal` | 4 | 10.0% |
+| `synergy_weight` | 0.75 | 46.1% |
+| `synergy_cap` | 5.0 | 25.3% |
+
+Holdout loss 1.3833pp, top-1 agreement 52.3%, target 2 Pearson r =
+−0.1294: identical to the pre-deletion fitted config, so the deletions
+cost nothing measurable on either target. Every surviving constant now
+carries at least 10% leverage, and the report has **no unmeasured-constant
+warnings left** — the three that previously read 0.0% (`openness_dead_alsa`,
+`replacement_offset`, `target_creatures`) were precisely the ones the
+deleted terms gated.
+
+Notably `ramp_span` held at 14 from a 2–28 grid. The ramp wants to pin at
+the last pick of pack 1 on its own merits, not because openness was
+confined there by ADR 0016.
+
+**Revisit when:** marginal role is built, per §4; or if a table-reading
+signal is wanted again, in which case start from the gap between ALSA and
+ATA rather than from ALSA alone. The constants themselves are settled for
+HOB; the next format will need its own fit (ADR 0013).
