@@ -1,6 +1,6 @@
 # BoosterTutor
 
-**WHAT:** LLM-based Magic: the Gathering Limited coach. Two features: Draft Review (17Lands draft log → a short critique of each of the 45 picks) and Deck Review (deck + sideboard → build critique and ranked swap suggestions). Advice blends format-level meta (archetype/colour strength) with card-specific synergy.
+**WHAT:** LLM-based Magic: the Gathering Limited coach. Two features: Draft Review (17Lands draft log → a short critique of every pick: 42 in a Play Booster set, 45 in an older 15-card set) and Deck Review (deck + sideboard → build critique and ranked swap suggestions). A third feature, Practice Draft (a draft against fitness-driven bots using real opening packs, with each pick rated as it is made), is prototyped in DraftDouble and planned for a post-launch Phase 10; see `CONTEXT.md` for its terms. Advice blends format-level meta (archetype/colour strength) with card-specific synergy.
 
 **WHY:** First production web app for a novice-to-web-dev developer. Full phased plan lives in `/docs/development_plan.md` — check it for the current phase before starting work; don't jump ahead to later phases uninvited.
 
