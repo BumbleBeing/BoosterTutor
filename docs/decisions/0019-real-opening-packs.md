@@ -1,6 +1,6 @@
 # ADR 0019 — Practice drafts use real opening packs
 
-**Status:** Proposed · **Date:** 2026-10-13 · **Relates to:** ADR 0020 (practice draft determinism, which pins packs by index), ADR 0008 (fitness classes), the development plan's "only sets 17Lands publishes data for" non-goal
+**Status:** Proposed · **Date:** 2026-10-13 · **Relates to:** ADR 0020 (practice draft determinism, which pins packs by index and library), ADR 0008 (fitness classes), the development plan's "only sets 17Lands publishes data for" non-goal
 
 ---
 
@@ -61,6 +61,32 @@ local disk.
 - **Redrafts are exempt.** Replaying the same packs is what a redraft is
   (ADR 0020).
 - Deleting a practice draft frees its packs.
+
+### 4. A library file is never edited
+
+A pack index only means something within one library file, and rebuilding
+from a newer 17Lands dump would reorder or add packs. So a library file is
+**immutable**. Its `library_id` is a hash of its cards and packs, and is part
+of its file name, so a rebuild writes a *new* file alongside the old one
+instead of changing what an existing index points at. Identical content
+gives an identical id, so a rebuild that changes nothing writes the same
+file.
+
+Consequently:
+
+- **A stored practice draft records the `library_id` its pack indices
+  belong to**, next to its stats snapshot (ADR 0020). A redraft reads the
+  same library as its root, just as it uses the same snapshot.
+- A library file is kept while any draft refers to it. New drafts use the
+  newest library for the set.
+- Duplicate protection is keyed by `(library_id, index)`. If exclusions ever
+  need to carry over to a newer library, a pack's identity is its sorted
+  card list, which both files hold, so no extra data is needed to translate.
+
+Measured on the first build (HOB, DraftDouble, 2026-10-13): 299,042 packs
+from Premier, TradDraft and PickTwoDraft, all three passing the §1 check,
+4.2 MB gzipped. That is enough for over 12,000 drafts per user before
+duplicate protection runs out.
 
 ## Considered options
 
