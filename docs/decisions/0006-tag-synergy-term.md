@@ -18,7 +18,7 @@ data genuinely can't express, and each one needs its own justification." ADR
 `tag_pairs`, `card_tags` — but never specified how anything reads them:
 "DraftDouble has no fitness function at the time of writing."
 
-[Issue #19](https://github.com/Monowog/BoosterTutor/issues/19) asks for that
+[Issue #19](https://github.com/BumbleBeing/BoosterTutor/issues/19) asks for that
 reader: a fifth fitness term that turns `tag_pairs` and the current pool
 into a per-card boost, alongside `base`/`curve`/`role`/`openness`.
 

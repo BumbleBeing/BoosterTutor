@@ -27,7 +27,7 @@
 
 ### Issue tracker
 
-Issues are tracked in GitHub Issues for `Monowog/BoosterTutor`, via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues are tracked in GitHub Issues for `BumbleBeing/BoosterTutor`, via the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
