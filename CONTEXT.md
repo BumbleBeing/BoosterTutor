@@ -15,8 +15,53 @@ _Avoid_: deck, collection
 The cards available to choose from for a single pick.
 _Avoid_: booster
 
+**Opening Pack**:
+A pack as opened, before anyone has picked from it: fourteen cards in a
+Play Booster set. Every pack in a draft is what remains of one opening pack.
+Practice drafts use real opening packs recorded by 17Lands. See ADR 0019.
+_Avoid_: booster, fresh pack, full pack
+
 **Pick**:
 One decision: a pack, the pool before it, and the card taken.
+
+**Deck**:
+The part of a pool its drafter intends to play.
+_Avoid_: maindeck, main, build
+
+**Sideboard**:
+The part of a pool its drafter does not intend to play. A pool is its deck
+plus its sideboard.
+_Avoid_: bench, unplayed, not being played
+
+**Table**:
+The eight drafters in one draft and the order packs pass between them.
+_Avoid_: pod, lobby
+
+**Practice Draft**:
+A draft played inside BoosterTutor, where the user sits at a table with seven
+bots and each pick is rated as it is made. Contrasts with a draft imported
+from 17Lands, which the user played elsewhere and is reviewed afterwards.
+_Avoid_: simulated draft, mock draft, sim draft
+
+**Redraft**:
+A practice draft that replays another practice draft from pick 1, with the
+same opening packs, seed and stats snapshot. Its bots repeat their original
+picks until the user's choices change the packs they see. Redrafts form a
+tree under the original practice draft. See ADR 0020.
+_Avoid_: re-do, replay, retry, rematch
+
+**Stats Snapshot**:
+The frozen figures a practice draft is rated against: card and archetype
+statistics, the tag taxonomy and the fitness constants as they stood when
+the original draft began. A verdict, once shown, never changes. See ADR
+0020.
+_Avoid_: data version, stats date
+
+**Bot**:
+A simulated drafter at a practice draft's table. A bot usually takes a card
+the fitness function rates `solid` for its own pool, occasionally one it
+rates `questionable`, and never a `mistake`. See ADR 0020.
+_Avoid_: AI drafter, opponent, CPU
 
 **Archetype**:
 A two-colour pair a deck can be built toward, named in sorted WUBRG form (`BR`,
