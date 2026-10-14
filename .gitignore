@@ -19,7 +19,10 @@ build/
 .vercel/
 
 # data + os
+# A pattern with a slash in the middle is anchored to the repository root,
+# so `data/raw/` alone never matched the ingest's downloads under api/.
 data/raw/
+api/data/raw/
 *.csv.gz
 .DS_Store
 Thumbs.db

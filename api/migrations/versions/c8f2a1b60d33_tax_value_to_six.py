@@ -32,7 +32,9 @@ NOTE = (
 def _set(tax: str, note: str) -> None:
     op.execute(
         sa.text(
-            "UPDATE format_constants SET tax_value = :tax, updated_at = now(), "
+            # The value travels as text, so cast it: Postgres will not put a
+            # character varying into a numeric column on its own.
+            "UPDATE format_constants SET tax_value = CAST(:tax AS numeric), updated_at = now(), "
             "source = regexp_replace(source, 'tax_value: .*$', :note) "
             "WHERE set_code = 'hob' AND event_type = 'PremierDraft'"
         ).bindparams(tax=tax, note=note)

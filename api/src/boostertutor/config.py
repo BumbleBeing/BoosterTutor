@@ -15,6 +15,12 @@ class Settings(BaseSettings):
     database_url: str
     frontend_origins: str = "http://localhost:5173"
 
+    # Ingest. Scryfall and 17Lands both ask clients to identify themselves,
+    # with a way to get in touch, so they can email rather than block.
+    user_agent: str = "BoosterTutor/0.1 (+https://github.com/BumbleBeing/BoosterTutor; jackowen@gmail.com)"
+    # Downloaded upstream files. `data/raw/` is gitignored.
+    raw_data_dir: Path = Path(__file__).resolve().parents[2] / "data" / "raw"
+
     @property
     def sqlalchemy_url(self) -> str:
         """Supabase hands out `postgresql://`, which SQLAlchemy reads as
