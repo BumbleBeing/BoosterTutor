@@ -7,7 +7,7 @@ The same card can be uncommon in one set and rare in another, for example.
 import datetime as dt
 import uuid
 
-from sqlalchemy import Boolean, Date, Float, ForeignKey, String, Text
+from sqlalchemy import Boolean, Date, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -69,3 +69,9 @@ class CardPrint(Base):
     rarity: Mapped[str] = mapped_column(String(16))
     image_normal: Mapped[str | None] = mapped_column(String(512))
     image_art_crop: Mapped[str | None] = mapped_column(String(512))
+
+    # MTG Arena's id for this printing. Arena's Player.log names cards by it,
+    # which is how a pasted Arena draft log (Phase 3) finds its cards. The
+    # 17Lands public datasets name cards by name instead, so this is not their
+    # join key. Null for printings never released on Arena.
+    arena_id: Mapped[int | None] = mapped_column(Integer(), index=True)
