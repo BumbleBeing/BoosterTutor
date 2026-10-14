@@ -14,7 +14,7 @@ from pathlib import Path
 import pytest
 from sqlalchemy.dialects import postgresql
 
-from boostertutor.ingest import scryfall
+from boostertutor.ingest import scryfall, seventeen_lands
 from boostertutor.models import Base, Card
 
 ORACLE = "11111111-1111-1111-1111-111111111111"
@@ -200,17 +200,94 @@ def test_bulk_entry_names_a_missing_type() -> None:
         scryfall.bulk_entry({"data": []})
 
 
-def test_iter_cards_keeps_wanted_sets_and_drops_tokens(tmp_path: Path) -> None:
+def test_bulk_lines_drop_tokens_and_cards_with_no_oracle_identity(
+    tmp_path: Path,
+) -> None:
     lines = [
         _raw(),
-        _raw(id="33333333-3333-3333-3333-333333333333", set="xyz"),  # another set
         _raw(id="44444444-4444-4444-4444-444444444444", layout="token"),
         _raw(id="55555555-5555-5555-5555-555555555555", oracle_id=None),  # meld piece
     ]
     path = tmp_path / "default-cards.jsonl.gz"
     with gzip.open(path, "wt", encoding="utf-8") as handle:
         handle.write("\n".join(json.dumps(line) for line in lines))
-    assert [c["id"] for c in scryfall.iter_cards(path, ["HOB"])] == [PRINT]
+    assert [c["id"] for c in scryfall._bulk_lines(path)] == [PRINT]
+
+
+# --------------------------------------------------------------------------
+# Bonus sheets
+# --------------------------------------------------------------------------
+
+
+def test_name_key_matches_17lands_front_face_names() -> None:
+    assert (
+        scryfall.name_key("Beorn, Reluctant Host // Till and Tend")
+        == "beorn, reluctant host"
+    )
+    assert scryfall.name_key("Counterspell") == "counterspell"
+
+
+def test_scan_bulk_collects_own_cards_and_every_printing_of_named_cards() -> None:
+    own = _raw()
+    guest_spg = _raw(
+        id="77777777-7777-7777-7777-777777777777", name="Counterspell", set="spg"
+    )
+    guest_old = _raw(
+        id="88888888-8888-8888-8888-888888888888", name="Counterspell", set="ice"
+    )
+    other = _raw(id="99999999-9999-9999-9999-999999999999", name="Shock", set="m21")
+    mine, candidates = scryfall.scan_bulk(
+        [own, guest_spg, guest_old, other], ["hob"], {"counterspell"}
+    )
+    assert mine == [own]
+    assert [c["set"] for c in candidates["counterspell"]] == ["spg", "ice"]
+    assert "shock" not in candidates
+
+
+def test_a_bonus_card_prefers_a_masterpiece_printing_then_the_newest() -> None:
+    types = {
+        "spg": "masterpiece",
+        "mar": "masterpiece",
+        "ice": "expansion",
+        "fdn": "core",
+    }
+    printings = [
+        {"set": "ice", "released_at": "1995-06-01", "collector_number": "1"},
+        {
+            "set": "fdn",
+            "released_at": "2026-11-01",
+            "collector_number": "2",
+        },  # newest, but not a bonus sheet
+        {"set": "spg", "released_at": "2024-02-09", "collector_number": "30"},
+        {"set": "spg", "released_at": "2026-10-02", "collector_number": "151"},
+    ]
+    chosen = scryfall.choose_bonus_printing(printings, types)
+    assert (chosen["set"], chosen["collector_number"]) == ("spg", "151")
+
+
+def test_booster_rows_mark_each_card_main_or_bonus_once() -> None:
+    a, b, c = (uuid.UUID(int=n) for n in (1, 2, 3))
+    rows = scryfall.booster_rows("fra", [a, b], [b, c])
+    assert sorted((r["oracle_id"].int, r["sheet"]) for r in rows) == [
+        (1, "main"),
+        (2, "main"),
+        (3, "bonus"),
+    ]
+    assert {r["set_code"] for r in rows} == {"fra"}
+
+
+def test_17lands_header_names_every_pack_card() -> None:
+    header = 'expansion,event_type,draft_id,pick,"pack_card_Beorn, Reluctant Host",pack_card_Counterspell,pool_Counterspell'
+    assert seventeen_lands.pack_card_names(header) == [
+        "Beorn, Reluctant Host",
+        "Counterspell",
+    ]
+
+
+def test_17lands_dump_address_uses_upper_case_set_codes() -> None:
+    assert seventeen_lands.draft_data_url("fra").endswith(
+        "/draft_data/draft_data_public.FRA.PremierDraft.csv.gz"
+    )
 
 
 def test_rows_for_deduplicates_cards_but_keeps_every_printing() -> None:
@@ -275,3 +352,9 @@ def test_ingest_runs_record_source_freshness_and_scope() -> None:
         "row_count",
         "notes",
     }
+
+
+def test_booster_cards_are_keyed_by_set_and_card() -> None:
+    table = Base.metadata.tables["booster_cards"]
+    assert [c.name for c in table.primary_key.columns] == ["set_code", "oracle_id"]
+    assert set(table.columns.keys()) == {"set_code", "oracle_id", "sheet"}

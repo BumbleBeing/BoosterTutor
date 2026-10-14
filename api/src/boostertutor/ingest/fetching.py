@@ -10,6 +10,7 @@ This is the only module in the ingest that touches the network. Ported from
 DraftDouble's `fetching.py`, where it was proven against both upstreams.
 """
 
+import gzip
 import time
 import urllib.error
 import urllib.request
@@ -94,3 +95,24 @@ def fetch_to_file(
     raise FetchError(
         f"failed to fetch {url} after {max_attempts} attempts: {last_error}"
     )
+
+
+def fetch_gzip_first_line(url: str) -> str:
+    """The first line of a gzipped text file, without downloading the rest.
+
+    A 17Lands draft dump is tens of megabytes, but its header (one line, every
+    column name) is all that is needed to know which cards were in its packs.
+    The connection is closed after that line, so only the first few kilobytes
+    cross the network. A missing file (a set too new for a dump) raises
+    FetchError like any other 4xx.
+    """
+    try:
+        with (
+            urllib.request.urlopen(_request(url), timeout=60) as response,
+            gzip.GzipFile(fileobj=response) as unzipped,
+        ):
+            return unzipped.readline().decode("utf-8").rstrip("\r\n")
+    except urllib.error.HTTPError as exc:
+        raise FetchError(f"{url} answered HTTP {exc.code}") from exc
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        raise FetchError(f"failed to fetch {url}: {exc}") from exc

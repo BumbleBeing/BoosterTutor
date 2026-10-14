@@ -10,6 +10,11 @@ from what older docs (and the plan) describe, both confirmed in DraftDouble:
   * `api.scryfall.com` rejects requests without an `Accept` header
     (see `fetching.py`).
 
+Each set's bonus sheet comes along: the cards a set's packs can hold that
+Scryfall files under another set (Special Guests, Marvel Universe). They are
+the names in the set's 17Lands draft dump header that are not the set's own
+cards; see `models/booster.py`.
+
 Run it with:
 
     uv run python -m boostertutor.ingest scryfall              # 3 most recent draftable sets
@@ -28,14 +33,15 @@ from collections.abc import Callable, Collection, Iterable, Iterator, Sequence
 from pathlib import Path
 from typing import Any
 
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from sqlalchemy.dialects.postgresql import Insert
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from ..config import settings
-from ..models import Card, CardPrint, CardSet, IngestRun
-from .fetching import fetch_json_bytes, fetch_to_file
+from ..models import BoosterCard, Card, CardPrint, CardSet, IngestRun
+from .fetching import FetchError, fetch_gzip_first_line, fetch_json_bytes, fetch_to_file
+from .seventeen_lands import draft_data_url, pack_card_names
 
 BULK_INDEX_URL = "https://api.scryfall.com/bulk-data"
 SETS_URL = "https://api.scryfall.com/sets"
@@ -185,24 +191,89 @@ def bulk_entry(
     raise ValueError(f"no bulk-data entry of type {bulk_type!r}")
 
 
-def iter_cards(path: Path, set_codes: Collection[str]) -> Iterator[dict[str, Any]]:
-    """Stream the gzipped JSONL bulk file, yielding the wanted sets' real cards.
+def name_key(name: str) -> str:
+    """How a card is matched by name: lower case, front face only.
 
-    Reads the file it is handed and nothing else. Also tolerates the older
-    single-JSON-array format, one card per line, in case Scryfall reverts.
+    17Lands names a double-faced card by its front face ("Beorn, Reluctant
+    Host"); Scryfall by both ("Beorn, Reluctant Host // Till and Tend").
     """
-    wanted = {code.lower() for code in set_codes}
+    return name.split(" // ")[0].strip().lower()
+
+
+def _bulk_lines(path: Path) -> Iterator[dict[str, Any]]:
+    """Every real card in the gzipped JSONL bulk file, one at a time.
+
+    Streaming matters: uncompressed, the file is well over a gigabyte. Also
+    tolerates the older single-JSON-array format, one card per line, in case
+    Scryfall reverts. Tokens, art cards, and meld pieces with no oracle
+    identity are dropped here.
+    """
     with gzip.open(path, "rt", encoding="utf-8") as handle:
         for line in handle:
             line = line.strip().rstrip(",")
             if not line or line in ("[", "]"):
                 continue
             card = json.loads(line)
-            if str(card.get("set", "")).lower() not in wanted:
-                continue
             if card.get("layout") in EXCLUDED_LAYOUTS or not card.get("oracle_id"):
-                continue  # tokens, art cards, and meld pieces with no oracle identity
+                continue
             yield card
+
+
+def scan_bulk(
+    cards: Iterable[dict[str, Any]], set_codes: Collection[str], names: Collection[str]
+) -> tuple[list[dict[str, Any]], dict[str, list[dict[str, Any]]]]:
+    """One pass over the bulk file, collecting two things.
+
+    * Every printing in the wanted sets: their own cards.
+    * Every printing, from any set, of a card named in `names` (name keys):
+      the candidates a bonus-sheet card will be chosen from.
+    """
+    wanted_sets = {code.lower() for code in set_codes}
+    wanted_names = set(names)
+    own: list[dict[str, Any]] = []
+    candidates: dict[str, list[dict[str, Any]]] = {}
+    for card in cards:
+        if str(card.get("set", "")).lower() in wanted_sets:
+            own.append(card)
+        key = name_key(card["name"])
+        if key in wanted_names:
+            candidates.setdefault(key, []).append(card)
+    return own, candidates
+
+
+def choose_bonus_printing(
+    printings: Sequence[dict[str, Any]], set_types: dict[str, str]
+) -> dict[str, Any]:
+    """Which printing of a bonus-sheet card to store.
+
+    A bonus sheet is a "masterpiece"-type set on Scryfall (Special Guests,
+    Marvel Universe), so a printing from one of those is preferred; among
+    equals, the most recent. The card's rules text is the same in every
+    printing, so the choice only decides its rarity and image.
+    """
+    return max(
+        printings,
+        key=lambda raw: (
+            set_types.get(str(raw.get("set")), "") == "masterpiece",
+            str(raw.get("released_at") or ""),
+            str(raw.get("collector_number") or ""),
+        ),
+    )
+
+
+def booster_rows(
+    set_code: str,
+    own_oracle_ids: Iterable[uuid.UUID],
+    bonus_oracle_ids: Iterable[uuid.UUID],
+) -> list[dict[str, Any]]:
+    """The `booster_cards` rows for one set. A card on both sheets counts as main."""
+    rows = {oid: "main" for oid in own_oracle_ids}
+    for oid in bonus_oracle_ids:
+        rows.setdefault(oid, "bonus")
+    return [
+        {"set_code": set_code, "oracle_id": oid, "sheet": sheet}
+        for oid, sheet in rows.items()
+    ]
 
 
 def rows_for(
@@ -241,7 +312,8 @@ def should_skip(
 
 
 def upsert(
-    model: type[CardSet] | type[Card] | type[CardPrint], rows: list[dict[str, Any]]
+    model: type[CardSet] | type[Card] | type[CardPrint] | type[BoosterCard],
+    rows: list[dict[str, Any]],
 ) -> Insert:
     """INSERT ... ON CONFLICT DO UPDATE for one batch of rows.
 
@@ -279,6 +351,22 @@ def _prune_older_bulk_files(keep: Path) -> None:
             old.unlink()
 
 
+def _pack_names(code: str, report: Callable[[str], None]) -> list[str]:
+    """The card names a set's 17Lands draft dump says were in its packs.
+
+    Reads only the dump's first line. A set too new for 17Lands to have
+    published a dump has none yet: its bonus sheet is then picked up on a
+    later run, once the dump exists.
+    """
+    try:
+        return pack_card_names(fetch_gzip_first_line(draft_data_url(code)))
+    except FetchError as exc:
+        report(
+            f"[scryfall] {code}: no 17Lands draft dump yet, so no bonus sheet ({exc})"
+        )
+        return []
+
+
 def load(
     session: Session,
     *,
@@ -291,8 +379,9 @@ def load(
     """Run the Scryfall ingest. Returns a summary.
 
     With `set_codes`, exactly those sets; otherwise the `recent` most recent
-    draftable sets. Skips the download and upserts entirely when the last run
-    already ingested the same sets from the same bulk file, unless `force`.
+    draftable sets. Each set's bonus-sheet cards come along too (see
+    `booster.py`). Skips everything when the last run already ingested the
+    same sets from the same bulk file, unless `force`.
     """
     all_sets = json.loads(fetch_json_bytes(SETS_URL))["data"]
     codes = sorted(
@@ -325,19 +414,65 @@ def load(
         return {"skipped": True, "sets": codes}
 
     report(f"[scryfall] sets: {scope}")
+    pack_names = {
+        code: {name_key(n) for n in _pack_names(code, report)} for code in codes
+    }
+
     path = fetch_to_file(
         url, settings.raw_data_dir / "scryfall" / url.rsplit("/", 1)[-1], force=force
     )
     _prune_older_bulk_files(path)
     report(f"[scryfall] reading {path.name}")
-    cards, prints = rows_for(iter_cards(path, codes))
+    own, candidates = scan_bulk(
+        _bulk_lines(path), codes, set().union(*pack_names.values())
+    )
 
-    # Sets first: card_prints.set_code is a foreign key to them.
-    session.execute(upsert(CardSet, [parse_set(known[code]) for code in codes]))
+    # Bonus cards: names a set's packs held that are not that set's own cards.
+    set_types = {s["code"]: s.get("set_type") or "" for s in all_sets}
+    printings = list(own)
+    boosters: list[dict[str, Any]] = []
+    unresolved: list[str] = []
+    bonus_total = 0
+    for code in codes:
+        mine = [raw for raw in own if raw["set"] == code]
+        own_keys = {name_key(raw["name"]) for raw in mine}
+        bonus = []
+        for key in sorted(pack_names[code] - own_keys):
+            if key not in candidates:
+                unresolved.append(f"{code}:{key}")
+                continue
+            bonus.append(choose_bonus_printing(candidates[key], set_types))
+        printings.extend(bonus)
+        bonus_total += len(bonus)
+        boosters += booster_rows(
+            code,
+            (uuid.UUID(raw["oracle_id"]) for raw in mine),
+            (uuid.UUID(raw["oracle_id"]) for raw in bonus),
+        )
+        report(
+            f"[scryfall] {code}: {len(own_keys)} own cards, {len(bonus)} bonus-sheet cards"
+        )
+    if unresolved:
+        report(
+            f"[scryfall] {len(unresolved)} pack names matched no Scryfall card: {unresolved[:10]}"
+        )
+
+    cards, prints = rows_for(printings)
+    # The bonus printings' own sets (spg, mar) must exist too: card_prints
+    # points at them. They are stored as the sets they are, not draftable.
+    print_sets = sorted({p["set_code"] for p in prints} | set(codes))
+
+    # Sets first, then cards, then printings and booster contents, which
+    # point at both.
+    session.execute(upsert(CardSet, [parse_set(known[code]) for code in print_sets]))
     for batch in _batches(cards):
         session.execute(upsert(Card, batch))
     for batch in _batches(prints):
         session.execute(upsert(CardPrint, batch))
+    # Replace, not merge: a card that has left a set's packs must leave its list.
+    session.execute(delete(BoosterCard).where(BoosterCard.set_code.in_(codes)))
+    for batch in _batches(boosters):
+        session.execute(upsert(BoosterCard, batch))
     session.add(
         IngestRun(
             source=SOURCE,
@@ -345,11 +480,21 @@ def load(
             upstream_updated_at=upstream_updated_at,
             scope=scope,
             row_count=len(prints),
-            notes=f"{len(cards)} cards, {len(prints)} printings",
+            notes=(
+                f"{len(cards)} cards, {len(prints)} printings, {bonus_total} bonus-sheet cards"
+                + (f"; unresolved: {', '.join(unresolved)}" if unresolved else "")
+            ),
         )
     )
     session.commit()
     report(
         f"[scryfall] {len(cards)} cards, {len(prints)} printings across {len(codes)} sets"
     )
-    return {"skipped": False, "sets": codes, "cards": len(cards), "prints": len(prints)}
+    return {
+        "skipped": False,
+        "sets": codes,
+        "cards": len(cards),
+        "prints": len(prints),
+        "bonus": bonus_total,
+        "unresolved": unresolved,
+    }
