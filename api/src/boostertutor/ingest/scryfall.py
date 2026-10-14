@@ -41,7 +41,9 @@ from sqlalchemy.orm import Session
 from ..config import settings
 from ..models import BoosterCard, Card, CardPrint, CardSet, IngestRun
 from .fetching import FetchError, fetch_gzip_first_line, fetch_json_bytes, fetch_to_file
-from .seventeen_lands import draft_data_url, pack_card_names
+
+# One definition of how cards are matched by name, shared with the 17Lands ingest.
+from .seventeen_lands import draft_data_url, name_key, pack_card_names
 
 BULK_INDEX_URL = "https://api.scryfall.com/bulk-data"
 SETS_URL = "https://api.scryfall.com/sets"
@@ -189,15 +191,6 @@ def bulk_entry(
         updated = entry.get("updated_at")
         return url, dt.datetime.fromisoformat(updated) if updated else None
     raise ValueError(f"no bulk-data entry of type {bulk_type!r}")
-
-
-def name_key(name: str) -> str:
-    """How a card is matched by name: lower case, front face only.
-
-    17Lands names a double-faced card by its front face ("Beorn, Reluctant
-    Host"); Scryfall by both ("Beorn, Reluctant Host // Till and Tend").
-    """
-    return name.split(" // ")[0].strip().lower()
 
 
 def _bulk_lines(path: Path) -> Iterator[dict[str, Any]]:
