@@ -24,6 +24,15 @@ _Avoid_: booster, fresh pack, full pack
 **Pick**:
 One decision: a pack, the pool before it, and the card taken.
 
+**Deck**:
+The part of a pool its drafter intends to play.
+_Avoid_: maindeck, main, build
+
+**Sideboard**:
+The part of a pool its drafter does not intend to play. A pool is its deck
+plus its sideboard.
+_Avoid_: bench, unplayed, not being played
+
 **Table**:
 The eight drafters in one draft and the order packs pass between them.
 _Avoid_: pod, lobby

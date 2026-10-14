@@ -99,7 +99,7 @@ replay until the user diverges.
 One JSONB document per practice draft, using small integer card IDs:
 
 - the set, snapshot ID, code version and seed
-- the 24 opening pack indices (ADR 0019)
+- the 24 opening pack indices and the `library_id` they index into (ADR 0019 §4)
 - every pick at every seat: 8 × 42
 - for the user's seat, every pack exactly as shown, each card's fitness and
   fitness class, and the pick's verdict
