@@ -74,7 +74,8 @@ def pick_brief(
         raise ValueError(f"the draft has no P{pack_number}p{pick_number}")
     if not pick.noted:
         raise ValueError(f"P{pack_number}p{pick_number} is not a Noted Pick")
-    missing = {c.oracle_id for c in pick.cards} - cards.keys()
+    named = {c.oracle_id for c in pick.cards} | set(_pool_before(analysis, pick))
+    missing = named - cards.keys()
     if missing:
         raise LookupError(f"{len(missing)} card(s) in this pick have no card facts")
 
@@ -162,11 +163,7 @@ def _pool(
         return ["", "Pool before this pick: empty, this is the first pick."]
     # The pool's cards are the picks before this one, read from this
     # analysis. Every earlier pick is in it, because picks are in order.
-    earlier = [
-        p.picked
-        for p in analysis.picks
-        if (p.pack_number, p.pick_number) < (pick.pack_number, pick.pick_number)
-    ]
+    earlier = _pool_before(analysis, pick)
     copies = Counter(earlier)
     names = [
         cards[oid].name if copies[oid] == 1 else f"{cards[oid].name} ×{copies[oid]}"
@@ -185,6 +182,15 @@ def _pool(
         f"  Curve (non-land cards by mana value): {curve}",
         f"  Creatures {pool.creatures}, removal {pool.removal}",
         f"  Leading pair: {pool.predicted_archetype or 'none yet'}",
+    ]
+
+
+def _pool_before(analysis: DraftAnalysis, pick: PickAnalysis) -> list[uuid.UUID]:
+    """The cards taken before this pick, in pick order."""
+    return [
+        p.picked
+        for p in analysis.picks
+        if (p.pack_number, p.pick_number) < (pick.pack_number, pick.pick_number)
     ]
 
 

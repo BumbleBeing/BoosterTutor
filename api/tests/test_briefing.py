@@ -139,3 +139,13 @@ def test_a_draft_s_briefs_are_its_noted_picks_in_order(
 ) -> None:
     briefs = noted_pick_briefs(analysis, card_facts, CFG)
     assert [(b.pack_number, b.pick_number) for b in briefs] == [(1, 1), (1, 12), (2, 7)]
+
+
+def test_a_pool_card_without_facts_is_refused_too(
+    analysis: DraftAnalysis, card_facts: dict[uuid.UUID, CardFacts]
+) -> None:
+    """P1p12's pool starts with P1p1's Dwarven Mauler, which is not in P1p12's pack."""
+    mauler = analysis.picks[0].picked
+    partial = {k: v for k, v in card_facts.items() if k != mauler}
+    with pytest.raises(LookupError):
+        pick_brief(analysis, partial, pack_number=1, pick_number=12)
