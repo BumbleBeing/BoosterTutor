@@ -19,9 +19,9 @@
 - Prefer plain, well-commented code over clever code — explain non-obvious choices, since I'm learning web dev as we go.
 - Confirm before big architectural changes (schema changes, new dependencies, deploy config); proceed on your own for routine work (formatting, small fixes, tests).
 - Record real decisions as short files in `docs/decisions/`. Prompts are versioned files in `docs/prompts/` and are never edited in place.
-- Be a good citizen with 17Lands: cached snapshots only, at most one request per set/format/day, identifying User-Agent, never called from a user request path.
+- Be a good citizen with 17Lands: statistics come only from the public datasets, as cached snapshots, at most one request per set/format/day, with an identifying User-Agent, never called from a user request path. The one exception is a single draft's replay, fetched once when its owner submits the link, cached and rate-limited (ADR 0023).
 
-**Current phase:** Phase 2 — Schema for cards and 17Lands statistics, the Scryfall bulk ingest, and the 17Lands data work. Update this line as phases complete; see `/docs/development_plan.md`.
+**Current phase:** Phase 3 — Parsers (17Lands draft link, Arena `Player.log`, MTGO) into one `DraftLog` model, and the analysis engine ported from DraftDouble (fitness, verdicts, tags). Phase 2 is done apart from its first scheduled nightly run and the empty-database migration check. Update this line as phases complete; see `/docs/development_plan.md`.
 
 ## Agent skills
 

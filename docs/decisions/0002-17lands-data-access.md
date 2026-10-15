@@ -1,6 +1,6 @@
 # ADR 0002 — 17Lands data: the public datasets only, validated from within
 
-**Status:** Proposed · **Date:** 2026-10-14 · **Amends:** development plan §2.3 ("Path A") and the Phase 2 "Done when" spot check · **Relates to:** ADR 0019 (opening packs, from the same draft dumps), CLAUDE.md's 17Lands etiquette rule
+**Status:** Proposed · **Date:** 2026-10-14 · **Amends:** development plan §2.3 ("Path A") and the Phase 2 "Done when" spot check · **Relates to:** ADR 0019 (opening packs, from the same draft dumps), CLAUDE.md's 17Lands etiquette rule · **Amended by:** ADR 0023 (a single draft's replay, fetched when its owner submits the link)
 
 ---
 
@@ -38,7 +38,8 @@ and computes every statistic itself: ALSA and ATA from the draft dump; GP,
 OH, GD, GIH and GND win rates, IWD, and archetype records from the game dump
 (`api/src/boostertutor/ingest/seventeen_lands.py`). The endpoints behind
 17lands.com are not called, not for data and not for validation. Checked
-2026-10-14.
+2026-10-14. (One exception, added later: a user's own draft replay, fetched
+when they submit its link. See ADR 0023.)
 
 ### 2. It runs on a schedule, politely
 
