@@ -40,7 +40,13 @@ from sqlalchemy.orm import Session
 
 from ..config import settings
 from ..models import BoosterCard, Card, CardPrint, CardSet, IngestRun
-from .fetching import FetchError, fetch_gzip_first_line, fetch_json_bytes, fetch_to_file
+from .fetching import (
+    UpstreamMissing,
+    fetch_gzip_first_line,
+    fetch_json_bytes,
+    fetch_to_file,
+)
+from .runs import RunRecord, recorded_run
 
 # One definition of how cards are matched by name, shared with the 17Lands ingest.
 from .seventeen_lands import draft_data_url, name_key, pack_card_names
@@ -353,7 +359,7 @@ def _pack_names(code: str, report: Callable[[str], None]) -> list[str]:
     """
     try:
         return pack_card_names(fetch_gzip_first_line(draft_data_url(code)))
-    except FetchError as exc:
+    except UpstreamMissing as exc:
         report(
             f"[scryfall] {code}: no 17Lands draft dump yet, so no bonus sheet ({exc})"
         )
@@ -373,9 +379,23 @@ def load(
 
     With `set_codes`, exactly those sets; otherwise the `recent` most recent
     draftable sets. Each set's bonus-sheet cards come along too (see
-    `booster.py`). Skips everything when the last run already ingested the
-    same sets from the same bulk file, unless `force`.
+    `booster.py`). Skips everything when the last successful run already
+    ingested the same sets from the same bulk file, unless `force`. Every
+    run, whatever its outcome, is recorded in `ingest_runs` (see `runs.py`).
     """
+    with recorded_run(session, SOURCE) as record:
+        return _load(session, record, set_codes, recent, force, today, report)
+
+
+def _load(
+    session: Session,
+    record: RunRecord,
+    set_codes: Sequence[str] | None,
+    recent: int,
+    force: bool,
+    today: dt.date | None,
+    report: Callable[[str], None],
+) -> dict[str, Any]:
     all_sets = json.loads(fetch_json_bytes(SETS_URL))["data"]
     codes = sorted(
         code.lower()
@@ -390,13 +410,14 @@ def load(
     unknown = [code for code in codes if code not in known]
     if unknown:
         raise ValueError(f"Scryfall has no set with code {', '.join(unknown)}")
-    scope = ",".join(codes)
+    scope = record.scope = ",".join(codes)
 
     url, upstream_updated_at = bulk_entry(json.loads(fetch_json_bytes(BULK_INDEX_URL)))
+    record.source_url, record.upstream_updated_at = url, upstream_updated_at
     last = session.execute(
         select(IngestRun.upstream_updated_at, IngestRun.scope)
-        .where(IngestRun.source == SOURCE)
-        .order_by(IngestRun.ran_at.desc())
+        .where(IngestRun.source == SOURCE, IngestRun.status == "succeeded")
+        .order_by(IngestRun.started_at.desc())
         .limit(1)
     ).first()
     last_run = (last[0], last[1]) if last else None
@@ -404,6 +425,7 @@ def load(
         report(
             f"[scryfall] {scope}: unchanged since the last run ({upstream_updated_at}); nothing to do"
         )
+        record.status = "skipped"
         return {"skipped": True, "sets": codes}
 
     report(f"[scryfall] sets: {scope}")
@@ -466,20 +488,12 @@ def load(
     session.execute(delete(BoosterCard).where(BoosterCard.set_code.in_(codes)))
     for batch in _batches(boosters):
         session.execute(upsert(BoosterCard, batch))
-    session.add(
-        IngestRun(
-            source=SOURCE,
-            source_url=url,
-            upstream_updated_at=upstream_updated_at,
-            scope=scope,
-            row_count=len(prints),
-            notes=(
-                f"{len(cards)} cards, {len(prints)} printings, {bonus_total} bonus-sheet cards"
-                + (f"; unresolved: {', '.join(unresolved)}" if unresolved else "")
-            ),
-        )
+    record.row_count = len(prints)
+    record.notes = (
+        f"{len(cards)} cards, {len(prints)} printings, {bonus_total} bonus-sheet cards"
+        + (f"; unresolved: {', '.join(unresolved)}" if unresolved else "")
     )
-    session.commit()
+    # recorded_run commits the data and this run's row together.
     report(
         f"[scryfall] {len(cards)} cards, {len(prints)} printings across {len(codes)} sets"
     )
