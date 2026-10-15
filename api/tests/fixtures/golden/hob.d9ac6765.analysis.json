@@ -6697,5 +6697,1600 @@
     }
    ]
   }
+ ],
+ "wheels": [
+  {
+   "pack_number": 1,
+   "laps": [
+    {
+     "first_pick": 1,
+     "returned_at": 9,
+     "wheeled": [
+      {
+       "oracle_id": "d0f62148-1015-49b8-b61f-a4332325a6b0",
+       "colors": "U",
+       "gih_wr": 50.1428942582489,
+       "alsa": 6.77176914501329,
+       "above_average": false
+      },
+      {
+       "oracle_id": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+       "colors": "B",
+       "gih_wr": 55.7364074328975,
+       "alsa": 6.51011802100358,
+       "above_average": false
+      },
+      {
+       "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+       "colors": "G",
+       "gih_wr": 54.7678923401074,
+       "alsa": 7.7231083311615,
+       "above_average": false
+      },
+      {
+       "oracle_id": "c8259b0e-131f-44f0-86d4-7c4d711b328d",
+       "colors": "",
+       "gih_wr": 54.6209325729621,
+       "alsa": 7.82126440212525,
+       "above_average": false
+      },
+      {
+       "oracle_id": "98d20908-6d68-4d31-b719-207f93c9b402",
+       "colors": "",
+       "gih_wr": 55.7116008884333,
+       "alsa": 6.20499804400067,
+       "above_average": false
+      },
+      {
+       "oracle_id": "17492186-9814-4c41-8111-1f000a96c212",
+       "colors": "",
+       "gih_wr": 56.5186365295894,
+       "alsa": 6.08947210639632,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "5c034266-8e63-4b43-8f9e-564e6fff6ec1",
+       "colors": "R",
+       "gih_wr": 52.3515916260396,
+       "alsa": 8.12084538186766,
+       "above_average": false
+      },
+      {
+       "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+       "colors": "W",
+       "gih_wr": 55.4247562154089,
+       "alsa": 7.43545734295416,
+       "above_average": false
+      },
+      {
+       "oracle_id": "73346137-3117-4dc3-b5a4-1aca1da54548",
+       "colors": "BG",
+       "gih_wr": 56.7946437911915,
+       "alsa": 3.00179407650672,
+       "above_average": true
+      },
+      {
+       "oracle_id": "80bcb154-b4be-4bbd-bbc1-b116a59045b7",
+       "colors": "U",
+       "gih_wr": 57.0374853425124,
+       "alsa": 5.92620110448685,
+       "above_average": true
+      },
+      {
+       "oracle_id": "961e3023-39ea-4141-99b6-738280a2815d",
+       "colors": "R",
+       "gih_wr": 59.3713536898415,
+       "alsa": 3.35661210276658,
+       "above_average": true
+      },
+      {
+       "oracle_id": "97a2cd39-6b54-496b-b3ac-dab9dfed7edc",
+       "colors": "",
+       "gih_wr": 55.0973040528477,
+       "alsa": 4.22770147277842,
+       "above_average": false
+      },
+      {
+       "oracle_id": "bb52b3c3-09f0-4506-b7c0-250ab0b91866",
+       "colors": "",
+       "gih_wr": 54.2068679323581,
+       "alsa": 5.37032907750405,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 2,
+     "returned_at": 10,
+     "wheeled": [
+      {
+       "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+       "colors": "U",
+       "gih_wr": 53.8661376411128,
+       "alsa": 7.68809272918862,
+       "above_average": false
+      },
+      {
+       "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+       "colors": "U",
+       "gih_wr": 51.1658242295777,
+       "alsa": 8.87880548258908,
+       "above_average": false
+      },
+      {
+       "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+       "colors": "B",
+       "gih_wr": 53.4322076360357,
+       "alsa": 7.48454927458542,
+       "above_average": false
+      },
+      {
+       "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+       "colors": "G",
+       "gih_wr": 54.1806263656227,
+       "alsa": 7.5814040621433,
+       "above_average": false
+      },
+      {
+       "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+       "colors": "",
+       "gih_wr": 55.1839464882943,
+       "alsa": 10.5693958518171,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "61773534-8da8-48fa-b51a-73c0a9a751c4",
+       "colors": "R",
+       "gih_wr": 56.3352249805008,
+       "alsa": 6.55320984658524,
+       "above_average": true
+      },
+      {
+       "oracle_id": "66961bcb-f588-47a7-b3f3-12f4ac674477",
+       "colors": "B",
+       "gih_wr": 49.4488188976378,
+       "alsa": 2.85645756457565,
+       "above_average": false
+      },
+      {
+       "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+       "colors": "W",
+       "gih_wr": 55.4247562154089,
+       "alsa": 7.43545734295416,
+       "above_average": false
+      },
+      {
+       "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+       "colors": "W",
+       "gih_wr": 53.6717972279654,
+       "alsa": 7.68760225571762,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7907bbf0-f6d9-4e5b-b5de-73cd94979f98",
+       "colors": "W",
+       "gih_wr": 60.2725218864727,
+       "alsa": 3.15550819002015,
+       "above_average": true
+      },
+      {
+       "oracle_id": "8c7641b6-3a6c-4441-a98c-3b5d61d91f76",
+       "colors": "B",
+       "gih_wr": 56.0571998053167,
+       "alsa": 5.40227836635028,
+       "above_average": false
+      },
+      {
+       "oracle_id": "8d88facd-cf7e-498e-ab6b-6bd021316162",
+       "colors": "B",
+       "gih_wr": 57.0974777166698,
+       "alsa": 4.417349098762,
+       "above_average": true
+      }
+     ]
+    },
+    {
+     "first_pick": 3,
+     "returned_at": 11,
+     "wheeled": [
+      {
+       "oracle_id": "dba1d231-6b03-44ad-ab8c-be0c8fe1b6db",
+       "colors": "U",
+       "gih_wr": 51.9862490450726,
+       "alsa": 6.91036688430053,
+       "above_average": false
+      },
+      {
+       "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+       "colors": "B",
+       "gih_wr": 53.4322076360357,
+       "alsa": 7.48454927458542,
+       "above_average": false
+      },
+      {
+       "oracle_id": "c3fb2829-64f2-4795-b815-edcc5bbbc360",
+       "colors": "G",
+       "gih_wr": 53.1361456155454,
+       "alsa": 7.28040360654574,
+       "above_average": false
+      },
+      {
+       "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+       "colors": "",
+       "gih_wr": 55.6557784106457,
+       "alsa": 10.505106607222,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+       "colors": "U",
+       "gih_wr": 58.5206102678747,
+       "alsa": 6.23992129970105,
+       "above_average": true
+      },
+      {
+       "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+       "colors": "W",
+       "gih_wr": 55.4247562154089,
+       "alsa": 7.43545734295416,
+       "above_average": false
+      },
+      {
+       "oracle_id": "77c97dad-17cc-4a28-a48b-907c044d9034",
+       "colors": "G",
+       "gih_wr": 53.1207903008532,
+       "alsa": 4.54543814277982,
+       "above_average": false
+      },
+      {
+       "oracle_id": "925cacdc-6d09-4fbd-9258-9f0539da180c",
+       "colors": "",
+       "gih_wr": 55.1478446740292,
+       "alsa": 4.70698563100739,
+       "above_average": false
+      },
+      {
+       "oracle_id": "eda99a16-6a7c-4f39-8a6b-a284e6afd3fc",
+       "colors": "BR",
+       "gih_wr": 57.3385945764419,
+       "alsa": 4.10767931122272,
+       "above_average": true
+      },
+      {
+       "oracle_id": "f8961618-ae68-4d13-84eb-8b5464ce4971",
+       "colors": "W",
+       "gih_wr": 52.3153004645587,
+       "alsa": 8.59440701837742,
+       "above_average": false
+      },
+      {
+       "oracle_id": "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8",
+       "colors": "U",
+       "gih_wr": 55.608866711448,
+       "alsa": 5.56223141247965,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 4,
+     "returned_at": 12,
+     "wheeled": [
+      {
+       "oracle_id": "5c034266-8e63-4b43-8f9e-564e6fff6ec1",
+       "colors": "R",
+       "gih_wr": 52.3515916260396,
+       "alsa": 8.12084538186766,
+       "above_average": false
+      },
+      {
+       "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+       "colors": "G",
+       "gih_wr": 54.7678923401074,
+       "alsa": 7.7231083311615,
+       "above_average": false
+      },
+      {
+       "oracle_id": "bddd7e99-ec74-4ca6-9137-155b85695a95",
+       "colors": "WU",
+       "gih_wr": 58.3431098276329,
+       "alsa": 6.20261195801871,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+       "colors": "B",
+       "gih_wr": 56.244153414406,
+       "alsa": 3.81541965497189,
+       "above_average": false
+      },
+      {
+       "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+       "colors": "W",
+       "gih_wr": 55.4247562154089,
+       "alsa": 7.43545734295416,
+       "above_average": false
+      },
+      {
+       "oracle_id": "8060d231-7477-441d-b249-8e75aa1d7791",
+       "colors": "B",
+       "gih_wr": 57.6656069551677,
+       "alsa": 4.80501765667,
+       "above_average": true
+      },
+      {
+       "oracle_id": "a71e8d07-1a49-47a0-834e-de87d750a200",
+       "colors": "",
+       "gih_wr": 54.9556843361173,
+       "alsa": 6.78539261442725,
+       "above_average": false
+      },
+      {
+       "oracle_id": "bd4ab393-9538-4230-b2a1-bc77099481c9",
+       "colors": "R",
+       "gih_wr": 51.7963457195648,
+       "alsa": 7.7735253382883,
+       "above_average": false
+      },
+      {
+       "oracle_id": "f75bb13b-41fc-4614-b35e-f456069ce9c6",
+       "colors": "",
+       "gih_wr": 56.1167817472231,
+       "alsa": 5.1511544148311,
+       "above_average": false
+      },
+      {
+       "oracle_id": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
+       "colors": "U",
+       "gih_wr": 57.3538770079256,
+       "alsa": 5.70420726262028,
+       "above_average": true
+      }
+     ]
+    },
+    {
+     "first_pick": 5,
+     "returned_at": 13,
+     "wheeled": [
+      {
+       "oracle_id": "a833fdf1-db0c-4846-8452-d3b2059c2355",
+       "colors": "U",
+       "gih_wr": 57.6928549649355,
+       "alsa": 6.75011135857461,
+       "above_average": true
+      },
+      {
+       "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+       "colors": "",
+       "gih_wr": 56.4670132423696,
+       "alsa": 10.5482788554639,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "15211eaa-d906-4b95-8942-2f49d3cb4b81",
+       "colors": "U",
+       "gih_wr": 56.248858268744,
+       "alsa": 7.45027888446215,
+       "above_average": false
+      },
+      {
+       "oracle_id": "539583f4-21c8-4b61-a2c5-f612fadc3ffa",
+       "colors": "R",
+       "gih_wr": 28.125,
+       "alsa": 5.92763245844659,
+       "above_average": false
+      },
+      {
+       "oracle_id": "80433c2c-5196-42e0-b9fa-d7b12783f5fd",
+       "colors": "",
+       "gih_wr": 50.7862161257946,
+       "alsa": 7.93687241959325,
+       "above_average": false
+      },
+      {
+       "oracle_id": "8fcab221-8737-4357-b8ee-bad9421739a3",
+       "colors": "W",
+       "gih_wr": 55.662304041421,
+       "alsa": 7.04050549430962,
+       "above_average": false
+      },
+      {
+       "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+       "colors": "G",
+       "gih_wr": 54.1127780651837,
+       "alsa": 7.75328629716304,
+       "above_average": false
+      },
+      {
+       "oracle_id": "edbd3d4e-78a2-4c03-936d-dcb24cf7c87c",
+       "colors": "BR",
+       "gih_wr": 53.6405048166679,
+       "alsa": 3.68851727982163,
+       "above_average": false
+      },
+      {
+       "oracle_id": "ee86cce6-c7c1-40a6-896b-cde9b86bb532",
+       "colors": "G",
+       "gih_wr": 59.6060757803372,
+       "alsa": 3.75614926821793,
+       "above_average": true
+      }
+     ]
+    },
+    {
+     "first_pick": 6,
+     "returned_at": 14,
+     "wheeled": [
+      {
+       "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+       "colors": "G",
+       "gih_wr": 50.3502048367913,
+       "alsa": 7.88867688891973,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "17492186-9814-4c41-8111-1f000a96c212",
+       "colors": "",
+       "gih_wr": 56.5186365295894,
+       "alsa": 6.08947210639632,
+       "above_average": true
+      },
+      {
+       "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+       "colors": "G",
+       "gih_wr": 50.9090909090909,
+       "alsa": 7.38312790480676,
+       "above_average": false
+      },
+      {
+       "oracle_id": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
+       "colors": "",
+       "gih_wr": 56.7251277521923,
+       "alsa": 7.32505788640854,
+       "above_average": true
+      },
+      {
+       "oracle_id": "8060d231-7477-441d-b249-8e75aa1d7791",
+       "colors": "B",
+       "gih_wr": 57.6656069551677,
+       "alsa": 4.80501765667,
+       "above_average": true
+      },
+      {
+       "oracle_id": "a833fdf1-db0c-4846-8452-d3b2059c2355",
+       "colors": "U",
+       "gih_wr": 57.6928549649355,
+       "alsa": 6.75011135857461,
+       "above_average": true
+      },
+      {
+       "oracle_id": "cf765efe-884c-48e2-9edb-9d45cf2756dd",
+       "colors": "W",
+       "gih_wr": 52.510745361149,
+       "alsa": 8.23861694728979,
+       "above_average": false
+      },
+      {
+       "oracle_id": "f6771d32-395e-4832-b33d-cbc12dff1516",
+       "colors": "UG",
+       "gih_wr": 58.4701662203809,
+       "alsa": 3.28388858229981,
+       "above_average": true
+      }
+     ]
+    }
+   ],
+   "colors": [
+    {
+     "color": "W",
+     "good_cards_wheeled": 1,
+     "cards_wheeled": 1,
+     "cards_taken_by_table": 9,
+     "best_wheeled": "bddd7e99-ec74-4ca6-9137-155b85695a95"
+    },
+    {
+     "color": "U",
+     "good_cards_wheeled": 2,
+     "cards_wheeled": 6,
+     "cards_taken_by_table": 7,
+     "best_wheeled": "bddd7e99-ec74-4ca6-9137-155b85695a95"
+    },
+    {
+     "color": "B",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 3,
+     "cards_taken_by_table": 9,
+     "best_wheeled": null
+    },
+    {
+     "color": "R",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 1,
+     "cards_taken_by_table": 7,
+     "best_wheeled": null
+    },
+    {
+     "color": "G",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 5,
+     "cards_taken_by_table": 6,
+     "best_wheeled": null
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "laps": [
+    {
+     "first_pick": 1,
+     "returned_at": 9,
+     "wheeled": [
+      {
+       "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+       "colors": "W",
+       "gih_wr": 55.4247562154089,
+       "alsa": 7.43545734295416,
+       "above_average": false
+      },
+      {
+       "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+       "colors": "W",
+       "gih_wr": 53.6717972279654,
+       "alsa": 7.68760225571762,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+       "colors": "U",
+       "gih_wr": 54.4520272982738,
+       "alsa": 8.74954183451992,
+       "above_average": false
+      },
+      {
+       "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+       "colors": "B",
+       "gih_wr": 53.7601403201052,
+       "alsa": 6.83033107867569,
+       "above_average": false
+      },
+      {
+       "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+       "colors": "",
+       "gih_wr": 54.0669371196755,
+       "alsa": 7.96304690330354,
+       "above_average": false
+      },
+      {
+       "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+       "colors": "",
+       "gih_wr": 56.4670132423696,
+       "alsa": 10.5482788554639,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "11932191-4b19-49b1-bfe4-abb7b83b2e59",
+       "colors": "UG",
+       "gih_wr": 53.8153846153846,
+       "alsa": 5.17900323783762,
+       "above_average": false
+      },
+      {
+       "oracle_id": "66630640-9605-44da-afdf-eb9d458d056f",
+       "colors": "UG",
+       "gih_wr": 55.8059076636818,
+       "alsa": 6.29409287832995,
+       "above_average": false
+      },
+      {
+       "oracle_id": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+       "colors": "R",
+       "gih_wr": 55.8213616489694,
+       "alsa": 6.61701066001361,
+       "above_average": false
+      },
+      {
+       "oracle_id": "a97d6c5c-1cff-442d-b535-fc8389160b0b",
+       "colors": "R",
+       "gih_wr": 60.0581600974575,
+       "alsa": 2.73276006852306,
+       "above_average": true
+      },
+      {
+       "oracle_id": "c9634afc-4a5b-4cf6-b63d-0ff9909dd5a7",
+       "colors": "R",
+       "gih_wr": 52.7624309392265,
+       "alsa": 3.89205284413718,
+       "above_average": false
+      },
+      {
+       "oracle_id": "ed9d4bb1-7335-45fd-b2ea-97b1f6491d7a",
+       "colors": "B",
+       "gih_wr": 61.2001862816845,
+       "alsa": 2.68311107958576,
+       "above_average": true
+      },
+      {
+       "oracle_id": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+       "colors": "B",
+       "gih_wr": 60.4151541152399,
+       "alsa": 3.38152954444873,
+       "above_average": true
+      }
+     ]
+    },
+    {
+     "first_pick": 2,
+     "returned_at": 10,
+     "wheeled": [
+      {
+       "oracle_id": "cf765efe-884c-48e2-9edb-9d45cf2756dd",
+       "colors": "W",
+       "gih_wr": 52.510745361149,
+       "alsa": 8.23861694728979,
+       "above_average": false
+      },
+      {
+       "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+       "colors": "W",
+       "gih_wr": 55.4247562154089,
+       "alsa": 7.43545734295416,
+       "above_average": false
+      },
+      {
+       "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+       "colors": "U",
+       "gih_wr": 51.1658242295777,
+       "alsa": 8.87880548258908,
+       "above_average": false
+      },
+      {
+       "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+       "colors": "G",
+       "gih_wr": 50.3502048367913,
+       "alsa": 7.88867688891973,
+       "above_average": false
+      },
+      {
+       "oracle_id": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
+       "colors": "",
+       "gih_wr": 56.7251277521923,
+       "alsa": 7.32505788640854,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "28ffddca-a3c4-467d-a2dc-2c5e62393e11",
+       "colors": "G",
+       "gih_wr": 53.6837859639688,
+       "alsa": 5.70914482494739,
+       "above_average": false
+      },
+      {
+       "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+       "colors": "B",
+       "gih_wr": 53.4322076360357,
+       "alsa": 7.48454927458542,
+       "above_average": false
+      },
+      {
+       "oracle_id": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+       "colors": "R",
+       "gih_wr": 56.3293562176992,
+       "alsa": 6.29589784931291,
+       "above_average": true
+      },
+      {
+       "oracle_id": "bd4ab393-9538-4230-b2a1-bc77099481c9",
+       "colors": "R",
+       "gih_wr": 51.7963457195648,
+       "alsa": 7.7735253382883,
+       "above_average": false
+      },
+      {
+       "oracle_id": "cb2803ee-825b-420e-b404-c7c44f15ec15",
+       "colors": "",
+       "gih_wr": 51.8811881188119,
+       "alsa": 5.95009525105456,
+       "above_average": false
+      },
+      {
+       "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+       "colors": "G",
+       "gih_wr": 54.1127780651837,
+       "alsa": 7.75328629716304,
+       "above_average": false
+      },
+      {
+       "oracle_id": "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8",
+       "colors": "U",
+       "gih_wr": 55.608866711448,
+       "alsa": 5.56223141247965,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 3,
+     "returned_at": 11,
+     "wheeled": [
+      {
+       "oracle_id": "dbcf2a79-b455-43ac-9cf0-9e63708800f4",
+       "colors": "U",
+       "gih_wr": 56.0761988176046,
+       "alsa": 6.76242001163467,
+       "above_average": false
+      },
+      {
+       "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+       "colors": "B",
+       "gih_wr": 56.244153414406,
+       "alsa": 3.81541965497189,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+       "colors": "U",
+       "gih_wr": 53.8661376411128,
+       "alsa": 7.68809272918862,
+       "above_average": false
+      },
+      {
+       "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+       "colors": "G",
+       "gih_wr": 50.9090909090909,
+       "alsa": 7.38312790480676,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "32ad5b3e-92c0-45be-b2e4-6f1794552f36",
+       "colors": "W",
+       "gih_wr": 61.1330082169818,
+       "alsa": 3.3236490745516,
+       "above_average": true
+      },
+      {
+       "oracle_id": "7ddbf891-7f80-44e9-b94c-70c1da0b91ed",
+       "colors": "R",
+       "gih_wr": 39.344262295082,
+       "alsa": 6.18372736954207,
+       "above_average": false
+      },
+      {
+       "oracle_id": "84597236-2cfc-4654-b126-a8ee252f4d14",
+       "colors": "W",
+       "gih_wr": 56.5449569454643,
+       "alsa": 8.40407929786217,
+       "above_average": true
+      },
+      {
+       "oracle_id": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+       "colors": "R",
+       "gih_wr": 55.8213616489694,
+       "alsa": 6.61701066001361,
+       "above_average": false
+      },
+      {
+       "oracle_id": "a91e0154-14a9-4681-8236-04db231592a4",
+       "colors": "",
+       "gih_wr": 53.99512633064,
+       "alsa": 7.41327135987724,
+       "above_average": false
+      },
+      {
+       "oracle_id": "d1dceaa7-d33e-4067-9e1b-8a8978a12933",
+       "colors": "B",
+       "gih_wr": 55.7511418343414,
+       "alsa": 5.65201045781569,
+       "above_average": false
+      },
+      {
+       "oracle_id": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
+       "colors": "U",
+       "gih_wr": 57.3538770079256,
+       "alsa": 5.70420726262028,
+       "above_average": true
+      }
+     ]
+    },
+    {
+     "first_pick": 4,
+     "returned_at": 12,
+     "wheeled": [
+      {
+       "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+       "colors": "U",
+       "gih_wr": 51.1658242295777,
+       "alsa": 8.87880548258908,
+       "above_average": false
+      },
+      {
+       "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+       "colors": "G",
+       "gih_wr": 54.7678923401074,
+       "alsa": 7.7231083311615,
+       "above_average": false
+      },
+      {
+       "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+       "colors": "",
+       "gih_wr": 57.0113716517281,
+       "alsa": 10.4601511436199,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+       "colors": "WR",
+       "gih_wr": 54.5074586292433,
+       "alsa": 6.31933229099605,
+       "above_average": false
+      },
+      {
+       "oracle_id": "3cc333a1-c854-4b7c-8002-910e48222371",
+       "colors": "",
+       "gih_wr": 53.494837172359,
+       "alsa": 8.15060240963855,
+       "above_average": false
+      },
+      {
+       "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+       "colors": "U",
+       "gih_wr": 58.5206102678747,
+       "alsa": 6.23992129970105,
+       "above_average": true
+      },
+      {
+       "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+       "colors": "G",
+       "gih_wr": 50.3502048367913,
+       "alsa": 7.88867688891973,
+       "above_average": false
+      },
+      {
+       "oracle_id": "5b79b68a-db71-4638-824e-ab89b1716c86",
+       "colors": "W",
+       "gih_wr": 54.5324953022743,
+       "alsa": 4.41206974637681,
+       "above_average": false
+      },
+      {
+       "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+       "colors": "W",
+       "gih_wr": 55.4247562154089,
+       "alsa": 7.43545734295416,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7f961374-00b0-40df-83eb-9ced2bb519aa",
+       "colors": "U",
+       "gih_wr": 52.039526600023,
+       "alsa": 5.50634749337781,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 5,
+     "returned_at": 13,
+     "wheeled": [
+      {
+       "oracle_id": "7f961374-00b0-40df-83eb-9ced2bb519aa",
+       "colors": "U",
+       "gih_wr": 52.039526600023,
+       "alsa": 5.50634749337781,
+       "above_average": false
+      },
+      {
+       "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+       "colors": "U",
+       "gih_wr": 58.5206102678747,
+       "alsa": 6.23992129970105,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+       "colors": "WR",
+       "gih_wr": 54.5074586292433,
+       "alsa": 6.31933229099605,
+       "above_average": false
+      },
+      {
+       "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+       "colors": "",
+       "gih_wr": 54.0669371196755,
+       "alsa": 7.96304690330354,
+       "above_average": false
+      },
+      {
+       "oracle_id": "8a0e35ac-6c03-4922-b3b4-e419419fe3d7",
+       "colors": "W",
+       "gih_wr": 56.9272596127171,
+       "alsa": 4.40308404009252,
+       "above_average": true
+      },
+      {
+       "oracle_id": "a71e8d07-1a49-47a0-834e-de87d750a200",
+       "colors": "",
+       "gih_wr": 54.9556843361173,
+       "alsa": 6.78539261442725,
+       "above_average": false
+      },
+      {
+       "oracle_id": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+       "colors": "B",
+       "gih_wr": 55.7364074328975,
+       "alsa": 6.51011802100358,
+       "above_average": false
+      },
+      {
+       "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+       "colors": "U",
+       "gih_wr": 51.1658242295777,
+       "alsa": 8.87880548258908,
+       "above_average": false
+      },
+      {
+       "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+       "colors": "G",
+       "gih_wr": 54.1806263656227,
+       "alsa": 7.5814040621433,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 6,
+     "returned_at": 14,
+     "wheeled": [
+      {
+       "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+       "colors": "",
+       "gih_wr": 55.6557784106457,
+       "alsa": 10.505106607222,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+       "colors": "U",
+       "gih_wr": 58.5206102678747,
+       "alsa": 6.23992129970105,
+       "above_average": true
+      },
+      {
+       "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+       "colors": "",
+       "gih_wr": 54.0669371196755,
+       "alsa": 7.96304690330354,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7f961374-00b0-40df-83eb-9ced2bb519aa",
+       "colors": "U",
+       "gih_wr": 52.039526600023,
+       "alsa": 5.50634749337781,
+       "above_average": false
+      },
+      {
+       "oracle_id": "80433c2c-5196-42e0-b9fa-d7b12783f5fd",
+       "colors": "",
+       "gih_wr": 50.7862161257946,
+       "alsa": 7.93687241959325,
+       "above_average": false
+      },
+      {
+       "oracle_id": "bddd7e99-ec74-4ca6-9137-155b85695a95",
+       "colors": "WU",
+       "gih_wr": 58.3431098276329,
+       "alsa": 6.20261195801871,
+       "above_average": true
+      },
+      {
+       "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+       "colors": "G",
+       "gih_wr": 54.1127780651837,
+       "alsa": 7.75328629716304,
+       "above_average": false
+      },
+      {
+       "oracle_id": "edbd3d4e-78a2-4c03-936d-dcb24cf7c87c",
+       "colors": "BR",
+       "gih_wr": 53.6405048166679,
+       "alsa": 3.68851727982163,
+       "above_average": false
+      }
+     ]
+    }
+   ],
+   "colors": [
+    {
+     "color": "W",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 4,
+     "cards_taken_by_table": 8,
+     "best_wheeled": null
+    },
+    {
+     "color": "U",
+     "good_cards_wheeled": 1,
+     "cards_wheeled": 7,
+     "cards_taken_by_table": 10,
+     "best_wheeled": "526f520e-b4bb-4215-9c6b-afc298744f06"
+    },
+    {
+     "color": "B",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 2,
+     "cards_taken_by_table": 6,
+     "best_wheeled": null
+    },
+    {
+     "color": "R",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 0,
+     "cards_taken_by_table": 10,
+     "best_wheeled": null
+    },
+    {
+     "color": "G",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 3,
+     "cards_taken_by_table": 7,
+     "best_wheeled": null
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "laps": [
+    {
+     "first_pick": 1,
+     "returned_at": 9,
+     "wheeled": [
+      {
+       "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+       "colors": "B",
+       "gih_wr": 53.4322076360357,
+       "alsa": 7.48454927458542,
+       "above_average": false
+      },
+      {
+       "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+       "colors": "G",
+       "gih_wr": 50.9090909090909,
+       "alsa": 7.38312790480676,
+       "above_average": false
+      },
+      {
+       "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+       "colors": "G",
+       "gih_wr": 54.1127780651837,
+       "alsa": 7.75328629716304,
+       "above_average": false
+      },
+      {
+       "oracle_id": "c8259b0e-131f-44f0-86d4-7c4d711b328d",
+       "colors": "",
+       "gih_wr": 54.6209325729621,
+       "alsa": 7.82126440212525,
+       "above_average": false
+      },
+      {
+       "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+       "colors": "WR",
+       "gih_wr": 54.5074586292433,
+       "alsa": 6.31933229099605,
+       "above_average": false
+      },
+      {
+       "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+       "colors": "",
+       "gih_wr": 57.1048297521927,
+       "alsa": 10.46716936869,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "4c67359d-5590-4eb0-827e-b411967ee238",
+       "colors": "U",
+       "gih_wr": 48.1727574750831,
+       "alsa": 6.17377389499178,
+       "above_average": false
+      },
+      {
+       "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+       "colors": "U",
+       "gih_wr": 58.5206102678747,
+       "alsa": 6.23992129970105,
+       "above_average": true
+      },
+      {
+       "oracle_id": "5b79b68a-db71-4638-824e-ab89b1716c86",
+       "colors": "W",
+       "gih_wr": 54.5324953022743,
+       "alsa": 4.41206974637681,
+       "above_average": false
+      },
+      {
+       "oracle_id": "5ebe8de1-aa3d-410d-b43d-1685259c7a97",
+       "colors": "BG",
+       "gih_wr": 53.5356823175197,
+       "alsa": 3.99057920446615,
+       "above_average": false
+      },
+      {
+       "oracle_id": "76c036df-44f5-4021-b7fc-656147351341",
+       "colors": "",
+       "gih_wr": 49.0765171503958,
+       "alsa": 7.33131895376224,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+       "colors": "U",
+       "gih_wr": 54.4520272982738,
+       "alsa": 8.74954183451992,
+       "above_average": false
+      },
+      {
+       "oracle_id": "8060d231-7477-441d-b249-8e75aa1d7791",
+       "colors": "B",
+       "gih_wr": 57.6656069551677,
+       "alsa": 4.80501765667,
+       "above_average": true
+      }
+     ]
+    },
+    {
+     "first_pick": 2,
+     "returned_at": 10,
+     "wheeled": [
+      {
+       "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+       "colors": "B",
+       "gih_wr": 56.244153414406,
+       "alsa": 3.81541965497189,
+       "above_average": false
+      },
+      {
+       "oracle_id": "28ffddca-a3c4-467d-a2dc-2c5e62393e11",
+       "colors": "G",
+       "gih_wr": 53.6837859639688,
+       "alsa": 5.70914482494739,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+       "colors": "U",
+       "gih_wr": 54.4520272982738,
+       "alsa": 8.74954183451992,
+       "above_average": false
+      },
+      {
+       "oracle_id": "45d652c4-188e-4f00-acdd-1be014922cbc",
+       "colors": "G",
+       "gih_wr": 56.0827531593361,
+       "alsa": 5.95114465746593,
+       "above_average": false
+      },
+      {
+       "oracle_id": "cd49aa99-bf84-4edd-aecc-6dae78b73412",
+       "colors": "",
+       "gih_wr": 55.8216002023438,
+       "alsa": 6.41221565566459,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "3cc333a1-c854-4b7c-8002-910e48222371",
+       "colors": "",
+       "gih_wr": 53.494837172359,
+       "alsa": 8.15060240963855,
+       "above_average": false
+      },
+      {
+       "oracle_id": "81c2913f-42b7-4cfa-adc0-b3416fbe2ec6",
+       "colors": "R",
+       "gih_wr": 46.2049861495845,
+       "alsa": 4.06432241275772,
+       "above_average": false
+      },
+      {
+       "oracle_id": "978e07fd-8b8c-4eab-850e-e4c0e712251e",
+       "colors": "R",
+       "gih_wr": 61.0133027358457,
+       "alsa": 2.90772200772201,
+       "above_average": true
+      },
+      {
+       "oracle_id": "bb67d0a4-864e-4f46-8538-fdd920bf0197",
+       "colors": "R",
+       "gih_wr": 56.0231397459165,
+       "alsa": 6.71013117249407,
+       "above_average": false
+      },
+      {
+       "oracle_id": "d0f62148-1015-49b8-b61f-a4332325a6b0",
+       "colors": "U",
+       "gih_wr": 50.1428942582489,
+       "alsa": 6.77176914501329,
+       "above_average": false
+      },
+      {
+       "oracle_id": "dda607bd-f419-4b7f-b052-a5ce6ce22bfe",
+       "colors": "B",
+       "gih_wr": 56.9827639977545,
+       "alsa": 4.3893842030302,
+       "above_average": true
+      },
+      {
+       "oracle_id": "f8961618-ae68-4d13-84eb-8b5464ce4971",
+       "colors": "W",
+       "gih_wr": 52.3153004645587,
+       "alsa": 8.59440701837742,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 3,
+     "returned_at": 11,
+     "wheeled": [
+      {
+       "oracle_id": "73346137-3117-4dc3-b5a4-1aca1da54548",
+       "colors": "BG",
+       "gih_wr": 56.7946437911915,
+       "alsa": 3.00179407650672,
+       "above_average": true
+      },
+      {
+       "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+       "colors": "U",
+       "gih_wr": 53.8661376411128,
+       "alsa": 7.68809272918862,
+       "above_average": false
+      },
+      {
+       "oracle_id": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+       "colors": "B",
+       "gih_wr": 59.091837302987,
+       "alsa": 5.04544271782008,
+       "above_average": true
+      },
+      {
+       "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+       "colors": "B",
+       "gih_wr": 53.7601403201052,
+       "alsa": 6.83033107867569,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "0f208cd3-7673-4380-9cb8-5b6f09966ebd",
+       "colors": "W",
+       "gih_wr": 54.0231103572564,
+       "alsa": 6.52956231963721,
+       "above_average": false
+      },
+      {
+       "oracle_id": "61773534-8da8-48fa-b51a-73c0a9a751c4",
+       "colors": "R",
+       "gih_wr": 56.3352249805008,
+       "alsa": 6.55320984658524,
+       "above_average": true
+      },
+      {
+       "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+       "colors": "W",
+       "gih_wr": 53.6717972279654,
+       "alsa": 7.68760225571762,
+       "above_average": false
+      },
+      {
+       "oracle_id": "82bdf9cb-61fe-4eaf-8762-c32002403d96",
+       "colors": "W",
+       "gih_wr": 56.7503142200841,
+       "alsa": 5.02385621257721,
+       "above_average": true
+      },
+      {
+       "oracle_id": "a91e0154-14a9-4681-8236-04db231592a4",
+       "colors": "",
+       "gih_wr": 53.99512633064,
+       "alsa": 7.41327135987724,
+       "above_average": false
+      },
+      {
+       "oracle_id": "db05b114-2eb5-46bc-81e7-7e036d8eaab3",
+       "colors": "G",
+       "gih_wr": 56.966618287373,
+       "alsa": 4.90604434221455,
+       "above_average": true
+      },
+      {
+       "oracle_id": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
+       "colors": "U",
+       "gih_wr": 57.3538770079256,
+       "alsa": 5.70420726262028,
+       "above_average": true
+      }
+     ]
+    },
+    {
+     "first_pick": 4,
+     "returned_at": 12,
+     "wheeled": [
+      {
+       "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+       "colors": "U",
+       "gih_wr": 51.1658242295777,
+       "alsa": 8.87880548258908,
+       "above_average": false
+      },
+      {
+       "oracle_id": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+       "colors": "B",
+       "gih_wr": 59.091837302987,
+       "alsa": 5.04544271782008,
+       "above_average": true
+      },
+      {
+       "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+       "colors": "",
+       "gih_wr": 57.1048297521927,
+       "alsa": 10.46716936869,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+       "colors": "WR",
+       "gih_wr": 54.5074586292433,
+       "alsa": 6.31933229099605,
+       "above_average": false
+      },
+      {
+       "oracle_id": "051ff7e0-dd00-4467-8796-a5d1c21934ed",
+       "colors": "G",
+       "gih_wr": 60.2540834845735,
+       "alsa": 2.06233456855479,
+       "above_average": true
+      },
+      {
+       "oracle_id": "11932191-4b19-49b1-bfe4-abb7b83b2e59",
+       "colors": "UG",
+       "gih_wr": 53.8153846153846,
+       "alsa": 5.17900323783762,
+       "above_average": false
+      },
+      {
+       "oracle_id": "45d652c4-188e-4f00-acdd-1be014922cbc",
+       "colors": "G",
+       "gih_wr": 56.0827531593361,
+       "alsa": 5.95114465746593,
+       "above_average": false
+      },
+      {
+       "oracle_id": "84d648c7-655e-4590-a3e0-366a8a4a4cb3",
+       "colors": "G",
+       "gih_wr": 52.7609055770293,
+       "alsa": 2.71428571428571,
+       "above_average": false
+      },
+      {
+       "oracle_id": "89aa97d0-1aef-4ed8-b29c-7943bb3d0e60",
+       "colors": "B",
+       "gih_wr": 59.549606968345,
+       "alsa": 3.79967394030599,
+       "above_average": true
+      },
+      {
+       "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+       "colors": "G",
+       "gih_wr": 54.1806263656227,
+       "alsa": 7.5814040621433,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 5,
+     "returned_at": 13,
+     "wheeled": [
+      {
+       "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+       "colors": "B",
+       "gih_wr": 53.7601403201052,
+       "alsa": 6.83033107867569,
+       "above_average": false
+      },
+      {
+       "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+       "colors": "",
+       "gih_wr": 55.1839464882943,
+       "alsa": 10.5693958518171,
+       "above_average": false
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "15211eaa-d906-4b95-8942-2f49d3cb4b81",
+       "colors": "U",
+       "gih_wr": 56.248858268744,
+       "alsa": 7.45027888446215,
+       "above_average": false
+      },
+      {
+       "oracle_id": "188a3f61-3f7c-450d-8ee7-e12ad13b86c6",
+       "colors": "B",
+       "gih_wr": 56.27597256296,
+       "alsa": 2.80077552217407,
+       "above_average": false
+      },
+      {
+       "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+       "colors": "G",
+       "gih_wr": 50.9090909090909,
+       "alsa": 7.38312790480676,
+       "above_average": false
+      },
+      {
+       "oracle_id": "61773534-8da8-48fa-b51a-73c0a9a751c4",
+       "colors": "R",
+       "gih_wr": 56.3352249805008,
+       "alsa": 6.55320984658524,
+       "above_average": true
+      },
+      {
+       "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+       "colors": "W",
+       "gih_wr": 53.6717972279654,
+       "alsa": 7.68760225571762,
+       "above_average": false
+      },
+      {
+       "oracle_id": "8790f842-e842-4bed-adf4-5b3cc5fd68a9",
+       "colors": "G",
+       "gih_wr": 53.0894468418988,
+       "alsa": 5.10783432236408,
+       "above_average": false
+      },
+      {
+       "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+       "colors": "G",
+       "gih_wr": 54.7678923401074,
+       "alsa": 7.7231083311615,
+       "above_average": false
+      }
+     ]
+    },
+    {
+     "first_pick": 6,
+     "returned_at": 14,
+     "wheeled": [
+      {
+       "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+       "colors": "",
+       "gih_wr": 57.0113716517281,
+       "alsa": 10.4601511436199,
+       "above_average": true
+      }
+     ],
+     "taken_by_table": [
+      {
+       "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+       "colors": "WR",
+       "gih_wr": 54.5074586292433,
+       "alsa": 6.31933229099605,
+       "above_average": false
+      },
+      {
+       "oracle_id": "0ea58cfe-b37c-49a6-a3be-7e60065b8238",
+       "colors": "BG",
+       "gih_wr": 58.1665685697469,
+       "alsa": 2.37247770999531,
+       "above_average": true
+      },
+      {
+       "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+       "colors": "B",
+       "gih_wr": 53.4322076360357,
+       "alsa": 7.48454927458542,
+       "above_average": false
+      },
+      {
+       "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+       "colors": "U",
+       "gih_wr": 53.8661376411128,
+       "alsa": 7.68809272918862,
+       "above_average": false
+      },
+      {
+       "oracle_id": "ce107656-f222-4d9a-9ba2-b33b4d47bdb5",
+       "colors": "G",
+       "gih_wr": 54.95567710298,
+       "alsa": 7.2091361785902,
+       "above_average": false
+      },
+      {
+       "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+       "colors": "G",
+       "gih_wr": 54.1127780651837,
+       "alsa": 7.75328629716304,
+       "above_average": false
+      },
+      {
+       "oracle_id": "e4402d21-bb7f-4777-bc8d-b24bf2faccb0",
+       "colors": "U",
+       "gih_wr": 52.7059037900875,
+       "alsa": 5.71452927400468,
+       "above_average": false
+      }
+     ]
+    }
+   ],
+   "colors": [
+    {
+     "color": "W",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 1,
+     "cards_taken_by_table": 8,
+     "best_wheeled": null
+    },
+    {
+     "color": "U",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 3,
+     "cards_taken_by_table": 9,
+     "best_wheeled": null
+    },
+    {
+     "color": "B",
+     "good_cards_wheeled": 3,
+     "cards_wheeled": 7,
+     "cards_taken_by_table": 7,
+     "best_wheeled": "0296d57e-e5b9-456f-bb21-eb584adefb4c"
+    },
+    {
+     "color": "R",
+     "good_cards_wheeled": 0,
+     "cards_wheeled": 1,
+     "cards_taken_by_table": 7,
+     "best_wheeled": null
+    },
+    {
+     "color": "G",
+     "good_cards_wheeled": 1,
+     "cards_wheeled": 5,
+     "cards_taken_by_table": 13,
+     "best_wheeled": "73346137-3117-4dc3-b5a4-1aca1da54548"
+    }
+   ]
+  }
  ]
 }

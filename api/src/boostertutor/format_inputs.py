@@ -115,17 +115,20 @@ def load_format_inputs(
     )
     if snapshot is None:
         raise FormatNotReady(f"{set_code}/{event_type} has no 17Lands statistics yet")
-    overall = {
-        s.oracle_id: (s.gih_wr, s.gih_games)
-        for s in session.execute(
-            select(CardDraftStats).where(
-                CardDraftStats.set_code == set_code,
-                CardDraftStats.event_type == event_type,
-                CardDraftStats.snapshot_date == snapshot,
-            )
-        ).scalars()
-        if s.gih_wr is not None
-    }
+    rows = session.execute(
+        select(CardDraftStats).where(
+            CardDraftStats.set_code == set_code,
+            CardDraftStats.event_type == event_type,
+            CardDraftStats.snapshot_date == snapshot,
+        )
+    ).scalars()
+    overall: dict[uuid.UUID, tuple[float, int]] = {}
+    alsa: dict[uuid.UUID, float] = {}
+    for s in rows:
+        if s.gih_wr is not None:
+            overall[s.oracle_id] = (s.gih_wr, s.gih_games)
+        if s.alsa is not None:
+            alsa[s.oracle_id] = s.alsa
 
     edges = load_edges(session, set_code)
     histogram = [
@@ -159,5 +162,6 @@ def load_format_inputs(
         stats=fx.Stats(format_avg_wr=float(constants.format_avg_wr), overall=overall),
         edges=edges,
         baseline=synergy_expectations(histogram, edges),
+        alsa=alsa,
         cfg=fitness_config(constants),
     )

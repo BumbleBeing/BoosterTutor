@@ -26,6 +26,7 @@ from ..schemas.draft_analysis import (
     SynergyFiring,
 )
 from . import fitness as fx
+from .wheel import wheel_analysis
 
 # (oracle_id, pack_number, enabler, payoff, tag_on_card) -> E[n_eff], ADR 0017.
 Baseline = dict[tuple[uuid.UUID, int, str, str, str], float]
@@ -96,6 +97,9 @@ class FormatInputs:
     stats: fx.Stats
     edges: list[dict[str, Any]] = field(default_factory=list)
     baseline: Baseline = field(default_factory=dict)
+    # ALSA per card: not a scoring input (ADR 0018), but a fact the wheel
+    # analysis reports ("usually gone by pick 3").
+    alsa: dict[uuid.UUID, float] = field(default_factory=dict)
     cfg: fx.FitnessConfig = field(default_factory=fx.FitnessConfig)
 
 
@@ -210,6 +214,13 @@ def analyze_draft(log: DraftLog, inputs: FormatInputs) -> DraftAnalysis:
         has_taxonomy=bool(inputs.edges),
         pack_size=log.pack_size,
         picks=picks,
+        wheels=wheel_analysis(
+            log,
+            inputs.cards,
+            gih_wr={oid: wr for oid, (wr, _) in inputs.stats.overall.items()},
+            alsa=inputs.alsa,
+            format_avg_wr=inputs.stats.format_avg_wr,
+        ),
     )
 
 

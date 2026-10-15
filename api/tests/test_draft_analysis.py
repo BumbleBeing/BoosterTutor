@@ -1,9 +1,6 @@
 """`analyze_draft` on a real draft (development plan 3.3 and 3.5).
 
-The draft is the saved HOB Premier Draft from `test_seventeen_lands_draft.py`.
-Its inputs are a snapshot of HOB's real data (win rates, tags, synergy
-baseline, format constants), trimmed to the draft's cards by
-`scripts/snapshot_format_inputs.py`, so no database is needed.
+The draft and its inputs are the fixtures in `conftest.py`.
 
 The golden file is the whole analysis. When the analysis changes on
 purpose, regenerate it and read the diff:
@@ -28,70 +25,16 @@ from boostertutor.analysis.draft import (
 )
 from boostertutor.format_inputs import fitness_config
 from boostertutor.models import FormatConstants
-from boostertutor.parsing import seventeen_lands as sl
 from boostertutor.parsing.names import name_key
 from boostertutor.schemas import DraftLog
 from boostertutor.schemas.draft_analysis import DraftAnalysis
 
-FIXTURES = Path(__file__).parent / "fixtures"
-INPUTS = FIXTURES / "format_inputs" / "hob.PremierDraft.json"
-GOLDEN = FIXTURES / "golden" / "hob.d9ac6765.analysis.json"
+GOLDEN = Path(__file__).parent / "fixtures" / "golden" / "hob.d9ac6765.analysis.json"
 
 
 def _json(path: Path) -> dict[str, Any]:
     data: dict[str, Any] = json.loads(path.read_text())
     return data
-
-
-def load_inputs() -> tuple[FormatInputs, dict[str, uuid.UUID]]:
-    """The snapshot back into a `FormatInputs`, and its name index."""
-    raw = _json(INPUTS)
-    cfg = dict(raw["cfg"])
-    cfg["target_curve"] = {int(k): v for k, v in cfg["target_curve"].items()}
-    inputs = FormatInputs(
-        set_code=raw["set_code"],
-        event_type=raw["event_type"],
-        stats_snapshot=raw["stats_snapshot"],
-        cards={
-            uuid.UUID(oid): {**card, "oracle_id": uuid.UUID(oid)}
-            for oid, card in raw["cards"].items()
-        },
-        stats=fx.Stats(
-            format_avg_wr=raw["format_avg_wr"],
-            overall={
-                uuid.UUID(k): (wr, games) for k, (wr, games) in raw["overall"].items()
-            },
-        ),
-        edges=raw["edges"],
-        baseline={
-            (uuid.UUID(oid), pack, enabler, payoff, on_card): expected
-            for oid, pack, enabler, payoff, on_card, expected in raw["baseline"]
-        },
-        cfg=fx.FitnessConfig(**cfg),
-    )
-    return inputs, {k: uuid.UUID(v) for k, v in raw["names"].items()}
-
-
-@pytest.fixture(scope="module")
-def inputs() -> FormatInputs:
-    return load_inputs()[0]
-
-
-@pytest.fixture(scope="module")
-def names() -> dict[str, uuid.UUID]:
-    return load_inputs()[1]
-
-
-@pytest.fixture(scope="module")
-def log(names: dict[str, uuid.UUID]) -> DraftLog:
-    draft = _json(FIXTURES / "seventeen_lands_draft" / "draft.json")
-    metadata = _json(FIXTURES / "seventeen_lands_draft" / "event_metadata.json")
-    return sl.parse_draft(draft, metadata, names)
-
-
-@pytest.fixture(scope="module")
-def analysis(log: DraftLog, inputs: FormatInputs) -> DraftAnalysis:
-    return analyze_draft(log, inputs)
 
 
 # --------------------------------------------------------------------------
