@@ -1,7 +1,9 @@
 """Application settings, loaded from environment variables."""
 
+from decimal import Decimal
 from pathlib import Path
 
+from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ENV_FILE = Path(__file__).resolve().parents[2] / ".env"
@@ -23,6 +25,15 @@ class Settings(BaseSettings):
     # The hand-authored tag taxonomy, one JSON file per set. Git-tracked: it is
     # the system of record, and the database tables are loaded from it.
     taxonomy_dir: Path = Path(__file__).resolve().parents[2] / "data" / "taxonomy"
+
+    # Claude (ADR 0024). The key is set in api/.env locally and in Render's
+    # dashboard, never in code. SecretStr keeps it out of logs and reprs.
+    anthropic_api_key: SecretStr | None = None
+    # The versioned prompt files, at the repository root beside the ADRs.
+    prompts_dir: Path = Path(__file__).resolve().parents[3] / "docs" / "prompts"
+    # ADR 0027: once today's Claude spend (UTC) reaches this, no further
+    # call is made until tomorrow. About $5 a day while the app is small.
+    daily_spend_cap_usd: Decimal = Decimal("5.00")
 
     @property
     def sqlalchemy_url(self) -> str:

@@ -155,6 +155,16 @@ class FitnessConfig:
     solid_gap: float = 2.0
     mistake_gap: float = 4.0
 
+    # ADR 0024 s1 -- the Narrow Pick: the drafter took the pack's only
+    # `solid` card while at least `narrow_pick_min_questionable` cards were
+    # close behind, in a pack of at least `narrow_pick_min_cards` distinct
+    # cards. The questionable condition keeps out "one bomb and chaff":
+    # HOB has six packs with a single solid card and none has two
+    # questionable ones. PLACEHOLDERS, to tune once real drafts show
+    # whether the notes read as cheap or never fire.
+    narrow_pick_min_cards: int = 8
+    narrow_pick_min_questionable: int = 2
+
 
 @dataclass(frozen=True)
 class Stats:
@@ -859,10 +869,40 @@ def verdict(
     return classify_pack(scored, cfg)[taken_oracle_id]
 
 
-def is_relevant(verdict_: str) -> bool:
-    """Only a `mistake` earns a brief and an LLM blurb (ADR 0008).
+def is_narrow_pick(
+    scored: list[CardFitness],
+    taken_oracle_id: OracleId,
+    cfg: FitnessConfig,
+    *,
+    pack_size: int | None = None,
+) -> bool:
+    """True when the drafter found the one right answer among tempting ones (ADR 0024).
 
-    Scarcity is the point: a handful of notes per draft land harder than
-    forty, and a flawless draft with none at all is a valid outcome.
+    The pack held at least `narrow_pick_min_cards` distinct cards
+    (`pack_size`, which counts basic lands that were never scored), exactly
+    one of them `solid`, at least `narrow_pick_min_questionable` of them
+    `questionable`, and the drafter took the `solid` one.
     """
-    return verdict_ == "mistake"
+    if (
+        pack_size if pack_size is not None else len(scored)
+    ) < cfg.narrow_pick_min_cards:
+        return False
+    if not scored:
+        return False
+    classes = classify_pack(scored, cfg)
+    solid = [oid for oid, c in classes.items() if c == "solid"]
+    questionable = sum(1 for c in classes.values() if c == "questionable")
+    return (
+        solid == [taken_oracle_id] and questionable >= cfg.narrow_pick_min_questionable
+    )
+
+
+def is_noted(verdict_: str, *, narrow: bool) -> bool:
+    """A Noted Pick earns a Pick Note: `questionable`, `mistake` or Narrow (ADR 0024).
+
+    Critical notes explain what a pick cost; a Narrow Pick's note gives
+    credit for the hard right answer. Everything else is stated, not
+    explained, and a draft with no notes at all is a valid outcome. This
+    replaces ADR 0008 s3's "only a mistake earns a note".
+    """
+    return narrow or verdict_ in ("questionable", "mistake")

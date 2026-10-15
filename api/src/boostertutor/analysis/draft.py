@@ -187,20 +187,19 @@ def analyze_draft(log: DraftLog, inputs: FormatInputs) -> DraftAnalysis:
 
         cards = [_card_score(oid, by_id.get(oid), classes.get(oid)) for oid in distinct]
         cards.sort(key=lambda c: (c.total is None, -(c.total or 0.0)))
+        verdict = fx.verdict(scored, pick.picked, cfg, pack_size=len(distinct))
+        narrow = fx.is_narrow_pick(scored, pick.picked, cfg, pack_size=len(distinct))
         picks.append(
             PickAnalysis(
                 pack_number=pick.pack_number,
                 pick_number=pick.pick_number,
                 picked=pick.picked,
-                verdict=fx.verdict(
-                    scored,
-                    pick.picked,
-                    cfg,
-                    pack_size=len(distinct),
-                ),
+                verdict=verdict,
                 best=best.oracle_id if best else None,
                 gap=_pp(best.total - taken.total) if best and taken else None,
                 commitment=_pp(fx.commitment(t, cfg)),
+                narrow=narrow,
+                noted=fx.is_noted(verdict, narrow=narrow),
                 pool=_pool_state(pool),
                 cards=cards,
             )

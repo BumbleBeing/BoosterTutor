@@ -23,6 +23,8 @@ build/
 # so `data/raw/` alone never matched the ingest's downloads under api/.
 data/raw/
 api/data/raw/
+# Pick Note eval reports (tests/test_pick_note_eval.py): read, then thrown away.
+api/data/evals/
 *.csv.gz
 .DS_Store
 Thumbs.db

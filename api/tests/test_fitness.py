@@ -1085,13 +1085,59 @@ def test_taking_an_unscored_card_is_a_mistake_even_in_an_otherwise_flat_pack():
     assert f.verdict([cf("bear", 55.0)], "swamp", cfg, pack_size=2) == "mistake"
 
 
-def test_only_mistakes_earn_a_note():
-    assert f.is_relevant("mistake") is True
-    assert [f.is_relevant(v) for v in ("solid", "questionable", "indifferent")] == [
-        False,
+def narrow_pack(n_questionable: int = 2, n_cards: int = 8) -> list[f.CardFitness]:
+    """One solid card, `n_questionable` within 4pp of it, the rest mistakes."""
+    scored = [cf("best", 60.0)]
+    scored += [cf(f"q{i}", 57.0) for i in range(n_questionable)]
+    scored += [cf(f"m{i}", 50.0) for i in range(n_cards - 1 - n_questionable)]
+    return scored
+
+
+def test_taking_the_one_solid_card_among_tempting_ones_is_a_narrow_pick():
+    """ADR 0024 s1: eight cards, one solid, two questionable, the solid one taken."""
+    assert f.is_narrow_pick(narrow_pack(), "best", f.FitnessConfig()) is True
+
+
+def test_a_narrow_pick_needs_the_solid_card_taken():
+    assert f.is_narrow_pick(narrow_pack(), "q0", f.FitnessConfig()) is False
+
+
+def test_one_bomb_and_chaff_is_not_a_narrow_pick():
+    """Only one tempting alternative: the pick was easy, not narrow."""
+    assert f.is_narrow_pick(narrow_pack(1), "best", f.FitnessConfig()) is False
+
+
+def test_a_small_pack_is_not_a_narrow_pick():
+    assert f.is_narrow_pick(narrow_pack(n_cards=7), "best", f.FitnessConfig()) is False
+
+
+def test_a_basic_land_counts_toward_the_pack_size_of_a_narrow_pick():
+    """Seven scored cards and a Swamp is an eight-card pack."""
+    scored = narrow_pack(n_cards=7)
+    assert f.is_narrow_pick(scored, "best", f.FitnessConfig(), pack_size=8) is True
+
+
+def test_two_solid_cards_is_not_a_narrow_pick():
+    scored = [*narrow_pack(), cf("near", 59.0)]
+    assert f.is_narrow_pick(scored, "best", f.FitnessConfig()) is False
+
+
+def test_the_narrow_pick_thresholds_are_tunable():
+    cfg = f.FitnessConfig(narrow_pick_min_cards=4, narrow_pick_min_questionable=1)
+    assert f.is_narrow_pick(narrow_pack(1, n_cards=4), "best", cfg) is True
+
+
+def test_questionable_mistake_and_narrow_picks_earn_a_note():
+    """ADR 0024 s1 replaces ADR 0008's "only a mistake earns a note"."""
+    assert [f.is_noted(v, narrow=False) for v in ("questionable", "mistake")] == [
+        True,
+        True,
+    ]
+    assert [f.is_noted(v, narrow=False) for v in ("solid", "indifferent")] == [
         False,
         False,
     ]
+    assert f.is_noted("solid", narrow=True) is True
 
 
 def test_lands_do_not_count_toward_the_curve():

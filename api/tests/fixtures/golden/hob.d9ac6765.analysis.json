@@ -13,6 +13,8 @@
    "best": "961e3023-39ea-4141-99b6-738280a2815d",
    "gap": 2.196,
    "commitment": 0.071,
+   "narrow": false,
+   "noted": true,
    "pool": {
     "size": 0,
     "colors": {
@@ -242,6 +244,8 @@
    "best": "7907bbf0-f6d9-4e5b-b5de-73cd94979f98",
    "gap": 0.862,
    "commitment": 0.143,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 1,
     "colors": {
@@ -457,6 +461,8 @@
    "best": "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
    "gap": 0.0,
    "commitment": 0.214,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 2,
     "colors": {
@@ -671,6 +677,8 @@
    "best": "bddd7e99-ec74-4ca6-9137-155b85695a95",
    "gap": 0.394,
    "commitment": 0.286,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 3,
     "colors": {
@@ -871,6 +879,8 @@
    "best": "eec81460-899d-4b4c-b33c-ce2ca704df17",
    "gap": 0.0,
    "commitment": 0.357,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 4,
     "colors": {
@@ -1070,6 +1080,8 @@
    "best": "8060d231-7477-441d-b249-8e75aa1d7791",
    "gap": 1.459,
    "commitment": 0.429,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 5,
     "colors": {
@@ -1255,6 +1267,8 @@
    "best": "5753f4d6-08d0-4e12-85c5-875ee6441626",
    "gap": 0.0,
    "commitment": 0.5,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 6,
     "colors": {
@@ -1413,6 +1427,8 @@
    "best": "17492186-9814-4c41-8111-1f000a96c212",
    "gap": 0.755,
    "commitment": 0.571,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 7,
     "colors": {
@@ -1570,6 +1586,8 @@
    "best": "17492186-9814-4c41-8111-1f000a96c212",
    "gap": 0.865,
    "commitment": 0.643,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 8,
     "colors": {
@@ -1713,6 +1731,8 @@
    "best": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
    "gap": 1.148,
    "commitment": 0.714,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 9,
     "colors": {
@@ -1829,6 +1849,8 @@
    "best": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
    "gap": 0.216,
    "commitment": 0.786,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 10,
     "colors": {
@@ -1918,6 +1940,8 @@
    "best": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
    "gap": 2.416,
    "commitment": 0.857,
+   "narrow": false,
+   "noted": true,
    "pool": {
     "size": 11,
     "colors": {
@@ -1993,6 +2017,8 @@
    "best": "a833fdf1-db0c-4846-8452-d3b2059c2355",
    "gap": 0.0,
    "commitment": 0.929,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 12,
     "colors": {
@@ -2054,6 +2080,8 @@
    "best": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 13,
     "colors": {
@@ -2101,6 +2129,8 @@
    "best": "94917b80-ac32-45ab-b4ee-157ade024bcd",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 14,
     "colors": {
@@ -2371,6 +2401,8 @@
    "best": "a97d6c5c-1cff-442d-b535-fc8389160b0b",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 15,
     "colors": {
@@ -2614,6 +2646,8 @@
    "best": "cd1a9d87-4c91-4456-8d88-19e0d6e0b200",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 16,
     "colors": {
@@ -2815,6 +2849,8 @@
    "best": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 17,
     "colors": {
@@ -3016,6 +3052,8 @@
    "best": "961e3023-39ea-4141-99b6-738280a2815d",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 18,
     "colors": {
@@ -3230,6 +3268,8 @@
    "best": "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 19,
     "colors": {
@@ -3389,6 +3429,8 @@
    "best": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
    "gap": 2.361,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": true,
    "pool": {
     "size": 20,
     "colors": {
@@ -3534,6 +3576,8 @@
    "best": "03253076-9add-4efb-9227-b0a062c86534",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 21,
     "colors": {
@@ -3693,6 +3737,8 @@
    "best": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
    "gap": 1.87,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 22,
     "colors": {
@@ -3810,6 +3856,8 @@
    "best": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
    "gap": 1.625,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 23,
     "colors": {
@@ -3913,6 +3961,8 @@
    "best": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 24,
     "colors": {
@@ -4002,6 +4052,8 @@
    "best": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 25,
     "colors": {
@@ -4077,6 +4129,8 @@
    "best": "526f520e-b4bb-4215-9c6b-afc298744f06",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 26,
     "colors": {
@@ -4154,6 +4208,8 @@
    "best": null,
    "gap": null,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 27,
     "colors": {
@@ -4201,6 +4257,8 @@
    "best": "8060d231-7477-441d-b249-8e75aa1d7791",
    "gap": 1.241,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 28,
     "colors": {
@@ -4430,6 +4488,8 @@
    "best": "978e07fd-8b8c-4eab-850e-e4c0e712251e",
    "gap": 1.394,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 29,
     "colors": {
@@ -4688,6 +4748,8 @@
    "best": "840de40b-590e-4bf0-8d16-22b0eff61202",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 30,
     "colors": {
@@ -4919,6 +4981,8 @@
    "best": "051ff7e0-dd00-4467-8796-a5d1c21934ed",
    "gap": 0.116,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 31,
     "colors": {
@@ -5224,6 +5288,8 @@
    "best": "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 32,
     "colors": {
@@ -5427,6 +5493,8 @@
    "best": "eec81460-899d-4b4c-b33c-ce2ca704df17",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 33,
     "colors": {
@@ -5675,6 +5743,8 @@
    "best": "88522a0f-5377-4522-97f4-4148bef954af",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 34,
     "colors": {
@@ -5893,6 +5963,8 @@
    "best": "5753f4d6-08d0-4e12-85c5-875ee6441626",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 35,
     "colors": {
@@ -6110,6 +6182,8 @@
    "best": "03253076-9add-4efb-9227-b0a062c86534",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 36,
     "colors": {
@@ -6285,6 +6359,8 @@
    "best": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 37,
     "colors": {
@@ -6388,6 +6464,8 @@
    "best": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 38,
     "colors": {
@@ -6492,6 +6570,8 @@
    "best": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 39,
     "colors": {
@@ -6597,6 +6677,8 @@
    "best": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
    "gap": 0.0,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 40,
     "colors": {
@@ -6658,6 +6740,8 @@
    "best": null,
    "gap": null,
    "commitment": 1.0,
+   "narrow": false,
+   "noted": false,
    "pool": {
     "size": 41,
     "colors": {

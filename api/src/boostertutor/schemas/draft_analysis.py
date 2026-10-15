@@ -74,6 +74,10 @@ class PickAnalysis(BaseModel):
     # was taken; None when the card taken was never scored (a basic land).
     gap: float | None
     commitment: float  # lambda: how much the pool constrained this pick
+    # The pack's only solid card, taken among tempting alternatives (ADR 0024).
+    narrow: bool
+    # A Noted Pick, which earns a Pick Note: questionable, mistake or narrow.
+    noted: bool
     pool: PoolState
     cards: list[CardScore]  # one per distinct card in the pack, best first
 

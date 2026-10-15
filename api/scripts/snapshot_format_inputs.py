@@ -5,7 +5,12 @@
 Writes `tests/fixtures/format_inputs/hob.PremierDraft.json` from the
 database: every input `analyze_draft` reads (cards, win rates, tag pairs,
 synergy expectations, format settings), for just the cards in the saved
-17Lands draft. The golden-file test then runs with no database at all.
+17Lands draft and the drafts in `tests/fixtures/drafts/` (from
+`snapshot_public_drafts.py`). The golden-file test then runs with no
+database at all.
+
+It also writes `tests/fixtures/card_facts/hob.json`, the `CardFacts` for
+the same cards, which the brief and the Pick Note eval read.
 
 Re-run it deliberately, when the inputs should change (a new stats
 snapshot, a re-tagged set, a new baseline), and regenerate the golden file
@@ -17,10 +22,12 @@ import dataclasses
 import json
 from pathlib import Path
 
+from boostertutor.card_facts import load_card_facts
 from boostertutor.db import SessionLocal
 from boostertutor.drafts import name_index
 from boostertutor.format_inputs import load_format_inputs
 from boostertutor.parsing import seventeen_lands
+from boostertutor.schemas import DraftLog
 
 API = Path(__file__).resolve().parents[1]
 
@@ -36,8 +43,13 @@ def main() -> None:
         names = name_index(session, seventeen_lands.draft_set_code(metadata))
         log = seventeen_lands.parse_draft(draft, metadata, names)
         inputs = load_format_inputs(session, log.set_code, log.event_type)
+        logs = [log] + [
+            DraftLog.model_validate_json(path.read_text())
+            for path in sorted((FIXTURES / "drafts").glob(f"{log.set_code}.*.json"))
+        ]
+        keep = {oid for each in logs for pick in each.picks for oid in pick.pack_cards}
+        facts = load_card_facts(session, log.set_code, keep)
 
-    keep = {oid for pick in log.picks for oid in pick.pack_cards}
     snapshot = {
         "set_code": inputs.set_code,
         "event_type": inputs.event_type,
@@ -76,6 +88,18 @@ def main() -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(snapshot, indent=1, sort_keys=True) + "\n")
     print(f"wrote {out.relative_to(API)}: {len(snapshot['cards'])} cards")
+
+    out = FIXTURES / "card_facts" / f"{log.set_code}.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(
+        json.dumps(
+            {str(oid): facts[oid].model_dump() for oid in sorted(facts)},
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+    print(f"wrote {out.relative_to(API)}: {len(facts)} cards")
 
 
 if __name__ == "__main__":
