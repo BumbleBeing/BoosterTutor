@@ -14,24 +14,24 @@ BoosterTutor is a Magic: the Gathering **Limited** coach. A player gives it some
 
 ### Two features
 
-**Draft Review.** The user supplies a 17Lands draft (a draft ID/URL, or a pasted log). The app walks every pick (42 in a Play Booster set, whose packs hold 14 cards; 45 in an older 15-card set) and returns a short blurb per pick: was this pick right, what was the strongest alternative, and what signal did the pack send about what was open.
+**Draft Review.** The user supplies a 17Lands draft (a draft ID/URL, or a pasted log). The app walks every pick (42 in a Play Booster set, whose packs hold 14 cards; 45 in an older 15-card set) and grades each one. Picks that were `questionable` or a `mistake`, and Narrow Picks (the one right answer among tempting alternatives), get a short Pick Note on what the pick cost or why it was right. The user then builds a 40-card deck from the pool, and the first deck they submit gets a Draft Summary covering the draft and the deck, with Deck Ratings computed in Python (ADRs 0024–0026).
 
-**Practice Draft.** A signed-in user sits at a table with seven bots, opens real packs recorded by 17Lands, and has each pick graded the moment it is made: every card in the pack bordered as solid, questionable or mistake. Finished drafts are saved, can be redrafted from pick 1 as a controlled experiment, and can be sent to Draft Review. Prototyped in DraftDouble (ADRs 0019–0021).
+**Practice Draft.** A signed-in user sits at a table with seven bots, opens real packs recorded by 17Lands, and has each pick graded the moment it is made: every card in the pack bordered as solid, questionable or mistake, and a Pick Note written live for each Noted Pick. Finished drafts are saved, can be redrafted from pick 1 as a controlled experiment, and can be sent to Draft Review. Prototyped in DraftDouble (ADRs 0019–0021).
 
 ### After launch: Deck Review
 
-**Deck Review.** The user supplies a deck plus sideboard (pulled from a 17Lands draft, or typed/pasted as text). The app critiques the build — curve, colors, land count, creature/removal balance, archetype coherence — and proposes specific swaps between maindeck and sideboard. Postponed from v1 by ADR 0022; it is Phase 10.
+**Deck Review.** The user supplies a deck plus sideboard (pulled from a 17Lands draft, or typed/pasted as text). The app critiques the build — curve, colors, land count, creature/removal balance, archetype coherence — and proposes specific swaps between maindeck and sideboard. Postponed from v1 by ADR 0022; it is Phase 10. Part of it comes into v1 through ADR 0025: deck building from a draft's pool, Deck Ratings and the Draft Summary's critique of the deck. The ranked swaps and pasted decklists stay in Phase 10.
 
 ### Explicit non-goals for v1
 
 Naming these now stops scope creep later.
 
 - **No live draft assistant.** No MTGA log watching, no real-time pick suggestions during a draft. That is a desktop-overlay problem, not a web-app problem. (Practice Draft does not change this: its drafts happen inside BoosterTutor, against bots, and grade each pick only after it is made.)
-- **No Deck Review in v1.** It is postponed until after launch (ADR 0022, Phase 10). v1 is Draft Review and Practice Draft.
+- **No Deck Review in v1.** It is postponed until after launch (ADR 0022, Phase 10). v1 is Draft Review and Practice Draft. A draft's own deck is still built and rated in v1 (ADR 0025), but there are no swap suggestions and no pasted decklists.
 - **No Constructed.** Limited only.
 - **No cube, no Chaos draft, no custom sets.** Only sets 17Lands publishes data for.
 - **No social layer.** No comments, follows, or public feeds. Saved history is private to the user.
-- **No payments.** If costs become a problem, we gate usage with rate limits, not billing.
+- **No payments.** If costs become a problem, we gate usage with rate limits and a daily spending cap, not billing (ADR 0027). Selling extra reviews is a possible revenue source after v1.
 
 ### Who it is for
 
@@ -82,7 +82,7 @@ flowchart TD
 | Database | Postgres, hosted on Supabase | Relational data with real joins. Supabase gives you Postgres *and* authentication in one free project, which removes a whole subsystem you would otherwise have to build. |
 | Auth | Supabase Auth (email + Google) | You wanted accounts and saved history. Rolling your own auth is the classic beginner trap — password hashing, session fixation, reset-token expiry, email deliverability. Use a provider. |
 | ORM / migrations | SQLAlchemy 2.0 + Alembic | The standard. Alembic gives you versioned schema changes so your database and your code never drift apart. |
-| LLM | Claude API — `claude-sonnet-5` primary, `claude-haiku-4-5-20251001` for cheap paths | Sonnet 5 is the speed/capability sweet spot at $2/$10 per million tokens in/out. Haiku 4.5 ($1/$5) for simple classification jobs. |
+| LLM | Claude API — `claude-haiku-5-5` for Pick Notes, `claude-sonnet-5-5` for the Draft Summary | Haiku 5.5 ($0.10/$0.50 per million tokens in/out) writes the many short notes; Sonnet 5.5 ($2/$10) writes the one longer review per draft (ADR 0024). |
 | Frontend hosting | Vercel | First-class SvelteKit support, deploys on `git push`, free tier is fine. |
 | Backend hosting | Render | Simplest Git-connected Python hosting. Note the free tier sleeps after inactivity — a cold start adds ~30–50s to the first request. Budget ~$7/month for the paid tier before you show it to anyone. |
 | Scheduled jobs | GitHub Actions cron | Free, version-controlled alongside the code, no extra service to run. Ingestion is a nightly batch job, not a long-running worker. |
@@ -156,7 +156,7 @@ BoosterTutor/
 | 1 | Walking skeleton, deployed | 2–3 sessions | Complete |
 | 2 | Data layer: schema + ingestion | 4–6 sessions | Nearly done: the empty-database migration check remains |
 | 3 | Parsers and the analysis engine | 4–6 sessions | Complete (Arena input deferred) |
-| 4 | The LLM layer | 3–4 sessions | Not started |
+| 4 | The LLM layer and deck analysis (4a Pick Notes, 4b deck analysis, 4c Draft Summary) | 7–10 sessions | Not started |
 | 5 | Draft Review, end to end | 4–5 sessions | Not started |
 | 6 | Accounts and saved history | 3–4 sessions | Not started |
 | 7 | Practice Draft, end to end | 5–7 sessions | Not started |
@@ -565,67 +565,54 @@ This module is where correctness is invisible until it is embarrassing, so:
 
 ---
 
-## Phase 4 — The LLM layer
+## Phase 4 — The LLM layer and deck analysis
 
-Goal: a module that takes a `DraftAnalysis` and returns structured, well-written coaching — reliably, cheaply, and testably.
+Goal: Pick Notes, Deck Ratings and the Draft Summary as tested modules, with evals and cost logging, and no user-facing endpoint. Phase 5 adds the endpoints, and Phase 6 the user gate (ADR 0021).
 
-### 4.1 The shape of a call
+**Designed on 2026-10-15** in ADRs 0024 (Pick Notes and the Draft Summary), 0025 (the Submitted Deck), 0026 (Deck Ratings) and 0027 (rate limits and the spending cap). This section replaces the plan of 2026-08-24, which expected a blurb for every pick from three per-pack calls. The terms (Noted Pick, Narrow Pick, Pick Note, Draft Summary, Submitted Deck, Reviewed Deck, Deck Rating, Colour Source, Fixer) are in `CONTEXT.md`.
 
-Three parts, in this order, and the order matters for cost:
+What Claude writes:
 
-1. **System prompt** — the coach's persona, the Limited principles it reasons from, the vocabulary (GIH WR, ALSA, IWD, "on-colour", "signal", "wheel"), and the rules of engagement: *use only the numbers provided; never invent a statistic; if data is missing say so.* This is static, so mark it for **prompt caching** (`cache_control: {"type": "ephemeral"}`) and you stop paying full price for it on every request.
-2. **Format primer** — a compact per-set brief: the archetypes and their win rates, the top commons, the format's speed. Generated by Python from `archetype_stats`, changes daily at most, so it caches too.
-3. **The brief** — the compact JSON of computed facts for *this* draft or deck. The only part that varies per request.
+- **A Pick Note** for each Noted Pick (`questionable`, `mistake` or a Narrow Pick), one Claude Haiku 5.5 call per note. It uses only what was known at the moment of the pick.
+- **A Draft Summary** for each Reviewed Deck, one Claude Sonnet 5.5 call. It is written with hindsight, covering the draft and the deck built from it.
 
-### 4.2 Batching the picks
+Built in three steps, in order. Each is useful on its own.
 
-Do not make one API call per pick. That is 42 or 45 times the fixed prompt overhead, as many round trips, and a review that takes a minute and a half.
+### 4a — Pick Notes
 
-**One call per pack — three calls, run concurrently.** Each gets the system prompt (cached), the format primer (cached), the pool state entering that pack, and that pack's 14 or 15 pick briefs. The model sees a whole pack's arc at once, which is exactly the context needed to say "you were right to take the removal here, but that means pick 6 should have been the pivot." Then a fourth, small call summarizes the draft as a whole — biggest mistake, best pick, one lesson to carry into the next draft.
+- The `anthropic` SDK dependency, and the API key in `api/.env` and on Render (Jackson adds it).
+- **`llm_calls`**: model, prompt version, purpose, input, cache-read, cache-write and output tokens, cost, latency, status and a nullable `user_id` (nullable for eval and CLI runs only). One Alembic migration.
+- **The daily spending cap** (ADR 0027), read from `llm_calls`.
+- **Narrow Pick detection** in `analysis/`, with `narrow_pick_min_cards` and `narrow_pick_min_questionable` in `FitnessConfig`.
+- **`briefing/`**, pure: `DraftAnalysis` plus card facts → the brief for one pick. Every number is pre-formatted as display text. Oracle text is included only for the card taken and the best card (plus the next two for a Narrow Pick). A thin I/O loader supplies the card facts.
+- **`docs/prompts/pick_note.v1.md`**, with about three few-shot examples written by Jackson. The instructions and examples form one cached block with the 1-hour lifetime, and the brief comes after it.
+- Structured output through `messages.parse()`, retried once on a validation failure.
+- A CLI script that writes the notes for a stored draft.
+- **The eval harness**: the noted picks from HOB and a second draft. It asserts the JSON validates, every number in the output appears in the brief, notes stay under their length cap, and the cached block is byte-identical across drafts.
 
-Return JSON, and enforce it with a schema rather than hoping. The reliable way is **tool use**: define a tool whose input schema is your desired output shape, and let the model "call" it. Check the current API docs for a first-class structured-output option on your model and prefer it if available. Either way, validate the response against a Pydantic model and retry once on a validation failure.
+### 4b — Deck analysis (pure `analysis/`)
 
-Target output per pick: a `verdict` (echoing the verdict Python computed, so the prose and the label can never disagree), 1–3 sentences of blurb, an optional `better_pick` oracle_id, and an optional `principle` tag (`signal-reading`, `curve`, `colour-commitment`, `card-quality`, `speculation`).
+- A `Deck` input: exactly 40 cards, from the pool plus basics (ADR 0025).
+- The six metrics of ADR 0026: card quality, curve, synergy, creatures and removal, Colour Sources against Karsten's 40-card pip requirements, and at most one notable omission.
+- Fixer tags in each set's taxonomy. Which cards count, and how, is designed before this is built.
+- **Deck Ratings**: an ingest step scores the game dump's 40-card decks, fits percentile tables and a per-format logistic regression of win on the metrics, and stores them in a new table (confirm the schema first).
 
-### 4.3 Making the writing good
+### 4c — The Draft Summary
 
-Most of the quality difference between a boring coach and one people come back to is in the prompt, and it comes from three things:
+- **`docs/prompts/draft_summary.v1.md`**, Claude Sonnet 5.5 at `low` effort. Cached block 1 holds the instructions and few-shot examples. Cached block 2 holds the format primer, built from `archetype_stats`. The draft's facts come last: the pick record, the wheels, the Reviewed Deck and its ratings.
+- Evals against a fixture deck that Jackson builds from the HOB pool.
 
-- **Concrete over generic.** Ban sentences that would be true of any pick. "This is a solid playable" is worthless. "Taking the 2-drop over the removal spell here cost about 3 points of win rate, and the removal wheeling at pick 12 proved black was open" is coaching.
-- **Vary the shape.** Forty-odd paragraphs of identical structure read like a spreadsheet. Instruct explicitly: most picks get one sentence, only genuinely interesting ones get three, and obvious picks can be acknowledged in six words.
-- **Honest, not harsh, not soft.** A mistake should be named as a mistake, with the reason. Give it two or three few-shot examples in the system prompt showing the exact register you want — this does more than any amount of adjectives about tone.
+### Cost
 
-### 4.4 Cost control
-
-Rough arithmetic at Sonnet 5 pricing ($2 per million input, $10 per million output), assuming ~30k input tokens and ~3k output tokens for a full 42-pick review:
-
-- **Draft Review: roughly $0.05–$0.15 per review**
-
-Cheap individually, real in aggregate — a hundred reviews a day is somewhere around $10/day. Controls, in order of importance:
-
-1. **Cache reviews.** Hash `(input, prompt_version, data_snapshot_date)`. Identical request, identical answer, zero cost. Draft IDs are re-submitted more than you would guess.
-2. **Prompt caching** on the system prompt and format primer — a large fraction of your input tokens are the same every time.
-3. **Rate limit per user** — e.g. 10 reviews per day for signed-in users. Enforce in the backend, not the UI. Anonymous visitors never reach Claude at all (ADR 0021): their reviews are the Python output only, so the only anonymous limit is an IP-keyed one that protects the database and the CPU, not the Claude budget.
-4. **Model routing** — Haiku 4.5 for the cheap structured jobs (card-name fuzzy resolution). Sonnet 5 for the actual coaching.
-5. **The Batch API** (50% discount, asynchronous) for anything not user-facing, such as regenerating every stored review after a prompt change.
-6. **Log every call** — model, input tokens, output tokens, computed cost, latency, endpoint — into an `llm_calls` table. You cannot control a cost you cannot see.
-
-### 4.5 Evaluating quality
-
-Prompts regress silently. Build a small harness now:
-
-- Ten fixture picks you have graded yourself, including three obvious mistakes and two "looks wrong but is actually right" cases.
-- A script that runs the current prompt over them and asserts: the flagged mistakes are flagged, no statistic appears that is not in the input brief, JSON validates, and blurbs stay under the length cap.
-- Version prompts as files in `docs/prompts/` (`draft_review.v1.md`), store the version on every saved review, and never edit a prompt in place — create the next version.
-
-The "no invented statistic" check is the important one and it is mechanically testable: extract every number from the output and assert each appears in the input brief.
+A Pick Note is about 1k tokens of brief after the cached block, around $0.0003 on Claude Haiku 5.5. A Draft Summary is about 3–5k tokens on Claude Sonnet 5.5, a few cents. Cached reads cost about a tenth of the normal input price. Reviews of the same draft are never paid for twice: notes and summaries are stored (ADR 0024 §8), and only the first Submitted Deck gets a summary. Use the Batch API (50% off) for anything not user-facing, such as regenerating stored prose after a prompt change.
 
 ### Done when
 
-- [ ] A full review (42 or 45 picks) returns validated JSON in under ~20 seconds
-- [ ] Prompt caching is on and visible in the usage numbers
-- [ ] The eval harness passes, including the invented-statistic check
-- [ ] `llm_calls` records cost per request; you can state your cost per review from data
+- [ ] `llm_calls` and the spending cap exist, and cost per note and per summary can be stated from data
+- [ ] Prompt caching is on, and cache reads show in `llm_calls`
+- [ ] The eval harness passes for both prompts, including the invented-statistic check
+- [ ] Deck Ratings are fitted for HOB and MSH from the game dump, and an unfitted format reads "not enough data to rate"
+- [ ] A Draft Summary for the HOB fixture deck returns validated JSON
 
 ---
 
@@ -640,12 +627,16 @@ Goal: the feature, live.
 - `GET /api/drafts/{id}` — returns the draft with its review, or the job status if still running.
 - The frontend polls every 1.5 seconds. Polling is unfashionable and completely adequate here; do not build websockets for this.
 - Cache on input hash before doing any work.
+- Pick Notes are written lazily: `POST /api/drafts/{id}/picks/{n}/note` writes a Noted Pick's note the first time it is opened, then stores it (ADR 0024).
+- `POST /api/drafts/{id}/deck` accepts a 40-card Submitted Deck and returns its Deck Ratings. The first submission also runs the Draft Summary (ADR 0025).
 
 ### 5.2 Frontend
 
-The page is a vertical timeline of every pick, grouped into three packs. For each pick: the card taken, the notable alternatives with their win rates, the verdict as a colored chip, and the blurb. Card images from Scryfall URLs stored in `card_prints`, lazy-loaded — 42 picks of up to 14 cards each is a lot of images if you are careless, so show the pack contents only on expand.
+The page is a vertical timeline of every pick, grouped into three packs. For each pick: the card taken, the notable alternatives with their win rates, and the verdict as a colored chip. Each Noted Pick carries a speech-bubble marker, and opening it shows its Pick Note. Card images from Scryfall URLs stored in `card_prints`, lazy-loaded — 42 picks of up to 14 cards each is a lot of images if you are careless, so show the pack contents only on expand.
 
-Above the timeline, a summary: final record if known, the archetype landed in, the count of picks by verdict, and the model's overall takeaway.
+Above the timeline, a summary: final record if known, the archetype landed in, and the count of picks by verdict.
+
+Below the timeline, the deck builder (ADR 0025), headed "Submit your final deck for a full Draft Review": the pool, five basic-land buttons to its left, double-click to move a card between deck and sideboard, a live "37 / 40" count, and an "are you sure" confirmation on submit. After submitting: the Deck Ratings, and, for the first deck, the Draft Summary. While Claude writes, show a loading state (the wizard-and-thought-cloud animation is planned, but functionality comes first).
 
 Details that make it feel finished: a skeleton loading state with real progress ("analyzing pack 2 of 3"), keyboard navigation between picks, a shareable read-only URL, and a clear empty/error state for a private or malformed draft.
 
@@ -655,7 +646,9 @@ Run your own drafts through it — ones where you already know what you did wron
 
 ### Done when
 
-- [ ] Paste a 17Lands draft link, get a full review within ~20s, on the live site
+- [ ] Paste a 17Lands draft link and get the verdicts within seconds, on the live site
+- [ ] Opening a Noted Pick writes and stores its Pick Note
+- [ ] Submitting a 40-card deck returns Deck Ratings, and the first submission a Draft Summary
 - [ ] Pasted MTGA log text works identically
 - [ ] Every number shown traces back to the database
 - [ ] Errors are handled: bad input, private draft, unsupported set, upstream failure
@@ -669,9 +662,10 @@ Goal: sign in, and your reviews are still there tomorrow.
 
 - **Supabase Auth** with email magic-link and Google OAuth. Use `@supabase/ssr` in SvelteKit so the session lives in an HTTP-only cookie and is available in `+layout.server.ts` and in `hooks.server.ts`.
 - SvelteKit passes the Supabase **JWT** to the FastAPI backend as a `Authorization: Bearer <token>` header. FastAPI verifies it against Supabase's JWKS (`python-jose` or `pyjwt` with the JWKS URL) and extracts the user ID. **Verify the signature on the backend.** A user ID sent in a request body, or a token that is decoded without verification, is not authentication — it is an invitation.
-- **Without an account, no Claude** (ADR 0021). An anonymous visitor can run Draft Review, but gets only the Python output: every verdict, fitness class and score, with no written critique. Nothing anonymous is saved. Signed in, the written critique, saved history and Practice Draft are all available.
+- **Without an account, no Claude** (ADR 0021). An anonymous visitor can run Draft Review, but gets only the Python output: every verdict, fitness class and score, the Noted Pick markers, the deck builder and Deck Ratings, with no Pick Notes or Draft Summary (ADR 0025). Nothing anonymous is saved. Signed in, the written critique, saved history and Practice Draft are all available.
 - Schema: `users` (mirrors the Supabase auth user with app-specific fields), and `user_id` foreign keys on `drafts` and their reviews (and, from Phase 7, `practice_drafts`). `user_id` is `NOT NULL`: only signed-in users' reviews are ever stored.
 - Authorization: every read of a saved review checks ownership, unless the review has been explicitly shared. Write this check once, in a dependency, and use it everywhere — this is the single most common place a hobby app leaks other people's data.
+- Rate limits (ADR 0027): 10 drafts per user per day, each counted at its first Claude call. A user out of drafts still gets every Claude-free feature.
 - History page: list of past reviews with set, date, archetype, and record; filterable by set.
 - There is no anonymous-to-signed-in claim flow. ADR 0021 dropped it: an anonymous review is never stored, so there is nothing to claim.
 
@@ -724,9 +718,11 @@ The routes are DraftDouble's `server/app.py`, behind the Phase 6 auth dependency
 
 Port DraftDouble's `practice/` app into `web/src/routes/practice/`: the pick screen (a bordered pack, all-at-once image loading, graded borders with ✓ ~ ✗ symbols, right-click zoom), the pool grid (mana-value columns plus a sideboard, dragging and double-click), the finished screen with every bot's pool, and redraft trees on the history page.
 
+Pick Notes are live (ADR 0024): on a Noted Pick, the control to advance to the next pick stays disabled until the note arrives, or until one retry or 15 seconds have passed, after which the pick shows "note unavailable" with a retry button.
+
 ### 7.6 Draft Review of a practice draft
 
-"Review this draft" runs the Phase 5 pipeline on demand, never automatically. A practice draft's document has the same shape as a parsed 17Lands draft, so the pipeline needs no new input format. It must grade against the draft's own stats snapshot, not today's figures, so the written review agrees with the borders the user saw (ADR 0020).
+When the last pick is made, the deck builder opens (ADR 0025), and submitting runs the Phase 5 pipeline: the Pick Notes already exist, so only the Deck Ratings and the Draft Summary are new. A practice draft's document has the same shape as a parsed 17Lands draft, so the pipeline needs no new input format. It must grade against the draft's own stats snapshot, not today's figures, so the written review agrees with the borders the user saw (ADR 0020).
 
 ### Done when
 
@@ -734,7 +730,8 @@ Port DraftDouble's `practice/` app into `web/src/routes/practice/`: the pick scr
 - [ ] A redraft with identical picks reproduces every bot pick, verified by a test
 - [ ] Verdicts on a stored draft are unchanged after the nightly refresh, verified by a test
 - [ ] Requesting another user's practice draft returns 404, verified by a test
-- [ ] "Review this draft" produces a Draft Review graded against the draft's own snapshot
+- [ ] Noted Picks get a live Pick Note without ever freezing the draft
+- [ ] Submitting a deck after the last pick produces a Draft Review graded against the draft's own snapshot
 - [ ] No pack's fitness reaches the browser before it has been picked from
 
 ---
@@ -786,7 +783,7 @@ Goal: it does not fall over, and when it does you find out before your users tel
 
 Goal: the user supplies a deck plus sideboard and gets a build critique with ranked swap suggestions.
 
-**Postponed from v1 by ADR 0022. Do not start before Phase 9 is done.** Much of what it needs already exists by then: the card data and statistics (Phase 2), the LLM layer (Phase 4), accounts (Phase 6) and, from Practice Draft (Phase 7), pools already split into a deck and a sideboard by the pool grid. A practice draft's stored record has the same shape as a parsed 17Lands draft, so a practice draft can feed Deck Review without a new input format.
+**Postponed from v1 by ADR 0022. Do not start before Phase 9 is done.** Much of what it needs already exists by then: the card data and statistics (Phase 2), the LLM layer, the deck metrics and Deck Ratings (Phase 4), the deck builder (Phases 5 and 7), accounts (Phase 6) and, from Practice Draft (Phase 7), pools already split into a deck and a sideboard by the pool grid. A practice draft's stored record has the same shape as a parsed 17Lands draft, so a practice draft can feed Deck Review without a new input format.
 
 ### 10.1 Inputs
 
@@ -821,6 +818,8 @@ Cost: roughly $0.02–$0.05 per review at the §4.4 prices.
 ---
 
 ## Appendix A — Prompt sketch (Draft Review)
+
+*Superseded in its details by ADR 0024: one Pick Note per Noted Pick plus a Draft Summary, not a blurb for every pick. Kept as the original sketch of the rules of engagement.*
 
 ```
 SYSTEM  (cached)
@@ -858,7 +857,7 @@ USER  (per pack)
 | Vercel (hobby) | $0 |
 | Render (starter) | ~$7 |
 | Supabase (free tier) | $0 |
-| Claude API | Usage-based; ~$0.10/draft review |
+| Claude API | Usage-based; a few cents per draft review (ADR 0024) |
 | Sentry, Plausible | $0–$9 |
 
 Roughly **$10–$20/month plus API usage** at small scale. Keep the Anthropic spend limit set.
