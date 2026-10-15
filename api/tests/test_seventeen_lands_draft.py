@@ -246,7 +246,7 @@ def _log(picks: list[Pick]) -> DraftLog:
         set_code="hob",
         event_type="PremierDraft",
         drafted_at=None,
-        source="mtgo",
+        source="arena",
         picks=picks,
     )
 

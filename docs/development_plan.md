@@ -1,6 +1,6 @@
 # BoosterTutor — Development Plan
 
-**Version:** 1.2 · **Written:** 2026-08-24 · **Revised:** 2026-10-14 (17Lands draft links, ADR 0023; §3.3 points to the grading ADRs) · 2026-10-13 (v1 is Draft Review + Practice Draft and Deck Review moves after launch, ADR 0022; Phase 6 amended by ADR 0021; pick counts no longer assume 45) · **Owner:** Jackson
+**Version:** 1.2 · **Written:** 2026-08-24 · **Revised:** 2026-10-15 (MTGO input dropped for v1) · 2026-10-14 (17Lands draft links, ADR 0023; §3.3 points to the grading ADRs) · 2026-10-13 (v1 is Draft Review + Practice Draft and Deck Review moves after launch, ADR 0022; Phase 6 amended by ADR 0021; pick counts no longer assume 45) · **Owner:** Jackson
 
 This is the working plan for building BoosterTutor from an empty folder to a live web app. It is written for someone who has not built a web app before, so it errs on the side of explaining *why* as well as *what*. Work through it in order. Each phase ends with a **Done when** checklist — do not move to the next phase until every box is ticked.
 
@@ -496,7 +496,7 @@ Support these, in this order:
 
 1. **17Lands draft ID or URL** — the user pastes a link to their draft. *(ADR 0023: the replay comes from `17lands.com/data/draft` and `data/event_metadata`, fetched once per draft when its owner submits it. DraftDouble confirmed the endpoints on 2026-09-18; no login is needed, and an unknown ID is a clean 404.)* You extract the ID and fetch the pick-by-pick data. Confirm what is publicly retrievable using the same Network-tab method from 2.3, and confirm whether the draft's owner must have made it public. Design the UI to fail clearly ("that draft is private or not found") rather than mysteriously.
 2. **Pasted MTGA draft log** — the section of Arena's `Player.log` covering a draft. Text, parseable, no network needed. Build this one first: it is fully under your control and makes a perfect test fixture.
-3. **MTGO draft log text** — the classic `--------Pack 1 pick 1:--------` format. Cheap to add once the canonical model exists.
+3. ~~**MTGO draft log text**~~ — **dropped for v1** (2026-10-15). Arena is where BoosterTutor's users draft, and the 17Lands link and Arena log cover them. The canonical model means it can still be added later as one function returning `DraftLog`.
 
 ### 3.2 The canonical model
 
@@ -557,7 +557,7 @@ This module is where correctness is invisible until it is embarrassing, so:
 
 ### Done when
 
-- [ ] All three draft input formats parse into the canonical model
+- [ ] Both draft input formats (17Lands link, Arena `Player.log`) parse into the canonical model; MTGO was dropped for v1
 - [x] `analyze_draft(DraftLog) -> DraftAnalysis` returns full metrics for every pick (42 or 45) with no network calls beyond the database
 - [x] Wheel analysis correctly identifies which cards wheeled in a fixture you verified by hand
 - [x] Golden-file tests pass; `pytest` runs green in CI
