@@ -1,6 +1,6 @@
 """The canonical draft (development plan 3.2).
 
-Every input format (a 17Lands draft link, an Arena `Player.log`, an MTGO log)
+Every input format (a 17Lands draft link, an Arena `Player.log`)
 is converted into a `DraftLog`, and everything downstream sees only this
 shape. Adding a format means writing one function that returns a `DraftLog`.
 
@@ -36,7 +36,7 @@ class DraftLog(BaseModel):
     drafted_at: dt.datetime | None
     # Where the log came from, and its id there when it has one (a 17Lands
     # draft id). Used to recognise a draft that has been reviewed before.
-    source: Literal["17lands", "arena", "mtgo"]
+    source: Literal["17lands", "arena"]
     source_id: str | None = None
     # The event's final record, when the source knows it.
     wins: int | None = None

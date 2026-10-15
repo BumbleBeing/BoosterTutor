@@ -51,7 +51,7 @@ def _nine_card_draft(returned: int = 104) -> DraftLog:
         set_code="hob",
         event_type="PremierDraft",
         drafted_at=None,
-        source="mtgo",
+        source="arena",
         picks=picks,
     )
 
