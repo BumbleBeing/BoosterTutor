@@ -25,6 +25,20 @@ class FetchError(RuntimeError):
     """Raised when a download fails after exhausting its retries."""
 
 
+class UpstreamMissing(FetchError):
+    """The file is not there (HTTP 403 or 404): an answer, not a failure.
+
+    17Lands' S3 bucket answers 403 for a dump it has not published yet, so a
+    set too new for data gets this rather than a network error.
+    """
+
+
+def _http_error(url: str, exc: urllib.error.HTTPError) -> FetchError:
+    if exc.code in (403, 404):
+        return UpstreamMissing(f"{url} answered HTTP {exc.code}")
+    return FetchError(f"{url} answered HTTP {exc.code}")
+
+
 def _request(url: str) -> urllib.request.Request:
     # Both headers are required, not merely polite: api.scryfall.com answers a
     # request with no Accept header with a 400. urllib sends no Accept at all
@@ -115,7 +129,7 @@ def fetch_gzip_first_line(url: str) -> str:
         ):
             return unzipped.readline().decode("utf-8").rstrip("\r\n")
     except urllib.error.HTTPError as exc:
-        raise FetchError(f"{url} answered HTTP {exc.code}") from exc
+        raise _http_error(url, exc) from exc
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         raise FetchError(f"failed to fetch {url}: {exc}") from exc
 
@@ -132,7 +146,7 @@ def fetch_last_modified(url: str) -> dt.datetime | None:
         with urllib.request.urlopen(request, timeout=60) as response:
             header = response.headers.get("Last-Modified")
     except urllib.error.HTTPError as exc:
-        raise FetchError(f"{url} answered HTTP {exc.code}") from exc
+        raise _http_error(url, exc) from exc
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         raise FetchError(f"failed to reach {url}: {exc}") from exc
     return email.utils.parsedate_to_datetime(header) if header else None

@@ -50,7 +50,8 @@ from ..models import (
     CardSet,
     IngestRun,
 )
-from .fetching import FetchError, fetch_last_modified, fetch_to_file
+from .fetching import UpstreamMissing, fetch_last_modified, fetch_to_file
+from .runs import RunRecord, recorded_run
 
 S3_BASE = "https://17lands-public.s3.amazonaws.com/analysis_data"
 SOURCE = "17lands"
@@ -454,27 +455,48 @@ def load_set(
     force: bool = False,
     report: Callable[[str], None] = print,
 ) -> dict[str, Any]:
-    """Ingest one set and format. Returns a summary."""
+    """Ingest one set and format, recorded in `ingest_runs`. Returns a summary."""
+    with recorded_run(session, SOURCE, f"{set_code}:{event_type}") as record:
+        return _load_set(session, record, set_code, event_type, force, report)
+
+
+def _load_set(
+    session: Session,
+    record: RunRecord,
+    set_code: str,
+    event_type: str,
+    force: bool,
+    report: Callable[[str], None],
+) -> dict[str, Any]:
     tag = f"[17lands] {set_code} {event_type}"
-    scope = f"{set_code}:{event_type}"
+    scope = record.scope
     game_url, draft_url = (
         game_data_url(set_code, event_type),
         draft_data_url(set_code, event_type),
     )
+    record.source_url = f"{draft_url} + {game_url}"
     try:
         upstream = fetch_last_modified(game_url)
-    except FetchError as exc:
+    except UpstreamMissing as exc:
+        # Not a failure: 17Lands has not published this set's game dump yet.
         report(f"{tag}: no public dataset yet ({exc})")
+        record.status, record.notes = "skipped", "no public game dump yet"
         return {"set": set_code, "skipped": True, "reason": "no dataset"}
+    record.upstream_updated_at = upstream
 
     last = session.scalar(
         select(IngestRun.upstream_updated_at)
-        .where(IngestRun.source == SOURCE, IngestRun.scope == scope)
-        .order_by(IngestRun.ran_at.desc())
+        .where(
+            IngestRun.source == SOURCE,
+            IngestRun.scope == scope,
+            IngestRun.status == "succeeded",
+        )
+        .order_by(IngestRun.started_at.desc())
         .limit(1)
     )
     if should_skip(last, upstream, force=force):
         report(f"{tag}: unchanged since the last run ({upstream}); nothing to do")
+        record.status = "skipped"
         return {"set": set_code, "skipped": True, "reason": "unchanged"}
 
     snapshot = (upstream or dt.datetime.now(dt.UTC)).astimezone(dt.UTC).date()
@@ -527,21 +549,13 @@ def load_set(
     _insert(session, CardDraftStats, cards)
     _insert(session, CardArchetypeStats, archetype_cards)
     _insert(session, ArchetypeStats, archetype_rows)
-    session.add(
-        IngestRun(
-            source=SOURCE,
-            source_url=f"{draft_url} + {game_url}",
-            upstream_updated_at=upstream,
-            scope=scope,
-            row_count=len(cards) + len(archetype_cards) + len(archetype_rows),
-            notes=(
-                f"snapshot {snapshot}: {len(cards)} cards, {len(archetype_cards)} card-archetype rows, "
-                f"{len(archetype_rows)} archetypes; {len(unmatched)} names unmatched"
-                + (f": {', '.join(unmatched[:10])}" if unmatched else "")
-            ),
-        )
+    record.row_count = len(cards) + len(archetype_cards) + len(archetype_rows)
+    record.notes = (
+        f"snapshot {snapshot}: {len(cards)} cards, {len(archetype_cards)} card-archetype rows, "
+        f"{len(archetype_rows)} archetypes; {len(unmatched)} names unmatched"
+        + (f": {', '.join(unmatched[:10])}" if unmatched else "")
     )
-    session.commit()
+    # recorded_run commits the data and this run's row together.
     report(
         f"{tag}: snapshot {snapshot}: {len(cards)} cards, {len(archetype_cards)} card-archetype rows, "
         f"{len(archetype_rows)} archetypes, {len(unmatched)} names unmatched"
@@ -563,9 +577,26 @@ def load(
     force: bool = False,
     report: Callable[[str], None] = print,
 ) -> list[dict[str, Any]]:
-    """Ingest each set in turn; one set's failure to have data skips only that set."""
+    """Ingest each set in turn.
+
+    One set failing does not stop the others: its failure is already
+    recorded in `ingest_runs`, and the rest still get their chance. The run
+    as a whole then raises, so the nightly Action is marked failed.
+    """
     codes = [c.lower() for c in set_codes] if set_codes else default_sets(session)
-    return [
-        load_set(session, code, event_type=event_type, force=force, report=report)
-        for code in codes
-    ]
+    results, failed = [], []
+    for code in codes:
+        try:
+            results.append(
+                load_set(
+                    session, code, event_type=event_type, force=force, report=report
+                )
+            )
+        except Exception as exc:  # noqa: BLE001 -- recorded by load_set, reported here, raised below
+            report(f"[17lands] {code} {event_type}: FAILED: {exc}")
+            failed.append(code)
+    if failed:
+        raise RuntimeError(
+            f"17Lands ingest failed for {', '.join(failed)}; see ingest_runs"
+        )
+    return results

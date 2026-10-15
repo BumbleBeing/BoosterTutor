@@ -345,7 +345,10 @@ def test_ingest_runs_record_source_freshness_and_scope() -> None:
     assert set(table.columns.keys()) == {
         "id",
         "source",
-        "ran_at",
+        "started_at",
+        "finished_at",
+        "status",
+        "error",
         "source_url",
         "upstream_updated_at",
         "scope",
