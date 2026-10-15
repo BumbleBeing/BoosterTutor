@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     user_agent: str = "BoosterTutor/0.1 (+https://github.com/BumbleBeing/BoosterTutor; jackowen@gmail.com)"
     # Downloaded upstream files. `data/raw/` is gitignored.
     raw_data_dir: Path = Path(__file__).resolve().parents[2] / "data" / "raw"
+    # The hand-authored tag taxonomy, one JSON file per set. Git-tracked: it is
+    # the system of record, and the database tables are loaded from it.
+    taxonomy_dir: Path = Path(__file__).resolve().parents[2] / "data" / "taxonomy"
 
     @property
     def sqlalchemy_url(self) -> str:
