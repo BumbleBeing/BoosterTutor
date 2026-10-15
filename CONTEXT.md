@@ -135,11 +135,58 @@ it, on the finding that what drafters believe adds nothing to what the win
 rate says is true.
 _Avoid_: pick order, average pick, ATA
 
-**Relevant Pick**:
-A pick that earns a written explanation: its verdict is `mistake`. All other
-picks are stated, not explained, and a draft with none at all is a good
-draft. See ADR 0008.
-_Avoid_: interesting pick, flagged pick, bad pick
+**Noted Pick**:
+A pick that earns a Pick Note: its verdict is `questionable` or `mistake`,
+or it is a Narrow Pick. All other picks are stated, not explained, and a
+draft with none at all is a valid outcome. See ADR 0024, which replaced the
+mistakes-only Relevant Pick of ADR 0008.
+_Avoid_: relevant pick, interesting pick, flagged pick
+
+**Narrow Pick**:
+A pick where the pack held at least eight distinct cards, exactly one of
+them `solid` and at least two `questionable`, and the drafter took the
+`solid` one: there was one right answer among tempting alternatives, and
+the drafter found it. Earns a positive Pick Note. See ADR 0024.
+_Avoid_: standout pick, good pick, great pick
+
+### Coaching
+
+**Pick Note**:
+Claude's written explanation of one Noted Pick, using only what was known
+at the moment of the pick. Once shown, it never changes. See ADR 0024.
+_Avoid_: blurb, comment, note (alone)
+
+**Draft Summary**:
+Claude's review of a whole draft and its Reviewed Deck, written with
+hindsight: the colour arc, what wheeled, the deck's ratings and the lesson
+to carry forward. See ADR 0024.
+_Avoid_: overall note, recap, summary note
+
+**Submitted Deck**:
+A 40-card deck a drafter builds from their pool and submits after the
+draft. A later submission replaces the current one. See ADR 0025.
+_Avoid_: final deck, build, list
+
+**Reviewed Deck**:
+The first Submitted Deck for a draft, the only one a Draft Summary
+describes. Later Submitted Decks get Deck Ratings only. See ADR 0025.
+_Avoid_: original deck, first build
+
+**Deck Rating**:
+A letter grade for a Submitted Deck, overall or for one metric, set by
+where the deck falls among real decks from the same format. Relative to
+17Lands players, not to all players. See ADR 0026.
+_Avoid_: deck score, deck grade
+
+**Colour Source**:
+A card that can produce a colour of mana for a deck: a land that taps for
+it, or a Fixer. Counted against the deck's pip requirements. See ADR 0026.
+_Avoid_: mana source, colour producer
+
+**Fixer**:
+A non-land card tagged by hand as producing coloured mana, such as a
+mana creature or a Treasure maker. See ADR 0026.
+_Avoid_: ramp, mana fixing (as a noun for a card)
 
 ### Tags
 
