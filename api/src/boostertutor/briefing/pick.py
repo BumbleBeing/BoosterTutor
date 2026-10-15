@@ -33,7 +33,7 @@ NoteKind = Literal["critical", "narrow"]
 # removal scarcity alone since ADR 0018, so the brief calls it that.
 PARTS = (
     ("gih_wr", "GIH WR"),
-    ("color_fit", "colour fit"),
+    ("color_fit", "color fit"),
     ("curve", "curve"),
     ("role", "removal"),
     ("synergy", "synergy"),
@@ -178,7 +178,7 @@ def _pool(
         f"Pool before this pick: {pool.size} cards, in pick order:",
         # Semicolons, because card names have commas: "Bofur, Reliable Guardian".
         f"  {'; '.join(names)}",
-        f"  Colours (cards of each colour, lands left out): {colours}",
+        f"  Colors (cards of each color, lands left out): {colours}",
         f"  Curve (non-land cards by mana value): {curve}",
         f"  Creatures {pool.creatures}, removal {pool.removal}",
         f"  Leading pair: {pool.predicted_archetype or 'none yet'}",

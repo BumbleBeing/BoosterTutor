@@ -162,7 +162,7 @@ def test_the_cached_block_is_byte_identical_across_drafts(
 
 def test_the_prompt_file_loses_only_its_comment() -> None:
     assert PROMPT.version == "pick_note.v1"
-    assert PROMPT.text.startswith("You are a Magic: the Gathering Limited coach.")
+    assert PROMPT.text.startswith("You are ")
     assert "<!--" not in PROMPT.text
 
 

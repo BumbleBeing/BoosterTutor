@@ -166,6 +166,7 @@ def test_claude_writes_a_valid_note(case: str, brief: PickBrief) -> None:
                     "kind": brief.kind,
                     "note": note.note,
                     "attempts": [c.status for c in calls],
+                    "errors": [c.error for c in calls if c.error],
                     "cost_usd": str(sum((c.cost_usd for c in calls), Decimal(0))),
                     "cache_read_tokens": sum(c.cache_read_tokens for c in calls),
                     "cache_write_tokens": sum(c.cache_write_tokens for c in calls),
