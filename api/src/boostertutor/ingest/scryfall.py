@@ -40,6 +40,7 @@ from sqlalchemy.orm import Session
 
 from ..config import settings
 from ..models import BoosterCard, Card, CardPrint, CardSet, IngestRun
+from ..parsing.names import name_key
 from .fetching import (
     UpstreamMissing,
     fetch_gzip_first_line,
@@ -49,7 +50,7 @@ from .fetching import (
 from .runs import RunRecord, recorded_run
 
 # One definition of how cards are matched by name, shared with the 17Lands ingest.
-from .seventeen_lands import draft_data_url, name_key, pack_card_names
+from .seventeen_lands import draft_data_url, pack_card_names
 
 BULK_INDEX_URL = "https://api.scryfall.com/bulk-data"
 SETS_URL = "https://api.scryfall.com/sets"

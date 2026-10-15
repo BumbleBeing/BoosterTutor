@@ -33,6 +33,19 @@ class UpstreamMissing(FetchError):
     """
 
 
+class HTTPStatusError(FetchError):
+    """A 4xx answer, with its status and body, for callers that explain it.
+
+    17Lands answers an unknown draft id with a 404 whose JSON body says why;
+    the draft-link input shows that to the user (ADR 0023).
+    """
+
+    def __init__(self, url: str, status: int, body: bytes) -> None:
+        super().__init__(f"{url} answered HTTP {status}")
+        self.status = status
+        self.body = body
+
+
 def _http_error(url: str, exc: urllib.error.HTTPError) -> FetchError:
     if exc.code in (403, 404):
         return UpstreamMissing(f"{url} answered HTTP {exc.code}")
@@ -52,21 +65,21 @@ def _request(url: str) -> urllib.request.Request:
     )
 
 
-def fetch_json_bytes(url: str, *, max_attempts: int = 4) -> bytes:
+def fetch_json_bytes(url: str, *, max_attempts: int = 4, timeout: float = 60) -> bytes:
     """Fetch a small JSON document into memory, with back-off.
 
-    A 4xx answer is raised at once: the request itself was wrong, and asking
-    again cannot change that.
+    A 4xx answer is raised at once, as `HTTPStatusError`: the request itself
+    was wrong, and asking again cannot change that.
     """
     delay = 1.0
     last_error: Exception | None = None
     for attempt in range(1, max_attempts + 1):
         try:
-            with urllib.request.urlopen(_request(url), timeout=60) as response:
+            with urllib.request.urlopen(_request(url), timeout=timeout) as response:
                 return bytes(response.read())
         except urllib.error.HTTPError as exc:
             if 400 <= exc.code < 500:
-                raise FetchError(f"{url} answered HTTP {exc.code}") from exc
+                raise HTTPStatusError(url, exc.code, exc.read()) from exc
             last_error = exc
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             last_error = exc
