@@ -5,6 +5,6 @@ it names cards with are loaded by `boostertutor.card_facts`.
 """
 
 from .card_facts import CardFacts
-from .pick import NoteKind, PickBrief, pick_brief
+from .pick import NoteKind, PickBrief, noted_pick_briefs, pick_brief
 
-__all__ = ["CardFacts", "NoteKind", "PickBrief", "pick_brief"]
+__all__ = ["CardFacts", "NoteKind", "PickBrief", "noted_pick_briefs", "pick_brief"]

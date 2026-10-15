@@ -11,7 +11,7 @@ import uuid
 import pytest
 
 from boostertutor.analysis.fitness import FitnessConfig
-from boostertutor.briefing import PickBrief
+from boostertutor.briefing import PickBrief, noted_pick_briefs
 from boostertutor.briefing import pick_brief as _pick_brief
 from boostertutor.briefing.card_facts import CardFacts
 from boostertutor.schemas.draft_analysis import DraftAnalysis
@@ -132,3 +132,10 @@ def test_only_a_noted_pick_has_a_brief(
 def test_a_card_without_facts_is_refused(analysis: DraftAnalysis) -> None:
     with pytest.raises(LookupError):
         pick_brief(analysis, {}, pack_number=1, pick_number=1)
+
+
+def test_a_draft_s_briefs_are_its_noted_picks_in_order(
+    analysis: DraftAnalysis, card_facts: dict[uuid.UUID, CardFacts]
+) -> None:
+    briefs = noted_pick_briefs(analysis, card_facts, CFG)
+    assert [(b.pack_number, b.pick_number) for b in briefs] == [(1, 1), (1, 12), (2, 7)]

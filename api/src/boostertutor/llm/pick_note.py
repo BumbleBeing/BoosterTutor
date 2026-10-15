@@ -44,6 +44,8 @@ from .pricing import Usage, cost_usd
 from .spending import Ledger, check_spending_cap
 
 MODEL = "claude-haiku-5-5"
+# The prompt in use. A new version is a new file, never an edit (CLAUDE.md).
+PROMPT_VERSION = "pick_note.v1"
 PURPOSE = "pick_note"
 # Room for low-effort thinking plus a note of at most 600 characters.
 MAX_TOKENS = 2000

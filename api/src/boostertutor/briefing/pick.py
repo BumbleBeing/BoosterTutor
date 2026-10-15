@@ -274,3 +274,16 @@ def _one_line(
 def _tag(tag: str) -> str:
     """`_removal_` and `creature_sac_outlet` as words."""
     return tag.strip("_").replace("_", " ")
+
+
+def noted_pick_briefs(
+    analysis: DraftAnalysis, cards: dict[uuid.UUID, CardFacts], cfg: FitnessConfig
+) -> list[PickBrief]:
+    """A brief for every Noted Pick in the draft, in pick order."""
+    return [
+        pick_brief(
+            analysis, cards, cfg, pack_number=p.pack_number, pick_number=p.pick_number
+        )
+        for p in analysis.picks
+        if p.noted
+    ]
