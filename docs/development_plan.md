@@ -426,6 +426,8 @@ Cadence: weekly, plus manually the day a new set drops.
 
 ### 2.3 17Lands ingestion
 
+> **Superseded in part by ADR 0002.** 17Lands restricts the data behind its website to 17lands.com, so Path A below is not used, and nothing is checked against the website either. BoosterTutor uses only the public datasets (Path B), ingested on a schedule (2.4) with a skip when a dump has not changed, and validates them internally. The rest of this section is kept as the original reasoning.
+
 17Lands is the harder and more important source, and it needs care — both technically and as a matter of not being a bad citizen.
 
 **Two ways in, and you should build both.**
@@ -474,9 +476,9 @@ Log a row into an `ingest_runs` table for each job: source, started/finished tim
 - [ ] `alembic upgrade head` builds the schema from scratch on an empty database
 - [ ] `cards` and `card_prints` are populated for at least the three most recent draftable sets
 - [ ] `card_draft_stats`, `card_archetype_stats`, and `archetype_stats` are populated for the current set
-- [ ] Your independently-computed GIH WR from the public dataset matches 17Lands' published figure for a spot-check of five cards
+- [ ] The computed statistics pass ADR 0002's internal checks: hand-worked tests, GIH = OH + GD and GP = GIH + GND for every card, and agreement with DraftDouble's independent run
 - [ ] The nightly Action has run successfully at least once on its own schedule
-- [ ] `docs/decisions/0002-17lands-data-access.md` records exactly what you are calling and when you verified it
+- [ ] `docs/decisions/0002-17lands-data-access.md` records exactly what you are calling and when you verified it (written 2026-10-14)
 
 ---
 

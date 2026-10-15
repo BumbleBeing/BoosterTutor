@@ -10,6 +10,8 @@ This is the only module in the ingest that touches the network. Ported from
 DraftDouble's `fetching.py`, where it was proven against both upstreams.
 """
 
+import datetime as dt
+import email.utils
 import gzip
 import time
 import urllib.error
@@ -116,3 +118,21 @@ def fetch_gzip_first_line(url: str) -> str:
         raise FetchError(f"{url} answered HTTP {exc.code}") from exc
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         raise FetchError(f"failed to fetch {url}: {exc}") from exc
+
+
+def fetch_last_modified(url: str) -> dt.datetime | None:
+    """When upstream last changed a file, from a HEAD request's Last-Modified.
+
+    Cheap (no body), and it is what lets an ingest skip a large download when
+    the file has not changed since its last run.
+    """
+    request = _request(url)
+    request.method = "HEAD"
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            header = response.headers.get("Last-Modified")
+    except urllib.error.HTTPError as exc:
+        raise FetchError(f"{url} answered HTTP {exc.code}") from exc
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        raise FetchError(f"failed to reach {url}: {exc}") from exc
+    return email.utils.parsedate_to_datetime(header) if header else None
