@@ -4,36 +4,48 @@
   "0296d57e-e5b9-456f-bb21-eb584adefb4c": 5.04544271782008,
   "03253076-9add-4efb-9227-b0a062c86534": 6.31933229099605,
   "051ff7e0-dd00-4467-8796-a5d1c21934ed": 2.06233456855479,
+  "0523e271-5e0b-4e4b-9eac-86f915d18952": 1.62137742925332,
   "0ea58cfe-b37c-49a6-a3be-7e60065b8238": 2.37247770999531,
   "0f208cd3-7673-4380-9cb8-5b6f09966ebd": 6.52956231963721,
   "11932191-4b19-49b1-bfe4-abb7b83b2e59": 5.17900323783762,
   "15211eaa-d906-4b95-8942-2f49d3cb4b81": 7.45027888446215,
   "17492186-9814-4c41-8111-1f000a96c212": 6.08947210639632,
   "188a3f61-3f7c-450d-8ee7-e12ad13b86c6": 2.80077552217407,
+  "27e17542-549b-4c05-8091-c10a245c916b": 3.55309078615453,
   "288da486-393c-4995-ad02-c5093a71970d": 7.38312790480676,
   "28ffddca-a3c4-467d-a2dc-2c5e62393e11": 5.70914482494739,
+  "2a2ea189-b663-4f4a-bb23-ff7a4af25f71": 2.41890827236916,
+  "2c195485-83f9-424f-854a-50c4f5b04182": 2.5723654957759,
   "30c3c700-46f4-4a77-8c45-5c7e3a21bd62": 5.40406387501854,
   "32ad5b3e-92c0-45be-b2e4-6f1794552f36": 3.3236490745516,
   "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c": 7.48454927458542,
+  "38503d34-f4f9-4eeb-9b1e-4fec1df921b3": 1.75204443758679,
+  "399cd159-7376-421c-b001-c26f1cbadced": 9.48579656913895,
   "3c4da169-1e50-4790-abdc-214e7b8a2ad5": 8.67315742043071,
   "3cc333a1-c854-4b7c-8002-910e48222371": 8.15060240963855,
   "3cc64ce6-45e2-4dc3-9b28-d7206a131873": 3.81541965497189,
+  "3d39db09-67b7-4a4e-9667-4e1b806f51a5": 8.50122108405129,
+  "3f4d6f91-95ad-4687-8899-5a21a0abb49e": 3.04723691409812,
   "45d652c4-188e-4f00-acdd-1be014922cbc": 5.95114465746593,
   "4c054431-3667-4e28-9d68-03b43447c35b": 3.00132808137517,
   "4c67359d-5590-4eb0-827e-b411967ee238": 6.17377389499178,
+  "4d891515-39da-492e-ac19-1aa524245449": 5.77480745119112,
   "526f520e-b4bb-4215-9c6b-afc298744f06": 6.23992129970105,
   "539583f4-21c8-4b61-a2c5-f612fadc3ffa": 5.92763245844659,
   "53c6c6bf-0256-424d-b937-1cc7d9e2d574": 7.88867688891973,
   "56719f6a-1a6c-4c0a-8d21-18f7d7350b68": 10.4601511436199,
   "5753f4d6-08d0-4e12-85c5-875ee6441626": 6.29589784931291,
+  "58acd6b2-730c-4472-a34a-f2784977aca8": 5.36649355837411,
   "5b79b68a-db71-4638-824e-ab89b1716c86": 4.41206974637681,
   "5c034266-8e63-4b43-8f9e-564e6fff6ec1": 8.12084538186766,
   "5ebe8de1-aa3d-410d-b43d-1685259c7a97": 3.99057920446615,
   "61773534-8da8-48fa-b51a-73c0a9a751c4": 6.55320984658524,
   "6283e5ca-9924-478b-89a5-36924accb9aa": 5.66934919188528,
+  "6505a53b-00db-44c4-8eaa-09a1a01451a4": 3.85690006798097,
   "66630640-9605-44da-afdf-eb9d458d056f": 6.29409287832995,
   "66961bcb-f588-47a7-b3f3-12f4ac674477": 2.85645756457565,
   "69cc089a-abd3-4edb-bc79-f02daac70837": 7.43545734295416,
+  "6e275711-eb76-4924-ba38-c38a36d9d82a": 4.10464707948028,
   "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2": 7.96304690330354,
   "70538676-2ffb-4cad-827e-b55e81088678": 4.51648235691373,
   "70a702fe-1dd6-4d7b-a85a-45744ecad741": 7.68760225571762,
@@ -55,13 +67,17 @@
   "84597236-2cfc-4654-b126-a8ee252f4d14": 8.40407929786217,
   "84d648c7-655e-4590-a3e0-366a8a4a4cb3": 2.71428571428571,
   "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116": 6.7482535762252,
+  "85e1556d-c4da-4979-a5db-4ce3842c7797": 4.0294152115317,
   "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c": 6.83033107867569,
   "8790f842-e842-4bed-adf4-5b3cc5fd68a9": 5.10783432236408,
   "88522a0f-5377-4522-97f4-4148bef954af": 4.17095979923292,
   "88d7bd11-7b1d-426c-8552-01448531c6ad": 2.96275018532246,
+  "8973bd99-20f8-4867-90ef-50392147ee1b": 6.53499948728944,
   "89a2fab8-b074-42aa-a871-d9c5de2d0895": 7.7231083311615,
   "89aa97d0-1aef-4ed8-b29c-7943bb3d0e60": 3.79967394030599,
+  "89c3c81b-8960-4f79-b2ec-f13560058071": 3.03537087912088,
   "8a0e35ac-6c03-4922-b3b4-e419419fe3d7": 4.40308404009252,
+  "8a2946ad-7a7b-4cda-8591-da8c7da5e072": 4.78847927255571,
   "8c7641b6-3a6c-4441-a98c-3b5d61d91f76": 5.40227836635028,
   "8d88facd-cf7e-498e-ab6b-6bd021316162": 4.417349098762,
   "8fcab221-8737-4357-b8ee-bad9421739a3": 7.04050549430962,
@@ -70,29 +86,37 @@
   "94917b80-ac32-45ab-b4ee-157ade024bcd": 1.76997872986934,
   "95e1c368-b58a-4e69-9583-587560ad558d": 5.53622484256162,
   "961e3023-39ea-4141-99b6-738280a2815d": 3.35661210276658,
+  "9779f32c-b1a2-42a3-8e78-14c28c3ad254": 3.35050251256281,
   "978e07fd-8b8c-4eab-850e-e4c0e712251e": 2.90772200772201,
   "97a2cd39-6b54-496b-b3ac-dab9dfed7edc": 4.22770147277842,
   "98d20908-6d68-4d31-b719-207f93c9b402": 6.20499804400067,
   "9cc52afb-9788-46f6-9f9b-347513f8a64f": 6.72172421070016,
+  "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66": 5.57419548759182,
   "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a": 6.61701066001361,
   "a3fb7228-e76b-4e96-a40e-20b5fed75685": 10.46716936869,
   "a71e8d07-1a49-47a0-834e-de87d750a200": 6.78539261442725,
+  "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54": 3.59577807848444,
   "a833fdf1-db0c-4846-8452-d3b2059c2355": 6.75011135857461,
   "a91e0154-14a9-4681-8236-04db231592a4": 7.41327135987724,
   "a97d6c5c-1cff-442d-b535-fc8389160b0b": 2.73276006852306,
+  "ae03782f-8f05-4ce2-a049-005b1b688faf": 2.96820702402957,
   "b2c6aa39-2d2a-459c-a555-fb48ba993373": 10.5693958518171,
   "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6": 10.505106607222,
   "b39f03cf-3d1a-42ad-903f-e3b3542878b0": 6.51011802100358,
+  "b8d563e4-e2bc-4e8b-8841-6655beff9138": 4.42544223482725,
+  "b9079564-5c86-4765-988a-f2334e016fa6": 4.78956749559765,
   "bb52b3c3-09f0-4506-b7c0-250ab0b91866": 5.37032907750405,
   "bb67d0a4-864e-4f46-8538-fdd920bf0197": 6.71013117249407,
   "bc71ebf6-2056-41f7-be35-b2e5c34afa99": 10.5482788554639,
   "bd4ab393-9538-4230-b2a1-bc77099481c9": 7.7735253382883,
   "bddd7e99-ec74-4ca6-9137-155b85695a95": 6.20261195801871,
+  "c394b767-620c-4310-b78f-ece312259e46": 3.21649877005974,
   "c3fb2829-64f2-4795-b815-edcc5bbbc360": 7.28040360654574,
   "c8259b0e-131f-44f0-86d4-7c4d711b328d": 7.82126440212525,
   "c9634afc-4a5b-4cf6-b63d-0ff9909dd5a7": 3.89205284413718,
   "c996bc53-184d-4dc3-8244-e8d9528516a0": 8.87880548258908,
   "cb2803ee-825b-420e-b404-c7c44f15ec15": 5.95009525105456,
+  "cb4b4b63-682b-4439-9757-84cca7a27db2": 6.06814830798,
   "cd1a9d87-4c91-4456-8d88-19e0d6e0b200": 4.18436136929366,
   "cd49aa99-bf84-4edd-aecc-6dae78b73412": 6.41221565566459,
   "ce107656-f222-4d9a-9ba2-b33b4d47bdb5": 7.2091361785902,
@@ -101,14 +125,20 @@
   "d0f62148-1015-49b8-b61f-a4332325a6b0": 6.77176914501329,
   "d1663b51-37a1-45a0-b477-2d3e7dd0828e": 7.5814040621433,
   "d1dceaa7-d33e-4067-9e1b-8a8978a12933": 5.65201045781569,
+  "d4607026-80b2-4fa6-99d5-694cd3b43868": 2.49010439321444,
+  "d51136fa-3c13-48a5-83fd-51fe00010a4b": 2.72047740835465,
   "d7cba934-02ad-4677-bb4d-50808b01b4f9": 7.18374208218288,
+  "d9ed7252-11d1-432b-9101-ac08cd28826d": 4.0473374239176,
   "db05b114-2eb5-46bc-81e7-7e036d8eaab3": 4.90604434221455,
   "dba1d231-6b03-44ad-ab8c-be0c8fe1b6db": 6.91036688430053,
   "dbcf2a79-b455-43ac-9cf0-9e63708800f4": 6.76242001163467,
   "dc20b29b-856e-4d45-99cd-5e12cfc2324d": 5.04311774461028,
   "dc788b66-d03d-4066-be35-481be96ed2f7": 7.75328629716304,
   "dda607bd-f419-4b7f-b052-a5ce6ce22bfe": 4.3893842030302,
+  "e01860cd-0aa1-435a-9ef9-ee412bc458cd": 3.19719261151734,
+  "e3a665f9-6e51-4e0d-923b-e9552d5978a4": 2.67372881355932,
   "e4402d21-bb7f-4777-bc8d-b24bf2faccb0": 5.71452927400468,
+  "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8": 4.34865792318902,
   "ed9d4bb1-7335-45fd-b2ea-97b1f6491d7a": 2.68311107958576,
   "eda99a16-6a7c-4f39-8a6b-a284e6afd3fc": 4.10767931122272,
   "edbd3d4e-78a2-4c03-936d-dcb24cf7c87c": 3.68851727982163,
@@ -120,7 +150,9 @@
   "f8961618-ae68-4d13-84eb-8b5464ce4971": 8.59440701837742,
   "fa602f8f-1d80-4f6d-8b8f-d1a1f36037bd": 4.00956719817768,
   "fa85f9e6-69ff-4669-b70a-440aa7b16c97": 5.70420726262028,
-  "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8": 5.56223141247965
+  "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f": 5.48425157977883,
+  "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8": 5.56223141247965,
+  "fdf7f144-56e4-4f88-b81a-b85473922355": 5.18927947472498
  },
  "baseline": [
   [
@@ -364,6 +396,54 @@
    1.1854226403877222
   ],
   [
+   "0523e271-5e0b-4e4b-9eac-86f915d18952",
+   1,
+   "fixing",
+   "bomb_creature",
+   "bomb_creature",
+   0.0092899800928998
+  ],
+  [
+   "0523e271-5e0b-4e4b-9eac-86f915d18952",
+   1,
+   "protection_spell",
+   "bomb_creature",
+   "bomb_creature",
+   0.0053085600530856005
+  ],
+  [
+   "0523e271-5e0b-4e4b-9eac-86f915d18952",
+   2,
+   "fixing",
+   "bomb_creature",
+   "bomb_creature",
+   0.7625274807603154
+  ],
+  [
+   "0523e271-5e0b-4e4b-9eac-86f915d18952",
+   2,
+   "protection_spell",
+   "bomb_creature",
+   "bomb_creature",
+   0.24876402410755677
+  ],
+  [
+   "0523e271-5e0b-4e4b-9eac-86f915d18952",
+   3,
+   "fixing",
+   "bomb_creature",
+   "bomb_creature",
+   1.283889342300885
+  ],
+  [
+   "0523e271-5e0b-4e4b-9eac-86f915d18952",
+   3,
+   "protection_spell",
+   "bomb_creature",
+   "bomb_creature",
+   0.4583263716814159
+  ],
+  [
    "0ea58cfe-b37c-49a6-a3be-7e60065b8238",
    1,
    "card_draw",
@@ -580,6 +660,30 @@
    0.4018566367440487
   ],
   [
+   "27e17542-549b-4c05-8091-c10a245c916b",
+   1,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.048546614675646936
+  ],
+  [
+   "27e17542-549b-4c05-8091-c10a245c916b",
+   2,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.31049160275059506
+  ],
+  [
+   "27e17542-549b-4c05-8091-c10a245c916b",
+   3,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.5269415881863028
+  ],
+  [
    "288da486-393c-4995-ad02-c5093a71970d",
    1,
    "historic",
@@ -602,6 +706,78 @@
    "storied",
    "historic",
    1.091689989994024
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   1,
+   "fetchland",
+   "landfall",
+   "landfall",
+   0.0010198878123406426
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   1,
+   "fixing",
+   "bomb_creature",
+   "bomb_creature",
+   0.024069352371239167
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   1,
+   "protection_spell",
+   "bomb_creature",
+   "bomb_creature",
+   0.021009688934217237
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   2,
+   "fetchland",
+   "landfall",
+   "landfall",
+   0.1940646701388889
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   2,
+   "fixing",
+   "bomb_creature",
+   "bomb_creature",
+   0.7700197037037035
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   2,
+   "protection_spell",
+   "bomb_creature",
+   "bomb_creature",
+   0.28454398148148147
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   3,
+   "fetchland",
+   "landfall",
+   "landfall",
+   0.401169380587484
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   3,
+   "fixing",
+   "bomb_creature",
+   "bomb_creature",
+   1.310636236669221
+  ],
+  [
+   "2c195485-83f9-424f-854a-50c4f5b04182",
+   3,
+   "protection_spell",
+   "bomb_creature",
+   "bomb_creature",
+   0.48838252873563215
   ],
   [
    "30c3c700-46f4-4a77-8c45-5c7e3a21bd62",
@@ -820,6 +996,102 @@
    0.4040978526012305
   ],
   [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   1,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.005092297899427116
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   1,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   0.008656906429026098
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   1,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.010821133036282623
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   1,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   0.0207511139401655
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   2,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.22084468844005156
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   2,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   0.7647907864202838
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   2,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.3174419853889128
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   2,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   0.6016818220885259
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   3,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.4712962967115097
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   3,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   1.2884054481315395
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   3,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.5879636117339312
+  ],
+  [
+   "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   3,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   1.0633173094170403
+  ],
+  [
    "3c4da169-1e50-4790-abdc-214e7b8a2ad5",
    1,
    "goes_wide",
@@ -940,6 +1212,30 @@
    0.3743333537819766
   ],
   [
+   "3f4d6f91-95ad-4687-8899-5a21a0abb49e",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.06475949367088608
+  ],
+  [
+   "3f4d6f91-95ad-4687-8899-5a21a0abb49e",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.5923972971652004
+  ],
+  [
+   "3f4d6f91-95ad-4687-8899-5a21a0abb49e",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.0587956858638967
+  ],
+  [
    "526f520e-b4bb-4215-9c6b-afc298744f06",
    1,
    "card_draw",
@@ -986,6 +1282,150 @@
    "creature_sac_outlet",
    "disposable_creature",
    0.7668662791738952
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   1,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.0972660307866654
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   1,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.05437204646331099
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   1,
+   "fixing",
+   "bomb_creature",
+   "fixing",
+   0.23558409670412692
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   1,
+   "fixing",
+   "bomb_noncreature",
+   "fixing",
+   0.11580923599962226
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.14154954934365852
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   1,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   0.16754382850127492
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   2,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.33226120903050493
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   2,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.26786557334028177
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   2,
+   "fixing",
+   "bomb_creature",
+   "fixing",
+   0.5090818827821102
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   2,
+   "fixing",
+   "bomb_noncreature",
+   "fixing",
+   0.26623164399114074
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.6713756779396601
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   2,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   0.750088696681494
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   3,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.5211314023168555
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   3,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.4726897777658373
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   3,
+   "fixing",
+   "bomb_creature",
+   "fixing",
+   0.7464826518815344
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   3,
+   "fixing",
+   "bomb_noncreature",
+   "fixing",
+   0.39804533751047316
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.1582392157573151
+  ],
+  [
+   "58acd6b2-730c-4472-a34a-f2784977aca8",
+   3,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   1.284986985100725
   ],
   [
    "5b79b68a-db71-4638-824e-ab89b1716c86",
@@ -1130,6 +1570,54 @@
    "storied",
    "historic",
    1.0180755355775364
+  ],
+  [
+   "6505a53b-00db-44c4-8eaa-09a1a01451a4",
+   1,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.04600842481490937
+  ],
+  [
+   "6505a53b-00db-44c4-8eaa-09a1a01451a4",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.10708865202961448
+  ],
+  [
+   "6505a53b-00db-44c4-8eaa-09a1a01451a4",
+   2,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.25629014903671393
+  ],
+  [
+   "6505a53b-00db-44c4-8eaa-09a1a01451a4",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.6554536379861869
+  ],
+  [
+   "6505a53b-00db-44c4-8eaa-09a1a01451a4",
+   3,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.4788893095689246
+  ],
+  [
+   "6505a53b-00db-44c4-8eaa-09a1a01451a4",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.1472672161666984
   ],
   [
    "66630640-9605-44da-afdf-eb9d458d056f",
@@ -2332,6 +2820,102 @@
    1.1533290601339714
   ],
   [
+   "8973bd99-20f8-4867-90ef-50392147ee1b",
+   1,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.03604909525331385
+  ],
+  [
+   "8973bd99-20f8-4867-90ef-50392147ee1b",
+   1,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   0.19792749242873883
+  ],
+  [
+   "8973bd99-20f8-4867-90ef-50392147ee1b",
+   2,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.1950406970476352
+  ],
+  [
+   "8973bd99-20f8-4867-90ef-50392147ee1b",
+   2,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   0.7785183222805747
+  ],
+  [
+   "8973bd99-20f8-4867-90ef-50392147ee1b",
+   3,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.3264679954005366
+  ],
+  [
+   "8973bd99-20f8-4867-90ef-50392147ee1b",
+   3,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   1.3023980012571865
+  ],
+  [
+   "89c3c81b-8960-4f79-b2ec-f13560058071",
+   1,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "dies_trigger",
+   0.09629436325678496
+  ],
+  [
+   "89c3c81b-8960-4f79-b2ec-f13560058071",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.07535341485237101
+  ],
+  [
+   "89c3c81b-8960-4f79-b2ec-f13560058071",
+   2,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "dies_trigger",
+   0.48613525730180807
+  ],
+  [
+   "89c3c81b-8960-4f79-b2ec-f13560058071",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.5547390593416782
+  ],
+  [
+   "89c3c81b-8960-4f79-b2ec-f13560058071",
+   3,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "dies_trigger",
+   0.7550457150655022
+  ],
+  [
+   "89c3c81b-8960-4f79-b2ec-f13560058071",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   0.9948627449454148
+  ],
+  [
    "8a0e35ac-6c03-4922-b3b4-e419419fe3d7",
    1,
    "bounce_enabler",
@@ -2884,6 +3468,78 @@
    1.1110572901441578
   ],
   [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   1,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.06393129770992366
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   1,
+   "equipment",
+   "equipment_payoff",
+   "equipment",
+   0.09541984732824428
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.09055746395250212
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   2,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.2951125724476148
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   2,
+   "equipment",
+   "equipment_payoff",
+   "equipment",
+   0.34599268836379854
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.6119703421756577
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   3,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.4833624971776925
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   3,
+   "equipment",
+   "equipment_payoff",
+   "equipment",
+   0.563221935425604
+  ],
+  [
+   "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.1180893228130504
+  ],
+  [
    "978e07fd-8b8c-4eab-850e-e4c0e712251e",
    1,
    "goes_wide",
@@ -3076,6 +3732,30 @@
    1.1997666161364051
   ],
   [
+   "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.14964627020879032
+  ],
+  [
+   "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.6175595500740105
+  ],
+  [
+   "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.0625368620169937
+  ],
+  [
    "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
    1,
    "card_draw",
@@ -3194,6 +3874,78 @@
    "dwarf_payoff",
    "dwarf_payoff",
    2.84628394265898
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   1,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.08513394772624262
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   1,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.07189303520169209
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.09636358211210154
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   2,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.5535217376168065
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   2,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.22088479639860853
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.5903806167928517
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   3,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.9404208394633644
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   3,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.3693947368421052
+  ],
+  [
+   "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.0406563305726457
   ],
   [
    "a833fdf1-db0c-4846-8452-d3b2059c2355",
@@ -3364,6 +4116,102 @@
    1.2332184955764538
   ],
   [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   1,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.003604325190228274
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   1,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.021545855026031235
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   1,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf_payoff",
+   0.13071449739687627
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   1,
+   "equipment",
+   "equipment_payoff",
+   "equipment_payoff",
+   0.1013215859030837
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   2,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.14565217391304347
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   2,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.266975766590389
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   2,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf_payoff",
+   1.734846707871973
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   2,
+   "equipment",
+   "equipment_payoff",
+   "equipment_payoff",
+   0.9629079286041189
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   3,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.2697564612326044
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   3,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.4947743715484868
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   3,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf_payoff",
+   2.9287128214998646
+  ],
+  [
+   "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   3,
+   "equipment",
+   "equipment_payoff",
+   "equipment_payoff",
+   1.4051284818370133
+  ],
+  [
    "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
    1,
    "creature_sac_outlet",
@@ -3386,6 +4234,126 @@
    "dies_trigger",
    "dies_trigger",
    0.760425258417132
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   1,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.0537805968481055
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.12805733709623338
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   1,
+   "historic",
+   "storied",
+   "storied",
+   1.1086329101005363
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   1,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   0.1649428858835364
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   2,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.2738048941615569
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.6902908921620902
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   2,
+   "historic",
+   "storied",
+   "storied",
+   4.23734840330856
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   2,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   0.7175095486003733
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   3,
+   "dwarf",
+   "dwarf_payoff",
+   "dwarf",
+   0.49642876313749806
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.2106846908842392
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   3,
+   "historic",
+   "storied",
+   "storied",
+   6.239713621667068
+  ],
+  [
+   "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   3,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   1.1998365208577484
+  ],
+  [
+   "b9079564-5c86-4765-988a-f2334e016fa6",
+   1,
+   "card_draw",
+   "draw_payoff",
+   "draw_payoff",
+   0.5457587919057687
+  ],
+  [
+   "b9079564-5c86-4765-988a-f2334e016fa6",
+   2,
+   "card_draw",
+   "draw_payoff",
+   "draw_payoff",
+   2.243038504857983
+  ],
+  [
+   "b9079564-5c86-4765-988a-f2334e016fa6",
+   3,
+   "card_draw",
+   "draw_payoff",
+   "draw_payoff",
+   3.194305813106343
   ],
   [
    "bb52b3c3-09f0-4506-b7c0-250ab0b91866",
@@ -3700,6 +4668,30 @@
    0.5809202258751952
   ],
   [
+   "c394b767-620c-4310-b78f-ece312259e46",
+   1,
+   "evasive",
+   "attack_trigger",
+   "attack_trigger",
+   0.09373448362509423
+  ],
+  [
+   "c394b767-620c-4310-b78f-ece312259e46",
+   2,
+   "evasive",
+   "attack_trigger",
+   "attack_trigger",
+   0.8546340245370722
+  ],
+  [
+   "c394b767-620c-4310-b78f-ece312259e46",
+   3,
+   "evasive",
+   "attack_trigger",
+   "attack_trigger",
+   1.3665728060825495
+  ],
+  [
    "c8259b0e-131f-44f0-86d4-7c4d711b328d",
    1,
    "evasive",
@@ -3890,6 +4882,30 @@
    "storied",
    "historic",
    1.1497550684737197
+  ],
+  [
+   "cb4b4b63-682b-4439-9757-84cca7a27db2",
+   1,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.0943910500889906
+  ],
+  [
+   "cb4b4b63-682b-4439-9757-84cca7a27db2",
+   2,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.23992814371257487
+  ],
+  [
+   "cb4b4b63-682b-4439-9757-84cca7a27db2",
+   3,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.3876248766041461
   ],
   [
    "cd1a9d87-4c91-4456-8d88-19e0d6e0b200",
@@ -4108,6 +5124,246 @@
    0.2974003629391221
   ],
   [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   1,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.02827447474295932
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   1,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.042789450156459546
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   1,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.0524139472507823
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   1,
+   "evasive",
+   "attack_trigger",
+   "attack_trigger",
+   0.042646401430487264
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   1,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   0.04389807778274475
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   1,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.033080017881090745
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.036978095663835496
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   2,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.2838105885747259
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   2,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.5322597484131564
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   2,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.4223663805539527
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   2,
+   "evasive",
+   "attack_trigger",
+   "attack_trigger",
+   0.8448702670513559
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   2,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   0.7863716560877093
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   2,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.33651904212348527
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.5702808360934795
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   3,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.4298695709745763
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   3,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.9566520683389829
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   3,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.6337994074417372
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   3,
+   "evasive",
+   "attack_trigger",
+   "attack_trigger",
+   1.4053172207457625
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   3,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   1.2855941362711862
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   3,
+   "goes_wide",
+   "mass_pump",
+   "goes_wide",
+   0.5750132415254238
+  ],
+  [
+   "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.031943693886917
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   1,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.05598481366769908
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   1,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.07911629533419923
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   1,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   0.06249575382156059
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   2,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.5139685042761651
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   2,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.42466206162439335
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   2,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   0.7782867590879955
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   3,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.8781345275499298
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   3,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.6633747170578411
+  ],
+  [
+   "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   3,
+   "fixing",
+   "bomb_noncreature",
+   "bomb_noncreature",
+   1.3057050897552744
+  ],
+  [
    "d7cba934-02ad-4677-bb4d-50808b01b4f9",
    1,
    "mana_ramp",
@@ -4130,6 +5386,30 @@
    "expensive",
    "expensive",
    1.2068644301779086
+  ],
+  [
+   "d9ed7252-11d1-432b-9101-ac08cd28826d",
+   1,
+   "fetchland",
+   "landfall",
+   "landfall",
+   0.018358123922148313
+  ],
+  [
+   "d9ed7252-11d1-432b-9101-ac08cd28826d",
+   2,
+   "fetchland",
+   "landfall",
+   "landfall",
+   0.22253466112493173
+  ],
+  [
+   "d9ed7252-11d1-432b-9101-ac08cd28826d",
+   3,
+   "fetchland",
+   "landfall",
+   "landfall",
+   0.4135898460737656
   ],
   [
    "dba1d231-6b03-44ad-ab8c-be0c8fe1b6db",
@@ -4300,6 +5580,318 @@
    1.4148690280178846
   ],
   [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   1,
+   "bounce_enabler",
+   "bounce_value_noncreature",
+   "bounce_value_noncreature",
+   0.007639419404125287
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   1,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.09637339784398608
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.07615550462609286
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   2,
+   "bounce_enabler",
+   "bounce_value_noncreature",
+   "bounce_value_noncreature",
+   0.15167694533272422
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   2,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.4856764885031217
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.5726655586264657
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   3,
+   "bounce_enabler",
+   "bounce_value_noncreature",
+   "bounce_value_noncreature",
+   0.28107290758500436
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   3,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "disposable_creature",
+   0.7508057137278408
+  ],
+  [
+   "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.027097239892778
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.036315404317599706
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact_sac_outlet",
+   0.16481430662275887
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.004756677643615075
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.049791437980241486
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "creature_sac_outlet",
+   0.043907793633369926
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "creature_sac_outlet",
+   0.12929930479326748
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "fixing",
+   "bomb_creature",
+   "fixing",
+   0.13705085986095866
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "fixing",
+   "bomb_noncreature",
+   "fixing",
+   0.05986095865349433
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.047208196121478224
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   1,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   0.062129527991218444
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.3121517643937384
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact_sac_outlet",
+   1.182024616940833
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.15348898912178296
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.47369707827009816
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "creature_sac_outlet",
+   0.4584107190236137
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "creature_sac_outlet",
+   0.9902768680352879
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "fixing",
+   "bomb_creature",
+   "fixing",
+   0.4494263730432475
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "fixing",
+   "bomb_noncreature",
+   "fixing",
+   0.22189440169806315
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.5721163918811356
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   2,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   0.6481961262934465
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact",
+   0.5123479771655498
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact_sac_outlet",
+   1.5840215656946124
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "bounce_enabler",
+   "bounce_value_creature",
+   "bounce_value_creature",
+   0.2885951849094068
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "card_draw",
+   "draw_payoff",
+   "card_draw",
+   0.7790931338198064
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "creature_sac_outlet",
+   0.8109681372549019
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "creature_sac_outlet",
+   1.380357883857657
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "fixing",
+   "bomb_creature",
+   "fixing",
+   0.6800979300074459
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "fixing",
+   "bomb_noncreature",
+   "fixing",
+   0.34576917349218167
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   0.9669123155718541
+  ],
+  [
+   "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   3,
+   "mana_ramp",
+   "expensive",
+   "mana_ramp",
+   1.2150333442541572
+  ],
+  [
    "e4402d21-bb7f-4777-bc8d-b24bf2faccb0",
    1,
    "bounce_enabler",
@@ -4370,6 +5962,54 @@
    "storied",
    "historic",
    1.0834474390087199
+  ],
+  [
+   "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
+   1,
+   "card_draw",
+   "draw_payoff",
+   "draw_payoff",
+   0.450944380687848
+  ],
+  [
+   "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.11529107762856207
+  ],
+  [
+   "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
+   2,
+   "card_draw",
+   "draw_payoff",
+   "draw_payoff",
+   2.227587647988104
+  ],
+  [
+   "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.61661591143361
+  ],
+  [
+   "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
+   3,
+   "card_draw",
+   "draw_payoff",
+   "draw_payoff",
+   3.1952412212311034
+  ],
+  [
+   "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.0693005291497726
   ],
   [
    "eda99a16-6a7c-4f39-8a6b-a284e6afd3fc",
@@ -4970,6 +6610,150 @@
    "storied",
    "historic",
    1.093738566675874
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   1,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.09350779542474137
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   1,
+   "historic",
+   "storied",
+   "historic",
+   0.14854281837388894
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   1,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   0.18841419204429552
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   2,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.24441784351662657
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   2,
+   "historic",
+   "storied",
+   "historic",
+   0.6610217849051587
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   2,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   0.7351924101043343
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   3,
+   "evasive",
+   "attack_trigger",
+   "evasive",
+   0.3907463188468547
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   3,
+   "historic",
+   "storied",
+   "historic",
+   1.1398876174067218
+  ],
+  [
+   "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   3,
+   "mana_ramp",
+   "expensive",
+   "expensive",
+   1.2225940734471326
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   1,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact_sac_outlet",
+   0.3860724476498607
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   1,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "creature_sac_outlet",
+   0.10014491776759234
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   1,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "creature_sac_outlet",
+   0.3222545665947695
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   2,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact_sac_outlet",
+   1.2648619972457986
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   2,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "creature_sac_outlet",
+   0.5033954594039707
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   2,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "creature_sac_outlet",
+   1.0923439616581299
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   3,
+   "artifact",
+   "artifact_sac_outlet",
+   "artifact_sac_outlet",
+   1.627327550645028
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   3,
+   "creature_sac_outlet",
+   "dies_trigger",
+   "creature_sac_outlet",
+   0.8163803958706239
+  ],
+  [
+   "fdf7f144-56e4-4f88-b81a-b85473922355",
+   3,
+   "disposable_creature",
+   "creature_sac_outlet",
+   "creature_sac_outlet",
+   1.4347903571577239
   ]
  ],
  "cards": {
@@ -5030,6 +6814,20 @@
     "artifact",
     "fixing",
     "mana_ramp",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Wolf"
+  },
+  "0523e271-5e0b-4e4b-9eac-86f915d18952": {
+   "cmc": 4.0,
+   "color_identity": "B",
+   "color_options": [
+    "B"
+   ],
+   "colors": "B",
+   "oracle_id": "0523e271-5e0b-4e4b-9eac-86f915d18952",
+   "tags": [
+    "bomb_creature",
     "creature"
    ],
    "type_line": "Creature \u2014 Wolf"
@@ -5119,6 +6917,20 @@
    ],
    "type_line": "Sorcery"
   },
+  "27e17542-549b-4c05-8091-c10a245c916b": {
+   "cmc": 6.0,
+   "color_identity": "B",
+   "color_options": [
+    "B"
+   ],
+   "colors": "B",
+   "oracle_id": "27e17542-549b-4c05-8091-c10a245c916b",
+   "tags": [
+    "goes_wide",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Goblin Soldier // Sorcery \u2014 Adventure"
+  },
   "288da486-393c-4995-ad02-c5093a71970d": {
    "cmc": 5.0,
    "color_identity": "G",
@@ -5145,6 +6957,32 @@
     "creature"
    ],
    "type_line": "Creature \u2014 Elf Druid"
+  },
+  "2a2ea189-b663-4f4a-bb23-ff7a4af25f71": {
+   "cmc": 4.0,
+   "color_identity": "W",
+   "color_options": [
+    "W"
+   ],
+   "colors": "W",
+   "oracle_id": "2a2ea189-b663-4f4a-bb23-ff7a4af25f71",
+   "tags": [],
+   "type_line": "Instant"
+  },
+  "2c195485-83f9-424f-854a-50c4f5b04182": {
+   "cmc": 4.0,
+   "color_identity": "UG",
+   "color_options": [
+    "UG"
+   ],
+   "colors": "UG",
+   "oracle_id": "2c195485-83f9-424f-854a-50c4f5b04182",
+   "tags": [
+    "bomb_creature",
+    "landfall",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Elf Soldier"
   },
   "30c3c700-46f4-4a77-8c45-5c7e3a21bd62": {
    "cmc": 2.0,
@@ -5192,6 +7030,35 @@
    ],
    "type_line": "Creature \u2014 Insect"
   },
+  "38503d34-f4f9-4eeb-9b1e-4fec1df921b3": {
+   "cmc": 4.0,
+   "color_identity": "W",
+   "color_options": [
+    "W"
+   ],
+   "colors": "W",
+   "oracle_id": "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
+   "tags": [
+    "bomb_noncreature",
+    "dwarf",
+    "expensive",
+    "goes_wide"
+   ],
+   "type_line": "Enchantment // Sorcery \u2014 Adventure"
+  },
+  "399cd159-7376-421c-b001-c26f1cbadced": {
+   "cmc": 3.0,
+   "color_identity": "U",
+   "color_options": [
+    "U"
+   ],
+   "colors": "U",
+   "oracle_id": "399cd159-7376-421c-b001-c26f1cbadced",
+   "tags": [
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Elf Druid"
+  },
   "3c4da169-1e50-4790-abdc-214e7b8a2ad5": {
    "cmc": 4.0,
    "color_identity": "W",
@@ -5234,6 +7101,31 @@
    ],
    "type_line": "Creature \u2014 Bat"
   },
+  "3d39db09-67b7-4a4e-9667-4e1b806f51a5": {
+   "cmc": 1.0,
+   "color_identity": "W",
+   "color_options": [
+    "W"
+   ],
+   "colors": "W",
+   "oracle_id": "3d39db09-67b7-4a4e-9667-4e1b806f51a5",
+   "tags": [],
+   "type_line": "Sorcery"
+  },
+  "3f4d6f91-95ad-4687-8899-5a21a0abb49e": {
+   "cmc": 3.0,
+   "color_identity": "U",
+   "color_options": [
+    "U"
+   ],
+   "colors": "U",
+   "oracle_id": "3f4d6f91-95ad-4687-8899-5a21a0abb49e",
+   "tags": [
+    "historic",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Elf Noble"
+  },
   "45d652c4-188e-4f00-acdd-1be014922cbc": {
    "cmc": 2.0,
    "color_identity": "G",
@@ -5270,6 +7162,17 @@
    "oracle_id": "4c67359d-5590-4eb0-827e-b411967ee238",
    "tags": [],
    "type_line": "Enchantment"
+  },
+  "4d891515-39da-492e-ac19-1aa524245449": {
+   "cmc": 2.0,
+   "color_identity": "B",
+   "color_options": [
+    "B"
+   ],
+   "colors": "B",
+   "oracle_id": "4d891515-39da-492e-ac19-1aa524245449",
+   "tags": [],
+   "type_line": "Instant"
   },
   "526f520e-b4bb-4215-9c6b-afc298744f06": {
    "cmc": 2.0,
@@ -5333,6 +7236,24 @@
     "disposable_creature"
    ],
    "type_line": "Sorcery"
+  },
+  "58acd6b2-730c-4472-a34a-f2784977aca8": {
+   "cmc": 3.0,
+   "color_identity": "R",
+   "color_options": [
+    "R"
+   ],
+   "colors": "R",
+   "oracle_id": "58acd6b2-730c-4472-a34a-f2784977aca8",
+   "tags": [
+    "artifact",
+    "dwarf",
+    "fixing",
+    "historic",
+    "mana_ramp",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Dwarf Warrior"
   },
   "5b79b68a-db71-4638-824e-ab89b1716c86": {
    "cmc": 2.0,
@@ -5404,6 +7325,21 @@
    ],
    "type_line": "Creature \u2014 Wolf"
   },
+  "6505a53b-00db-44c4-8eaa-09a1a01451a4": {
+   "cmc": 4.0,
+   "color_identity": "R",
+   "color_options": [
+    "R"
+   ],
+   "colors": "R",
+   "oracle_id": "6505a53b-00db-44c4-8eaa-09a1a01451a4",
+   "tags": [
+    "dwarf",
+    "historic",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Dwarf Warrior // Sorcery \u2014 Adventure"
+  },
   "66630640-9605-44da-afdf-eb9d458d056f": {
    "cmc": 3.0,
    "color_identity": "UG",
@@ -5447,6 +7383,19 @@
     "creature"
    ],
    "type_line": "Legendary Creature \u2014 Dwarf Bard"
+  },
+  "6e275711-eb76-4924-ba38-c38a36d9d82a": {
+   "cmc": 4.0,
+   "color_identity": "G",
+   "color_options": [
+    "G"
+   ],
+   "colors": "G",
+   "oracle_id": "6e275711-eb76-4924-ba38-c38a36d9d82a",
+   "tags": [
+    "_removal_"
+   ],
+   "type_line": "Sorcery"
   },
   "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2": {
    "cmc": 3.0,
@@ -5755,6 +7704,17 @@
    ],
    "type_line": "Creature \u2014 Goblin Soldier"
   },
+  "85e1556d-c4da-4979-a5db-4ce3842c7797": {
+   "cmc": 4.0,
+   "color_identity": "B",
+   "color_options": [
+    "B"
+   ],
+   "colors": "B",
+   "oracle_id": "85e1556d-c4da-4979-a5db-4ce3842c7797",
+   "tags": [],
+   "type_line": "Sorcery"
+  },
   "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c": {
    "cmc": 3.0,
    "color_identity": "B",
@@ -5811,6 +7771,21 @@
    ],
    "type_line": "Creature \u2014 Bear"
   },
+  "8973bd99-20f8-4867-90ef-50392147ee1b": {
+   "cmc": 3.0,
+   "color_identity": "G",
+   "color_options": [
+    "G"
+   ],
+   "colors": "G",
+   "oracle_id": "8973bd99-20f8-4867-90ef-50392147ee1b",
+   "tags": [
+    "bounce_value_creature",
+    "mana_ramp",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Elf Scout"
+  },
   "89a2fab8-b074-42aa-a871-d9c5de2d0895": {
    "cmc": 4.0,
    "color_identity": "G",
@@ -5837,6 +7812,21 @@
    ],
    "type_line": "Creature \u2014 Wolf"
   },
+  "89c3c81b-8960-4f79-b2ec-f13560058071": {
+   "cmc": 3.0,
+   "color_identity": "B",
+   "color_options": [
+    "B"
+   ],
+   "colors": "B",
+   "oracle_id": "89c3c81b-8960-4f79-b2ec-f13560058071",
+   "tags": [
+    "dies_trigger",
+    "historic",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Human Advisor"
+  },
   "8a0e35ac-6c03-4922-b3b4-e419419fe3d7": {
    "cmc": 1.0,
    "color_identity": "W",
@@ -5853,6 +7843,20 @@
     "creature"
    ],
    "type_line": "Legendary Creature \u2014 Dwarf Scout // Instant \u2014 Adventure"
+  },
+  "8a2946ad-7a7b-4cda-8591-da8c7da5e072": {
+   "cmc": 5.0,
+   "color_identity": "G",
+   "color_options": [
+    "G"
+   ],
+   "colors": "G",
+   "oracle_id": "8a2946ad-7a7b-4cda-8591-da8c7da5e072",
+   "tags": [
+    "goes_wide_payoff",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Wolf"
   },
   "8c7641b6-3a6c-4441-a98c-3b5d61d91f76": {
    "cmc": 3.0,
@@ -5972,6 +7976,21 @@
    ],
    "type_line": "Instant"
   },
+  "9779f32c-b1a2-42a3-8e78-14c28c3ad254": {
+   "cmc": 2.0,
+   "color_identity": "",
+   "color_options": [
+    ""
+   ],
+   "colors": "",
+   "oracle_id": "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
+   "tags": [
+    "artifact",
+    "equipment",
+    "historic"
+   ],
+   "type_line": "Legendary Artifact \u2014 Equipment"
+  },
   "978e07fd-8b8c-4eab-850e-e4c0e712251e": {
    "cmc": 2.0,
    "color_identity": "R",
@@ -6031,6 +8050,20 @@
    ],
    "type_line": "Artifact \u2014 Equipment"
   },
+  "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66": {
+   "cmc": 4.0,
+   "color_identity": "G",
+   "color_options": [
+    "G"
+   ],
+   "colors": "G",
+   "oracle_id": "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66",
+   "tags": [
+    "historic",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Elf Advisor"
+  },
   "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a": {
    "cmc": 2.0,
    "color_identity": "R",
@@ -6075,6 +8108,22 @@
     "land"
    ],
    "type_line": "Land"
+  },
+  "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54": {
+   "cmc": 2.0,
+   "color_identity": "U",
+   "color_options": [
+    "U"
+   ],
+   "colors": "U",
+   "oracle_id": "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
+   "tags": [
+    "card_draw",
+    "evasive",
+    "historic",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Halfling Rogue // Sorcery \u2014 Adventure"
   },
   "a833fdf1-db0c-4846-8452-d3b2059c2355": {
    "cmc": 4.0,
@@ -6123,6 +8172,23 @@
    ],
    "type_line": "Enchantment \u2014 Saga"
   },
+  "ae03782f-8f05-4ce2-a049-005b1b688faf": {
+   "cmc": 2.0,
+   "color_identity": "WR",
+   "color_options": [
+    "WR"
+   ],
+   "colors": "WR",
+   "oracle_id": "ae03782f-8f05-4ce2-a049-005b1b688faf",
+   "tags": [
+    "bounce_value_creature",
+    "dwarf",
+    "dwarf_payoff",
+    "equipment_payoff",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Dwarf Warrior"
+  },
   "b2c6aa39-2d2a-459c-a555-fb48ba993373": {
    "cmc": 0.0,
    "color_identity": "U",
@@ -6162,6 +8228,38 @@
     "creature"
    ],
    "type_line": "Creature \u2014 Goblin Soldier"
+  },
+  "b8d563e4-e2bc-4e8b-8841-6655beff9138": {
+   "cmc": 6.0,
+   "color_identity": "WR",
+   "color_options": [
+    "R",
+    "W"
+   ],
+   "colors": "WR",
+   "oracle_id": "b8d563e4-e2bc-4e8b-8841-6655beff9138",
+   "tags": [
+    "dwarf",
+    "expensive",
+    "historic",
+    "storied",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Dwarf Bard"
+  },
+  "b9079564-5c86-4765-988a-f2334e016fa6": {
+   "cmc": 2.0,
+   "color_identity": "U",
+   "color_options": [
+    "U"
+   ],
+   "colors": "U",
+   "oracle_id": "b9079564-5c86-4765-988a-f2334e016fa6",
+   "tags": [
+    "draw_payoff",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Human Advisor"
   },
   "bb52b3c3-09f0-4506-b7c0-250ab0b91866": {
    "cmc": 2.0,
@@ -6240,6 +8338,20 @@
    ],
    "type_line": "Creature \u2014 Human Citizen"
   },
+  "c394b767-620c-4310-b78f-ece312259e46": {
+   "cmc": 5.0,
+   "color_identity": "R",
+   "color_options": [
+    "R"
+   ],
+   "colors": "R",
+   "oracle_id": "c394b767-620c-4310-b78f-ece312259e46",
+   "tags": [
+    "attack_trigger",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Goblin Soldier"
+  },
   "c3fb2829-64f2-4795-b815-edcc5bbbc360": {
    "cmc": 2.0,
    "color_identity": "G",
@@ -6308,6 +8420,21 @@
     "historic"
    ],
    "type_line": "Legendary Artifact \u2014 Equipment"
+  },
+  "cb4b4b63-682b-4439-9757-84cca7a27db2": {
+   "cmc": 5.0,
+   "color_identity": "W",
+   "color_options": [
+    "W"
+   ],
+   "colors": "W",
+   "oracle_id": "cb4b4b63-682b-4439-9757-84cca7a27db2",
+   "tags": [
+    "evasive",
+    "goes_wide_payoff",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Bird Soldier"
   },
   "cd1a9d87-4c91-4456-8d88-19e0d6e0b200": {
    "cmc": 6.0,
@@ -6423,6 +8550,41 @@
    ],
    "type_line": "Creature \u2014 Goblin Bard"
   },
+  "d4607026-80b2-4fa6-99d5-694cd3b43868": {
+   "cmc": 3.0,
+   "color_identity": "U",
+   "color_options": [
+    "U"
+   ],
+   "colors": "U",
+   "oracle_id": "d4607026-80b2-4fa6-99d5-694cd3b43868",
+   "tags": [
+    "artifact",
+    "attack_trigger",
+    "bomb_noncreature",
+    "card_draw",
+    "disposable_creature",
+    "goes_wide",
+    "historic"
+   ],
+   "type_line": "Artifact \u2014 Vehicle"
+  },
+  "d51136fa-3c13-48a5-83fd-51fe00010a4b": {
+   "cmc": 4.0,
+   "color_identity": "W",
+   "color_options": [
+    "W"
+   ],
+   "colors": "W",
+   "oracle_id": "d51136fa-3c13-48a5-83fd-51fe00010a4b",
+   "tags": [
+    "_removal_",
+    "bomb_noncreature",
+    "card_draw",
+    "disposable_creature"
+   ],
+   "type_line": "Enchantment"
+  },
   "d7cba934-02ad-4677-bb4d-50808b01b4f9": {
    "cmc": 6.0,
    "color_identity": "U",
@@ -6435,6 +8597,19 @@
     "expensive"
    ],
    "type_line": "Instant"
+  },
+  "d9ed7252-11d1-432b-9101-ac08cd28826d": {
+   "cmc": 2.0,
+   "color_identity": "G",
+   "color_options": [
+    "G"
+   ],
+   "colors": "G",
+   "oracle_id": "d9ed7252-11d1-432b-9101-ac08cd28826d",
+   "tags": [
+    "landfall"
+   ],
+   "type_line": "Enchantment"
   },
   "db05b114-2eb5-46bc-81e7-7e036d8eaab3": {
    "cmc": 2.0,
@@ -6518,6 +8693,42 @@
    ],
    "type_line": "Sorcery"
   },
+  "e01860cd-0aa1-435a-9ef9-ee412bc458cd": {
+   "cmc": 3.0,
+   "color_identity": "B",
+   "color_options": [
+    "B"
+   ],
+   "colors": "B",
+   "oracle_id": "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+   "tags": [
+    "bounce_value_noncreature",
+    "disposable_creature",
+    "historic"
+   ],
+   "type_line": "Enchantment \u2014 Saga"
+  },
+  "e3a665f9-6e51-4e0d-923b-e9552d5978a4": {
+   "cmc": 2.0,
+   "color_identity": "B",
+   "color_options": [
+    "B"
+   ],
+   "colors": "B",
+   "oracle_id": "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
+   "tags": [
+    "artifact",
+    "artifact_sac_outlet",
+    "bounce_value_creature",
+    "card_draw",
+    "creature_sac_outlet",
+    "fixing",
+    "historic",
+    "mana_ramp",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Halfling Citizen"
+  },
   "e4402d21-bb7f-4777-bc8d-b24bf2faccb0": {
    "cmc": 3.0,
    "color_identity": "U",
@@ -6532,6 +8743,21 @@
     "historic"
    ],
    "type_line": "Enchantment \u2014 Saga"
+  },
+  "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8": {
+   "cmc": 3.0,
+   "color_identity": "WU",
+   "color_options": [
+    "WU"
+   ],
+   "colors": "WU",
+   "oracle_id": "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
+   "tags": [
+    "draw_payoff",
+    "historic",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Human Archer"
   },
   "ed9d4bb1-7335-45fd-b2ea-97b1f6491d7a": {
    "cmc": 2.0,
@@ -6696,6 +8922,23 @@
    ],
    "type_line": "Legendary Creature \u2014 Halfling Rogue // Sorcery \u2014 Adventure"
   },
+  "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f": {
+   "cmc": 7.0,
+   "color_identity": "R",
+   "color_options": [
+    "R"
+   ],
+   "colors": "R",
+   "oracle_id": "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+   "tags": [
+    "_removal_",
+    "evasive",
+    "expensive",
+    "historic",
+    "creature"
+   ],
+   "type_line": "Legendary Creature \u2014 Dragon // Sorcery \u2014 Adventure"
+  },
   "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8": {
    "cmc": 3.0,
    "color_identity": "U",
@@ -6708,12 +8951,29 @@
     "_removal_"
    ],
    "type_line": "Enchantment \u2014 Aura"
+  },
+  "fdf7f144-56e4-4f88-b81a-b85473922355": {
+   "cmc": 3.0,
+   "color_identity": "R",
+   "color_options": [
+    "R"
+   ],
+   "colors": "R",
+   "oracle_id": "fdf7f144-56e4-4f88-b81a-b85473922355",
+   "tags": [
+    "artifact_sac_outlet",
+    "creature_sac_outlet",
+    "creature"
+   ],
+   "type_line": "Creature \u2014 Goblin Ranger"
   }
  },
  "cfg": {
   "curve_weight": 0.25,
   "min_games": 1000,
   "mistake_gap": 4.0,
+  "narrow_pick_min_cards": 8,
+  "narrow_pick_min_questionable": 2,
   "ramp_span": 14,
   "ramp_start": 0,
   "removal_weight": 0.5,
@@ -6833,11 +9093,16 @@
  "event_type": "PremierDraft",
  "format_avg_wr": 56.3,
  "names": {
+  "an unexpected party": "38503d34-f4f9-4eeb-9b1e-4fec1df921b3",
   "attercop": "45d652c4-188e-4f00-acdd-1be014922cbc",
+  "bard the bowman": "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8",
   "bejeweled warg": "051ff7e0-dd00-4467-8796-a5d1c21934ed",
+  "beorn's hospitality": "d9ed7252-11d1-432b-9101-ac08cd28826d",
   "beorn, reluctant host": "288da486-393c-4995-ad02-c5093a71970d",
+  "bifur, melodic rider": "b8d563e4-e2bc-4e8b-8841-6655beff9138",
   "bilbo baggins, burglar": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
   "bilbo's deadly slice": "4c054431-3667-4e28-9d68-03b43447c35b",
+  "bilbo, luckwearer": "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54",
   "bofur, reliable guardian": "8a0e35ac-6c03-4922-b3b4-e419419fe3d7",
   "bolg of the north": "88522a0f-5377-4522-97f4-4148bef954af",
   "bolg's company": "fa602f8f-1d80-4f6d-8b8f-d1a1f36037bd",
@@ -6846,11 +9111,14 @@
   "boughside wanderers": "dc788b66-d03d-4066-be35-481be96ed2f7",
   "burn, burn, tree and fern": "a97d6c5c-1cff-442d-b535-fc8389160b0b",
   "cantankerous keepers": "77c97dad-17cc-4a28-a48b-907c044d9034",
+  "celebrate the mountain-king": "d51136fa-3c13-48a5-83fd-51fe00010a4b",
   "confusticate and bebother": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
   "crude bent blade": "eec81460-899d-4b4c-b33c-ce2ca704df17",
   "desert were-worm": "81c2913f-42b7-4cfa-adc0-b3416fbe2ec6",
   "desolation of smaug": "c9634afc-4a5b-4cf6-b63d-0ff9909dd5a7",
   "desolation prowler": "ed9d4bb1-7335-45fd-b2ea-97b1f6491d7a",
+  "dori, bearer of friends": "58acd6b2-730c-4472-a34a-f2784977aca8",
+  "down, down to goblin-town": "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
   "dreaded bat-cloud": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
   "duskwatch hunter": "6283e5ca-9924-478b-89a5-36924accb9aa",
   "dwalin, weaponmaster": "cee583b7-7cc3-40ea-a227-b760839ec291",
@@ -6858,8 +9126,11 @@
   "dwarven mauler": "70538676-2ffb-4cad-827e-b55e81088678",
   "dwarven provisioner": "8fcab221-8737-4357-b8ee-bad9421739a3",
   "dwarven shortsword": "9cc52afb-9788-46f6-9f9b-347513f8a64f",
+  "d\u00e1in's company": "ae03782f-8f05-4ce2-a049-005b1b688faf",
   "d\u00e1in, lord of the iron hills": "5b79b68a-db71-4638-824e-ab89b1716c86",
+  "eagle of the great shelf": "cb4b4b63-682b-4439-9757-84cca7a27db2",
   "eagle's rescue": "95e1c368-b58a-4e69-9583-587560ad558d",
+  "elrond, moon-reader": "3f4d6f91-95ad-4687-8899-5a21a0abb49e",
   "elven passage": "97a2cd39-6b54-496b-b3ac-dab9dfed7edc",
   "elven raft-steerer": "d0f62148-1015-49b8-b61f-a4332325a6b0",
   "elvenking's halls": "a91e0154-14a9-4681-8236-04db231592a4",
@@ -6869,11 +9140,14 @@
   "fearsome goblin pair": "edbd3d4e-78a2-4c03-936d-dcb24cf7c87c",
   "forest": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
   "front porch sentries": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+  "galion, elvenking's butler": "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66",
   "gandalf, spark starter": "cd1a9d87-4c91-4456-8d88-19e0d6e0b200",
   "gandalf, wandering wizard": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+  "gathering of darkness": "85e1556d-c4da-4979-a5db-4ce3842c7797",
   "getaway barrel": "7ddbf891-7f80-44e9-b94c-70c1da0b91ed",
   "giant's boulder": "80433c2c-5196-42e0-b9fa-d7b12783f5fd",
   "gigantic big bear": "88d7bd11-7b1d-426c-8552-01448531c6ad",
+  "gl\u00f3in the mighty": "6505a53b-00db-44c4-8eaa-09a1a01451a4",
   "gnashing of teeth": "188a3f61-3f7c-450d-8ee7-e12ad13b86c6",
   "goblin plate mail": "eda99a16-6a7c-4f39-8a6b-a284e6afd3fc",
   "goblin-town": "98d20908-6d68-4d31-b719-207f93c9b402",
@@ -6881,8 +9155,11 @@
   "gollum the abandoned": "8d88facd-cf7e-498e-ab6b-6bd021316162",
   "gollum, silent slinker": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
   "great fierce bee": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+  "great gilded boat": "d4607026-80b2-4fa6-99d5-694cd3b43868",
+  "great ugly-looking goblin": "27e17542-549b-4c05-8091-c10a245c916b",
   "guardian of the halls": "c3fb2829-64f2-4795-b815-edcc5bbbc360",
   "gundabad opportunist": "61773534-8da8-48fa-b51a-73c0a9a751c4",
+  "head of the hunt": "0523e271-5e0b-4e4b-9eac-86f915d18952",
   "hobbit hole": "17492186-9814-4c41-8111-1f000a96c212",
   "inside information": "66961bcb-f588-47a7-b3f3-12f4ac674477",
   "iron hills": "a71e8d07-1a49-47a0-834e-de87d750a200",
@@ -6901,9 +9178,13 @@
   "long lake nuisance": "a833fdf1-db0c-4846-8452-d3b2059c2355",
   "long-bodied grey dog": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
   "magnificent end": "82bdf9cb-61fe-4eaf-8762-c32002403d96",
+  "master's councillors": "b9079564-5c86-4765-988a-f2334e016fa6",
   "mirkwood": "cd49aa99-bf84-4edd-aecc-6dae78b73412",
+  "mirkwood meditator": "399cd159-7376-421c-b001-c26f1cbadced",
   "mirkwood nurturer": "66630640-9605-44da-afdf-eb9d458d056f",
   "mirkwood pathmaker": "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+  "misty mountains raider": "c394b767-620c-4310-b78f-ece312259e46",
+  "moment of glory": "3d39db09-67b7-4a4e-9667-4e1b806f51a5",
   "mountain": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
   "nasty little rabbit": "ee86cce6-c7c1-40a6-896b-cde9b86bb532",
   "nighthowl pursuer": "89aa97d0-1aef-4ed8-b29c-7943bb3d0e60",
@@ -6925,24 +9206,33 @@
   "ravening warg": "8060d231-7477-441d-b249-8e75aa1d7791",
   "reverent howl": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
   "rhovanion rampager": "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
+  "settle the wreckage": "2a2ea189-b663-4f4a-bb23-ff7a4af25f71",
   "silvan reveler": "11932191-4b19-49b1-bfe4-abb7b83b2e59",
   "smaug's fury": "5c034266-8e63-4b43-8f9e-564e6fff6ec1",
+  "smaug, the great calamity": "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f",
+  "snowslope hunter": "fdf7f144-56e4-4f88-b81a-b85473922355",
   "sound the trumpets": "dbcf2a79-b455-43ac-9cf0-9e63708800f4",
+  "sting, bilbo's sword": "9779f32c-b1a2-42a3-8e78-14c28c3ad254",
   "stir up trouble": "dda607bd-f419-4b7f-b052-a5ce6ce22bfe",
   "stone by sunlight": "7907bbf0-f6d9-4e5b-b5de-73cd94979f98",
   "stony-voiced goblins": "d1dceaa7-d33e-4067-9e1b-8a8978a12933",
+  "supper for spiders": "4d891515-39da-492e-ac19-1aa524245449",
   "swamp": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
   "the black arrow": "cb2803ee-825b-420e-b404-c7c44f15ec15",
   "the chief warg": "5ebe8de1-aa3d-410d-b43d-1685259c7a97",
+  "the master of lake-town": "89c3c81b-8960-4f79-b2ec-f13560058071",
   "the mountain-king's return": "32ad5b3e-92c0-45be-b2e4-6f1794552f36",
   "the notary hobbits": "dc20b29b-856e-4d45-99cd-5e12cfc2324d",
+  "the sackville-bagginses": "e3a665f9-6e51-4e0d-923b-e9552d5978a4",
   "thorin's last stand": "3c4da169-1e50-4790-abdc-214e7b8a2ad5",
   "thorin, mountain-king": "94917b80-ac32-45ab-b4ee-157ade024bcd",
+  "thranduil's company": "2c195485-83f9-424f-854a-50c4f5b04182",
   "thranduil's decree": "d7cba934-02ad-4677-bb4d-50808b01b4f9",
   "thranduil, sindarin liege": "f6771d32-395e-4832-b33d-cbc12dff1516",
   "thr\u00f3r's map": "925cacdc-6d09-4fbd-9258-9f0539da180c",
   "tidings of war": "5753f4d6-08d0-4e12-85c5-875ee6441626",
   "tom, bert, and william": "0ea58cfe-b37c-49a6-a3be-7e60065b8238",
+  "troll negotiations": "6e275711-eb76-4924-ba38-c38a36d9d82a",
   "troop of ponies": "bb52b3c3-09f0-4506-b7c0-250ab0b91866",
   "uncover the moon-letters": "4c67359d-5590-4eb0-827e-b411967ee238",
   "uneasy partings": "15211eaa-d906-4b95-8942-2f49d3cb4b81",
@@ -6951,7 +9241,9 @@
   "warg tactics": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
   "wargling": "ce107656-f222-4d9a-9ba2-b33b4d47bdb5",
   "well-worn spatula": "3cc333a1-c854-4b7c-8002-910e48222371",
+  "wilderland scrounger": "8a2946ad-7a7b-4cda-8591-da8c7da5e072",
   "wizard's staff": "30c3c700-46f4-4a77-8c45-5c7e3a21bd62",
+  "wood elves": "8973bd99-20f8-4867-90ef-50392147ee1b",
   "woodland weavemaster": "28ffddca-a3c4-467d-a2dc-2c5e62393e11",
   "\u00f3in the brave": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a"
  },
@@ -6971,6 +9263,10 @@
   "051ff7e0-dd00-4467-8796-a5d1c21934ed": [
    60.2540834845735,
    6612
+  ],
+  "0523e271-5e0b-4e4b-9eac-86f915d18952": [
+   61.6699616234446,
+   8599
   ],
   "0ea58cfe-b37c-49a6-a3be-7e60065b8238": [
    58.1665685697469,
@@ -6996,6 +9292,10 @@
    56.27597256296,
    19973
   ],
+  "27e17542-549b-4c05-8091-c10a245c916b": [
+   57.5946674230606,
+   21153
+  ],
   "288da486-393c-4995-ad02-c5093a71970d": [
    50.9090909090909,
    9900
@@ -7003,6 +9303,14 @@
   "28ffddca-a3c4-467d-a2dc-2c5e62393e11": [
    53.6837859639688,
    7438
+  ],
+  "2a2ea189-b663-4f4a-bb23-ff7a4af25f71": [
+   58.9327753073502,
+   7646
+  ],
+  "2c195485-83f9-424f-854a-50c4f5b04182": [
+   62.1107491856677,
+   7675
   ],
   "30c3c700-46f4-4a77-8c45-5c7e3a21bd62": [
    38.6752136752137,
@@ -7016,6 +9324,14 @@
    53.4322076360357,
    9979
   ],
+  "38503d34-f4f9-4eeb-9b1e-4fec1df921b3": [
+   65.9406858202039,
+   10790
+  ],
+  "399cd159-7376-421c-b001-c26f1cbadced": [
+   49.3982808022923,
+   1745
+  ],
   "3c4da169-1e50-4790-abdc-214e7b8a2ad5": [
    49.2032360872763,
    4079
@@ -7028,6 +9344,14 @@
    56.244153414406,
    17104
   ],
+  "3d39db09-67b7-4a4e-9667-4e1b806f51a5": [
+   51.946652296915,
+   7423
+  ],
+  "3f4d6f91-95ad-4687-8899-5a21a0abb49e": [
+   51.6111414527581,
+   1831
+  ],
   "45d652c4-188e-4f00-acdd-1be014922cbc": [
    56.0827531593361,
    30307
@@ -7039,6 +9363,10 @@
   "4c67359d-5590-4eb0-827e-b411967ee238": [
    48.1727574750831,
    301
+  ],
+  "4d891515-39da-492e-ac19-1aa524245449": [
+   42.1404682274247,
+   299
   ],
   "526f520e-b4bb-4215-9c6b-afc298744f06": [
    58.5206102678747,
@@ -7060,6 +9388,10 @@
    56.3293562176992,
    31346
   ],
+  "58acd6b2-730c-4472-a34a-f2784977aca8": [
+   57.8660071742085,
+   44883
+  ],
   "5b79b68a-db71-4638-824e-ab89b1716c86": [
    54.5324953022743,
    15433
@@ -7080,6 +9412,10 @@
    55.697419412984,
    33287
   ],
+  "6505a53b-00db-44c4-8eaa-09a1a01451a4": [
+   58.0640165203924,
+   19370
+  ],
   "66630640-9605-44da-afdf-eb9d458d056f": [
    55.8059076636818,
    34396
@@ -7091,6 +9427,10 @@
   "69cc089a-abd3-4edb-bc79-f02daac70837": [
    55.4247562154089,
    22766
+  ],
+  "6e275711-eb76-4924-ba38-c38a36d9d82a": [
+   55.1549524002431,
+   14811
   ],
   "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2": [
    54.0669371196755,
@@ -7176,6 +9516,10 @@
    54.3150587228377,
    21031
   ],
+  "85e1556d-c4da-4979-a5db-4ce3842c7797": [
+   55.1454805628428,
+   16772
+  ],
   "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c": [
    53.7601403201052,
    18244
@@ -7192,6 +9536,10 @@
    51.8289085545723,
    3390
   ],
+  "8973bd99-20f8-4867-90ef-50392147ee1b": [
+   54.0764034474726,
+   17172
+  ],
   "89a2fab8-b074-42aa-a871-d9c5de2d0895": [
    54.7678923401074,
    14713
@@ -7200,9 +9548,17 @@
    59.549606968345,
    23535
   ],
+  "89c3c81b-8960-4f79-b2ec-f13560058071": [
+   54.6468401486989,
+   5380
+  ],
   "8a0e35ac-6c03-4922-b3b4-e419419fe3d7": [
    56.9272596127171,
    18023
+  ],
+  "8a2946ad-7a7b-4cda-8591-da8c7da5e072": [
+   52.3500447627574,
+   8936
   ],
   "8c7641b6-3a6c-4441-a98c-3b5d61d91f76": [
    56.0571998053167,
@@ -7236,6 +9592,10 @@
    59.3713536898415,
    55707
   ],
+  "9779f32c-b1a2-42a3-8e78-14c28c3ad254": [
+   49.1430700447094,
+   2684
+  ],
   "978e07fd-8b8c-4eab-850e-e4c0e712251e": [
    61.0133027358457,
    27889
@@ -7252,6 +9612,10 @@
    54.379057591623,
    23875
   ],
+  "9efb3aa4-0023-4e0e-8bd4-f4dff1b3be66": [
+   54.1475765613697,
+   8294
+  ],
   "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a": [
    55.8213616489694,
    32020
@@ -7263,6 +9627,10 @@
   "a71e8d07-1a49-47a0-834e-de87d750a200": [
    54.9556843361173,
    23468
+  ],
+  "a73d9109-36e0-40ea-ab06-5c5f7eb4ac54": [
+   60.1755439861167,
+   29964
   ],
   "a833fdf1-db0c-4846-8452-d3b2059c2355": [
    57.6928549649355,
@@ -7276,6 +9644,10 @@
    60.0581600974575,
    25447
   ],
+  "ae03782f-8f05-4ce2-a049-005b1b688faf": [
+   62.7203622836811,
+   6183
+  ],
   "b2c6aa39-2d2a-459c-a555-fb48ba993373": [
    55.1839464882943,
    113022
@@ -7287,6 +9659,14 @@
   "b39f03cf-3d1a-42ad-903f-e3b3542878b0": [
    55.7364074328975,
    29060
+  ],
+  "b8d563e4-e2bc-4e8b-8841-6655beff9138": [
+   55.1710358056266,
+   12512
+  ],
+  "b9079564-5c86-4765-988a-f2334e016fa6": [
+   58.1027249973561,
+   28367
   ],
   "bb52b3c3-09f0-4506-b7c0-250ab0b91866": [
    54.2068679323581,
@@ -7308,6 +9688,10 @@
    58.3431098276329,
    55405
   ],
+  "c394b767-620c-4310-b78f-ece312259e46": [
+   58.5379228887202,
+   23706
+  ],
   "c3fb2829-64f2-4795-b815-edcc5bbbc360": [
    53.1361456155454,
    16262
@@ -7327,6 +9711,10 @@
   "cb2803ee-825b-420e-b404-c7c44f15ec15": [
    51.8811881188119,
    4545
+  ],
+  "cb4b4b63-682b-4439-9757-84cca7a27db2": [
+   53.0337078651685,
+   7565
   ],
   "cd1a9d87-4c91-4456-8d88-19e0d6e0b200": [
    59.4650471637162,
@@ -7360,9 +9748,21 @@
    55.7511418343414,
    40505
   ],
+  "d4607026-80b2-4fa6-99d5-694cd3b43868": [
+   61.5867285542376,
+   11634
+  ],
+  "d51136fa-3c13-48a5-83fd-51fe00010a4b": [
+   62.1553884711779,
+   30723
+  ],
   "d7cba934-02ad-4677-bb4d-50808b01b4f9": [
    51.0119483052914,
    4101
+  ],
+  "d9ed7252-11d1-432b-9101-ac08cd28826d": [
+   55.2140077821012,
+   10280
   ],
   "db05b114-2eb5-46bc-81e7-7e036d8eaab3": [
    56.966618287373,
@@ -7388,9 +9788,21 @@
    56.9827639977545,
    48097
   ],
+  "e01860cd-0aa1-435a-9ef9-ee412bc458cd": [
+   59.3120500327249,
+   27502
+  ],
+  "e3a665f9-6e51-4e0d-923b-e9552d5978a4": [
+   59.1898351993961,
+   7949
+  ],
   "e4402d21-bb7f-4777-bc8d-b24bf2faccb0": [
    52.7059037900875,
    10976
+  ],
+  "ec076f5b-b0e3-4b6f-9293-a8fc42f20bd8": [
+   58.817594834544,
+   24780
   ],
   "ed9d4bb1-7335-45fd-b2ea-97b1f6491d7a": [
    61.2001862816845,
@@ -7436,9 +9848,17 @@
    57.3538770079256,
    51857
   ],
+  "fc75cfec-e1f6-4cb5-8a3c-2f7b2c39c03f": [
+   56.6642929203015,
+   33702
+  ],
   "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8": [
    55.608866711448,
    41684
+  ],
+  "fdf7f144-56e4-4f88-b81a-b85473922355": [
+   53.149186963005,
+   14083
   ]
  },
  "set_code": "hob",
