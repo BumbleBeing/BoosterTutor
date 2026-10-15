@@ -1,0 +1,6701 @@
+{
+ "set_code": "hob",
+ "event_type": "PremierDraft",
+ "stats_snapshot": "2026-10-01",
+ "has_taxonomy": true,
+ "pack_size": 14,
+ "picks": [
+  {
+   "pack_number": 1,
+   "pick_number": 1,
+   "picked": "70538676-2ffb-4cad-827e-b55e81088678",
+   "verdict": "questionable",
+   "best": "961e3023-39ea-4141-99b6-738280a2815d",
+   "gap": 2.196,
+   "commitment": 0.071,
+   "pool": {
+    "size": 0,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 0,
+     "R": 0,
+     "G": 0
+    },
+    "curve": {
+     "0": 0,
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 0,
+    "removal": 0,
+    "predicted_archetype": null
+   },
+   "cards": [
+    {
+     "oracle_id": "961e3023-39ea-4141-99b6-738280a2815d",
+     "scored": true,
+     "total": 59.425,
+     "gih_wr": 59.371,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.036,
+     "synergy": 0.0,
+     "games": 55707,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "70538676-2ffb-4cad-827e-b55e81088678",
+     "scored": true,
+     "total": 57.229,
+     "gih_wr": 57.293,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": -0.082,
+     "games": 18606,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "80bcb154-b4be-4bbd-bbc1-b116a59045b7",
+     "scored": true,
+     "total": 56.959,
+     "gih_wr": 57.037,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": -0.096,
+     "games": 52874,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "73346137-3117-4dc3-b5a4-1aca1da54548",
+     "scored": true,
+     "total": 56.813,
+     "gih_wr": 56.795,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 19118,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "17492186-9814-4c41-8111-1f000a96c212",
+     "scored": true,
+     "total": 56.427,
+     "gih_wr": 56.519,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.092,
+     "games": 60258,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+     "scored": true,
+     "total": 55.724,
+     "gih_wr": 55.736,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": -0.03,
+     "games": 29060,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "98d20908-6d68-4d31-b719-207f93c9b402",
+     "scored": true,
+     "total": 55.712,
+     "gih_wr": 55.712,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 29265,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 55.295,
+     "gih_wr": 55.425,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": -0.148,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "97a2cd39-6b54-496b-b3ac-dab9dfed7edc",
+     "scored": true,
+     "total": 55.013,
+     "gih_wr": 55.097,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.084,
+     "games": 5601,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 54.786,
+     "gih_wr": 54.768,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c8259b0e-131f-44f0-86d4-7c4d711b328d",
+     "scored": true,
+     "total": 54.519,
+     "gih_wr": 54.621,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": -0.12,
+     "games": 11924,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "bb52b3c3-09f0-4506-b7c0-250ab0b91866",
+     "scored": true,
+     "total": 54.135,
+     "gih_wr": 54.207,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": -0.09,
+     "games": 9639,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "5c034266-8e63-4b43-8f9e-564e6fff6ec1",
+     "scored": true,
+     "total": 52.369,
+     "gih_wr": 52.352,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 6974,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "d0f62148-1015-49b8-b61f-a4332325a6b0",
+     "scored": true,
+     "total": 50.161,
+     "gih_wr": 50.143,
+     "color_fit": 0.0,
+     "curve": 0.018,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 3849,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 2,
+   "picked": "961e3023-39ea-4141-99b6-738280a2815d",
+   "verdict": "solid",
+   "best": "7907bbf0-f6d9-4e5b-b5de-73cd94979f98",
+   "gap": 0.862,
+   "commitment": 0.143,
+   "pool": {
+    "size": 1,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 0,
+     "R": 1,
+     "G": 0
+    },
+    "curve": {
+     "0": 0,
+     "1": 1,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 1,
+    "removal": 0,
+    "predicted_archetype": "WR"
+   },
+   "cards": [
+    {
+     "oracle_id": "7907bbf0-f6d9-4e5b-b5de-73cd94979f98",
+     "scored": true,
+     "total": 60.341,
+     "gih_wr": 60.273,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.071,
+     "synergy": -0.039,
+     "games": 28328,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "961e3023-39ea-4141-99b6-738280a2815d",
+     "scored": true,
+     "total": 59.478,
+     "gih_wr": 59.371,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.071,
+     "synergy": 0.0,
+     "games": 55707,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "8d88facd-cf7e-498e-ab6b-6bd021316162",
+     "scored": true,
+     "total": 57.032,
+     "gih_wr": 57.097,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.101,
+     "games": 21092,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "61773534-8da8-48fa-b51a-73c0a9a751c4",
+     "scored": true,
+     "total": 56.371,
+     "gih_wr": 56.335,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 37181,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "8c7641b6-3a6c-4441-a98c-3b5d61d91f76",
+     "scored": true,
+     "total": 56.074,
+     "gih_wr": 56.057,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.019,
+     "games": 43147,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 55.313,
+     "gih_wr": 55.425,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.148,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+     "scored": true,
+     "total": 54.157,
+     "gih_wr": 54.181,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.059,
+     "games": 13730,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 53.945,
+     "gih_wr": 53.866,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.071,
+     "synergy": -0.029,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+     "scored": true,
+     "total": 53.659,
+     "gih_wr": 53.672,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.049,
+     "games": 13059,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 53.388,
+     "gih_wr": 53.432,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.08,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 51.154,
+     "gih_wr": 51.166,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.047,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "66961bcb-f588-47a7-b3f3-12f4ac674477",
+     "scored": true,
+     "total": 49.469,
+     "gih_wr": 49.449,
+     "color_fit": 0.0,
+     "curve": 0.036,
+     "role": 0.0,
+     "synergy": -0.016,
+     "games": 1905,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 3,
+   "picked": "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+   "verdict": "solid",
+   "best": "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+   "gap": 0.0,
+   "commitment": 0.214,
+   "pool": {
+    "size": 2,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 0,
+     "R": 2,
+     "G": 0
+    },
+    "curve": {
+     "0": 0,
+     "1": 1,
+     "2": 1,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 1,
+    "removal": 1,
+    "predicted_archetype": "WR"
+   },
+   "cards": [
+    {
+     "oracle_id": "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+     "scored": true,
+     "total": 59.675,
+     "gih_wr": 59.647,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": -0.026,
+     "games": 19451,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+     "scored": true,
+     "total": 58.551,
+     "gih_wr": 58.521,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": -0.024,
+     "games": 50994,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "eda99a16-6a7c-4f39-8a6b-a284e6afd3fc",
+     "scored": true,
+     "total": 57.636,
+     "gih_wr": 57.339,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": 0.244,
+     "games": 59555,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.102,
+       "coefficient": 0.4,
+       "pp": 0.269,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8",
+     "scored": true,
+     "total": 55.77,
+     "gih_wr": 55.609,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.107,
+     "synergy": 0.0,
+     "games": 41684,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 55.331,
+     "gih_wr": 55.425,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": -0.148,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "925cacdc-6d09-4fbd-9258-9f0539da180c",
+     "scored": true,
+     "total": 55.083,
+     "gih_wr": 55.148,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": -0.118,
+     "games": 16842,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 53.405,
+     "gih_wr": 53.432,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": -0.08,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c3fb2829-64f2-4795-b815-edcc5bbbc360",
+     "scored": true,
+     "total": 53.19,
+     "gih_wr": 53.136,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 16262,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "77c97dad-17cc-4a28-a48b-907c044d9034",
+     "scored": true,
+     "total": 53.167,
+     "gih_wr": 53.121,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": -0.008,
+     "games": 2227,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "f8961618-ae68-4d13-84eb-8b5464ce4971",
+     "scored": true,
+     "total": 52.369,
+     "gih_wr": 52.315,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 6673,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "dba1d231-6b03-44ad-ab8c-be0c8fe1b6db",
+     "scored": true,
+     "total": 52.005,
+     "gih_wr": 51.986,
+     "color_fit": 0.0,
+     "curve": 0.054,
+     "role": 0.0,
+     "synergy": -0.035,
+     "games": 5236,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 4,
+   "picked": "4c054431-3667-4e28-9d68-03b43447c35b",
+   "verdict": "solid",
+   "best": "bddd7e99-ec74-4ca6-9137-155b85695a95",
+   "gap": 0.394,
+   "commitment": 0.286,
+   "pool": {
+    "size": 3,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 0,
+     "R": 2,
+     "G": 1
+    },
+    "curve": {
+     "0": 0,
+     "1": 1,
+     "2": 1,
+     "3": 1,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 1,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "bddd7e99-ec74-4ca6-9137-155b85695a95",
+     "scored": true,
+     "total": 56.609,
+     "gih_wr": 58.343,
+     "color_fit": -1.714,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": -0.091,
+     "games": 55405,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "f75bb13b-41fc-4614-b35e-f456069ce9c6",
+     "scored": true,
+     "total": 56.501,
+     "gih_wr": 56.117,
+     "color_fit": 0.0,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": 0.313,
+     "games": 13324,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.122,
+       "coefficient": 0.4,
+       "pp": 0.263,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "4c054431-3667-4e28-9d68-03b43447c35b",
+     "scored": true,
+     "total": 56.215,
+     "gih_wr": 57.715,
+     "color_fit": -1.714,
+     "curve": 0.071,
+     "role": 0.143,
+     "synergy": 0.0,
+     "games": 47705,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "8060d231-7477-441d-b249-8e75aa1d7791",
+     "scored": true,
+     "total": 56.023,
+     "gih_wr": 57.666,
+     "color_fit": -1.714,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 46239,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
+     "scored": true,
+     "total": 55.671,
+     "gih_wr": 57.354,
+     "color_fit": -1.714,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": -0.04,
+     "games": 51857,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "a71e8d07-1a49-47a0-834e-de87d750a200",
+     "scored": true,
+     "total": 55.02,
+     "gih_wr": 54.956,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.064,
+     "games": 23468,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 54.839,
+     "gih_wr": 54.768,
+     "color_fit": 0.0,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+     "scored": true,
+     "total": 54.566,
+     "gih_wr": 56.244,
+     "color_fit": -1.714,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": -0.035,
+     "games": 17104,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 53.634,
+     "gih_wr": 55.425,
+     "color_fit": -1.714,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": -0.148,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "5c034266-8e63-4b43-8f9e-564e6fff6ec1",
+     "scored": true,
+     "total": 52.423,
+     "gih_wr": 52.352,
+     "color_fit": 0.0,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 6974,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "bd4ab393-9538-4230-b2a1-bc77099481c9",
+     "scored": true,
+     "total": 51.742,
+     "gih_wr": 51.796,
+     "color_fit": 0.0,
+     "curve": 0.071,
+     "role": 0.0,
+     "synergy": -0.125,
+     "games": 9742,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 5,
+   "picked": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+   "verdict": "solid",
+   "best": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+   "gap": 0.0,
+   "commitment": 0.357,
+   "pool": {
+    "size": 4,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 1,
+     "R": 2,
+     "G": 1
+    },
+    "curve": {
+     "0": 0,
+     "1": 1,
+     "2": 1,
+     "3": 2,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 2,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+     "scored": true,
+     "total": 60.758,
+     "gih_wr": 60.415,
+     "color_fit": 0.0,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": 0.253,
+     "games": 60604,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.082,
+       "coefficient": 0.4,
+       "pp": 0.275,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "ee86cce6-c7c1-40a6-896b-cde9b86bb532",
+     "scored": true,
+     "total": 59.695,
+     "gih_wr": 59.606,
+     "color_fit": 0.0,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 17973,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "a833fdf1-db0c-4846-8452-d3b2059c2355",
+     "scored": true,
+     "total": 55.495,
+     "gih_wr": 57.693,
+     "color_fit": -2.143,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": -0.144,
+     "games": 49195,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "15211eaa-d906-4b95-8942-2f49d3cb4b81",
+     "scored": true,
+     "total": 54.374,
+     "gih_wr": 56.249,
+     "color_fit": -2.143,
+     "curve": 0.089,
+     "role": 0.179,
+     "synergy": 0.0,
+     "games": 38319,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+     "scored": true,
+     "total": 54.166,
+     "gih_wr": 54.113,
+     "color_fit": 0.0,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": -0.036,
+     "games": 13531,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "edbd3d4e-78a2-4c03-936d-dcb24cf7c87c",
+     "scored": true,
+     "total": 53.673,
+     "gih_wr": 53.641,
+     "color_fit": 0.0,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": -0.057,
+     "games": 13391,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "8fcab221-8737-4357-b8ee-bad9421739a3",
+     "scored": true,
+     "total": 53.543,
+     "gih_wr": 55.662,
+     "color_fit": -2.143,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": -0.065,
+     "games": 34765,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "80433c2c-5196-42e0-b9fa-d7b12783f5fd",
+     "scored": true,
+     "total": 50.894,
+     "gih_wr": 50.786,
+     "color_fit": 0.0,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": 0.019,
+     "games": 8967,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.265,
+       "coefficient": 0.2,
+       "pp": 0.11,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "539583f4-21c8-4b61-a2c5-f612fadc3ffa",
+     "scored": true,
+     "total": 28.214,
+     "gih_wr": 28.125,
+     "color_fit": 0.0,
+     "curve": 0.089,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 160,
+     "insufficient_data": true,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 6,
+   "picked": "bb67d0a4-864e-4f46-8538-fdd920bf0197",
+   "verdict": "solid",
+   "best": "8060d231-7477-441d-b249-8e75aa1d7791",
+   "gap": 1.459,
+   "commitment": 0.429,
+   "pool": {
+    "size": 5,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 2,
+     "G": 1
+    },
+    "curve": {
+     "0": 0,
+     "1": 1,
+     "2": 1,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 2,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "8060d231-7477-441d-b249-8e75aa1d7791",
+     "scored": true,
+     "total": 57.773,
+     "gih_wr": 57.666,
+     "color_fit": 0.0,
+     "curve": 0.107,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 46239,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "f6771d32-395e-4832-b33d-cbc12dff1516",
+     "scored": true,
+     "total": 57.252,
+     "gih_wr": 58.47,
+     "color_fit": -1.286,
+     "curve": 0.107,
+     "role": 0.0,
+     "synergy": -0.039,
+     "games": 19793,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "17492186-9814-4c41-8111-1f000a96c212",
+     "scored": true,
+     "total": 56.577,
+     "gih_wr": 56.519,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.058,
+     "games": 60258,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.254,
+       "coefficient": 0.2,
+       "pp": 0.112,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "bb67d0a4-864e-4f46-8538-fdd920bf0197",
+     "scored": true,
+     "total": 56.313,
+     "gih_wr": 56.023,
+     "color_fit": 0.0,
+     "curve": 0.107,
+     "role": 0.0,
+     "synergy": 0.183,
+     "games": 26448,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.135,
+       "coefficient": 0.4,
+       "pp": 0.26,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "a833fdf1-db0c-4846-8452-d3b2059c2355",
+     "scored": true,
+     "total": 55.085,
+     "gih_wr": 57.693,
+     "color_fit": -2.571,
+     "curve": 0.107,
+     "role": 0.0,
+     "synergy": -0.144,
+     "games": 49195,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
+     "scored": true,
+     "total": 54.154,
+     "gih_wr": 56.725,
+     "color_fit": -2.571,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 31702,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "cf765efe-884c-48e2-9edb-9d45cf2756dd",
+     "scored": true,
+     "total": 49.947,
+     "gih_wr": 52.511,
+     "color_fit": -2.571,
+     "curve": 0.107,
+     "role": 0.0,
+     "synergy": -0.099,
+     "games": 9539,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+     "scored": true,
+     "total": 49.717,
+     "gih_wr": 50.909,
+     "color_fit": -1.286,
+     "curve": 0.107,
+     "role": 0.0,
+     "synergy": -0.014,
+     "games": 9900,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+     "scored": true,
+     "total": 49.172,
+     "gih_wr": 50.35,
+     "color_fit": -1.286,
+     "curve": 0.107,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7567,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 7,
+   "picked": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+   "verdict": "solid",
+   "best": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+   "gap": 0.0,
+   "commitment": 0.5,
+   "pool": {
+    "size": 6,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 3,
+     "G": 1
+    },
+    "curve": {
+     "0": 0,
+     "1": 1,
+     "2": 2,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 2,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+     "scored": true,
+     "total": 56.396,
+     "gih_wr": 56.329,
+     "color_fit": 0.0,
+     "curve": 0.125,
+     "role": 0.0,
+     "synergy": -0.059,
+     "games": 31346,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "6283e5ca-9924-478b-89a5-36924accb9aa",
+     "scored": true,
+     "total": 55.822,
+     "gih_wr": 55.697,
+     "color_fit": 0.0,
+     "curve": 0.125,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 33287,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
+     "scored": true,
+     "total": 54.439,
+     "gih_wr": 57.354,
+     "color_fit": -3.0,
+     "curve": 0.125,
+     "role": 0.0,
+     "synergy": -0.04,
+     "games": 51857,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dbcf2a79-b455-43ac-9cf0-9e63708800f4",
+     "scored": true,
+     "total": 53.201,
+     "gih_wr": 56.076,
+     "color_fit": -3.0,
+     "curve": 0.125,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 9134,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+     "scored": true,
+     "total": 52.972,
+     "gih_wr": 54.181,
+     "color_fit": -1.5,
+     "curve": 0.125,
+     "role": 0.0,
+     "synergy": 0.166,
+     "games": 13730,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": [
+      {
+       "tag_on_card": "protection_spell",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.262,
+       "coefficient": 0.3,
+       "pp": 0.166,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "88d7bd11-7b1d-426c-8552-01448531c6ad",
+     "scored": true,
+     "total": 50.44,
+     "gih_wr": 51.829,
+     "color_fit": -1.5,
+     "curve": 0.125,
+     "role": 0.0,
+     "synergy": -0.014,
+     "games": 3390,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 48.243,
+     "gih_wr": 51.166,
+     "color_fit": -3.0,
+     "curve": 0.125,
+     "role": 0.0,
+     "synergy": -0.047,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 8,
+   "picked": "cd49aa99-bf84-4edd-aecc-6dae78b73412",
+   "verdict": "solid",
+   "best": "17492186-9814-4c41-8111-1f000a96c212",
+   "gap": 0.755,
+   "commitment": 0.571,
+   "pool": {
+    "size": 7,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 4,
+     "G": 1
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 2,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 2,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "17492186-9814-4c41-8111-1f000a96c212",
+     "scored": true,
+     "total": 56.577,
+     "gih_wr": 56.519,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.058,
+     "games": 60258,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.254,
+       "coefficient": 0.2,
+       "pp": 0.112,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "cd49aa99-bf84-4edd-aecc-6dae78b73412",
+     "scored": true,
+     "total": 55.822,
+     "gih_wr": 55.822,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 23722,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dbcf2a79-b455-43ac-9cf0-9e63708800f4",
+     "scored": true,
+     "total": 52.79,
+     "gih_wr": 56.076,
+     "color_fit": -3.429,
+     "curve": 0.143,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 9134,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "9cc52afb-9788-46f6-9f9b-347513f8a64f",
+     "scored": true,
+     "total": 51.302,
+     "gih_wr": 54.379,
+     "color_fit": -3.429,
+     "curve": 0.143,
+     "role": 0.0,
+     "synergy": 0.208,
+     "games": 23875,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.135,
+       "coefficient": 0.4,
+       "pp": 0.259,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 50.837,
+     "gih_wr": 53.866,
+     "color_fit": -3.429,
+     "curve": 0.143,
+     "role": 0.286,
+     "synergy": -0.029,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+     "scored": true,
+     "total": 49.324,
+     "gih_wr": 50.909,
+     "color_fit": -1.714,
+     "curve": 0.143,
+     "role": 0.0,
+     "synergy": -0.014,
+     "games": 9900,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "cf765efe-884c-48e2-9edb-9d45cf2756dd",
+     "scored": true,
+     "total": 48.983,
+     "gih_wr": 52.511,
+     "color_fit": -3.429,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.099,
+     "games": 9539,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 9,
+   "picked": "98d20908-6d68-4d31-b719-207f93c9b402",
+   "verdict": "solid",
+   "best": "17492186-9814-4c41-8111-1f000a96c212",
+   "gap": 0.865,
+   "commitment": 0.643,
+   "pool": {
+    "size": 8,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 4,
+     "G": 1
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 2,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 2,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "17492186-9814-4c41-8111-1f000a96c212",
+     "scored": true,
+     "total": 56.577,
+     "gih_wr": 56.519,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.058,
+     "games": 60258,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.254,
+       "coefficient": 0.2,
+       "pp": 0.112,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+     "scored": true,
+     "total": 55.867,
+     "gih_wr": 55.736,
+     "color_fit": 0.0,
+     "curve": 0.161,
+     "role": 0.0,
+     "synergy": -0.03,
+     "games": 29060,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "98d20908-6d68-4d31-b719-207f93c9b402",
+     "scored": true,
+     "total": 55.712,
+     "gih_wr": 55.712,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 29265,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "c8259b0e-131f-44f0-86d4-7c4d711b328d",
+     "scored": true,
+     "total": 54.812,
+     "gih_wr": 54.621,
+     "color_fit": 0.0,
+     "curve": 0.161,
+     "role": 0.0,
+     "synergy": 0.03,
+     "games": 11924,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.262,
+       "coefficient": 0.2,
+       "pp": 0.111,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 53.0,
+     "gih_wr": 54.768,
+     "color_fit": -1.929,
+     "curve": 0.161,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "d0f62148-1015-49b8-b61f-a4332325a6b0",
+     "scored": true,
+     "total": 46.446,
+     "gih_wr": 50.143,
+     "color_fit": -3.857,
+     "curve": 0.161,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 3849,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 10,
+   "picked": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+   "verdict": "solid",
+   "best": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+   "gap": 1.148,
+   "commitment": 0.714,
+   "pool": {
+    "size": 9,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 4,
+     "G": 1
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 2,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 2,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 53.53,
+     "gih_wr": 53.432,
+     "color_fit": 0.0,
+     "curve": 0.179,
+     "role": 0.0,
+     "synergy": -0.08,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+     "scored": true,
+     "total": 52.382,
+     "gih_wr": 54.181,
+     "color_fit": -2.143,
+     "curve": 0.179,
+     "role": 0.0,
+     "synergy": 0.166,
+     "games": 13730,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "protection_spell",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.262,
+       "coefficient": 0.3,
+       "pp": 0.166,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 50.087,
+     "gih_wr": 53.866,
+     "color_fit": -4.286,
+     "curve": 0.179,
+     "role": 0.357,
+     "synergy": -0.029,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 47.011,
+     "gih_wr": 51.166,
+     "color_fit": -4.286,
+     "curve": 0.179,
+     "role": 0.0,
+     "synergy": -0.047,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 11,
+   "picked": "c3fb2829-64f2-4795-b815-edcc5bbbc360",
+   "verdict": "solid",
+   "best": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+   "gap": 0.216,
+   "commitment": 0.786,
+   "pool": {
+    "size": 10,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 4,
+     "G": 2
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 3,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 2,
+    "removal": 2,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 53.548,
+     "gih_wr": 53.432,
+     "color_fit": 0.0,
+     "curve": 0.196,
+     "role": 0.0,
+     "synergy": -0.08,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "c3fb2829-64f2-4795-b815-edcc5bbbc360",
+     "scored": true,
+     "total": 53.333,
+     "gih_wr": 53.136,
+     "color_fit": 0.0,
+     "curve": 0.196,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 16262,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dba1d231-6b03-44ad-ab8c-be0c8fe1b6db",
+     "scored": true,
+     "total": 47.434,
+     "gih_wr": 51.986,
+     "color_fit": -4.714,
+     "curve": 0.196,
+     "role": 0.0,
+     "synergy": -0.035,
+     "games": 5236,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 12,
+   "picked": "5c034266-8e63-4b43-8f9e-564e6fff6ec1",
+   "verdict": "questionable",
+   "best": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+   "gap": 2.416,
+   "commitment": 0.857,
+   "pool": {
+    "size": 11,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 4,
+     "G": 3
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 4,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 3,
+    "removal": 2,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 54.982,
+     "gih_wr": 54.768,
+     "color_fit": 0.0,
+     "curve": 0.214,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "bddd7e99-ec74-4ca6-9137-155b85695a95",
+     "scored": true,
+     "total": 53.323,
+     "gih_wr": 58.343,
+     "color_fit": -5.143,
+     "curve": 0.214,
+     "role": 0.0,
+     "synergy": -0.091,
+     "games": 55405,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "5c034266-8e63-4b43-8f9e-564e6fff6ec1",
+     "scored": true,
+     "total": 52.566,
+     "gih_wr": 52.352,
+     "color_fit": 0.0,
+     "curve": 0.214,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 6974,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 13,
+   "picked": "a833fdf1-db0c-4846-8452-d3b2059c2355",
+   "verdict": "indifferent",
+   "best": "a833fdf1-db0c-4846-8452-d3b2059c2355",
+   "gap": 0.0,
+   "commitment": 0.929,
+   "pool": {
+    "size": 12,
+    "colors": {
+     "W": 0,
+     "U": 0,
+     "B": 2,
+     "R": 5,
+     "G": 3
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 5,
+     "3": 3,
+     "4": 0,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 3,
+    "removal": 2,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "a833fdf1-db0c-4846-8452-d3b2059c2355",
+     "scored": true,
+     "total": 52.21,
+     "gih_wr": 57.693,
+     "color_fit": -5.571,
+     "curve": 0.232,
+     "role": 0.0,
+     "synergy": -0.144,
+     "games": 49195,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 1,
+   "pick_number": 14,
+   "picked": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+   "verdict": "indifferent",
+   "best": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 13,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 5,
+     "G": 3
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 5,
+     "3": 3,
+     "4": 1,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 4,
+    "removal": 2,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+     "scored": true,
+     "total": 50.6,
+     "gih_wr": 50.35,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7567,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 1,
+   "picked": "94917b80-ac32-45ab-b4ee-157ade024bcd",
+   "verdict": "solid",
+   "best": "94917b80-ac32-45ab-b4ee-157ade024bcd",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 14,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 5,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 5,
+     "3": 4,
+     "4": 1,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 5,
+    "removal": 2,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "94917b80-ac32-45ab-b4ee-157ade024bcd",
+     "scored": true,
+     "total": 63.994,
+     "gih_wr": 63.647,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.097,
+     "games": 4184,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "equipment_payoff",
+       "complementary_tag": "equipment",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.88,
+       "coefficient": 0.4,
+       "pp": 0.216,
+       "contributing": [
+        "eec81460-899d-4b4c-b33c-ce2ca704df17",
+        "bb67d0a4-864e-4f46-8538-fdd920bf0197"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "a97d6c5c-1cff-442d-b535-fc8389160b0b",
+     "scored": true,
+     "total": 60.601,
+     "gih_wr": 60.058,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.5,
+     "synergy": -0.208,
+     "games": 25447,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "ed9d4bb1-7335-45fd-b2ea-97b1f6491d7a",
+     "scored": true,
+     "total": 58.45,
+     "gih_wr": 61.2,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 30062,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+     "scored": true,
+     "total": 57.694,
+     "gih_wr": 60.415,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.029,
+     "games": 60604,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.33,
+       "coefficient": 0.4,
+       "pp": 0.201,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "66630640-9605-44da-afdf-eb9d458d056f",
+     "scored": true,
+     "total": 56.063,
+     "gih_wr": 55.806,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.007,
+     "games": 34396,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "bounce_enabler",
+       "complementary_tag": "bounce_value_noncreature",
+       "pool_count": 2,
+       "effective_count": 1.5,
+       "expected_count": 0.908,
+       "coefficient": 0.5,
+       "pp": 0.222,
+       "contributing": [
+        "eec81460-899d-4b4c-b33c-ce2ca704df17",
+        "bb67d0a4-864e-4f46-8538-fdd920bf0197"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+     "scored": true,
+     "total": 55.706,
+     "gih_wr": 55.821,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.365,
+     "games": 32020,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+     "scored": true,
+     "total": 54.072,
+     "gih_wr": 54.067,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.245,
+     "games": 9860,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c9634afc-4a5b-4cf6-b63d-0ff9909dd5a7",
+     "scored": true,
+     "total": 53.012,
+     "gih_wr": 52.762,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 2896,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 50.927,
+     "gih_wr": 53.76,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.083,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+     "scored": true,
+     "total": 50.202,
+     "gih_wr": 54.452,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 12455,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "11932191-4b19-49b1-bfe4-abb7b83b2e59",
+     "scored": true,
+     "total": 49.482,
+     "gih_wr": 53.815,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.083,
+     "games": 9750,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 49.382,
+     "gih_wr": 55.425,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.293,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+     "scored": true,
+     "total": 47.808,
+     "gih_wr": 53.672,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.114,
+     "games": 13059,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 2,
+   "picked": "a97d6c5c-1cff-442d-b535-fc8389160b0b",
+   "verdict": "solid",
+   "best": "a97d6c5c-1cff-442d-b535-fc8389160b0b",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 15,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 6,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 5,
+     "3": 4,
+     "4": 2,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 6,
+    "removal": 2,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "a97d6c5c-1cff-442d-b535-fc8389160b0b",
+     "scored": true,
+     "total": 60.601,
+     "gih_wr": 60.058,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.5,
+     "synergy": -0.208,
+     "games": 25447,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+     "scored": true,
+     "total": 56.17,
+     "gih_wr": 56.329,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.159,
+     "games": 31346,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+     "scored": true,
+     "total": 54.247,
+     "gih_wr": 54.113,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.115,
+     "games": 13531,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "28ffddca-a3c4-467d-a2dc-2c5e62393e11",
+     "scored": true,
+     "total": 53.934,
+     "gih_wr": 53.684,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7438,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "cb2803ee-825b-420e-b404-c7c44f15ec15",
+     "scored": true,
+     "total": 52.375,
+     "gih_wr": 51.881,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.244,
+     "games": 4545,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.367,
+       "coefficient": 0.4,
+       "pp": 0.37,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
+     "scored": true,
+     "total": 52.225,
+     "gih_wr": 56.725,
+     "color_fit": -4.5,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 31702,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "bd4ab393-9538-4230-b2a1-bc77099481c9",
+     "scored": true,
+     "total": 52.168,
+     "gih_wr": 51.796,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.122,
+     "games": 9742,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "equipment_payoff",
+       "complementary_tag": "equipment",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 1.051,
+       "coefficient": 0.4,
+       "pp": 0.165,
+       "contributing": [
+        "eec81460-899d-4b4c-b33c-ce2ca704df17",
+        "bb67d0a4-864e-4f46-8538-fdd920bf0197"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "fcc9f3bc-0bc3-4189-a4d0-9698594b99a8",
+     "scored": true,
+     "total": 51.859,
+     "gih_wr": 55.609,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.5,
+     "synergy": 0.0,
+     "games": 41684,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+     "scored": true,
+     "total": 50.6,
+     "gih_wr": 50.35,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7567,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 50.486,
+     "gih_wr": 53.432,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.196,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 49.443,
+     "gih_wr": 55.425,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.232,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 46.772,
+     "gih_wr": 51.166,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.144,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "cf765efe-884c-48e2-9edb-9d45cf2756dd",
+     "scored": true,
+     "total": 46.276,
+     "gih_wr": 52.511,
+     "color_fit": -6.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.235,
+     "games": 9539,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 3,
+   "picked": "cd1a9d87-4c91-4456-8d88-19e0d6e0b200",
+   "verdict": "solid",
+   "best": "cd1a9d87-4c91-4456-8d88-19e0d6e0b200",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 16,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 7,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 5,
+     "3": 4,
+     "4": 3,
+     "5": 0,
+     "6": 0
+    },
+    "creatures": 6,
+    "removal": 3,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "cd1a9d87-4c91-4456-8d88-19e0d6e0b200",
+     "scored": true,
+     "total": 59.71,
+     "gih_wr": 59.465,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.005,
+     "games": 23217,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+     "scored": true,
+     "total": 55.821,
+     "gih_wr": 55.821,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.25,
+     "games": 32020,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "32ad5b3e-92c0-45be-b2e4-6f1794552f36",
+     "scored": true,
+     "total": 55.066,
+     "gih_wr": 61.133,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.317,
+     "games": 29938,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "a91e0154-14a9-4681-8236-04db231592a4",
+     "scored": true,
+     "total": 53.995,
+     "gih_wr": 53.995,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 15594,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+     "scored": true,
+     "total": 53.394,
+     "gih_wr": 56.244,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.1,
+     "games": 17104,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "d1dceaa7-d33e-4067-9e1b-8a8978a12933",
+     "scored": true,
+     "total": 52.949,
+     "gih_wr": 55.751,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.052,
+     "games": 40505,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
+     "scored": true,
+     "total": 52.914,
+     "gih_wr": 57.354,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.19,
+     "games": 51857,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "dbcf2a79-b455-43ac-9cf0-9e63708800f4",
+     "scored": true,
+     "total": 51.826,
+     "gih_wr": 56.076,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 9134,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+     "scored": true,
+     "total": 51.109,
+     "gih_wr": 50.909,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.05,
+     "games": 9900,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "84597236-2cfc-4654-b126-a8ee252f4d14",
+     "scored": true,
+     "total": 50.495,
+     "gih_wr": 56.545,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.3,
+     "games": 14981,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 50.026,
+     "gih_wr": 53.866,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.5,
+     "synergy": -0.09,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7ddbf891-7f80-44e9-b94c-70c1da0b91ed",
+     "scored": true,
+     "total": 39.467,
+     "gih_wr": 39.344,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.128,
+     "games": 122,
+     "insufficient_data": true,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 4,
+   "picked": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+   "verdict": "solid",
+   "best": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 17,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 8,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 5,
+     "3": 4,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 7,
+    "removal": 3,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+     "scored": true,
+     "total": 55.871,
+     "gih_wr": 55.821,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.201,
+     "games": 32020,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 55.018,
+     "gih_wr": 54.768,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+     "scored": true,
+     "total": 54.664,
+     "gih_wr": 54.507,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.093,
+     "games": 29429,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+     "scored": true,
+     "total": 54.184,
+     "gih_wr": 58.521,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.086,
+     "games": 50994,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "3cc333a1-c854-4b7c-8002-910e48222371",
+     "scored": true,
+     "total": 53.73,
+     "gih_wr": 53.495,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.235,
+     "games": 10072,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.378,
+       "coefficient": 0.4,
+       "pp": 0.367,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+     "scored": true,
+     "total": 50.6,
+     "gih_wr": 50.35,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7567,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 49.547,
+     "gih_wr": 55.425,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.128,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "5b79b68a-db71-4638-824e-ab89b1716c86",
+     "scored": true,
+     "total": 48.682,
+     "gih_wr": 54.532,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.1,
+     "games": 15433,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7f961374-00b0-40df-83eb-9ced2bb519aa",
+     "scored": true,
+     "total": 47.612,
+     "gih_wr": 52.04,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.178,
+     "games": 8703,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 46.772,
+     "gih_wr": 51.166,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.144,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 5,
+   "picked": "961e3023-39ea-4141-99b6-738280a2815d",
+   "verdict": "solid",
+   "best": "961e3023-39ea-4141-99b6-738280a2815d",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 18,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 9,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 6,
+     "3": 4,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 8,
+    "removal": 3,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "961e3023-39ea-4141-99b6-738280a2815d",
+     "scored": true,
+     "total": 60.121,
+     "gih_wr": 59.371,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.5,
+     "synergy": 0.0,
+     "games": 55707,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "a71e8d07-1a49-47a0-834e-de87d750a200",
+     "scored": true,
+     "total": 55.089,
+     "gih_wr": 54.956,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.133,
+     "games": 23468,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "dwarf_payoff",
+       "complementary_tag": "dwarf",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.825,
+       "coefficient": 0.2,
+       "pp": 0.133,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd",
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+     "scored": true,
+     "total": 54.739,
+     "gih_wr": 54.507,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.018,
+     "games": 29429,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+     "scored": true,
+     "total": 54.541,
+     "gih_wr": 54.181,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.11,
+     "games": 13730,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "protection_spell",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.511,
+       "coefficient": 0.3,
+       "pp": 0.11,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+     "scored": true,
+     "total": 54.297,
+     "gih_wr": 54.067,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.02,
+     "games": 9860,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+     "scored": true,
+     "total": 54.184,
+     "gih_wr": 58.521,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.086,
+     "games": 50994,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+     "scored": true,
+     "total": 52.907,
+     "gih_wr": 55.736,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.08,
+     "games": 29060,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "8a0e35ac-6c03-4922-b3b4-e419419fe3d7",
+     "scored": true,
+     "total": 50.982,
+     "gih_wr": 56.927,
+     "color_fit": -6.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.055,
+     "games": 18023,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "protection_spell",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.471,
+       "coefficient": 0.3,
+       "pp": 0.119,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "7f961374-00b0-40df-83eb-9ced2bb519aa",
+     "scored": true,
+     "total": 47.708,
+     "gih_wr": 52.04,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.082,
+     "games": 8703,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 46.847,
+     "gih_wr": 51.166,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.069,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 6,
+   "picked": "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116",
+   "verdict": "solid",
+   "best": "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 19,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 10,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 7,
+     "3": 4,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 8,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116",
+     "scored": true,
+     "total": 54.355,
+     "gih_wr": 54.315,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.21,
+     "games": 21031,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+     "scored": true,
+     "total": 54.297,
+     "gih_wr": 54.067,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.02,
+     "games": 9860,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+     "scored": true,
+     "total": 54.184,
+     "gih_wr": 58.521,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.086,
+     "games": 50994,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+     "scored": true,
+     "total": 54.147,
+     "gih_wr": 54.113,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.035,
+     "games": 13531,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "bddd7e99-ec74-4ca6-9137-155b85695a95",
+     "scored": true,
+     "total": 53.804,
+     "gih_wr": 58.343,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.289,
+     "games": 55405,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "edbd3d4e-78a2-4c03-936d-dcb24cf7c87c",
+     "scored": true,
+     "total": 53.67,
+     "gih_wr": 53.641,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.22,
+     "games": 13391,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "80433c2c-5196-42e0-b9fa-d7b12783f5fd",
+     "scored": true,
+     "total": 50.666,
+     "gih_wr": 50.786,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.121,
+     "games": 8967,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "7f961374-00b0-40df-83eb-9ced2bb519aa",
+     "scored": true,
+     "total": 47.708,
+     "gih_wr": 52.04,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.082,
+     "games": 8703,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 7,
+   "picked": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+   "verdict": "questionable",
+   "best": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+   "gap": 2.361,
+   "commitment": 1.0,
+   "pool": {
+    "size": 20,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 2,
+     "R": 11,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 8,
+     "3": 4,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 9,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 55.018,
+     "gih_wr": 54.768,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+     "scored": true,
+     "total": 54.297,
+     "gih_wr": 54.067,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.02,
+     "games": 9860,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dc20b29b-856e-4d45-99cd-5e12cfc2324d",
+     "scored": true,
+     "total": 54.169,
+     "gih_wr": 53.942,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.023,
+     "games": 1205,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+     "scored": true,
+     "total": 52.657,
+     "gih_wr": 55.736,
+     "color_fit": -3.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.08,
+     "games": 29060,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "95e1c368-b58a-4e69-9583-587560ad558d",
+     "scored": true,
+     "total": 52.357,
+     "gih_wr": 56.607,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14809,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "15211eaa-d906-4b95-8942-2f49d3cb4b81",
+     "scored": true,
+     "total": 52.249,
+     "gih_wr": 56.249,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.25,
+     "synergy": 0.0,
+     "games": 38319,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 50.927,
+     "gih_wr": 53.76,
+     "color_fit": -3.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.083,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "3c4da169-1e50-4790-abdc-214e7b8a2ad5",
+     "scored": true,
+     "total": 43.523,
+     "gih_wr": 49.203,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.069,
+     "games": 4079,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 8,
+   "picked": "03253076-9add-4efb-9227-b0a062c86534",
+   "verdict": "solid",
+   "best": "03253076-9add-4efb-9227-b0a062c86534",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 21,
+    "colors": {
+     "W": 0,
+     "U": 1,
+     "B": 3,
+     "R": 11,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 9,
+     "3": 4,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 10,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+     "scored": true,
+     "total": 54.364,
+     "gih_wr": 54.507,
+     "color_fit": 0.0,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": -0.018,
+     "games": 29429,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+     "scored": true,
+     "total": 54.147,
+     "gih_wr": 54.113,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.035,
+     "games": 13531,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "3cc333a1-c854-4b7c-8002-910e48222371",
+     "scored": true,
+     "total": 53.805,
+     "gih_wr": 53.495,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.31,
+     "games": 10072,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.378,
+       "coefficient": 0.4,
+       "pp": 0.367,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 52.427,
+     "gih_wr": 53.76,
+     "color_fit": -1.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.083,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
+     "scored": true,
+     "total": 52.225,
+     "gih_wr": 56.725,
+     "color_fit": -4.5,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 31702,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "84597236-2cfc-4654-b126-a8ee252f4d14",
+     "scored": true,
+     "total": 50.495,
+     "gih_wr": 56.545,
+     "color_fit": -6.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.3,
+     "games": 14981,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "30c3c700-46f4-4a77-8c45-5c7e3a21bd62",
+     "scored": true,
+     "total": 34.374,
+     "gih_wr": 38.675,
+     "color_fit": -4.5,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": 0.324,
+     "games": 468,
+     "insufficient_data": true,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.358,
+       "coefficient": 0.4,
+       "pp": 0.372,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 9,
+   "picked": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+   "verdict": "solid",
+   "best": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+   "gap": 1.87,
+   "commitment": 1.0,
+   "pool": {
+    "size": 22,
+    "colors": {
+     "W": 1,
+     "U": 1,
+     "B": 3,
+     "R": 12,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 10,
+     "3": 4,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 11,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+     "scored": true,
+     "total": 54.297,
+     "gih_wr": 54.067,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.02,
+     "games": 9860,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 52.427,
+     "gih_wr": 53.76,
+     "color_fit": -1.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.083,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 51.206,
+     "gih_wr": 55.425,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.031,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+     "scored": true,
+     "total": 49.702,
+     "gih_wr": 54.452,
+     "color_fit": -4.5,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 12455,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+     "scored": true,
+     "total": 49.308,
+     "gih_wr": 53.672,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.114,
+     "games": 13059,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 10,
+   "picked": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+   "verdict": "solid",
+   "best": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
+   "gap": 1.625,
+   "commitment": 1.0,
+   "pool": {
+    "size": 23,
+    "colors": {
+     "W": 1,
+     "U": 1,
+     "B": 4,
+     "R": 12,
+     "G": 4
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 10,
+     "3": 5,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 11,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "717c6beb-81c6-43ed-aab0-aedfc1cbac33",
+     "scored": true,
+     "total": 52.225,
+     "gih_wr": 56.725,
+     "color_fit": -4.5,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 31702,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "69cc089a-abd3-4edb-bc79-f02daac70837",
+     "scored": true,
+     "total": 51.206,
+     "gih_wr": 55.425,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.031,
+     "games": 22766,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+     "scored": true,
+     "total": 50.6,
+     "gih_wr": 50.35,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7567,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "cf765efe-884c-48e2-9edb-9d45cf2756dd",
+     "scored": true,
+     "total": 47.776,
+     "gih_wr": 52.511,
+     "color_fit": -4.5,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.235,
+     "games": 9539,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 46.847,
+     "gih_wr": 51.166,
+     "color_fit": -4.5,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.069,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 11,
+   "picked": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+   "verdict": "solid",
+   "best": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 24,
+    "colors": {
+     "W": 1,
+     "U": 1,
+     "B": 4,
+     "R": 12,
+     "G": 5
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 10,
+     "3": 6,
+     "4": 3,
+     "5": 0,
+     "6": 1
+    },
+    "creatures": 12,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+     "scored": true,
+     "total": 55.194,
+     "gih_wr": 56.244,
+     "color_fit": -1.2,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.1,
+     "games": 17104,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dbcf2a79-b455-43ac-9cf0-9e63708800f4",
+     "scored": true,
+     "total": 51.526,
+     "gih_wr": 56.076,
+     "color_fit": -4.8,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 9134,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+     "scored": true,
+     "total": 51.184,
+     "gih_wr": 50.909,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.025,
+     "games": 9900,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 49.476,
+     "gih_wr": 53.866,
+     "color_fit": -4.8,
+     "curve": 0.25,
+     "role": 0.25,
+     "synergy": -0.09,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 12,
+   "picked": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+   "verdict": "solid",
+   "best": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 25,
+    "colors": {
+     "W": 1,
+     "U": 1,
+     "B": 5,
+     "R": 12,
+     "G": 5
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 10,
+     "3": 6,
+     "4": 3,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 13,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 55.018,
+     "gih_wr": 54.768,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 46.547,
+     "gih_wr": 51.166,
+     "color_fit": -4.8,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.069,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 13,
+   "picked": "526f520e-b4bb-4215-9c6b-afc298744f06",
+   "verdict": "solid",
+   "best": "526f520e-b4bb-4215-9c6b-afc298744f06",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 26,
+    "colors": {
+     "W": 1,
+     "U": 1,
+     "B": 5,
+     "R": 12,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 10,
+     "3": 6,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 14,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+     "scored": true,
+     "total": 53.184,
+     "gih_wr": 58.521,
+     "color_fit": -5.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.086,
+     "games": 50994,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "7f961374-00b0-40df-83eb-9ced2bb519aa",
+     "scored": true,
+     "total": 47.035,
+     "gih_wr": 52.04,
+     "color_fit": -5.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.005,
+     "games": 8703,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "draw_payoff",
+       "complementary_tag": "card_draw",
+       "pool_count": 4,
+       "effective_count": 2.952,
+       "expected_count": 2.262,
+       "coefficient": 0.2,
+       "pp": 0.103,
+       "contributing": [
+        "bb67d0a4-864e-4f46-8538-fdd920bf0197",
+        "a833fdf1-db0c-4846-8452-d3b2059c2355",
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pack_number": 2,
+   "pick_number": 14,
+   "picked": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+   "verdict": "indifferent",
+   "best": null,
+   "gap": null,
+   "commitment": 1.0,
+   "pool": {
+    "size": 27,
+    "colors": {
+     "W": 1,
+     "U": 2,
+     "B": 5,
+     "R": 12,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 11,
+     "3": 6,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 14,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 1,
+   "picked": "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+   "verdict": "solid",
+   "best": "8060d231-7477-441d-b249-8e75aa1d7791",
+   "gap": 1.241,
+   "commitment": 1.0,
+   "pool": {
+    "size": 28,
+    "colors": {
+     "W": 1,
+     "U": 2,
+     "B": 5,
+     "R": 12,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 11,
+     "3": 6,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 14,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "8060d231-7477-441d-b249-8e75aa1d7791",
+     "scored": true,
+     "total": 56.416,
+     "gih_wr": 57.666,
+     "color_fit": -1.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 46239,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+     "scored": true,
+     "total": 55.175,
+     "gih_wr": 55.091,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.166,
+     "games": 13877,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+     "scored": true,
+     "total": 54.172,
+     "gih_wr": 54.507,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.086,
+     "games": 29429,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+     "scored": true,
+     "total": 54.132,
+     "gih_wr": 58.521,
+     "color_fit": -4.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.139,
+     "games": 50994,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "c8259b0e-131f-44f0-86d4-7c4d711b328d",
+     "scored": true,
+     "total": 54.132,
+     "gih_wr": 54.621,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.239,
+     "games": 11924,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+     "scored": true,
+     "total": 54.077,
+     "gih_wr": 54.113,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.036,
+     "games": 13531,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "5ebe8de1-aa3d-410d-b43d-1685259c7a97",
+     "scored": true,
+     "total": 52.513,
+     "gih_wr": 53.536,
+     "color_fit": -1.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.022,
+     "games": 12289,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 52.385,
+     "gih_wr": 53.432,
+     "color_fit": -1.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.297,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+     "scored": true,
+     "total": 51.152,
+     "gih_wr": 50.909,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.007,
+     "games": 9900,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+     "scored": true,
+     "total": 50.202,
+     "gih_wr": 54.452,
+     "color_fit": -4.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 12455,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "5b79b68a-db71-4638-824e-ab89b1716c86",
+     "scored": true,
+     "total": 49.119,
+     "gih_wr": 54.532,
+     "color_fit": -5.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.164,
+     "games": 15433,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "76c036df-44f5-4021-b7fc-656147351341",
+     "scored": true,
+     "total": 48.947,
+     "gih_wr": 49.077,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.129,
+     "games": 1516,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "4c67359d-5590-4eb0-827e-b411967ee238",
+     "scored": true,
+     "total": 44.173,
+     "gih_wr": 48.173,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 301,
+     "insufficient_data": true,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 2,
+   "picked": "cee583b7-7cc3-40ea-a227-b760839ec291",
+   "verdict": "solid",
+   "best": "978e07fd-8b8c-4eab-850e-e4c0e712251e",
+   "gap": 1.394,
+   "commitment": 1.0,
+   "pool": {
+    "size": 29,
+    "colors": {
+     "W": 1,
+     "U": 2,
+     "B": 5,
+     "R": 13,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 11,
+     "3": 7,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 15,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "978e07fd-8b8c-4eab-850e-e4c0e712251e",
+     "scored": true,
+     "total": 60.683,
+     "gih_wr": 61.013,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.08,
+     "games": 27889,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "cee583b7-7cc3-40ea-a227-b760839ec291",
+     "scored": true,
+     "total": 59.289,
+     "gih_wr": 59.505,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.033,
+     "games": 8369,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "dda607bd-f419-4b7f-b052-a5ce6ce22bfe",
+     "scored": true,
+     "total": 56.336,
+     "gih_wr": 56.983,
+     "color_fit": -1.0,
+     "curve": 0.0,
+     "role": 0.25,
+     "synergy": 0.104,
+     "games": 48097,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "creature_sac_outlet",
+       "complementary_tag": "disposable_creature",
+       "pool_count": 3,
+       "effective_count": 1.75,
+       "expected_count": 1.415,
+       "coefficient": 0.4,
+       "pp": 0.101,
+       "contributing": [
+        "5753f4d6-08d0-4e12-85c5-875ee6441626",
+        "a833fdf1-db0c-4846-8452-d3b2059c2355",
+        "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "45d652c4-188e-4f00-acdd-1be014922cbc",
+     "scored": true,
+     "total": 55.833,
+     "gih_wr": 56.083,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 30307,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "cd49aa99-bf84-4edd-aecc-6dae78b73412",
+     "scored": true,
+     "total": 55.822,
+     "gih_wr": 55.822,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 23722,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "bb67d0a4-864e-4f46-8538-fdd920bf0197",
+     "scored": true,
+     "total": 55.775,
+     "gih_wr": 56.023,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.002,
+     "games": 26448,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.586,
+       "coefficient": 0.4,
+       "pp": 0.304,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+     "scored": true,
+     "total": 55.326,
+     "gih_wr": 56.244,
+     "color_fit": -1.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.168,
+     "games": 17104,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "3cc333a1-c854-4b7c-8002-910e48222371",
+     "scored": true,
+     "total": 53.736,
+     "gih_wr": 53.495,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.241,
+     "games": 10072,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.577,
+       "coefficient": 0.4,
+       "pp": 0.307,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "28ffddca-a3c4-467d-a2dc-2c5e62393e11",
+     "scored": true,
+     "total": 53.434,
+     "gih_wr": 53.684,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7438,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+     "scored": true,
+     "total": 50.202,
+     "gih_wr": 54.452,
+     "color_fit": -4.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 12455,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "f8961618-ae68-4d13-84eb-8b5464ce4971",
+     "scored": true,
+     "total": 47.065,
+     "gih_wr": 52.315,
+     "color_fit": -5.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 6673,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "81c2913f-42b7-4cfa-adc0-b3416fbe2ec6",
+     "scored": true,
+     "total": 46.176,
+     "gih_wr": 46.205,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.029,
+     "games": 1805,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "d0f62148-1015-49b8-b61f-a4332325a6b0",
+     "scored": true,
+     "total": 46.143,
+     "gih_wr": 50.143,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 3849,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 3,
+   "picked": "840de40b-590e-4bf0-8d16-22b0eff61202",
+   "verdict": "solid",
+   "best": "840de40b-590e-4bf0-8d16-22b0eff61202",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 30,
+    "colors": {
+     "W": 2,
+     "U": 2,
+     "B": 5,
+     "R": 14,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 12,
+     "3": 7,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 16,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "840de40b-590e-4bf0-8d16-22b0eff61202",
+     "scored": true,
+     "total": 59.321,
+     "gih_wr": 63.44,
+     "color_fit": -4.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.131,
+     "games": 8162,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "dwarf_payoff",
+       "complementary_tag": "dwarf",
+       "pool_count": 6,
+       "effective_count": 4.686,
+       "expected_count": 2.776,
+       "coefficient": 0.2,
+       "pp": 0.286,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd",
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "03253076-9add-4efb-9227-b0a062c86534",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "cee583b7-7cc3-40ea-a227-b760839ec291"
+       ]
+      },
+      {
+       "tag_on_card": "bomb_creature",
+       "complementary_tag": "protection_spell",
+       "pool_count": 1,
+       "effective_count": 1.0,
+       "expected_count": 0.486,
+       "coefficient": 0.3,
+       "pp": 0.116,
+       "contributing": [
+        "d1663b51-37a1-45a0-b477-2d3e7dd0828e"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+     "scored": true,
+     "total": 58.155,
+     "gih_wr": 59.092,
+     "color_fit": -1.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.063,
+     "games": 53867,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "73346137-3117-4dc3-b5a4-1aca1da54548",
+     "scored": true,
+     "total": 57.045,
+     "gih_wr": 56.795,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 19118,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "db05b114-2eb5-46bc-81e7-7e036d8eaab3",
+     "scored": true,
+     "total": 56.967,
+     "gih_wr": 56.967,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.25,
+     "synergy": 0.0,
+     "games": 34450,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "61773534-8da8-48fa-b51a-73c0a9a751c4",
+     "scored": true,
+     "total": 56.335,
+     "gih_wr": 56.335,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 37181,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "a91e0154-14a9-4681-8236-04db231592a4",
+     "scored": true,
+     "total": 53.995,
+     "gih_wr": 53.995,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 15594,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "82bdf9cb-61fe-4eaf-8762-c32002403d96",
+     "scored": true,
+     "total": 53.25,
+     "gih_wr": 56.75,
+     "color_fit": -4.0,
+     "curve": 0.25,
+     "role": 0.25,
+     "synergy": 0.0,
+     "games": 46146,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "fa85f9e6-69ff-4669-b70a-440aa7b16c97",
+     "scored": true,
+     "total": 53.184,
+     "gih_wr": 57.354,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.17,
+     "games": 51857,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 52.633,
+     "gih_wr": 53.76,
+     "color_fit": -1.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.127,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "0f208cd3-7673-4380-9cb8-5b6f09966ebd",
+     "scored": true,
+     "total": 50.047,
+     "gih_wr": 54.023,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.024,
+     "games": 9433,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 49.977,
+     "gih_wr": 53.866,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.25,
+     "synergy": -0.139,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+     "scored": true,
+     "total": 49.492,
+     "gih_wr": 53.672,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.18,
+     "games": 13059,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 4,
+   "picked": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+   "verdict": "solid",
+   "best": "051ff7e0-dd00-4467-8796-a5d1c21934ed",
+   "gap": 0.116,
+   "commitment": 1.0,
+   "pool": {
+    "size": 31,
+    "colors": {
+     "W": 3,
+     "U": 2,
+     "B": 5,
+     "R": 14,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 13,
+     "3": 7,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 17,
+    "removal": 4,
+    "predicted_archetype": "RG"
+   },
+   "cards": [
+    {
+     "oracle_id": "051ff7e0-dd00-4467-8796-a5d1c21934ed",
+     "scored": true,
+     "total": 59.927,
+     "gih_wr": 60.254,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.077,
+     "games": 6612,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.709,
+       "coefficient": 0.2,
+       "pp": 0.134,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+     "scored": true,
+     "total": 59.811,
+     "gih_wr": 60.415,
+     "color_fit": -1.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.396,
+     "games": 60604,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 4,
+       "effective_count": 2.176,
+       "expected_count": 0.532,
+       "coefficient": 0.4,
+       "pp": 0.493,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd",
+        "cee583b7-7cc3-40ea-a227-b760839ec291",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      },
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.016,
+       "coefficient": 0.1,
+       "pp": 0.127,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "89aa97d0-1aef-4ed8-b29c-7943bb3d0e60",
+     "scored": true,
+     "total": 58.55,
+     "gih_wr": 59.55,
+     "color_fit": -1.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 23535,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+     "scored": true,
+     "total": 58.216,
+     "gih_wr": 59.092,
+     "color_fit": -1.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.124,
+     "games": 53867,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.057,
+       "coefficient": 0.1,
+       "pp": 0.124,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "45d652c4-188e-4f00-acdd-1be014922cbc",
+     "scored": true,
+     "total": 55.833,
+     "gih_wr": 56.083,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 30307,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+     "scored": true,
+     "total": 54.45,
+     "gih_wr": 54.507,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.192,
+     "games": 29429,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.177,
+       "coefficient": 0.1,
+       "pp": 0.115,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "d1663b51-37a1-45a0-b477-2d3e7dd0828e",
+     "scored": true,
+     "total": 54.085,
+     "gih_wr": 54.181,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.154,
+     "games": 13730,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "protection_spell",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 2,
+       "effective_count": 1.4,
+       "expected_count": 0.714,
+       "coefficient": 0.3,
+       "pp": 0.154,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "84d648c7-655e-4590-a3e0-366a8a4a4cb3",
+     "scored": true,
+     "total": 52.892,
+     "gih_wr": 52.761,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.131,
+     "games": 3622,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 0.966,
+       "coefficient": 0.1,
+       "pp": 0.131,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "11932191-4b19-49b1-bfe4-abb7b83b2e59",
+     "scored": true,
+     "total": 49.684,
+     "gih_wr": 53.815,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.131,
+     "games": 9750,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 47.396,
+     "gih_wr": 51.166,
+     "color_fit": -4.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": -0.02,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.159,
+       "coefficient": 0.1,
+       "pp": 0.116,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 5,
+   "picked": "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
+   "verdict": "solid",
+   "best": "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 32,
+    "colors": {
+     "W": 3,
+     "U": 2,
+     "B": 6,
+     "R": 14,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 13,
+     "3": 8,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 17,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
+     "scored": true,
+     "total": 61.725,
+     "gih_wr": 61.808,
+     "color_fit": 0.0,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": 0.043,
+     "games": 8719,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "creature_sac_outlet",
+       "complementary_tag": "disposable_creature",
+       "pool_count": 3,
+       "effective_count": 1.75,
+       "expected_count": 1.346,
+       "coefficient": 0.4,
+       "pp": 0.121,
+       "contributing": [
+        "5753f4d6-08d0-4e12-85c5-875ee6441626",
+        "a833fdf1-db0c-4846-8452-d3b2059c2355",
+        "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "61773534-8da8-48fa-b51a-73c0a9a751c4",
+     "scored": true,
+     "total": 56.335,
+     "gih_wr": 56.335,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 37181,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "188a3f61-3f7c-450d-8ee7-e12ad13b86c6",
+     "scored": true,
+     "total": 56.151,
+     "gih_wr": 56.276,
+     "color_fit": 0.0,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 19973,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+     "scored": true,
+     "total": 54.768,
+     "gih_wr": 54.768,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 14713,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 53.508,
+     "gih_wr": 53.76,
+     "color_fit": 0.0,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": -0.127,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "8790f842-e842-4bed-adf4-5b3cc5fd68a9",
+     "scored": true,
+     "total": 53.06,
+     "gih_wr": 53.089,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.03,
+     "games": 10196,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "15211eaa-d906-4b95-8942-2f49d3cb4b81",
+     "scored": true,
+     "total": 52.249,
+     "gih_wr": 56.249,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 38319,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+     "scored": true,
+     "total": 51.28,
+     "gih_wr": 50.909,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.121,
+     "games": 9900,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.092,
+       "coefficient": 0.1,
+       "pp": 0.121,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "70a702fe-1dd6-4d7b-a85a-45744ecad741",
+     "scored": true,
+     "total": 50.367,
+     "gih_wr": 53.672,
+     "color_fit": -3.0,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": -0.18,
+     "games": 13059,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 6,
+   "picked": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+   "verdict": "solid",
+   "best": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 33,
+    "colors": {
+     "W": 3,
+     "U": 2,
+     "B": 7,
+     "R": 14,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 13,
+     "3": 9,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 18,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "eec81460-899d-4b4c-b33c-ce2ca704df17",
+     "scored": true,
+     "total": 60.561,
+     "gih_wr": 60.415,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.396,
+     "games": 60604,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 4,
+       "effective_count": 2.176,
+       "expected_count": 0.532,
+       "coefficient": 0.4,
+       "pp": 0.493,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd",
+        "cee583b7-7cc3-40ea-a227-b760839ec291",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      },
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.016,
+       "coefficient": 0.1,
+       "pp": 0.127,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "0ea58cfe-b37c-49a6-a3be-7e60065b8238",
+     "scored": true,
+     "total": 57.802,
+     "gih_wr": 58.167,
+     "color_fit": -0.857,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.242,
+     "games": 6796,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 0.956,
+       "coefficient": 0.1,
+       "pp": 0.132,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      },
+      {
+       "tag_on_card": "creature_sac_outlet",
+       "complementary_tag": "disposable_creature",
+       "pool_count": 3,
+       "effective_count": 1.75,
+       "expected_count": 1.358,
+       "coefficient": 0.4,
+       "pp": 0.118,
+       "contributing": [
+        "5753f4d6-08d0-4e12-85c5-875ee6441626",
+        "a833fdf1-db0c-4846-8452-d3b2059c2355",
+        "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+     "scored": true,
+     "total": 54.45,
+     "gih_wr": 54.507,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.192,
+     "games": 29429,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.177,
+       "coefficient": 0.1,
+       "pp": 0.115,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "ce107656-f222-4d9a-9ba2-b33b4d47bdb5",
+     "scored": true,
+     "total": 53.849,
+     "gih_wr": 54.956,
+     "color_fit": -0.857,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 21208,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+     "scored": true,
+     "total": 53.219,
+     "gih_wr": 54.113,
+     "color_fit": -0.857,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.036,
+     "games": 13531,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 53.035,
+     "gih_wr": 53.432,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.147,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 49.191,
+     "gih_wr": 53.866,
+     "color_fit": -4.286,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.139,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "e4402d21-bb7f-4777-bc8d-b24bf2faccb0",
+     "scored": true,
+     "total": 48.033,
+     "gih_wr": 52.706,
+     "color_fit": -4.286,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.137,
+     "games": 10976,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.083,
+       "coefficient": 0.1,
+       "pp": 0.122,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 7,
+   "picked": "88522a0f-5377-4522-97f4-4148bef954af",
+   "verdict": "solid",
+   "best": "88522a0f-5377-4522-97f4-4148bef954af",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 34,
+    "colors": {
+     "W": 3,
+     "U": 2,
+     "B": 8,
+     "R": 14,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 13,
+     "3": 10,
+     "4": 4,
+     "5": 1,
+     "6": 1
+    },
+    "creatures": 18,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "88522a0f-5377-4522-97f4-4148bef954af",
+     "scored": true,
+     "total": 55.562,
+     "gih_wr": 54.993,
+     "color_fit": 0.0,
+     "curve": 0.25,
+     "role": 0.0,
+     "synergy": 0.318,
+     "games": 13698,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.071,
+       "coefficient": 0.1,
+       "pp": 0.123,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      },
+      {
+       "tag_on_card": "creature_sac_outlet",
+       "complementary_tag": "dies_trigger",
+       "pool_count": 2,
+       "effective_count": 1.5,
+       "expected_count": 0.826,
+       "coefficient": 0.2,
+       "pp": 0.101,
+       "contributing": [
+        "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+        "008a11c1-d283-49fe-abd7-ff4fe8b1fe79"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "db05b114-2eb5-46bc-81e7-7e036d8eaab3",
+     "scored": true,
+     "total": 55.217,
+     "gih_wr": 56.967,
+     "color_fit": -1.5,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 34450,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "66630640-9605-44da-afdf-eb9d458d056f",
+     "scored": true,
+     "total": 54.285,
+     "gih_wr": 55.806,
+     "color_fit": -1.5,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.229,
+     "games": 34396,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "bounce_enabler",
+       "complementary_tag": "bounce_value_noncreature",
+       "pool_count": 5,
+       "effective_count": 1.938,
+       "expected_count": 1.272,
+       "coefficient": 0.5,
+       "pp": 0.249,
+       "contributing": [
+        "eec81460-899d-4b4c-b33c-ce2ca704df17",
+        "bb67d0a4-864e-4f46-8538-fdd920bf0197",
+        "a97d6c5c-1cff-442d-b535-fc8389160b0b",
+        "eec81460-899d-4b4c-b33c-ce2ca704df17",
+        "eec81460-899d-4b4c-b33c-ce2ca704df17"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+     "scored": true,
+     "total": 53.795,
+     "gih_wr": 54.067,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.022,
+     "games": 9860,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.781,
+       "coefficient": 0.2,
+       "pp": 0.123,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      },
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.141,
+       "coefficient": 0.1,
+       "pp": 0.118,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 53.035,
+     "gih_wr": 53.432,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.147,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "cf765efe-884c-48e2-9edb-9d45cf2756dd",
+     "scored": true,
+     "total": 48.877,
+     "gih_wr": 52.511,
+     "color_fit": -3.75,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.116,
+     "games": 9539,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "d7cba934-02ad-4677-bb4d-50808b01b4f9",
+     "scored": true,
+     "total": 46.481,
+     "gih_wr": 51.012,
+     "color_fit": -4.5,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.031,
+     "games": 4101,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 8,
+   "picked": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+   "verdict": "solid",
+   "best": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 35,
+    "colors": {
+     "W": 3,
+     "U": 2,
+     "B": 9,
+     "R": 15,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 2,
+     "2": 13,
+     "3": 10,
+     "4": 4,
+     "5": 2,
+     "6": 1
+    },
+    "creatures": 19,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "5753f4d6-08d0-4e12-85c5-875ee6441626",
+     "scored": true,
+     "total": 56.549,
+     "gih_wr": 56.329,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.22,
+     "games": 31346,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "disposable_creature",
+       "complementary_tag": "creature_sac_outlet",
+       "pool_count": 2,
+       "effective_count": 1.5,
+       "expected_count": 0.767,
+       "coefficient": 0.4,
+       "pp": 0.22,
+       "contributing": [
+        "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
+        "88522a0f-5377-4522-97f4-4148bef954af"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "3cc333a1-c854-4b7c-8002-910e48222371",
+     "scored": true,
+     "total": 53.969,
+     "gih_wr": 53.495,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.475,
+     "games": 10072,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": [
+      {
+       "tag_on_card": "equipment",
+       "complementary_tag": "equipment_payoff",
+       "pool_count": 4,
+       "effective_count": 2.176,
+       "expected_count": 0.577,
+       "coefficient": 0.4,
+       "pp": 0.48,
+       "contributing": [
+        "70538676-2ffb-4cad-827e-b55e81088678",
+        "94917b80-ac32-45ab-b4ee-157ade024bcd",
+        "cee583b7-7cc3-40ea-a227-b760839ec291",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      },
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.17,
+       "coefficient": 0.1,
+       "pp": 0.115,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "6f83da19-fd89-44ec-88f3-0c3fddfbd1b2",
+     "scored": true,
+     "total": 53.795,
+     "gih_wr": 54.067,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.022,
+     "games": 9860,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.781,
+       "coefficient": 0.2,
+       "pp": 0.123,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      },
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.141,
+       "coefficient": 0.1,
+       "pp": 0.118,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "526f520e-b4bb-4215-9c6b-afc298744f06",
+     "scored": true,
+     "total": 53.465,
+     "gih_wr": 58.521,
+     "color_fit": -4.667,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.139,
+     "games": 50994,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "fa602f8f-1d80-4f6d-8b8f-d1a1f36037bd",
+     "scored": true,
+     "total": 52.209,
+     "gih_wr": 52.26,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.199,
+     "games": 3783,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "creature_sac_outlet",
+       "complementary_tag": "dies_trigger",
+       "pool_count": 2,
+       "effective_count": 1.5,
+       "expected_count": 0.805,
+       "coefficient": 0.2,
+       "pp": 0.104,
+       "contributing": [
+        "b39f03cf-3d1a-42ad-903f-e3b3542878b0",
+        "008a11c1-d283-49fe-abd7-ff4fe8b1fe79"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "0f208cd3-7673-4380-9cb8-5b6f09966ebd",
+     "scored": true,
+     "total": 50.096,
+     "gih_wr": 54.023,
+     "color_fit": -4.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.073,
+     "games": 9433,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 9,
+   "picked": "03253076-9add-4efb-9227-b0a062c86534",
+   "verdict": "solid",
+   "best": "03253076-9add-4efb-9227-b0a062c86534",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 36,
+    "colors": {
+     "W": 3,
+     "U": 2,
+     "B": 9,
+     "R": 16,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 3,
+     "2": 13,
+     "3": 10,
+     "4": 4,
+     "5": 2,
+     "6": 1
+    },
+    "creatures": 19,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "03253076-9add-4efb-9227-b0a062c86534",
+     "scored": true,
+     "total": 54.45,
+     "gih_wr": 54.507,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.192,
+     "games": 29429,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.177,
+       "coefficient": 0.1,
+       "pp": 0.115,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "c8259b0e-131f-44f0-86d4-7c4d711b328d",
+     "scored": true,
+     "total": 54.222,
+     "gih_wr": 54.621,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.149,
+     "games": 11924,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "fixing",
+       "complementary_tag": "bomb_creature",
+       "pool_count": 2,
+       "effective_count": 1.6,
+       "expected_count": 0.776,
+       "coefficient": 0.2,
+       "pp": 0.124,
+       "contributing": [
+        "f1b36dde-9cde-46c8-8d5a-9ad93feba41f",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "37f82ad8-4f0b-4b17-abcc-03f43d4fdf1c",
+     "scored": true,
+     "total": 53.11,
+     "gih_wr": 53.432,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.072,
+     "games": 9979,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "dies_trigger",
+       "complementary_tag": "creature_sac_outlet",
+       "pool_count": 2,
+       "effective_count": 1.5,
+       "expected_count": 0.767,
+       "coefficient": 0.2,
+       "pp": 0.11,
+       "contributing": [
+        "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
+        "88522a0f-5377-4522-97f4-4148bef954af"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "dc788b66-d03d-4066-be35-481be96ed2f7",
+     "scored": true,
+     "total": 52.077,
+     "gih_wr": 54.113,
+     "color_fit": -2.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.036,
+     "games": 13531,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+     "scored": true,
+     "total": 49.03,
+     "gih_wr": 50.909,
+     "color_fit": -2.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.121,
+     "games": 9900,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.092,
+       "coefficient": 0.1,
+       "pp": 0.121,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 10,
+   "picked": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+   "verdict": "solid",
+   "best": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 37,
+    "colors": {
+     "W": 4,
+     "U": 2,
+     "B": 9,
+     "R": 17,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 3,
+     "2": 14,
+     "3": 10,
+     "4": 4,
+     "5": 2,
+     "6": 1
+    },
+    "creatures": 20,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "3cc64ce6-45e2-4dc3-9b28-d7206a131873",
+     "scored": true,
+     "total": 56.076,
+     "gih_wr": 56.244,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": -0.168,
+     "games": 17104,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "cd49aa99-bf84-4edd-aecc-6dae78b73412",
+     "scored": true,
+     "total": 55.822,
+     "gih_wr": 55.822,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 23722,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "45d652c4-188e-4f00-acdd-1be014922cbc",
+     "scored": true,
+     "total": 53.833,
+     "gih_wr": 56.083,
+     "color_fit": -2.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 30307,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "28ffddca-a3c4-467d-a2dc-2c5e62393e11",
+     "scored": true,
+     "total": 51.434,
+     "gih_wr": 53.684,
+     "color_fit": -2.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 7438,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7d070a95-49ea-4aea-b512-dbb0006a00ee",
+     "scored": true,
+     "total": 49.535,
+     "gih_wr": 54.452,
+     "color_fit": -4.667,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 12455,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 11,
+   "picked": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+   "verdict": "solid",
+   "best": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 38,
+    "colors": {
+     "W": 4,
+     "U": 2,
+     "B": 10,
+     "R": 17,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 3,
+     "2": 14,
+     "3": 10,
+     "4": 4,
+     "5": 3,
+     "6": 1
+    },
+    "creatures": 21,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+     "scored": true,
+     "total": 59.216,
+     "gih_wr": 59.092,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.124,
+     "games": 53867,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.057,
+       "coefficient": 0.1,
+       "pp": 0.124,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "73346137-3117-4dc3-b5a4-1aca1da54548",
+     "scored": true,
+     "total": 56.67,
+     "gih_wr": 56.795,
+     "color_fit": 0.0,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 19118,
+     "insufficient_data": false,
+     "fitness_class": "questionable",
+     "firings": []
+    },
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 53.383,
+     "gih_wr": 53.76,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.127,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    },
+    {
+     "oracle_id": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+     "scored": true,
+     "total": 48.677,
+     "gih_wr": 53.866,
+     "color_fit": -4.8,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.139,
+     "games": 21171,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 12,
+   "picked": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+   "verdict": "solid",
+   "best": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 39,
+    "colors": {
+     "W": 4,
+     "U": 2,
+     "B": 11,
+     "R": 17,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 3,
+     "2": 14,
+     "3": 10,
+     "4": 5,
+     "5": 3,
+     "6": 1
+    },
+    "creatures": 22,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "0296d57e-e5b9-456f-bb21-eb584adefb4c",
+     "scored": true,
+     "total": 59.091,
+     "gih_wr": 59.092,
+     "color_fit": 0.0,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": 0.124,
+     "games": 53867,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.057,
+       "coefficient": 0.1,
+       "pp": 0.124,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "c996bc53-184d-4dc3-8244-e8d9528516a0",
+     "scored": true,
+     "total": 46.112,
+     "gih_wr": 51.166,
+     "color_fit": -4.909,
+     "curve": -0.125,
+     "role": 0.0,
+     "synergy": -0.02,
+     "games": 6133,
+     "insufficient_data": false,
+     "fitness_class": "mistake",
+     "firings": [
+      {
+       "tag_on_card": "historic",
+       "complementary_tag": "storied",
+       "pool_count": 3,
+       "effective_count": 2.71,
+       "expected_count": 1.159,
+       "coefficient": 0.1,
+       "pp": 0.116,
+       "contributing": [
+        "a25ba5cc-6ff8-4215-b70d-7e86e15e3c1a",
+        "925ce68e-9323-4985-8fef-0d3f36e0d74c",
+        "840de40b-590e-4bf0-8d16-22b0eff61202"
+       ]
+      }
+     ]
+    },
+    {
+     "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 13,
+   "picked": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+   "verdict": "indifferent",
+   "best": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+   "gap": 0.0,
+   "commitment": 1.0,
+   "pool": {
+    "size": 40,
+    "colors": {
+     "W": 4,
+     "U": 2,
+     "B": 12,
+     "R": 17,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 3,
+     "2": 14,
+     "3": 10,
+     "4": 6,
+     "5": 3,
+     "6": 1
+    },
+    "creatures": 23,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+     "scored": true,
+     "total": 53.383,
+     "gih_wr": 53.76,
+     "color_fit": 0.0,
+     "curve": -0.25,
+     "role": 0.0,
+     "synergy": -0.127,
+     "games": 18244,
+     "insufficient_data": false,
+     "fitness_class": "solid",
+     "firings": []
+    },
+    {
+     "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  },
+  {
+   "pack_number": 3,
+   "pick_number": 14,
+   "picked": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+   "verdict": "indifferent",
+   "best": null,
+   "gap": null,
+   "commitment": 1.0,
+   "pool": {
+    "size": 41,
+    "colors": {
+     "W": 4,
+     "U": 2,
+     "B": 13,
+     "R": 17,
+     "G": 6
+    },
+    "curve": {
+     "0": 0,
+     "1": 3,
+     "2": 14,
+     "3": 11,
+     "4": 6,
+     "5": 3,
+     "6": 1
+    },
+    "creatures": 23,
+    "removal": 4,
+    "predicted_archetype": "BR"
+   },
+   "cards": [
+    {
+     "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+     "scored": false,
+     "total": null,
+     "gih_wr": null,
+     "color_fit": 0.0,
+     "curve": 0.0,
+     "role": 0.0,
+     "synergy": 0.0,
+     "games": 0,
+     "insufficient_data": false,
+     "fitness_class": null,
+     "firings": []
+    }
+   ]
+  }
+ ]
+}

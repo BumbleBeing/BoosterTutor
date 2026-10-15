@@ -521,7 +521,7 @@ Adding a fourth input format later means writing one function that returns `Draf
 
 ### 3.3 The deterministic analysis — Draft
 
-> **Superseded by ADRs 0003–0018.** The fitness function, its terms, the fitness classes and the verdict rules are specified there and were built and backtested in DraftDouble (`analysis/fitness.py`). Phase 3 ports that code; it does not implement the sketch below, whose thresholds and openness/signal terms were replaced (openness was retired by ADR 0018). The section is kept as the original reasoning.
+> **Superseded by ADRs 0003–0018.** The fitness function, its terms, the fitness classes and the verdict rules are specified there and were built and backtested in DraftDouble (`analysis/fitness.py`). Phase 3 ports that code (`api/src/boostertutor/analysis/fitness.py` and `analysis/draft.py`, whose `analyze_draft` scores every pick); it does not implement the sketch below, whose thresholds and openness term were replaced (openness was retired by ADR 0018). Wheel analysis is still built, as a fact for the review rather than a scoring term. The section is kept as the original reasoning.
 
 This is the intellectual core of the product. For each pick, compute:
 
