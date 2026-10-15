@@ -1,5 +1,6 @@
 """Application settings, loaded from environment variables."""
 
+from decimal import Decimal
 from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -23,6 +24,10 @@ class Settings(BaseSettings):
     # The hand-authored tag taxonomy, one JSON file per set. Git-tracked: it is
     # the system of record, and the database tables are loaded from it.
     taxonomy_dir: Path = Path(__file__).resolve().parents[2] / "data" / "taxonomy"
+
+    # ADR 0027: once today's Claude spend (UTC) reaches this, no further
+    # call is made until tomorrow. About $5 a day while the app is small.
+    daily_spend_cap_usd: Decimal = Decimal("5.00")
 
     @property
     def sqlalchemy_url(self) -> str:
