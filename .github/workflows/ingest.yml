@@ -1,0 +1,69 @@
+name: Nightly ingest
+
+# Refreshes card data from Scryfall and statistics from the 17Lands public
+# datasets (development plan 2.4, ADR 0002). Each ingest checks whether
+# upstream has changed since its last run, recorded in `ingest_runs`, and
+# does nothing if not, so most nights this is a few small requests.
+#
+# Needs one repository secret, DATABASE_URL: the Supabase *pooler*
+# connection string (aws-0-...pooler.supabase.com). GitHub's runners have no
+# IPv6, and Supabase's direct host (db.<project>.supabase.co) is IPv6-only.
+#
+# It does not run migrations. Schema changes are applied by hand
+# (`uv run alembic upgrade head`), so a nightly job can never change the
+# database's shape on its own; if the code expects a newer schema, the run
+# fails loudly instead.
+
+on:
+  schedule:
+    # 09:00 UTC is 2 a.m. Pacific (1 a.m. in winter): off-peak for everyone
+    # involved. GitHub may start scheduled runs some minutes late.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Re-download and re-ingest even if upstream is unchanged"
+        type: boolean
+        default: false
+
+# Never two ingests at once: they would race on the same rows.
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  ingest:
+    name: Scryfall, then 17Lands
+    runs-on: ubuntu-latest
+    # A changed 17Lands dump takes several minutes per set to process.
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: api
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      FORCE: ${{ inputs.force && '--force' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --no-dev
+
+      - name: Check the secret is set
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::error::The DATABASE_URL repository secret is not set."
+            exit 1
+          fi
+
+      # Scryfall first: the 17Lands ingest matches card names against the
+      # cards and pack contents it loads.
+      - name: Scryfall
+        run: uv run python -m boostertutor.ingest scryfall $FORCE
+
+      - name: 17Lands
+        run: uv run python -m boostertutor.ingest 17lands $FORCE
