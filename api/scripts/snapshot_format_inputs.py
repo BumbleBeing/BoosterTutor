@@ -55,6 +55,9 @@ def main() -> None:
             for oid, rate in sorted(inputs.stats.overall.items())
             if oid in keep
         },
+        "alsa": {
+            str(oid): value for oid, value in sorted(inputs.alsa.items()) if oid in keep
+        },
         "edges": sorted(inputs.edges, key=lambda e: (e["enabler"], e["payoff"])),
         "baseline": sorted(
             [str(oid), pack, enabler, payoff, on_card, expected]

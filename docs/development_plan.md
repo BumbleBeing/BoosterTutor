@@ -558,9 +558,9 @@ This module is where correctness is invisible until it is embarrassing, so:
 ### Done when
 
 - [ ] All three draft input formats parse into the canonical model
-- [ ] `analyze_draft(DraftLog) -> DraftAnalysis` returns full metrics for every pick (42 or 45) with no network calls beyond the database
-- [ ] Wheel analysis correctly identifies which cards wheeled in a fixture you verified by hand
-- [ ] Golden-file tests pass; `pytest` runs green in CI
+- [x] `analyze_draft(DraftLog) -> DraftAnalysis` returns full metrics for every pick (42 or 45) with no network calls beyond the database
+- [x] Wheel analysis correctly identifies which cards wheeled in a fixture you verified by hand
+- [x] Golden-file tests pass; `pytest` runs green in CI
 - [ ] Not one line of LLM code exists yet
 
 ---

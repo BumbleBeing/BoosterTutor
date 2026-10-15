@@ -78,6 +78,39 @@ class PickAnalysis(BaseModel):
     cards: list[CardScore]  # one per distinct card in the pack, best first
 
 
+class WheelCard(BaseModel):
+    oracle_id: uuid.UUID
+    colors: str
+    gih_wr: float | None
+    alsa: float | None  # the pick it is usually last seen at
+    above_average: bool  # gih_wr at or above the format's average
+
+
+class WheelLap(BaseModel):
+    """One first-lap pick's pack, and what was left of it eight picks later."""
+
+    first_pick: int
+    returned_at: int  # first_pick + 8
+    wheeled: list[WheelCard]  # the whole pack that came back
+    taken_by_table: list[WheelCard]  # what the other seven drafters took
+
+
+class ColorSignal(BaseModel):
+    """One colour across a pack's laps. Gold cards count for each colour."""
+
+    color: str
+    good_cards_wheeled: int
+    cards_wheeled: int
+    cards_taken_by_table: int
+    best_wheeled: uuid.UUID | None  # the best good card of this colour that came back
+
+
+class PackWheel(BaseModel):
+    pack_number: int
+    laps: list[WheelLap]
+    colors: list[ColorSignal]  # W, U, B, R, G
+
+
 class DraftAnalysis(BaseModel):
     set_code: str
     event_type: str
@@ -85,3 +118,4 @@ class DraftAnalysis(BaseModel):
     has_taxonomy: bool  # False: the set is untagged, so synergy and role are zero
     pack_size: int
     picks: list[PickAnalysis]
+    wheels: list[PackWheel]  # signal reading: what came back, per pack
