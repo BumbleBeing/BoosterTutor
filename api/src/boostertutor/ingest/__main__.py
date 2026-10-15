@@ -2,6 +2,10 @@
 
     uv run python -m boostertutor.ingest scryfall [--sets hob,abc] [--recent 3] [--force]
     uv run python -m boostertutor.ingest 17lands  [--sets hob,abc] [--event-type PremierDraft] [--force]
+    uv run python -m boostertutor.ingest taxonomy [--sets hob]
+
+`taxonomy` loads the hand-authored tags from `data/taxonomy/`, not from
+upstream, so it also runs after Scryfall and replaces what was there.
 
 Downloads are cached under `data/raw/`, so re-running is cheap. Each source
 records its run in `ingest_runs`, and skips itself when nothing upstream has
@@ -12,7 +16,7 @@ import argparse
 import sys
 
 from ..db import SessionLocal
-from . import scryfall, seventeen_lands
+from . import scryfall, seventeen_lands, taxonomy
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -50,6 +54,13 @@ def main(argv: list[str] | None = None) -> int:
         "--force", action="store_true", help="re-ingest even if the dump is unchanged"
     )
 
+    tax = sources.add_parser(
+        "taxonomy", help="the hand-authored tags, from data/taxonomy/{set}.json"
+    )
+    tax.add_argument(
+        "--sets", help="comma-separated set codes (default: every taxonomy file)"
+    )
+
     args = parser.parse_args(argv)
     codes = (
         [c.strip() for c in args.sets.split(",") if c.strip()] if args.sets else None
@@ -60,6 +71,8 @@ def main(argv: list[str] | None = None) -> int:
                 session, set_codes=codes, recent=args.recent, force=args.force
             )
             print("Card data from Scryfall (https://scryfall.com).")
+        elif args.source == "taxonomy":
+            taxonomy.load(session, codes or taxonomy.available_sets())
         else:
             seventeen_lands.load(
                 session, set_codes=codes, event_type=args.event_type, force=args.force

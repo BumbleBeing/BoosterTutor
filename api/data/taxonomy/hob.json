@@ -1,0 +1,949 @@
+{
+  "format_version": 1,
+  "set_code": "hob",
+  "tags": [
+    {
+      "name": "_removal_",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "artifact",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "artifact_sac_outlet",
+      "kind": "both",
+      "notes": null
+    },
+    {
+      "name": "attack_trigger",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "bomb_creature",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "bomb_noncreature",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "bounce_enabler",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "bounce_value_creature",
+      "kind": "payoff",
+      "notes": "Creatures that provide *substantial* value when bounced back to hand/flickered ="
+    },
+    {
+      "name": "bounce_value_noncreature",
+      "kind": "payoff",
+      "notes": "Good noncreature permanents to bounce w/Nurturer"
+    },
+    {
+      "name": "card_draw",
+      "kind": "enabler",
+      "notes": "Relevant card draw in the context of enabling draw-two synergies"
+    },
+    {
+      "name": "creature_sac_outlet",
+      "kind": "both",
+      "notes": null
+    },
+    {
+      "name": "dies_trigger",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "disposable_creature",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "draw_payoff",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "dwarf",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "dwarf_payoff",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "equipment",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "equipment_payoff",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "evasive",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "expensive",
+      "kind": "payoff",
+      "notes": "Any card that either costs 6+ mana or benefits from being cast for as much mana as possible"
+    },
+    {
+      "name": "fetchland",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "fixing",
+      "kind": "enabler",
+      "notes": "5c fixers (not duals because they might not help)"
+    },
+    {
+      "name": "goes_wide",
+      "kind": "enabler",
+      "notes": "Any card that makes multiple bodies"
+    },
+    {
+      "name": "goes_wide_payoff",
+      "kind": "enabler",
+      "notes": "Benefits from having many creatures"
+    },
+    {
+      "name": "historic",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "landfall",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "mana_ramp",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "mass_pump",
+      "kind": "payoff",
+      "notes": null
+    },
+    {
+      "name": "protection_spell",
+      "kind": "enabler",
+      "notes": null
+    },
+    {
+      "name": "storied",
+      "kind": "payoff",
+      "notes": null
+    }
+  ],
+  "tag_pairs": [
+    {
+      "enabler": "artifact",
+      "payoff": "artifact_sac_outlet",
+      "coefficient": 0.3,
+      "decay": 0.5,
+      "notes": null
+    },
+    {
+      "enabler": "bounce_enabler",
+      "payoff": "bounce_value_creature",
+      "coefficient": 0.4,
+      "decay": 0.5,
+      "notes": null
+    },
+    {
+      "enabler": "bounce_enabler",
+      "payoff": "bounce_value_noncreature",
+      "coefficient": 0.5,
+      "decay": 0.5,
+      "notes": null
+    },
+    {
+      "enabler": "card_draw",
+      "payoff": "draw_payoff",
+      "coefficient": 0.2,
+      "decay": 0.8,
+      "notes": null
+    },
+    {
+      "enabler": "creature_sac_outlet",
+      "payoff": "dies_trigger",
+      "coefficient": 0.2,
+      "decay": 0.5,
+      "notes": null
+    },
+    {
+      "enabler": "disposable_creature",
+      "payoff": "creature_sac_outlet",
+      "coefficient": 0.4,
+      "decay": 0.5,
+      "notes": null
+    },
+    {
+      "enabler": "dwarf",
+      "payoff": "dwarf_payoff",
+      "coefficient": 0.2,
+      "decay": 0.9,
+      "notes": null
+    },
+    {
+      "enabler": "equipment",
+      "payoff": "equipment_payoff",
+      "coefficient": 0.4,
+      "decay": 0.6,
+      "notes": null
+    },
+    {
+      "enabler": "evasive",
+      "payoff": "attack_trigger",
+      "coefficient": 0.6,
+      "decay": 0.6,
+      "notes": null
+    },
+    {
+      "enabler": "fetchland",
+      "payoff": "landfall",
+      "coefficient": 0.4,
+      "decay": 0.75,
+      "notes": null
+    },
+    {
+      "enabler": "fixing",
+      "payoff": "bomb_creature",
+      "coefficient": 0.2,
+      "decay": 0.6,
+      "notes": null
+    },
+    {
+      "enabler": "fixing",
+      "payoff": "bomb_noncreature",
+      "coefficient": 0.3,
+      "decay": 0.6,
+      "notes": null
+    },
+    {
+      "enabler": "goes_wide",
+      "payoff": "mass_pump",
+      "coefficient": 0.2,
+      "decay": 0.5,
+      "notes": null
+    },
+    {
+      "enabler": "historic",
+      "payoff": "storied",
+      "coefficient": 0.1,
+      "decay": 0.9,
+      "notes": null
+    },
+    {
+      "enabler": "mana_ramp",
+      "payoff": "expensive",
+      "coefficient": 0.2,
+      "decay": 0.8,
+      "notes": null
+    },
+    {
+      "enabler": "protection_spell",
+      "payoff": "bomb_creature",
+      "coefficient": 0.3,
+      "decay": 0.4,
+      "notes": null
+    }
+  ],
+  "card_tags": {
+    "Along the Crooked Way": [
+      "bounce_value_noncreature",
+      "disposable_creature"
+    ],
+    "An Unexpected Party // At the Door": [
+      "bomb_noncreature",
+      "dwarf",
+      "expensive",
+      "goes_wide"
+    ],
+    "Azog, Moria's Ruin": [
+      "bounce_value_creature",
+      "historic"
+    ],
+    "Balin, Loremaster": [
+      "card_draw",
+      "dwarf",
+      "historic",
+      "storied"
+    ],
+    "Bard the Bowman": [
+      "draw_payoff",
+      "historic"
+    ],
+    "Bard's Company": [
+      "bomb_creature",
+      "card_draw",
+      "disposable_creature",
+      "goes_wide",
+      "mass_pump"
+    ],
+    "Bard, King of Dale": [
+      "draw_payoff",
+      "expensive",
+      "historic"
+    ],
+    "Bejeweled Warg": [
+      "artifact",
+      "fixing",
+      "mana_ramp"
+    ],
+    "Belladonna Took": [
+      "historic"
+    ],
+    "Beorn the Fierce": [
+      "bomb_creature",
+      "historic"
+    ],
+    "Beorn's Hospitality": [
+      "landfall"
+    ],
+    "Beorn, Reluctant Host // Till and Tend": [
+      "historic"
+    ],
+    "Bifur, Melodic Rider": [
+      "dwarf",
+      "expensive",
+      "historic",
+      "storied"
+    ],
+    "Bilbo Baggins, Burglar // Take a Glance": [
+      "bounce_value_creature",
+      "card_draw",
+      "historic"
+    ],
+    "Bilbo's Deadly Slice": [
+      "_removal_"
+    ],
+    "Bilbo, Luckwearer // Burglar's Plot": [
+      "card_draw",
+      "evasive",
+      "historic"
+    ],
+    "Bilbo, Thief in the Night": [
+      "historic"
+    ],
+    "Bofur, Reliable Guardian // Concerted Care": [
+      "bounce_value_creature",
+      "dwarf",
+      "historic",
+      "protection_spell"
+    ],
+    "Bolg of the North": [
+      "creature_sac_outlet",
+      "historic"
+    ],
+    "Bolg's Company": [
+      "creature_sac_outlet"
+    ],
+    "Bombur, Gentle Dreamer": [
+      "dwarf",
+      "historic",
+      "storied"
+    ],
+    "Bothersome Noisemaker": [
+      "goes_wide"
+    ],
+    "Boughside Wanderers": [
+      "expensive"
+    ],
+    "Burn, Burn, Tree and Fern": [
+      "_removal_",
+      "bounce_value_noncreature",
+      "historic",
+      "mana_ramp"
+    ],
+    "Cantankerous Keepers": [
+      "bounce_value_creature"
+    ],
+    "Celebrate the Mountain-king": [
+      "_removal_",
+      "bomb_noncreature",
+      "card_draw",
+      "disposable_creature"
+    ],
+    "Chief Warg's Company": [
+      "bomb_creature",
+      "goes_wide"
+    ],
+    "Confusticate and Bebother": [
+      "_removal_",
+      "card_draw"
+    ],
+    "Crude Bent Blade": [
+      "artifact",
+      "bounce_value_noncreature",
+      "equipment",
+      "historic"
+    ],
+    "Dancing from Dark to Dawn": [
+      "bomb_noncreature",
+      "goes_wide",
+      "landfall"
+    ],
+    "Desert Were-Worm": [
+      "expensive"
+    ],
+    "Dori, Bearer of Friends": [
+      "artifact",
+      "dwarf",
+      "fixing",
+      "historic",
+      "mana_ramp"
+    ],
+    "Down in the Valley": [
+      "bounce_value_noncreature",
+      "fixing",
+      "goes_wide",
+      "historic",
+      "landfall"
+    ],
+    "Down, Down to Goblin-town": [
+      "bounce_value_noncreature",
+      "disposable_creature",
+      "historic"
+    ],
+    "Dreaded Bat-Cloud": [
+      "evasive"
+    ],
+    "Dwalin, Weaponmaster": [
+      "dwarf",
+      "equipment_payoff",
+      "historic"
+    ],
+    "Dwarven Mattock": [
+      "artifact",
+      "dwarf_payoff",
+      "equipment",
+      "historic"
+    ],
+    "Dwarven Mauler": [
+      "dwarf",
+      "equipment_payoff"
+    ],
+    "Dwarven Provisioner": [
+      "dwarf",
+      "mass_pump"
+    ],
+    "Dwarven Shortsword": [
+      "artifact",
+      "dwarf",
+      "equipment",
+      "historic"
+    ],
+    "Dáin Ironfoot": [
+      "artifact",
+      "bomb_creature",
+      "dwarf",
+      "equipment",
+      "equipment_payoff",
+      "historic"
+    ],
+    "Dáin's Company": [
+      "bounce_value_creature",
+      "dwarf",
+      "dwarf_payoff",
+      "equipment_payoff"
+    ],
+    "Dáin, Lord of the Iron Hills": [
+      "dwarf",
+      "historic",
+      "storied"
+    ],
+    "Eagle of the Great Shelf": [
+      "evasive",
+      "goes_wide_payoff"
+    ],
+    "Elrond, Moon-Reader": [
+      "historic"
+    ],
+    "Elven Passage": [
+      "fetchland",
+      "fixing"
+    ],
+    "Enchanted River's Grasp": [
+      "_removal_"
+    ],
+    "Esgaroth Garrison": [
+      "card_draw",
+      "disposable_creature",
+      "goes_wide"
+    ],
+    "Fearsome Goblin Pair": [
+      "dies_trigger",
+      "disposable_creature"
+    ],
+    "Front Porch Sentries": [
+      "dies_trigger"
+    ],
+    "Fíli the Pathfinder": [
+      "bomb_creature",
+      "bounce_value_creature",
+      "dwarf",
+      "goes_wide",
+      "historic",
+      "mass_pump",
+      "storied"
+    ],
+    "Galion, Elvenking's Butler": [
+      "historic"
+    ],
+    "Gandalf, Goblins' Bane // Flameshape": [
+      "historic"
+    ],
+    "Gandalf, Spark Starter": [
+      "expensive",
+      "historic"
+    ],
+    "Gandalf, Wandering Wizard": [
+      "card_draw",
+      "historic"
+    ],
+    "Getaway Barrel": [
+      "artifact",
+      "historic"
+    ],
+    "Giant's Boulder": [
+      "artifact",
+      "bounce_value_noncreature",
+      "fixing",
+      "historic"
+    ],
+    "Gigantic Big Bear": [
+      "expensive"
+    ],
+    "Glamdring, Foe-hammer // Gleam of Death": [
+      "artifact",
+      "equipment",
+      "historic"
+    ],
+    "Glóin the Mighty // Easy Pickings": [
+      "dwarf",
+      "historic"
+    ],
+    "Gnashing of Teeth": [
+      "_removal_"
+    ],
+    "Goblin Plate Mail": [
+      "artifact",
+      "equipment",
+      "historic"
+    ],
+    "Goblin-town Flunkies": [
+      "disposable_creature",
+      "goes_wide"
+    ],
+    "Gollum the Abandoned": [
+      "creature_sac_outlet",
+      "historic"
+    ],
+    "Gollum, Riddle Master": [
+      "historic"
+    ],
+    "Gollum, Silent Slinker // Meager Meal": [
+      "historic"
+    ],
+    "Great Fierce Bee": [
+      "dies_trigger",
+      "evasive"
+    ],
+    "Great Gilded Boat": [
+      "artifact",
+      "attack_trigger",
+      "bomb_noncreature",
+      "card_draw",
+      "disposable_creature",
+      "goes_wide",
+      "historic"
+    ],
+    "Great Ugly-Looking Goblin // Clap! Snap!": [
+      "goes_wide"
+    ],
+    "Head of the Hunt": [
+      "bomb_creature"
+    ],
+    "Hobbit Hole": [
+      "fetchland",
+      "fixing"
+    ],
+    "Inside Information": [
+      "expensive"
+    ],
+    "Iron Hills": [
+      "dwarf_payoff"
+    ],
+    "Iron Hills Blacksmith": [
+      "artifact",
+      "dwarf",
+      "equipment",
+      "historic"
+    ],
+    "Iron Hills Stalwart": [
+      "dwarf",
+      "equipment_payoff"
+    ],
+    "Key to the Side-Door": [
+      "artifact",
+      "historic"
+    ],
+    "Kíli the Resourceful": [
+      "bomb_creature",
+      "card_draw",
+      "dwarf",
+      "dwarf_payoff",
+      "equipment_payoff",
+      "historic",
+      "storied"
+    ],
+    "Lake-town Lookout": [
+      "dies_trigger",
+      "disposable_creature"
+    ],
+    "Lake-town Mariners // Gone Fishing": [
+      "expensive"
+    ],
+    "Lake-town Toymaker": [
+      "draw_payoff"
+    ],
+    "Lakeshore Apothecary": [
+      "draw_payoff"
+    ],
+    "Long Lake Nuisance": [
+      "card_draw",
+      "disposable_creature",
+      "evasive",
+      "goes_wide"
+    ],
+    "Long-Bodied Grey Dog": [
+      "artifact",
+      "fixing",
+      "historic",
+      "mana_ramp"
+    ],
+    "Magnificent End": [
+      "_removal_"
+    ],
+    "Master's Councillors": [
+      "draw_payoff"
+    ],
+    "Mirkwood Nurturer": [
+      "bounce_enabler"
+    ],
+    "Mirkwood Pathmaker": [
+      "bomb_creature"
+    ],
+    "Misty Mountains Raider": [
+      "attack_trigger"
+    ],
+    "Most Decrepit Old Bird // Speak Secrets": [
+      "bounce_value_creature",
+      "evasive"
+    ],
+    "My Precious // Allure of Power": [
+      "artifact",
+      "card_draw",
+      "creature_sac_outlet",
+      "equipment",
+      "historic"
+    ],
+    "Nori, Teller of Tales": [
+      "dwarf",
+      "historic"
+    ],
+    "Old Fat Spider": [
+      "expensive"
+    ],
+    "Old Fat Spider Can't See Me": [
+      "bounce_value_noncreature",
+      "card_draw",
+      "historic"
+    ],
+    "Old Thrush": [
+      "evasive",
+      "fixing"
+    ],
+    "Orcrist, Goblin-cleaver": [
+      "artifact",
+      "equipment",
+      "fixing",
+      "historic",
+      "mana_ramp"
+    ],
+    "Ori, Keeper of Songs": [
+      "dwarf",
+      "historic",
+      "storied"
+    ],
+    "Part in Friendship": [
+      "dies_trigger"
+    ],
+    "Patient Instructor": [
+      "card_draw",
+      "disposable_creature",
+      "goes_wide"
+    ],
+    "Pinecone Strike": [
+      "_removal_"
+    ],
+    "Plunder the Trollshaws": [
+      "card_draw"
+    ],
+    "Quarrel": [
+      "_removal_"
+    ],
+    "Radagast of Rhosgobel": [
+      "historic"
+    ],
+    "Rage into the Valley": [
+      "card_draw"
+    ],
+    "Ragged Short Spear": [
+      "artifact",
+      "bounce_value_noncreature",
+      "card_draw",
+      "equipment",
+      "historic"
+    ],
+    "Ravenhill Flock": [
+      "draw_payoff",
+      "evasive"
+    ],
+    "Reverent Howl": [
+      "card_draw"
+    ],
+    "Rhovanion Rampager": [
+      "creature_sac_outlet",
+      "dies_trigger"
+    ],
+    "Roads Go Ever, Ever On": [
+      "attack_trigger",
+      "bounce_value_noncreature",
+      "historic"
+    ],
+    "Roll-Roll-Roll-Roll": [
+      "historic"
+    ],
+    "Silvan Reveler": [
+      "card_draw"
+    ],
+    "Smaug the Magnificent": [
+      "bomb_creature",
+      "evasive",
+      "historic",
+      "mana_ramp"
+    ],
+    "Smaug, Wicked Worm": [
+      "bomb_creature",
+      "evasive",
+      "historic",
+      "mana_ramp"
+    ],
+    "Smaug, the Great Calamity // Spew Flame": [
+      "_removal_",
+      "evasive",
+      "expensive",
+      "historic"
+    ],
+    "Snowslope Hunter": [
+      "artifact_sac_outlet",
+      "creature_sac_outlet"
+    ],
+    "Sting, Bilbo's Sword": [
+      "artifact",
+      "equipment",
+      "historic"
+    ],
+    "Stir Up Trouble": [
+      "_removal_",
+      "artifact_sac_outlet",
+      "creature_sac_outlet"
+    ],
+    "Stone by Sunlight": [
+      "_removal_",
+      "protection_spell"
+    ],
+    "Stone-Giant of High Pass": [
+      "artifact_sac_outlet",
+      "bomb_creature",
+      "expensive"
+    ],
+    "Stony-Voiced Goblins": [
+      "bounce_value_creature"
+    ],
+    "The Arkenstone // Seek the Heart": [
+      "artifact",
+      "card_draw",
+      "historic",
+      "mass_pump"
+    ],
+    "The Black Arrow": [
+      "artifact",
+      "equipment",
+      "historic"
+    ],
+    "The Chief Warg": [
+      "attack_trigger",
+      "card_draw",
+      "historic"
+    ],
+    "The Eagles Are Coming!": [
+      "goes_wide_payoff",
+      "protection_spell"
+    ],
+    "The Great Goblin": [
+      "dies_trigger",
+      "historic"
+    ],
+    "The Lonely Mountain": [
+      "bomb_noncreature",
+      "equipment_payoff"
+    ],
+    "The Lord of the Eagles": [
+      "evasive",
+      "expensive",
+      "historic"
+    ],
+    "The Master of Lake-town": [
+      "dies_trigger",
+      "historic"
+    ],
+    "The Misty Mountains Cold": [
+      "artifact",
+      "fixing",
+      "historic",
+      "mana_ramp"
+    ],
+    "The Mountain-king's Return": [
+      "bounce_value_noncreature",
+      "card_draw",
+      "disposable_creature",
+      "historic"
+    ],
+    "The Notary Hobbits": [
+      "goes_wide",
+      "historic"
+    ],
+    "The Queen of Dale": [
+      "disposable_creature",
+      "historic"
+    ],
+    "The Sackville-Bagginses": [
+      "artifact",
+      "artifact_sac_outlet",
+      "bounce_value_creature",
+      "card_draw",
+      "creature_sac_outlet",
+      "fixing",
+      "historic",
+      "mana_ramp"
+    ],
+    "Thorin Oakenshield": [
+      "dwarf",
+      "historic",
+      "storied"
+    ],
+    "Thorin's Last Stand": [
+      "mass_pump"
+    ],
+    "Thorin, Mountain-king": [
+      "bounce_value_creature",
+      "dwarf",
+      "equipment_payoff",
+      "historic"
+    ],
+    "Thranduil's Company": [
+      "bomb_creature",
+      "landfall"
+    ],
+    "Thranduil's Decree": [
+      "expensive"
+    ],
+    "Thranduil, Sindarin Liege // Silvan Rally": [
+      "bomb_creature",
+      "goes_wide",
+      "historic",
+      "landfall"
+    ],
+    "Thranduil, the Elvenking": [
+      "historic"
+    ],
+    "Through the Forest Gate": [
+      "expensive"
+    ],
+    "Thrór's Map": [
+      "artifact",
+      "bounce_value_noncreature",
+      "card_draw",
+      "fixing",
+      "historic"
+    ],
+    "Tidings of War": [
+      "disposable_creature"
+    ],
+    "Tom, Bert, and William": [
+      "card_draw",
+      "creature_sac_outlet",
+      "historic"
+    ],
+    "Troll Negotiations": [
+      "_removal_"
+    ],
+    "Troop of Ponies": [
+      "fixing",
+      "mana_ramp"
+    ],
+    "Uneasy Partings": [
+      "_removal_"
+    ],
+    "Velvetwing Butterflies // Gaze in Wonder": [
+      "evasive"
+    ],
+    "Warg Tactics": [
+      "protection_spell"
+    ],
+    "Well-Worn Spatula": [
+      "artifact",
+      "equipment",
+      "historic"
+    ],
+    "Wilderland Scrounger": [
+      "goes_wide_payoff"
+    ],
+    "Wizard's Staff": [
+      "artifact",
+      "equipment",
+      "historic"
+    ],
+    "Wood Elves": [
+      "bounce_value_creature",
+      "mana_ramp"
+    ],
+    "Óin the Brave": [
+      "card_draw",
+      "dwarf",
+      "historic",
+      "storied"
+    ]
+  }
+}
