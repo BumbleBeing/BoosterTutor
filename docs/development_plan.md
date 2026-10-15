@@ -154,7 +154,7 @@ BoosterTutor/
 |---|---|---|---|
 | 0 | Environment, accounts, and Git | 1–2 sessions | Complete |
 | 1 | Walking skeleton, deployed | 2–3 sessions | Complete |
-| 2 | Data layer: schema + ingestion | 4–6 sessions | Nearly done: awaiting the first scheduled run |
+| 2 | Data layer: schema + ingestion | 4–6 sessions | Nearly done: the empty-database migration check remains |
 | 3 | Parsers and the analysis engine | 4–6 sessions | Complete (Arena input deferred) |
 | 4 | The LLM layer | 3–4 sessions | Not started |
 | 5 | Draft Review, end to end | 4–5 sessions | Not started |
@@ -477,7 +477,7 @@ Log a row into an `ingest_runs` table for each job: source, started/finished tim
 - [ ] `cards` and `card_prints` are populated for at least the three most recent draftable sets
 - [ ] `card_draft_stats`, `card_archetype_stats`, and `archetype_stats` are populated for the current set
 - [ ] The computed statistics pass ADR 0002's internal checks: hand-worked tests, GIH = OH + GD and GP = GIH + GND for every card, and agreement with DraftDouble's independent run
-- [ ] The nightly Action has run successfully at least once on its own schedule
+- [x] The nightly Action has run successfully at least once on its own schedule (2026-10-15, run 38745760074; GitHub started it at 13:47 UTC, not 09:00)
 - [ ] `docs/decisions/0002-17lands-data-access.md` records exactly what you are calling and when you verified it (written 2026-10-14)
 
 ---
