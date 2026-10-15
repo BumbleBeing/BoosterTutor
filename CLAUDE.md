@@ -21,7 +21,7 @@
 - Record real decisions as short files in `docs/decisions/`. Prompts are versioned files in `docs/prompts/` and are never edited in place.
 - Be a good citizen with 17Lands: statistics come only from the public datasets, as cached snapshots, at most one request per set/format/day, with an identifying User-Agent, never called from a user request path. The one exception is a single draft's replay, fetched once when its owner submits the link, cached and rate-limited (ADR 0023).
 
-**Current phase:** Phase 3 — Parsers (17Lands draft link, Arena `Player.log`; MTGO dropped for v1) into one `DraftLog` model, and the analysis engine ported from DraftDouble (fitness, verdicts, tags). Phase 2 is done apart from its first scheduled nightly run and the empty-database migration check. Update this line as phases complete; see `/docs/development_plan.md`.
+**Current phase:** Phase 4 — the LLM layer (not started). Phase 3 is complete: the 17Lands draft link is the only draft input until the rest of v1 is built (Arena `Player.log` deferred, MTGO dropped). Phase 2 is done apart from its first scheduled nightly run and the empty-database migration check. Update this line as phases complete; see `/docs/development_plan.md`.
 
 ## Agent skills
 

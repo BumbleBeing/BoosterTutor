@@ -1,6 +1,6 @@
 # BoosterTutor — Development Plan
 
-**Version:** 1.2 · **Written:** 2026-08-24 · **Revised:** 2026-10-15 (MTGO input dropped for v1) · 2026-10-14 (17Lands draft links, ADR 0023; §3.3 points to the grading ADRs) · 2026-10-13 (v1 is Draft Review + Practice Draft and Deck Review moves after launch, ADR 0022; Phase 6 amended by ADR 0021; pick counts no longer assume 45) · **Owner:** Jackson
+**Version:** 1.2 · **Written:** 2026-08-24 · **Revised:** 2026-10-15 (the 17Lands link is v1's only draft input: Arena deferred, MTGO dropped; Phase 3 complete) · 2026-10-14 (17Lands draft links, ADR 0023; §3.3 points to the grading ADRs) · 2026-10-13 (v1 is Draft Review + Practice Draft and Deck Review moves after launch, ADR 0022; Phase 6 amended by ADR 0021; pick counts no longer assume 45) · **Owner:** Jackson
 
 This is the working plan for building BoosterTutor from an empty folder to a live web app. It is written for someone who has not built a web app before, so it errs on the side of explaining *why* as well as *what*. Work through it in order. Each phase ends with a **Done when** checklist — do not move to the next phase until every box is ticked.
 
@@ -155,7 +155,7 @@ BoosterTutor/
 | 0 | Environment, accounts, and Git | 1–2 sessions | Complete |
 | 1 | Walking skeleton, deployed | 2–3 sessions | Complete |
 | 2 | Data layer: schema + ingestion | 4–6 sessions | Nearly done: awaiting the first scheduled run |
-| 3 | Parsers and the analysis engine | 4–6 sessions | In progress |
+| 3 | Parsers and the analysis engine | 4–6 sessions | Complete (Arena input deferred) |
 | 4 | The LLM layer | 3–4 sessions | Not started |
 | 5 | Draft Review, end to end | 4–5 sessions | Not started |
 | 6 | Accounts and saved history | 3–4 sessions | Not started |
@@ -490,13 +490,13 @@ If you build this well, Phase 4 is easy. If you skip ahead to the LLM first, you
 
 ### 3.1 Input formats
 
-Support these, in this order:
+Support these, in this order. **For v1 only input 1 is built** (2026-10-15): the 17Lands link is the one way to import a draft until the rest of v1 is complete. Input 2 is deferred to then, and input 3 is dropped.
 
 **Draft Review inputs**
 
 1. **17Lands draft ID or URL** — the user pastes a link to their draft. *(ADR 0023: the replay comes from `17lands.com/data/draft` and `data/event_metadata`, fetched once per draft when its owner submits it. DraftDouble confirmed the endpoints on 2026-09-18; no login is needed, and an unknown ID is a clean 404.)* You extract the ID and fetch the pick-by-pick data. Confirm what is publicly retrievable using the same Network-tab method from 2.3, and confirm whether the draft's owner must have made it public. Design the UI to fail clearly ("that draft is private or not found") rather than mysteriously.
-2. **Pasted MTGA draft log** — the section of Arena's `Player.log` covering a draft. Text, parseable, no network needed. Build this one first: it is fully under your control and makes a perfect test fixture.
-3. ~~**MTGO draft log text**~~ — **dropped for v1** (2026-10-15). Arena is where BoosterTutor's users draft, and the 17Lands link and Arena log cover them. The canonical model means it can still be added later as one function returning `DraftLog`.
+2. **Pasted MTGA draft log** — the section of Arena's `Player.log` covering a draft. Text, parseable, no network needed. **Deferred** (2026-10-15) until the rest of v1 is complete. Build it from a real log captured right after a draft (Arena overwrites `Player.log` at launch; `Player-prev.log` holds the previous session), never from a remembered message format. `card_prints.arena_id` is already ingested for it.
+3. ~~**MTGO draft log text**~~ — **dropped for v1** (2026-10-15). Arena is where BoosterTutor's users draft. The canonical model means it can still be added later as one function returning `DraftLog`.
 
 ### 3.2 The canonical model
 
@@ -557,11 +557,11 @@ This module is where correctness is invisible until it is embarrassing, so:
 
 ### Done when
 
-- [ ] Both draft input formats (17Lands link, Arena `Player.log`) parse into the canonical model; MTGO was dropped for v1
+- [x] The 17Lands draft link parses into the canonical model (the only v1 input since 2026-10-15; Arena deferred, MTGO dropped)
 - [x] `analyze_draft(DraftLog) -> DraftAnalysis` returns full metrics for every pick (42 or 45) with no network calls beyond the database
 - [x] Wheel analysis correctly identifies which cards wheeled in a fixture you verified by hand
 - [x] Golden-file tests pass; `pytest` runs green in CI
-- [ ] Not one line of LLM code exists yet
+- [x] Not one line of LLM code exists yet
 
 ---
 
