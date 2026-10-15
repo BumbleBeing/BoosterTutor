@@ -1,6 +1,6 @@
 # BoosterTutor — Development Plan
 
-**Version:** 1.1 · **Written:** 2026-08-24 · **Revised:** 2026-10-13 (v1 is Draft Review + Practice Draft and Deck Review moves after launch, ADR 0022; Phase 6 amended by ADR 0021; pick counts no longer assume 45) · **Owner:** Jackson
+**Version:** 1.2 · **Written:** 2026-08-24 · **Revised:** 2026-10-14 (17Lands draft links, ADR 0023; §3.3 points to the grading ADRs) · 2026-10-13 (v1 is Draft Review + Practice Draft and Deck Review moves after launch, ADR 0022; Phase 6 amended by ADR 0021; pick counts no longer assume 45) · **Owner:** Jackson
 
 This is the working plan for building BoosterTutor from an empty folder to a live web app. It is written for someone who has not built a web app before, so it errs on the side of explaining *why* as well as *what*. Work through it in order. Each phase ends with a **Done when** checklist — do not move to the next phase until every box is ticked.
 
@@ -152,10 +152,10 @@ BoosterTutor/
 
 | # | Phase | Est. effort | Status |
 |---|---|---|---|
-| 0 | Environment, accounts, and Git | 1–2 sessions | Not started |
-| 1 | Walking skeleton, deployed | 2–3 sessions | Not started |
-| 2 | Data layer: schema + ingestion | 4–6 sessions | Not started |
-| 3 | Parsers and the analysis engine | 4–6 sessions | Not started |
+| 0 | Environment, accounts, and Git | 1–2 sessions | Complete |
+| 1 | Walking skeleton, deployed | 2–3 sessions | Complete |
+| 2 | Data layer: schema + ingestion | 4–6 sessions | Nearly done: awaiting the first scheduled run |
+| 3 | Parsers and the analysis engine | 4–6 sessions | In progress |
 | 4 | The LLM layer | 3–4 sessions | Not started |
 | 5 | Draft Review, end to end | 4–5 sessions | Not started |
 | 6 | Accounts and saved history | 3–4 sessions | Not started |
@@ -494,7 +494,7 @@ Support these, in this order:
 
 **Draft Review inputs**
 
-1. **17Lands draft ID or URL** — the user pastes a link to their draft. You extract the ID and fetch the pick-by-pick data. Confirm what is publicly retrievable using the same Network-tab method from 2.3, and confirm whether the draft's owner must have made it public. Design the UI to fail clearly ("that draft is private or not found") rather than mysteriously.
+1. **17Lands draft ID or URL** — the user pastes a link to their draft. *(ADR 0023: the replay comes from `17lands.com/data/draft` and `data/event_metadata`, fetched once per draft when its owner submits it. DraftDouble confirmed the endpoints on 2026-09-18; no login is needed, and an unknown ID is a clean 404.)* You extract the ID and fetch the pick-by-pick data. Confirm what is publicly retrievable using the same Network-tab method from 2.3, and confirm whether the draft's owner must have made it public. Design the UI to fail clearly ("that draft is private or not found") rather than mysteriously.
 2. **Pasted MTGA draft log** — the section of Arena's `Player.log` covering a draft. Text, parseable, no network needed. Build this one first: it is fully under your control and makes a perfect test fixture.
 3. **MTGO draft log text** — the classic `--------Pack 1 pick 1:--------` format. Cheap to add once the canonical model exists.
 
@@ -520,6 +520,8 @@ class DraftLog(BaseModel):
 Adding a fourth input format later means writing one function that returns `DraftLog`. Nothing else changes. That is the whole point.
 
 ### 3.3 The deterministic analysis — Draft
+
+> **Superseded by ADRs 0003–0018.** The fitness function, its terms, the fitness classes and the verdict rules are specified there and were built and backtested in DraftDouble (`analysis/fitness.py`). Phase 3 ports that code; it does not implement the sketch below, whose thresholds and openness/signal terms were replaced (openness was retired by ADR 0018). The section is kept as the original reasoning.
 
 This is the intellectual core of the product. For each pick, compute:
 
@@ -551,7 +553,7 @@ This module is where correctness is invisible until it is embarrassing, so:
 - Save 5–10 real draft logs as fixtures in `tests/fixtures/`. Include ugly ones: a three-color mess, a draft where you know you punted, a card with a `//` name.
 - Golden-file tests: parse a fixture, serialize the analysis to JSON, compare against a committed expected output. When you change the analysis deliberately, the diff shows you exactly what moved.
 - Property tests for the parsers: any valid log produces exactly three times its pack size in picks (42 or 45, with the pack size read from the log itself), every `picked` card is in its own `pack_cards`, and `pool_before` grows by exactly one each pick.
-- One hand-worked example: pick a single pick, compute the numbers yourself with a calculator and the 17Lands website open, and assert your code produces them.
+- One hand-worked example: pick a single pick, compute the numbers yourself with a calculator from our own `card_draft_stats` rows (not the 17Lands website, ADR 0002), and assert your code produces them.
 
 ### Done when
 
