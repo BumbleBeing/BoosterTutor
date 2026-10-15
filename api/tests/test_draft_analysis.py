@@ -118,6 +118,17 @@ def test_the_last_pick_of_each_pack_is_indifferent(analysis: DraftAnalysis) -> N
             assert pa.verdict == "indifferent"
 
 
+def test_hob_has_three_noted_picks_and_no_narrow_ones(analysis: DraftAnalysis) -> None:
+    """ADR 0024 s1: the three questionable picks earn notes, all critical.
+
+    HOB has six packs with a single solid card, and none of them has two
+    questionable ones, so the "one bomb and chaff" exclusion holds here.
+    """
+    noted = [(p.pack_number, p.pick_number) for p in analysis.picks if p.noted]
+    assert noted == [(1, 1), (1, 12), (2, 7)]
+    assert not any(p.narrow for p in analysis.picks)
+
+
 def test_the_pool_ends_as_the_drafter_s_deck_colours(analysis: DraftAnalysis) -> None:
     """17Lands records this deck as BR; the pool before the last pick agrees."""
     assert analysis.picks[-1].pool.predicted_archetype == "BR"
