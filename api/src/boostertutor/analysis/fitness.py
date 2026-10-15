@@ -25,7 +25,13 @@ is a list of such cards, one entry per pick, so duplicates are real copies.
 
 import itertools
 import re
+import uuid
 from dataclasses import dataclass, field
+
+# A card's oracle id. DraftDouble used text ids; BoosterTutor uses UUIDs. The
+# function only ever compares and hashes ids, so the ported tests' short
+# strings ("a", "c1") work as well.
+OracleId = uuid.UUID
 
 
 @dataclass(frozen=True)
@@ -167,7 +173,7 @@ class Stats:
     """
 
     format_avg_wr: float
-    overall: dict[str, tuple[float, int]] = field(default_factory=dict)
+    overall: dict[OracleId, tuple[float, int]] = field(default_factory=dict)
 
     # There is deliberately no `alsa` here. ALSA was read by one term,
     # openness, and ADR 0018 retired it, so the fitness function no longer
@@ -178,7 +184,7 @@ class Stats:
     # worth, and the fit found no value in that beyond what GIH WR, which
     # says what it is actually worth, already carries.
 
-    def gih_wr(self, oracle_id: str) -> float:
+    def gih_wr(self, oracle_id: OracleId) -> float:
         """The card's format-wide win rate."""
         wr, _ = self.overall.get(oracle_id, (None, 0))
         # A card with no games at all is worth what filler is worth.
@@ -584,7 +590,7 @@ class SynergyFiring:
     # express, and pick order is not importance. The honest aggregate --
     # how much the whole firing is worth however many copies there are --
     # is already in `effective_count` and `pp`.
-    contributing_oracle_ids: tuple[str, ...] = ()
+    contributing_oracle_ids: tuple[OracleId, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -621,7 +627,7 @@ def synergy(
     cfg: FitnessConfig,
     *,
     pack_no: int = 1,
-    baseline: dict[tuple[str, int, str, str, str], float] | None = None,
+    baseline: dict[tuple[OracleId, int, str, str, str], float] | None = None,
 ) -> SynergyResult:
     """Credit for tagged game-plans the pool has already committed to, in pp.
 
@@ -714,7 +720,7 @@ class CardFitness:
     enumerates these fields must list four conditioning terms, not five.
     """
 
-    oracle_id: str
+    oracle_id: OracleId
     total: float
     base_unconditioned: float  # the overall GIH WR -- the number 17Lands shows
     color_fit: float  # -lambda * tax_value * color_tax_fraction, <= 0
@@ -734,7 +740,7 @@ def score_pack(
     stats: Stats,
     edges: list[dict],
     cfg: FitnessConfig,
-    baseline: dict[tuple[str, int, str, str, str], float] | None = None,
+    baseline: dict[tuple[OracleId, int, str, str, str], float] | None = None,
 ) -> list[CardFitness]:
     """Score every card in a pack against the pool before this pick.
 
@@ -780,7 +786,7 @@ def score_pack(
 # --------------------------------------------------------------------------
 
 
-def classify_pack(scored: list[CardFitness], cfg: FitnessConfig) -> dict[str, str]:
+def classify_pack(scored: list[CardFitness], cfg: FitnessConfig) -> dict[OracleId, str]:
     """oracle_id -> `solid` / `questionable` / `mistake`, by gap to the pack's best.
 
     The highest-fitness card in the pack is the gold standard and every
@@ -832,7 +838,7 @@ def is_indifferent(
 
 def verdict(
     scored: list[CardFitness],
-    taken_oracle_id: str,
+    taken_oracle_id: OracleId,
     cfg: FitnessConfig,
     *,
     pack_size: int | None = None,
