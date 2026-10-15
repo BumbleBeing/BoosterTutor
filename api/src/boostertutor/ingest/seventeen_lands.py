@@ -50,6 +50,7 @@ from ..models import (
     CardSet,
     IngestRun,
 )
+from ..parsing.names import name_key
 from .fetching import UpstreamMissing, fetch_last_modified, fetch_to_file
 from .runs import RunRecord, recorded_run
 
@@ -322,11 +323,6 @@ def card_rates(counts: dict[str, int]) -> dict[str, Any]:
     gih, gnd = out["gih_wr"], out["gnd_wr"]
     out["iwd"] = gih - gnd if gih is not None and gnd is not None else None
     return out
-
-
-def name_key(name: str) -> str:
-    """How a card is matched by name: lower case, front face only."""
-    return name.split(" // ")[0].strip().lower()
 
 
 def build_rows(
