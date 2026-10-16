@@ -127,8 +127,8 @@ export function describeError(err: Pick<ApiError, 'kind' | 'message' | 'retryAft
 			};
 		case 'unsupported_format':
 			return {
-				title: "We don't cover that draft format",
-				body: err.message,
+				title: "We can't grade that kind of draft",
+				body: 'Pick-two drafts (two cards per pick) are a different game from the other formats, so BoosterTutor does not cover them. Premier, Traditional and Open drafts all work.',
 				retryable: false
 			};
 		case 'unresolved_cards':

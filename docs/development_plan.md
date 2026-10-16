@@ -633,7 +633,7 @@ Goal: the feature, live. Designed in ADR 0031: the public product is the anonymo
 
 ### 5b Review page
 
-A vertical timeline of every pick in three packs: the card taken, notable alternatives with win rates, and the verdict as a coloured chip. Noted Picks carry a speech-bubble marker; for everyone but the admin, opening one says "Sign in for a coach's note on this pick". Pack contents and card images (Scryfall URLs in `card_prints`) load only on expand. A summary above (archetype, record if known, verdict counts), a plain skeleton while loading, the 17Lands credit, empty and error states, keyboard navigation, a shareable read-only URL `/draft/<id>` (never showing admin prose), and a phone layout.
+A vertical timeline of every pick in three packs: the card taken, notable alternatives with win rates, and the verdict as a coloured chip. Noted Picks carry a speech-bubble marker; for everyone but the admin, opening one says "Sign in for a coach's note on this pick". Pack contents and card images (Scryfall URLs in `card_prints`) load only on expand. A summary above (archetype, record if known, verdict counts), a plain skeleton while loading, the 17Lands credit, empty and error states, keyboard navigation, a shareable read-only URL `/draft/<id>` (never showing admin prose), and a phone layout. The 5b styling is a placeholder: the UI is overhauled before release, in a library/scholarly style (parchment beige, with periwinkle / slate / lapis-lazuli blues). Premier, Traditional and Open drafts are interchangeable inputs (rated with the Premier statistics); pick-two drafts are refused.
 
 ### 5c Deck builder and Deck Ratings
 
