@@ -1,0 +1,53 @@
+{
+ "draft": "hob.d9ac6765",
+ "about": "The eval's flawed deck, mirroring example2: the same spells on 12 Swamps and 4 Mountains.",
+ "flaw": {
+  "what": "too few red sources for a red-heavy deck",
+  "named_by_any_of": [
+   "red source",
+   "Mountain"
+  ]
+ },
+ "deck": [
+  "Dwarven Mauler",
+  "Pinecone Strike",
+  "Pinecone Strike",
+  "Tidings of War",
+  "Tidings of War",
+  "Smaug's Fury",
+  "Óin the Brave",
+  "Thorin, Mountain-king",
+  "Burn, Burn, Tree and Fern",
+  "Gandalf, Spark Starter",
+  "Bombur, Gentle Dreamer",
+  "Nori, Teller of Tales",
+  "Nori, Teller of Tales",
+  "Dwalin, Weaponmaster",
+  "Goblin-town Flunkies",
+  "Crude Bent Blade",
+  "Crude Bent Blade",
+  "Rhovanion Rampager",
+  "Gollum, Silent Slinker // Meager Meal",
+  "Gollum, Silent Slinker // Meager Meal",
+  "Dreaded Bat-Cloud",
+  "Bolg of the North",
+  "Front Porch Sentries",
+  "Goblin-town",
+  "Mountain",
+  "Mountain",
+  "Mountain",
+  "Mountain",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp",
+  "Swamp"
+ ]
+}
