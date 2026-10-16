@@ -1,0 +1,41 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "draftdouble-review",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-lc",
+        "export NVM_DIR=\"$HOME/.nvm\"; . \"$NVM_DIR/nvm.sh\"; nvm use 22 >/dev/null; cd /home/jackson/Projects/DraftDouble/review && npm run dev -- --port 5174"
+      ],
+      "port": 5174
+    },
+    {
+      "name": "draftdouble-tagger",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-lc",
+        "export NVM_DIR=\"$HOME/.nvm\"; . \"$NVM_DIR/nvm.sh\"; nvm use 22 >/dev/null; cd /home/jackson/Projects/DraftDouble/tagger && npm run dev -- --port 5175"
+      ],
+      "port": 5175
+    },
+    {
+      "name": "draftdouble-practice-api",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-lc",
+        "cd /home/jackson/Projects/DraftDouble && uv run python -m draftdouble.server"
+      ],
+      "port": 8000
+    },
+    {
+      "name": "draftdouble-practice",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-lc",
+        "export NVM_DIR=\"$HOME/.nvm\"; . \"$NVM_DIR/nvm.sh\"; nvm use 22 >/dev/null; cd /home/jackson/Projects/DraftDouble/practice && npm run dev -- --port 5173 --strictPort"
+      ],
+      "port": 5173
+    }
+  ]
+}
