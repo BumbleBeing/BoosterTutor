@@ -641,7 +641,7 @@ A standalone component (ADR 0025 §1), reused in Phase 7. `POST /api/drafts/{id}
 
 Built on 2026-10-16: `analysis/mana.py` gained `colour_sources`; the builder is `web/src/lib/deck/`. Deck submissions have their own per-IP allowance (`DECK_LIMIT_PER_MINUTE` / `DECK_LIMIT_PER_DAY`), counted in `rate_limit_events` under the `deck` bucket. The response carries the full `DeckMetrics` and the names of the cards it mentions, so the panel needs no second request.
 
-Restructured on 2026-10-16 (R1): the three endpoints' rules live in one `ReviewService` (`api/src/boostertutor/review/service.py`), which raises a single `ReviewError` that `main.py` turns into the response. The routes only read the request. The 5a migration was edited in place before it had been applied anywhere: `fetch_attempts` became `rate_limit_events`, with a `bucket` column. CI does not run migrations, so `alembic upgrade head` on a real Postgres is still unchecked.
+Restructured on 2026-10-16 (R1): the three endpoints' rules live in one `ReviewService` (`api/src/boostertutor/review/service.py`), which raises a single `ReviewError` that `main.py` turns into the response. The routes only read the request. Migration `c4e1a7f29b06` renames `fetch_attempts` to `rate_limit_events` and adds the `bucket` column, moving any `deck:`-prefixed rows into the deck bucket (Supabase already had the 5a migration applied, so it is not edited in place).
 
 ### 5d Claude endpoints behind the Admin Key
 
