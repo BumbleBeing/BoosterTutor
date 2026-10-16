@@ -26,6 +26,11 @@ Kind = Literal[
     "invalid_deck",  # the 40 cards aren't a legal deck from this pool
     "rate_limited",  # out of allowance; `retry_after` says for how long
     "format_not_ready",  # no statistics loaded for this set and event yet
+    "not_noted",  # a Pick Note was asked for a pick that isn't a Noted Pick
+    # Claude's prose (ADR 0031 s2), for an admin-key caller only.
+    "not_authorised",  # no admin key, or the wrong one
+    "coach_retired",  # the daily spending cap is reached (ADR 0027 s3)
+    "prose_failed",  # Claude's answer failed its checks twice, or the call failed
 ]
 
 # The HTTP status each kind is sent with.
@@ -42,6 +47,12 @@ STATUS: dict[Kind, int] = {
     "rate_limited": 429,
     # Temporary: the nightly ingest will fill it in.
     "format_not_ready": 503,
+    "not_noted": 422,
+    "not_authorised": 401,
+    # Temporary: the cap resets at midnight UTC.
+    "coach_retired": 503,
+    # Claude failed, not us and not the user, as with 17Lands.
+    "prose_failed": 502,
 }
 
 

@@ -34,6 +34,12 @@ class Settings(BaseSettings):
     # ADR 0027: once today's Claude spend (UTC) reaches this, no further
     # call is made until tomorrow. About $5 a day while the app is small.
     daily_spend_cap_usd: Decimal = Decimal("5.00")
+    # The Admin Key (ADR 0031 s2): an `X-Admin-Key` header matching this lets
+    # a request call Claude, until accounts arrive in Phase 6. Unset, admin is
+    # off and every request is anonymous. A wrong key is a plain 401 with no
+    # rate limit, so this must be long and random:
+    #   python -c "import secrets; print(secrets.token_urlsafe(32))"
+    admin_key: SecretStr | None = None
 
     # Draft Review (ADR 0031). v1 launches with HOB only (ADR 0029).
     supported_sets: str = "hob"
