@@ -597,7 +597,7 @@ Built in three steps, in order. Each is useful on its own.
 - Fixers and the effective land count (ADR 0028): taxonomy format version 2 with per-set `source_kinds` and `mana_sources`, a `card_mana_sources` table (confirm the schema first), HOB's entries authored by Jackson, and a seventh metric, distance from the land target.
 - **Deck Ratings**: an ingest step scores the game dump's 40-card decks, fits percentile tables and a per-format logistic regression of win on the metrics, and stores them in a new table (confirm the schema first).
 
-Built on 2026-10-15 (`analysis/deck.py`, `analysis/mana.py`, `analysis/deck_rating.py`, `ingest/deck_ratings.py`). Still open: HOB's `mana_sources`, applying the two migrations and running `python -m boostertutor.ingest deck-ratings`, the land targets (HOB's dump wins most one land below them; see ADR 0028 s4), and MSH, which has no `format_constants` row to fit against.
+Built on 2026-10-15 (`analysis/deck.py`, `analysis/mana.py`, `analysis/deck_rating.py`, `ingest/deck_ratings.py`). HOB's `mana_sources` are authored and its Deck Ratings fitted. Still open: the land targets (HOB's dump wins most one land below them; see ADR 0028 s4), and MSH, which has no `format_constants` row to fit against.
 
 ### 4c — The Draft Summary
 
