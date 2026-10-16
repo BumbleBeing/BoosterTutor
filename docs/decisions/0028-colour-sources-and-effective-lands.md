@@ -1,6 +1,6 @@
 # ADR 0028 — Colour Sources, Fixers and the effective land count
 
-**Status:** Proposed · **Date:** 2026-10-15 · **Amends:** ADR 0026 §1 (the mana metric, and a land-count metric added) · **Relates to:** ADR 0004, 0006 (the tag taxonomy file)
+**Status:** Proposed · **Date:** 2026-10-15 (§4's targets amended the same day) · **Amends:** ADR 0026 §1 (the mana metric, and a land-count metric added) · **Relates to:** ADR 0004, 0006 (the tag taxonomy file)
 
 ---
 
@@ -99,9 +99,14 @@ oversights:
 
 - **Effective lands** are the sum of every card's land weight: 1 for a
   land, and the table's land weight for a Fixer.
-- **The target** depends on the average mana value of the nonland cards:
-  16 below `low_curve_mv` = 2.2, 18 above `high_curve_mv` = 3.2, and 17
-  otherwise. All are placeholder tunables.
+- **The target** depends on the average mana value of the nonland cards,
+  and is set per format in `format_constants`: `land_target_low` below
+  `land_low_below_mv`, `land_target_high` from `land_high_from_mv`, and
+  `land_target_mid` between. The two cuts may be equal. They are measured
+  from the game dump by `scripts/derive_land_targets.py` (see "Measuring
+  the targets" below). HOB's are 16 below 3.0 and 18 from 3.0. The
+  original placeholders (16 below 2.2, 18 above 3.2, 17 otherwise) are
+  kept only as code defaults.
 - **The land metric** penalises being short twice as hard as being over:
   `max(0, target − effective) + ½ × max(0, effective − target)`.
 
@@ -135,10 +140,49 @@ strengthens from −0.017 to −0.024. One new pattern: every half-land
 count wins less than the whole counts beside it (16.5 lands: 55.9%,
 17.5: 54.6%). Only a Fixer with a ½ land weight makes a half, so decks
 running land tutors and ramp win less. That suggests these cards are
-weak in HOB, or that ½ overstates them as lands. The "Revisit when" trigger below has fired,
-and the targets stay placeholders until Jackson decides whether to move
-them (15/16/17 would put HOB's best-performing count on target) or to
-measure the land metric differently.
+weak in HOB, or that ½ overstates them as lands. The "Revisit when"
+trigger below fired, and Jackson chose to measure the targets per format.
+
+### Measuring the targets (amended 2026-10-15)
+
+Raw win rates mislead here: strong, fast decks run fewer lands, so fewer
+lands look better whatever the curve. `scripts/derive_land_targets.py`
+first fits a games-weighted line of deck win rate on mean GIH WR (HOB:
++5.76pp per pp), and judges each land count on wins above that line. It
+then scores every rule of the shape "low below cut A, middle between,
+high from cut B" by the adjusted win rate, in each 0.1 band of average
+mana value, of the decks running the count the rule asks for, weighted by
+the band's games. It prints the five columns for a person to transcribe,
+as ADR 0013 asks.
+
+HOB, adjusted for card quality, in pp above the line:
+
+| Average MV | 16 lands | 17 lands | 18 lands | Best |
+|---|---|---|---|---|
+| 2.5 | +1.2 | +1.5 | −1.9 | 17 |
+| 2.6 | +0.4 | −0.0 | −1.6 | 16 |
+| 2.7 | +1.3 | +0.2 | −0.8 | 16 |
+| 2.8 | +1.0 | −0.3 | −1.6 | 16 |
+| 2.9 | +0.6 | −0.7 | −0.6 | 16 |
+| 3.0 | −0.5 | −0.8 | +0.3 | 18 |
+| 3.1 | +0.7 | −0.1 | +0.8 | 18 |
+| 3.2 | +0.7 | −0.2 | +1.3 | 18 |
+| 3.3 | | −1.0 | +1.3 | 18 |
+
+17 lands, the count most HOB decks run, is never clearly the best. The
+best rule is 16 below 3.0 and 18 from 3.0 (+0.81pp; the next best, cut at
+3.1, scores +0.66pp). Refitted with it, the regression's land coefficient
+turns negative as intended: −0.043 log-odds per unit of distance,
+standard error 0.008, from +0.033.
+
+Two other measures were tried and rejected:
+- **A decimal target**, fitted as a line in average mana value with a
+  quadratic penalty. On HOB it ran to the steepest slope searched (3 lands
+  per point of mana value), its penalty was nearly flat (0.03pp per land
+  squared), and resampling the decks moved its target at 2.9 from 15.8 to
+  18.0 lands. This is the instability the option rejected below foresaw.
+- **On-target decks against off-target decks**, as the score for a rule.
+  It favoured rules that put 1% of decks on target.
 
 ## Considered options
 
@@ -161,6 +205,8 @@ measure the land metric differently.
   are complete. HOB's 18 candidates are listed above.
 - Two new tables (`card_mana_sources`, and the ratings table of ADR 0026)
   need a schema confirmation when built.
+- `format_constants` gains five land-target columns, so a new format's
+  row needs `scripts/derive_land_targets.py` run against its game dump.
 - The game dump has basic-land columns, and 95% of HOB's decks are exactly
   40 cards, so both metrics can be computed for real decks.
 
