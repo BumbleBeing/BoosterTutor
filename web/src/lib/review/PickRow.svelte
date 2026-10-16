@@ -109,19 +109,19 @@
 						<tr>
 							<th scope="col" class="py-1 text-left font-normal">Card</th>
 							<th scope="col" class="py-1 text-right font-normal">Fitness</th>
-							<th scope="col" class="py-1 pl-3 text-right font-normal">GIH WR</th>
+							<th scope="col" class="py-1 pl-3 text-right font-normal whitespace-nowrap">GIH WR</th>
 						</tr>
 					</thead>
 					<tbody class="tabular-nums">
 						{#each entry.alternatives as alt (alt.score.oracle_id)}
 							<tr>
-								<td class="max-w-0 truncate py-0.5">{alt.info?.name ?? 'Unknown card'}</td>
+								<td class="w-full max-w-0 truncate py-0.5">{alt.info?.name ?? 'Unknown card'}</td>
 								<td class="py-0.5 text-right">{formatFitness(alt.score.total)}</td>
 								<td class="py-0.5 pl-3 text-right text-muted">{formatWinRate(alt.score.gih_wr)}</td>
 							</tr>
 						{/each}
 						<tr class="border-t border-line font-medium">
-							<td class="max-w-0 truncate py-0.5">Your pick: {takenName}</td>
+							<td class="w-full max-w-0 truncate py-0.5">Your pick: {takenName}</td>
 							<td class="py-0.5 text-right">{formatFitness(entry.takenScore?.total)}</td>
 							<td class="py-0.5 pl-3 text-right text-muted"
 								>{formatWinRate(entry.takenScore?.gih_wr)}</td

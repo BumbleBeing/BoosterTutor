@@ -201,7 +201,7 @@ export function buildWheels(review: DraftReview): WheelPackView[] {
  */
 export function wheelHeadline(view: WheelPackView): string {
 	const flowing = view.colours.filter((c) => c.good > 0).sort((a, b) => b.good - a.good);
-	if (!flowing.length) return 'No above-average card came back.';
+	if (!flowing.length) return 'No good card of any colour came back.';
 	const parts = flowing.map((c) => `${c.name} ${c.good}`);
 	const list = parts.length > 1 ? `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}` : parts[0];
 	return `Good cards that came back: ${list}.`;

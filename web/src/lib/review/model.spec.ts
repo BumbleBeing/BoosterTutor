@@ -72,7 +72,7 @@ describe('buildWheels', () => {
 	it('sums up which colours sent good cards back', () => {
 		expect(wheelHeadline(pack)).toBe('Good cards that came back: White 1.');
 		const none = { ...pack, colours: pack.colours.map((c) => ({ ...c, good: 0 })) };
-		expect(wheelHeadline(none)).toBe('No above-average card came back.');
+		expect(wheelHeadline(none)).toBe('No good card of any colour came back.');
 	});
 });
 
