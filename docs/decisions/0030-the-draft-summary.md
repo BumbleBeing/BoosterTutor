@@ -22,9 +22,9 @@ The summary is structured output with fixed fields, not free prose:
 
 | Field | What it says | Target | Cap |
 |---|---|---|---|
-| `draft_arc` | the colours taken, the signals, what wheeled | about 60 words | 75 |
-| `deck` | the deck's strengths and weaknesses, tied to its Deck Ratings | about 100 words | 125 |
-| `lesson` | one thing to carry into the next draft | about 40 words | 50 |
+| `draft_arc` | the colours taken, the signals, what wheeled | about 60 words | 105 |
+| `deck` | the deck's strengths and weaknesses, tied to its Deck Ratings | about 100 words | 175 |
+| `lesson` | one thing to carry into the next draft | about 40 words | 70 |
 | `key_picks` | up to two picks the UI links to | at most 2 | 2 |
 
 Each `key_picks` entry is a pick reference (`pack_number`, `pick_number`)
@@ -154,6 +154,7 @@ brief and the primer and calls nothing.
   served.
 - The eval's live run costs a few cents per deck on Sonnet.
 - **The first live eval (2026-10-15)** passed both decks on Sonnet with no retries, for $0.049 in all, the second call reading both cached blocks. Haiku passed the played deck for $0.0007, but failed the flawed deck twice, its `draft_arc` running to 84 words against the cap of 75. Sonnet stays.
+- **The second live eval (2026-10-16)** raised every cap from 1.25 to 1.75 times its target, since a few extra words are not rambling. Haiku then passed both decks in three runs out of three with no retries, at about $0.0008 a summary against Sonnet's $0.015 once cached. Reading the summaries found reasoning slips the checks cannot catch: faulting a black pick "when the table had already shown black open", a deck-building lesson timed "before the last pick of pack 2", and the 17Lands caveat turned into praise. Sonnet's had none. **Sonnet stays,** chosen by Jackson: the saving is about a cent and a half per draft, and the summary is the product's most visible prose.
 
 **Revisit when:** the live eval shows Haiku writes summaries as well as
 Sonnet (switch, as ADR 0024 §4 says); a field keeps hitting its cap; or
