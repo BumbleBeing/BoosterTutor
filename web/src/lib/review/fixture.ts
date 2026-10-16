@@ -10,6 +10,7 @@ function card(name: string) {
 		name,
 		mana_cost: null,
 		type_line: 'Creature',
+		cmc: 2,
 		colors: 'W',
 		rarity: 'common',
 		image_normal: `https://cards.scryfall.io/${name}.jpg`,

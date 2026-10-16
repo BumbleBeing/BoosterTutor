@@ -4,6 +4,7 @@
 	import { page } from '$app/state';
 	import { ApiError, fetchReview } from '$lib/api/client';
 	import type { DraftReview } from '$lib/api/types';
+	import DeckSection from '$lib/deck/DeckSection.svelte';
 	import ErrorState from '$lib/review/ErrorState.svelte';
 	import ReviewSkeleton from '$lib/review/ReviewSkeleton.svelte';
 	import ReviewSummary from '$lib/review/ReviewSummary.svelte';
@@ -37,6 +38,7 @@
 		{:else if review}
 			<ReviewSummary {review} />
 			<div class="mt-8"><ReviewTimeline {review} /></div>
+			<div class="mt-12"><DeckSection {review} /></div>
 		{:else}
 			<ReviewSkeleton />
 		{/if}
