@@ -153,6 +153,7 @@ brief and the primer and calls nothing.
 - `llm.pricing` gains Claude Sonnet 5's price, for calls a fallback
   served.
 - The eval's live run costs a few cents per deck on Sonnet.
+- **The first live eval (2026-10-15)** passed both decks on Sonnet with no retries, for $0.049 in all, the second call reading both cached blocks. Haiku passed the played deck for $0.0007, but failed the flawed deck twice, its `draft_arc` running to 84 words against the cap of 75. Sonnet stays.
 
 **Revisit when:** the live eval shows Haiku writes summaries as well as
 Sonnet (switch, as ADR 0024 §4 says); a field keeps hitting its cap; or
