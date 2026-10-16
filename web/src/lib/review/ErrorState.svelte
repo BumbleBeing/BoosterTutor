@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import type { ApiError } from '$lib/api/client';
+	import Button from '$lib/ui/Button.svelte';
 	import { describeError } from './model';
 
 	let {
@@ -17,16 +18,12 @@
 </script>
 
 <!-- role="alert" makes screen readers announce it when it appears. -->
-<div role="alert" class="rounded-lg border border-red-200 bg-red-50 p-5 text-red-950">
+<div role="alert" class="rounded-lg border border-danger-line bg-danger p-5 text-danger-ink">
 	<h2 class="text-lg font-semibold">{copy.title}</h2>
 	<p class="mt-2 text-sm">{copy.body}</p>
 	<div class="mt-4 flex flex-wrap gap-3 text-sm">
 		{#if copy.retryable && onretry}
-			<button
-				type="button"
-				class="rounded-md bg-red-900 px-3 py-1.5 font-medium text-white hover:bg-red-800"
-				onclick={onretry}>Try again</button
-			>
+			<Button variant="danger" size="sm" onclick={onretry}>Try again</Button>
 		{/if}
 		{#if homeLink}
 			<a class="px-1 py-1.5 font-medium underline" href={resolve('/')}>Submit a different draft</a>

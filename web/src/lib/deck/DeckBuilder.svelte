@@ -33,6 +33,8 @@
 		type BasicLand,
 		type PoolCard
 	} from './model';
+	import Button from '$lib/ui/Button.svelte';
+	import { TONE_CLASSES, manaTone } from '$lib/ui/tones';
 	import { clearZoom, toggleZoom } from './zoom.svelte';
 	import ZoomLayer from './ZoomLayer.svelte';
 
@@ -97,14 +99,9 @@
 		])
 	);
 
-	// A drawn face for a basic land whose set has no art for it.
-	const BASIC_FACE: Record<string, string> = {
-		W: 'bg-amber-100 text-amber-900 ring-amber-300',
-		U: 'bg-sky-100 text-sky-900 ring-sky-300',
-		B: 'bg-slate-300 text-slate-900 ring-slate-500',
-		R: 'bg-red-100 text-red-900 ring-red-300',
-		G: 'bg-green-100 text-green-900 ring-green-300'
-	};
+	// A basic land's colours (its add button, and a drawn face when the set has
+	// no art for it): the mana tokens from layout.css.
+	const basicFace = (colour: string) => TONE_CLASSES[manaTone(colour)];
 
 	function addBasic(colour: string, name: string) {
 		const key = `b${nextBasic++}`;
@@ -253,8 +250,8 @@
 	}
 </script>
 
-<section aria-labelledby="deck-builder-help" class="text-slate-900">
-	<p id="deck-builder-help" class="text-sm text-slate-600">
+<section aria-labelledby="deck-builder-help" class="text-ink">
+	<p id="deck-builder-help" class="text-sm text-muted">
 		Drag cards between columns, or double-click one to move it between your deck and sideboard
 		(focus it and press Enter works too). Double-click a basic land to remove it. Right-click a card
 		to enlarge it.
@@ -267,9 +264,9 @@
 				<button
 					type="button"
 					data-add-basic={colour}
-					class="touch-manipulation rounded px-2 py-2 text-left text-sm font-medium ring-1 ring-inset focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-indigo-600 {BASIC_FACE[
+					class="touch-manipulation rounded px-2 py-2 text-left text-sm font-medium ring-1 ring-inset focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-focus {basicFace(
 						colour
-					]}"
+					)}"
 					onclick={() => addBasic(colour, name)}
 				>
 					+ {name}
@@ -281,26 +278,26 @@
 			<div class="flex flex-wrap items-center gap-x-4 gap-y-2">
 				<h3 class="text-lg font-semibold">Deck</h3>
 				<p
-					class="text-lg font-semibold tabular-nums {ready ? 'text-emerald-800' : ''}"
+					class="text-lg font-semibold tabular-nums {ready ? 'text-success-ink' : ''}"
 					data-deck-count
 				>
 					{size} / {DECK_SIZE}
 					<span class="sr-only">cards</span>
 				</p>
-				<p class="text-sm text-slate-600">
+				<p class="text-sm text-muted">
 					Sideboard <span class="tabular-nums">{layout[SIDEBOARD].length}</span>
 				</p>
-				<button
-					type="button"
-					class="ml-auto rounded bg-indigo-700 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
+				<Button
+					size="sm"
+					class="ml-auto"
 					disabled={!ready || submitting}
 					onclick={() => (confirming = true)}
 				>
 					{submitting ? 'Rating…' : submitLabel}
-				</button>
+				</Button>
 			</div>
 			{#if !ready}
-				<p class="mt-1 text-sm text-slate-500">
+				<p class="mt-1 text-sm text-muted">
 					{size < DECK_SIZE ? `${DECK_SIZE - size} more to go.` : `${size - DECK_SIZE} too many.`}
 					A deck must be exactly {DECK_SIZE} cards.
 				</p>
@@ -310,19 +307,13 @@
 				<div
 					role="group"
 					aria-label="Confirm submission"
-					class="mt-3 rounded border border-indigo-200 bg-indigo-50 p-3 text-sm"
+					class="mt-3 rounded border border-periwinkle-line bg-periwinkle p-3 text-sm text-periwinkle-ink"
 				>
 					<p>{confirmMessage}</p>
 					<div class="mt-2 flex gap-2">
-						<button
-							type="button"
-							class="rounded bg-indigo-700 px-3 py-1.5 font-medium text-white hover:bg-indigo-800"
-							onclick={submit}>Yes, submit</button
-						>
-						<button
-							type="button"
-							class="rounded border border-slate-300 bg-white px-3 py-1.5 hover:bg-slate-50"
-							onclick={() => (confirming = false)}>Cancel</button
+						<Button size="sm" onclick={submit}>Yes, submit</Button>
+						<Button size="sm" variant="secondary" onclick={() => (confirming = false)}
+							>Cancel</Button
 						>
 					</div>
 				</div>
@@ -330,7 +321,7 @@
 
 			<!-- On a narrow screen the grid scrolls sideways inside its panel, not the page. -->
 			<div
-				class="mt-3 overflow-x-auto rounded-2xl bg-white p-3 shadow-sm"
+				class="mt-3 overflow-x-auto rounded-2xl border border-line bg-surface p-3 shadow-sm"
 				bind:clientWidth={width}
 				data-pool-grid
 			>
@@ -343,10 +334,10 @@
 						<div
 							class="flex justify-between border-b pb-0.5 text-[11px] font-semibold tracking-wider uppercase {col ===
 							SIDEBOARD
-								? 'border-slate-400 text-slate-700'
-								: 'border-slate-200 text-slate-500'}"
+								? 'border-line-strong text-ink'
+								: 'border-line text-muted'}"
 						>
-							<span>{header}</span><span class="font-normal text-slate-400 tabular-nums"
+							<span>{header}</span><span class="font-normal text-muted tabular-nums"
 								>{layout[col].length || ''}</span
 							>
 						</div>
@@ -357,7 +348,7 @@
 					{#each layout as column, col (col)}
 						{#if col === SIDEBOARD}
 							<div
-								class="absolute top-0 bottom-0 border-l border-dashed border-slate-300"
+								class="absolute top-0 bottom-0 border-l border-dashed border-line-strong"
 								style="left:{col * (colW + GAP) - GAP / 2}px"
 							></div>
 						{/if}
@@ -365,7 +356,7 @@
 							{@const face = faces.get(key)!}
 							{@const dragging = drag?.active && drag.key === key}
 							<div
-								class="absolute cursor-grab overflow-hidden rounded-[4.5%/3.2%] shadow-sm ring-indigo-600 select-none hover:ring-2 focus-visible:ring-2 focus-visible:outline-none [@media(pointer:fine)]:touch-none {dragging
+								class="absolute cursor-grab overflow-hidden rounded-[4.5%/3.2%] shadow-sm ring-focus select-none hover:ring-2 focus-visible:ring-2 focus-visible:outline-none [@media(pointer:fine)]:touch-none {dragging
 									? 'opacity-30'
 									: ''}"
 								style="left:{col * (colW + GAP)}px; top:{i *
@@ -393,16 +384,16 @@
 									<img src={face.image} alt="" draggable="false" class="h-full w-full" />
 								{:else if face.basic}
 									<div
-										class="flex h-full w-full flex-col items-center p-1 text-center text-[11px] font-medium ring-1 ring-inset {BASIC_FACE[
+										class="flex h-full w-full flex-col items-center p-1 text-center text-[11px] font-medium ring-1 ring-inset {basicFace(
 											face.basic
-										]}"
+										)}"
 									>
 										{face.name}
 										<span class="mt-auto mb-auto text-3xl font-bold opacity-60">{face.basic}</span>
 									</div>
 								{:else}
 									<div
-										class="flex h-full w-full items-start justify-center bg-slate-50 p-1 text-center text-[11px] ring-1 ring-slate-300"
+										class="flex h-full w-full items-start justify-center bg-sunken p-1 text-center text-[11px] ring-1 ring-line"
 									>
 										{face.name}
 									</div>
@@ -415,8 +406,8 @@
 						<!-- Where the card will go. -->
 						<div
 							class="pointer-events-none absolute z-[60] h-1 rounded-full {target.allowed
-								? 'bg-sky-500'
-								: 'bg-red-500'}"
+								? 'bg-accent'
+								: 'bg-danger-strong'}"
 							style="left:{target.col * (colW + GAP)}px; width:{colW}px; top:{Math.max(
 								0,
 								target.index * strip - 3
@@ -442,8 +433,8 @@
 		{:else}
 			<div
 				class="flex h-full w-full items-start justify-center p-1 text-center text-[11px] {face.basic
-					? BASIC_FACE[face.basic]
-					: 'bg-slate-50'}"
+					? basicFace(face.basic)
+					: 'bg-sunken'}"
 			>
 				{face.name}
 			</div>

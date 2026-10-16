@@ -38,7 +38,9 @@
 		{#if zoom.src}
 			<img src={zoom.src} alt={zoom.name} class="h-full w-full" />
 		{:else}
-			<div class="flex h-full w-full items-center justify-center bg-white p-4 text-center text-2xl">
+			<div
+				class="flex h-full w-full items-center justify-center bg-surface p-4 text-center text-2xl"
+			>
 				{zoom.name}
 			</div>
 		{/if}

@@ -9,7 +9,6 @@
 	import ReviewSkeleton from '$lib/review/ReviewSkeleton.svelte';
 	import ReviewSummary from '$lib/review/ReviewSummary.svelte';
 	import ReviewTimeline from '$lib/review/ReviewTimeline.svelte';
-	import SeventeenLandsCredit from '$lib/review/SeventeenLandsCredit.svelte';
 
 	let review = $state<DraftReview | null>(null);
 	let error = $state<ApiError | null>(null);
@@ -32,7 +31,9 @@
 
 <!-- Wide enough for the deck builder's nine columns; the review itself stays narrow. -->
 <main class="mx-auto max-w-6xl px-4 py-6 sm:py-10">
-	<a href={resolve('/')} class="text-sm text-slate-600 underline">← Review another draft</a>
+	<a href={resolve('/')} class="text-sm text-accent underline hover:text-accent-hover"
+		>← Review another draft</a
+	>
 	<div class="mt-4">
 		{#if error}
 			<ErrorState {error} onretry={load} />
@@ -46,5 +47,4 @@
 			<ReviewSkeleton />
 		{/if}
 	</div>
-	<footer class="mt-12 border-t border-slate-200 pt-4"><SeventeenLandsCredit /></footer>
 </main>

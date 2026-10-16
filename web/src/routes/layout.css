@@ -1,1 +1,122 @@
 @import 'tailwindcss';
+
+/*
+ * BoosterTutor's design tokens. Every colour the app uses is defined here and
+ * nowhere else, so a retheme means editing only this file.
+ *
+ * Tailwind v4 turns each `--color-<name>` in `@theme` into utilities such as
+ * `bg-<name>`, `text-<name>`, `border-<name>` and `ring-<name>`. So
+ * `--color-surface` gives `bg-surface`, and `--color-solid-ink` gives
+ * `text-solid-ink`. Components use those names and never a raw palette
+ * colour like `slate-500`.
+ *
+ * The look is a library: parchment pages, dark-blue ink, lapis-lazuli links
+ * and buttons, and periwinkle for quieter highlights. Every text/background
+ * pair below meets WCAG AA (4.5:1 for normal text); the ratios are noted.
+ */
+
+@theme {
+	/* Fonts. The display face is loaded from Google Fonts in app.html. */
+	--font-display: 'EB Garamond', 'Garamond', 'Georgia', serif;
+
+	/* --- The page --------------------------------------------------------- */
+	--color-page: #f3ead6; /* parchment: the page behind everything */
+	--color-surface: #fbf7ee; /* a lighter sheet: panels and cards sit on this */
+	--color-sunken: #e8dec6; /* placeholders, skeletons, missing card art */
+	--color-line: #d8cbab; /* borders and rules */
+	--color-line-strong: #a89a78; /* a rule that has to stand out */
+
+	/* Ink. Contrast on surface / page: ink 14.8 / 13.2, muted 6.4 / 5.7. */
+	--color-ink: #1d2233;
+	--color-muted: #545a6e; /* slate: secondary text */
+
+	/* --- Blues ------------------------------------------------------------- */
+	/* Lapis lazuli: links, primary buttons. White on it is 8.1:1. */
+	--color-accent: #22508a;
+	--color-accent-hover: #1a3f6e;
+	--color-accent-ink: #ffffff; /* text on an accent background */
+	/* Periwinkle: soft highlights such as the coach's-note bubble. */
+	--color-periwinkle: #e1e3f6;
+	--color-periwinkle-line: #a9afe0;
+	--color-periwinkle-ink: #262f6b; /* 9.7:1 on periwinkle */
+	/* The keyboard focus ring: a deeper periwinkle, 4.8:1 on parchment. */
+	--color-focus: #4f5bc4;
+
+	/* --- Feedback ---------------------------------------------------------- */
+	--color-danger: #f5dcd4; /* error panel background */
+	--color-danger-line: #dfa798;
+	--color-danger-ink: #6b1d12; /* 8.9:1 on danger */
+	--color-danger-strong: #8f2a1b; /* error button; white on it is 8.4:1 */
+	--color-success-ink: #2d5a28; /* "40 / 40": 6.7:1 on page */
+	--color-warning-ink: #6a4306; /* a mana warning line: 8.1:1 on surface */
+
+	/* --- Verdicts (ADR 0008): bg / ink / ring --------------------------------
+	 * The chip always writes its label out; colour is a second cue, never the
+	 * only one. Ink on bg: solid 8.3, questionable 7.5, mistake 7.6,
+	 * indifferent 8.0.
+	 */
+	--color-solid: #d9e8d1;
+	--color-solid-ink: #24461f;
+	--color-solid-ring: #8db381;
+	--color-questionable: #f4e1b4;
+	--color-questionable-ink: #5f3d05;
+	--color-questionable-ring: #d0a750;
+	--color-mistake: #f4d3cb;
+	--color-mistake-ink: #761e13;
+	--color-mistake-ring: #d7907f;
+	--color-indifferent: #e2e3ea;
+	--color-indifferent-ink: #3a4054;
+	--color-indifferent-ring: #a4a8b8;
+
+	/* --- Deck Ratings grades (ADR 0026), A best. Ink on bg: 7.5 to 8.3. --- */
+	--color-grade-a: #d9e8d1;
+	--color-grade-a-ink: #24461f;
+	--color-grade-a-ring: #8db381;
+	--color-grade-b: #e6ecc9;
+	--color-grade-b-ink: #3c4610;
+	--color-grade-b-ring: #b0bc72;
+	--color-grade-c: #f4e1b4;
+	--color-grade-c-ink: #5f3d05;
+	--color-grade-c-ring: #d0a750;
+	--color-grade-d: #f3d6b8;
+	--color-grade-d-ink: #66310c;
+	--color-grade-d-ring: #d39a62;
+	--color-grade-f: #f4d3cb;
+	--color-grade-f-ink: #761e13;
+	--color-grade-f-ring: #d7907f;
+
+	/* --- The five colours of Magic: bg / ink / ring. Ink on bg 7.9 to 10.3. -- */
+	--color-mana-w: #f6efd2;
+	--color-mana-w-ink: #4a4120;
+	--color-mana-w-ring: #cdbd7f;
+	--color-mana-u: #cfdff2;
+	--color-mana-u-ink: #143b63;
+	--color-mana-u-ring: #7fa4cf;
+	--color-mana-b: #cdc6c3;
+	--color-mana-b-ink: #1e1918;
+	--color-mana-b-ring: #8a807c;
+	--color-mana-r: #f3cdbf;
+	--color-mana-r-ink: #6a1d0e;
+	--color-mana-r-ring: #d38c74;
+	--color-mana-g: #d0e3cc;
+	--color-mana-g-ink: #1d4720;
+	--color-mana-g-ring: #86b27e;
+}
+
+/* Base styles: the page colours, and the display face on every heading. */
+@layer base {
+	body {
+		background-color: var(--color-page);
+		color: var(--color-ink);
+	}
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-display);
+	}
+	/* One focus ring for every focusable thing, unless a component draws its own. */
+	:focus-visible {
+		outline: 2px solid var(--color-focus);
+		outline-offset: 2px;
+	}
+}

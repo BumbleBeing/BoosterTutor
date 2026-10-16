@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { ApiError, importDraft } from '$lib/api/client';
+	import Button from '$lib/ui/Button.svelte';
 	import ErrorState from './ErrorState.svelte';
 
 	let link = $state('');
@@ -37,15 +38,11 @@
 			placeholder="https://www.17lands.com/data/draft?draft_id=…"
 			autocomplete="off"
 			spellcheck="false"
-			class="min-w-0 flex-1 rounded-md border border-slate-300 px-3 py-2 text-base focus:border-slate-900 focus:outline-none"
+			class="min-w-0 flex-1 rounded-md border border-line-strong bg-surface px-3 py-2 text-base placeholder:text-muted focus:border-accent"
 		/>
-		<button
-			type="submit"
-			disabled={busy}
-			class="rounded-md bg-slate-900 px-5 py-2 font-medium text-white hover:bg-slate-700 disabled:opacity-60"
-		>
+		<Button type="submit" disabled={busy}>
 			{busy ? 'Fetching…' : 'Review my draft'}
-		</button>
+		</Button>
 	</div>
 	{#if error}
 		<ErrorState {error} homeLink={false} />
