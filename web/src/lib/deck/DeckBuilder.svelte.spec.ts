@@ -82,6 +82,15 @@ describe('DeckBuilder', () => {
 		await expect.element(count()).toHaveTextContent('26 / 40');
 	});
 
+	it('shows a basic land with its set art when the set has it', async () => {
+		const art = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
+		render(DeckBuilder, { pool, basicImages: { W: art }, onSubmit: vi.fn() });
+		const before = document.querySelectorAll('[data-key] img').length;
+		await page.getByRole('button', { name: '+ Plains' }).click();
+		await page.getByRole('button', { name: '+ Island' }).click(); // no art: drawn
+		expect(document.querySelectorAll('[data-key] img').length).toBe(before + 1);
+	});
+
 	it('enables submit only at exactly 40, asks to confirm, then sends the deck', async () => {
 		const onSubmit = vi.fn();
 		render(DeckBuilder, { pool, onSubmit });

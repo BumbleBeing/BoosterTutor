@@ -38,12 +38,15 @@
 
 	let {
 		pool,
+		basicImages = {},
 		onSubmit,
 		submitting = false,
 		submitLabel = 'Submit deck',
 		confirmMessage = 'Only your first deck gets a written review. Later decks get ratings only.'
 	}: {
 		pool: PoolCard[];
+		// Card art for each basic land by colour letter; a colour without one is drawn.
+		basicImages?: Record<string, string | null>;
 		onSubmit: (deck: ReturnType<typeof toSubmission>) => void | Promise<void>;
 		submitting?: boolean;
 		submitLabel?: string;
@@ -86,12 +89,15 @@
 			]),
 			...basics.map((b): [string, Face] => {
 				const land = BASIC_LANDS.find((l) => l.colour === b.colour)!;
-				return [b.key, { name: land.name, cmc: 0, image: null, basic: b.colour }];
+				return [
+					b.key,
+					{ name: land.name, cmc: 0, image: basicImages[b.colour] ?? null, basic: b.colour }
+				];
 			})
 		])
 	);
 
-	// A drawn face for a basic land, which has no image of its own.
+	// A drawn face for a basic land whose set has no art for it.
 	const BASIC_FACE: Record<string, string> = {
 		W: 'bg-amber-100 text-amber-900 ring-amber-300',
 		U: 'bg-sky-100 text-sky-900 ring-sky-300',

@@ -52,6 +52,9 @@ class DraftServices:
     # (set code, event type) -> the statistics a verdict is computed from.
     inputs_for: Callable[[str, str], FormatInputs]
     card_infos_for: Callable[[str, Iterable[uuid.UUID]], dict[uuid.UUID, CardInfo]]
+    # set code -> the set's own basic lands by colour letter, for the deck
+    # builder's tiles. A colour with no printing is simply absent.
+    basic_lands_for: Callable[[str], dict[str, CardInfo]]
     # draft id -> (draft payload, event metadata): the one 17lands.com request.
     fetch: Callable[[str], tuple[dict[str, Any], dict[str, Any]]]
     supported_sets: frozenset[str]
@@ -115,6 +118,47 @@ def load_card_infos(
     }
 
 
+# The five basic lands by name, and the colour each one is added as.
+BASIC_COLOURS = {
+    "Plains": "W",
+    "Island": "U",
+    "Swamp": "B",
+    "Mountain": "R",
+    "Forest": "G",
+}
+
+
+def load_basic_lands(session: Session, set_code: str) -> dict[str, CardInfo]:
+    """The set's own printing of each basic land, keyed by colour letter.
+
+    The Scryfall ingest keeps every printing a set has, basics included. A set
+    may print several art variants of each; the lowest collector number (as
+    text, like `load_card_infos`) is the plain one.
+    """
+    rows = session.execute(
+        select(Card, CardPrint)
+        .join(CardPrint, CardPrint.oracle_id == Card.oracle_id)
+        .where(CardPrint.set_code == set_code, Card.name.in_(BASIC_COLOURS))
+        .order_by(CardPrint.collector_number)
+    )
+    out: dict[str, CardInfo] = {}
+    for card, printing in rows:
+        out.setdefault(
+            BASIC_COLOURS[card.name],
+            CardInfo(
+                name=card.name,
+                mana_cost=card.mana_cost,
+                type_line=card.type_line,
+                cmc=card.cmc,
+                colors=card.colors,
+                rarity=printing.rarity,
+                image_normal=printing.image_normal,
+                image_art_crop=printing.image_art_crop,
+            ),
+        )
+    return out
+
+
 def get_session() -> Iterator[Session]:
     with SessionLocal() as session:
         yield session
@@ -145,6 +189,7 @@ def get_services(session: Annotated[Session, Depends(get_session)]) -> DraftServ
             session, set_code, event_type
         ),
         card_infos_for=lambda set_code, ids: load_card_infos(session, set_code, ids),
+        basic_lands_for=lambda set_code: load_basic_lands(session, set_code),
         fetch=fetch_seventeen_lands_draft,
         supported_sets=settings.supported_set_codes,
     )

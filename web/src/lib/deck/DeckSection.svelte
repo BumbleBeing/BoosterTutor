@@ -10,6 +10,11 @@
 	let { review }: { review: DraftReview } = $props();
 
 	const pool = $derived(poolFromReview(review));
+	const basicImages = $derived(
+		Object.fromEntries(
+			Object.entries(review.basic_lands).map(([c, info]) => [c, info.image_normal])
+		)
+	);
 
 	let ratings = $state<DeckReview | null>(null);
 	let error = $state<string | null>(null);
@@ -36,6 +41,7 @@
 	<div class="mt-4">
 		<DeckBuilder
 			{pool}
+			{basicImages}
 			{onSubmit}
 			{submitting}
 			confirmMessage="Submit this deck for ratings? Nothing is saved, and you can submit another build any time: each new one replaces the ratings below."

@@ -85,6 +85,24 @@ class World:
         # Deck submissions share the ledger under their own key prefix.
         self.deck_limiter = FetchLimiter(self.ledger, FetchLimits(5, 50))
         self.deck_model: DeckRatingModel | None = None
+        # The set's basic lands, as the Scryfall ingest stores them.
+        self.basic_lands: dict[str, CardInfo] = {
+            colour: CardInfo(
+                name=name,
+                mana_cost=None,
+                type_line=f"Basic Land — {name}",
+                cmc=0.0,
+                colors="",
+                rarity="common",
+                image_normal=f"https://example.test/{name}.jpg",
+                image_art_crop=None,
+            )
+            for colour, name in zip(
+                "WUBRG",
+                ["Plains", "Island", "Swamp", "Mountain", "Forest"],
+                strict=True,
+            )
+        }
 
     def fetch(self, draft_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
         self.fetches += 1
@@ -135,6 +153,7 @@ class World:
             names_for=lambda set_code: self.names,
             inputs_for=self.inputs_for,
             card_infos_for=self.card_infos_for,
+            basic_lands_for=lambda set_code: self.basic_lands,
             fetch=self.fetch,
             supported_sets=self.supported,
         )
@@ -322,6 +341,16 @@ def test_the_review_names_every_card_it_mentions(client: TestClient) -> None:
         "image_normal",
         "image_art_crop",
     }
+
+
+def test_the_review_carries_the_sets_basic_lands_for_the_deck_builder(
+    client: TestClient,
+) -> None:
+    submit(client)
+    basics = client.get(f"/api/drafts/{DRAFT_ID}").json()["basic_lands"]
+    assert set(basics) == set("WUBRG")
+    assert basics["R"]["name"] == "Mountain"
+    assert basics["R"]["image_normal"].endswith("Mountain.jpg")
 
 
 def test_the_review_carries_no_prose_and_no_claude_fields(

@@ -82,5 +82,6 @@ export const fixtureReview: DraftReview = {
 		[1, 2],
 		[1, 3]
 	],
+	basic_lands: {},
 	cards: { [A]: card('Alpha Knight'), [B]: card('Beta Bear'), [C]: card('Gamma Imp') }
 };

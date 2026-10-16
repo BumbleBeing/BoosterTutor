@@ -54,6 +54,8 @@ export interface DraftReview {
 	verdict_counts: Record<string, number>;
 	noted_picks: [number, number][];
 	cards: Record<string, CardInfo>;
+	// The set's own basic lands by colour letter (art for the deck builder).
+	basic_lands: Record<string, CardInfo>;
 }
 
 export interface ImportResponse {

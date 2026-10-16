@@ -42,3 +42,6 @@ class DraftReview(BaseModel):
     noted_picks: list[tuple[int, int]]
     # Every card the analysis mentions, by oracle id.
     cards: dict[uuid.UUID, CardInfo]
+    # The set's own basic lands by colour letter, so the deck builder can show
+    # real card art. A colour the set has no printing of is absent.
+    basic_lands: dict[str, CardInfo]

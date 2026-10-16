@@ -124,7 +124,10 @@ def get_draft(draft_id: str, services: Services) -> DraftReview:
     # is analysed as one; the review still reports the event it really was.
     analysed = log.model_copy(update={"event_type": inputs.event_type})
     review = build_review(
-        analysed, inputs, lambda ids: services.card_infos_for(log.set_code, ids)
+        analysed,
+        inputs,
+        lambda ids: services.card_infos_for(log.set_code, ids),
+        services.basic_lands_for(log.set_code),
     )
     review.event_type = log.event_type
     return review
