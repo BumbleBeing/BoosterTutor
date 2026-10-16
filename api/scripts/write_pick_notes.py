@@ -25,8 +25,7 @@ from boostertutor.briefing import noted_pick_briefs
 from boostertutor.card_facts import analysis_cards, load_card_facts
 from boostertutor.config import settings
 from boostertutor.db import SessionLocal
-from boostertutor.drafts import name_index
-from boostertutor.format_inputs import load_format_inputs
+from boostertutor.format_inputs import load_format_inputs, name_index
 from boostertutor.llm.client import anthropic_client
 from boostertutor.llm.pick_note import (
     PROMPT_VERSION,

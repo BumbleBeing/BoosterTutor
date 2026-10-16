@@ -33,8 +33,11 @@ from boostertutor.briefing.summary import summary_brief
 from boostertutor.card_facts import analysis_cards, load_card_facts
 from boostertutor.config import settings
 from boostertutor.db import SessionLocal
-from boostertutor.drafts import name_index
-from boostertutor.format_inputs import load_deck_rating_model, load_format_inputs
+from boostertutor.format_inputs import (
+    load_deck_rating_model,
+    load_format_inputs,
+    name_index,
+)
 from boostertutor.format_primer import load_primer_facts
 from boostertutor.llm.client import anthropic_client
 from boostertutor.llm.draft_summary import (
