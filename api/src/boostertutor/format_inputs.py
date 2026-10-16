@@ -21,10 +21,12 @@ from sqlalchemy.orm import Session
 
 from .analysis import fitness as fx
 from .analysis.draft import FormatInputs, fitness_card, synergy_expectations
+from .analysis.mana import ManaSource
 from .models import (
     BoosterCard,
     Card,
     CardDraftStats,
+    CardManaSource,
     CardTag,
     FormatConstants,
     SynergyBaseline,
@@ -78,6 +80,22 @@ def load_edges(session: Session, set_code: str) -> list[dict[str, Any]]:
             select(TagPair).where(TagPair.set_code == set_code)
         ).scalars()
     ]
+
+
+def load_mana_sources(session: Session, set_code: str) -> dict[uuid.UUID, ManaSource]:
+    """The set's Fixers (ADR 0028), as the deck metrics read them."""
+    return {
+        row.oracle_id: ManaSource(
+            kind=row.kind,
+            colors=row.colors,
+            color_weight=row.color_weight,
+            land_weight=row.land_weight,
+            min_mana_value=row.min_mana_value,
+        )
+        for row in session.execute(
+            select(CardManaSource).where(CardManaSource.set_code == set_code)
+        ).scalars()
+    }
 
 
 def fitness_config(row: FormatConstants) -> fx.FitnessConfig:
@@ -164,4 +182,5 @@ def load_format_inputs(
         baseline=synergy_expectations(histogram, edges),
         alsa=alsa,
         cfg=fitness_config(constants),
+        mana_sources=load_mana_sources(session, set_code),
     )

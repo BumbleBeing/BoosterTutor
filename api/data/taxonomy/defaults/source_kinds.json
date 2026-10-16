@@ -1,0 +1,59 @@
+{
+  "fetch_basic": {
+    "color_weight": 1,
+    "land_weight": 1,
+    "min_mana_value": 0,
+    "basis": "Karsten (fetch lands)",
+    "notes": "A land that fetches a basic, such as Hobbit Hole."
+  },
+  "mana_rock": {
+    "color_weight": 0.75,
+    "land_weight": 0.5,
+    "min_mana_value": 0,
+    "basis": "Karsten",
+    "notes": "An artifact that taps for coloured mana."
+  },
+  "ramp_creature": {
+    "color_weight": 0.5,
+    "land_weight": 0.5,
+    "min_mana_value": 2,
+    "basis": "Karsten (mana creatures)",
+    "notes": "A creature that taps for mana or puts a land onto the battlefield."
+  },
+  "ramp_spell_2": {
+    "color_weight": 0.75,
+    "land_weight": 0.5,
+    "min_mana_value": 3,
+    "basis": "Karsten (two-mana ramp)",
+    "notes": "Two-mana ramp that puts a land onto the battlefield."
+  },
+  "ramp_spell_3": {
+    "color_weight": 0.5,
+    "land_weight": 0.5,
+    "min_mana_value": 5,
+    "basis": "Karsten (three-mana ramp)",
+    "notes": "Three-mana ramp that puts a land onto the battlefield."
+  },
+  "treasure": {
+    "color_weight": 0.25,
+    "per_expected": true,
+    "land_weight": 0,
+    "min_mana_value": 3,
+    "basis": "Karsten (a quarter per Treasure)",
+    "notes": "The colour weight is a quarter per expected Treasure, capped at 1."
+  },
+  "land_tutor": {
+    "color_weight": 0.5,
+    "land_weight": 0.5,
+    "min_mana_value": 3,
+    "basis": "By analogy, and Jackson. Both figures are placeholders.",
+    "notes": "Puts a basic land into hand, such as Thrór's Map."
+  },
+  "landcycler": {
+    "color_weight": 0.5,
+    "land_weight": 0.5,
+    "min_mana_value": 3,
+    "basis": "Jackson",
+    "notes": "A card with basic landcycling."
+  }
+}

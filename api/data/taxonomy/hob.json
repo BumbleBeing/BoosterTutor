@@ -1,5 +1,5 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "set_code": "hob",
   "tags": [
     {
@@ -945,5 +945,6 @@
       "historic",
       "storied"
     ]
-  }
+  },
+  "mana_sources": {}
 }
