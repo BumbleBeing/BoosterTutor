@@ -14,13 +14,11 @@ export function poolFromReview(review: DraftReview): PoolCard[] {
 		const info = review.cards[pick.picked];
 		if (!info || info.type_line.startsWith('Basic Land')) return;
 		pool.push({
-			key: `${i}`, // the pick's position: unique even for a second copy of a card
+			key: `p${i}`, // the pick's position: unique even for a second copy of a card
 			id: pick.picked,
 			name: info.name,
-			manaCost: info.mana_cost,
-			typeLine: info.type_line,
 			cmc: info.cmc,
-			colors: info.colors
+			image: info.image_normal
 		});
 	});
 	return pool;

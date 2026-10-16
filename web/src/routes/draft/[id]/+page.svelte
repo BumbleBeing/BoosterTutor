@@ -30,14 +30,17 @@
 
 <svelte:head><title>Draft review — BoosterTutor</title></svelte:head>
 
-<main class="mx-auto max-w-3xl px-4 py-6 sm:py-10">
+<!-- Wide enough for the deck builder's nine columns; the review itself stays narrow. -->
+<main class="mx-auto max-w-6xl px-4 py-6 sm:py-10">
 	<a href={resolve('/')} class="text-sm text-slate-600 underline">← Review another draft</a>
 	<div class="mt-4">
 		{#if error}
 			<ErrorState {error} onretry={load} />
 		{:else if review}
-			<ReviewSummary {review} />
-			<div class="mt-8"><ReviewTimeline {review} /></div>
+			<div class="mx-auto max-w-3xl">
+				<ReviewSummary {review} />
+				<div class="mt-8"><ReviewTimeline {review} /></div>
+			</div>
 			<div class="mt-12"><DeckSection {review} /></div>
 		{:else}
 			<ReviewSkeleton />
