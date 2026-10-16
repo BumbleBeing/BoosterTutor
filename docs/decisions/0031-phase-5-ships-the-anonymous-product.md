@@ -120,6 +120,38 @@ Each migration is confirmed with Jackson before it is written.
 - A stored note can briefly disagree with a recomputed verdict. The
   "older stats" tag is the mitigation.
 
-**Revisit when:** Phase 6 lands, or the Draft Summary's latency is measured.
+## Amendment, 2026-10-16: how 5d built it
+
+Approved by Jackson before the migration was written.
+
+- **Storage (s5).** Pick Notes live in their own table, `pick_notes`,
+  keyed by (review, pack, pick), not as a JSON map on `draft_reviews`, so
+  two notes written at once can't overwrite each other. `draft_reviews` is
+  unique on (draft, user) with NULLS NOT DISTINCT, so the null admin owner
+  has one review per draft. The "stats snapshot id" is the Stats Snapshot's
+  date (`FormatInputs.stats_snapshot`), stored on each note and on the
+  summary.
+- **A failed summary.** If the first coached deck's Draft Summary fails
+  (spending cap, or a summary that fails its checks twice), the deck is
+  still rated and is stored as `current_deck` only. `reviewed_deck` stays
+  null, so the next deck tries the summary again.
+- **Endpoints.** `POST /api/drafts/{id}/picks/{n}/note` (n = 1 is P1p1)
+  returns a stored note as it is, tagged `stale` if the statistics have
+  moved on, and writes one only if none is stored. `GET
+  /api/drafts/{id}/coach` returns the stored prose for the admin page. A
+  deck sent with the key gets `summary` or `summary_unavailable` beside
+  its ratings. New error kinds: `not_authorised` (401), `not_noted` (422),
+  `coach_retired` (503) and `prose_failed` (502).
+- **The Admin Key.** `ADMIN_KEY` must be long and random
+  (`python -c "import secrets; print(secrets.token_urlsafe(32))"`): a wrong
+  key is a plain 401 with no rate limit. A wrong key is refused rather than
+  treated as anonymous, so a mistyped key is noticed.
+- **No streaming (s4).** `llm_calls` holds one Draft Summary so far: 6.1 s
+  (and one Pick Note, 2.4 s). That is far under 30 s, so the summary is a
+  plain request. Two timed calls are a thin sample: recheck once
+  `llm_calls` holds more Draft Summaries.
+
+**Revisit when:** Phase 6 lands, or `llm_calls` holds enough Draft
+Summaries to recheck the no-streaming decision.
 
 **Glossary:** Admin Key and Replay Cache are added to `CONTEXT.md`.

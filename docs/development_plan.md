@@ -608,7 +608,7 @@ Built on 2026-10-15 (ADR 0030): `briefing/summary.py`, `briefing/primer.py`, `ll
 
 ### Cost
 
-A Pick Note is about 1k tokens of brief after the cached block, around $0.0003 on Claude Haiku 5.5. A Draft Summary is about 3–5k tokens on Claude Sonnet 5.5, a few cents. Cached reads cost about a tenth of the normal input price. Reviews of the same draft are never paid for twice: notes and summaries are stored (ADR 0024 §8), and only the first Submitted Deck gets a summary. Use the Batch API (50% off) for anything not user-facing, such as regenerating stored prose after a prompt change.
+Re-derived from `llm_calls` on 2026-10-16, from only two logged calls. A Pick Note is about 750 tokens of uncached brief and 3.7k cache-read tokens, 184 tokens out, $0.0002 in 2.4 s on Claude Haiku 5.5. A Draft Summary is about 4.6k tokens of uncached brief and a 5k-token cached prefix, 490 tokens out, $0.034 in 6.1 s on Claude Sonnet 5.5 when it writes the cache. Reading the cache instead, the same tokens cost $0.015. Recheck these numbers as `llm_calls` grows. Cached reads cost about a tenth of the normal input price. Reviews of the same draft are never paid for twice: notes and summaries are stored (ADR 0024 §8), and only the first Submitted Deck gets a summary. Use the Batch API (50% off) for anything not user-facing, such as regenerating stored prose after a prompt change.
 
 ### Done when
 
@@ -650,6 +650,8 @@ Restructured on 2026-10-16 (R1): the three endpoints' rules live in one `ReviewS
 - The lazy Pick Note endpoint, `POST /api/drafts/{id}/picks/{n}/note`, and the Draft Summary on first deck submission, each a plain waiting request. Notes record their stats snapshot id and show "written against older stats" when it differs. If Draft Summary latency measures 30 s or more, stream it.
 - Latency and uncached input and output tokens added to eval reports; re-derive the cost and timing figures from `llm_calls`.
 - Everyone else sees "Sign in for a coach's note / Draft Summary".
+
+Built on 2026-10-16 (ADR 0031 amendment): `review/access.py` (the `X-Admin-Key` dependency), the `draft_reviews` and `pick_notes` tables, `llm/coach.py`, and the note, coach and deck endpoints in `routes/drafts.py`. Eval reports now carry uncached input and output tokens and each attempt's latency (`tests/eval_report.py`). The Draft Summary measured 6.1 s, so it does not stream; recheck once `llm_calls` holds more summaries. The admin page, `/admin/draft/<id>` with the key kept in `sessionStorage`, comes in its own PR.
 
 ### 5e Verification
 
