@@ -38,6 +38,9 @@ PRICES: dict[str, Pricing] = {
         long=RateCard(Decimal("0.50"), Decimal("2.50")),
     ),
     "claude-sonnet-5-5": Pricing(standard=RateCard(Decimal("2.00"), Decimal("10.00"))),
+    # The model the server-side fallback serves some refused Sonnet 5.5
+    # calls from (ADR 0030 s4).
+    "claude-sonnet-5": Pricing(standard=RateCard(Decimal("2.00"), Decimal("10.00"))),
 }
 
 
