@@ -39,16 +39,16 @@
 				<span aria-hidden="true">p{pick.pick_number}</span>
 			</span>
 			<span class="min-w-0 flex-1">
-				<span class="block truncate font-medium">{takenName}</span>
+				<span class="block font-medium sm:truncate">{takenName}</span>
 				{#if bestAlt && pick.verdict !== 'solid'}
-					<span class="block truncate text-xs text-slate-500">
+					<span class="block text-xs text-slate-500 sm:truncate">
 						Better: {bestAlt.info?.name ?? 'another card'}
 						({formatWinRate(bestAlt.score.gih_wr)} GIH WR)
 						{#if pick.gap != null}· {formatGap(pick.gap)} short{/if}
 					</span>
 				{/if}
 			</span>
-			<VerdictChip verdict={pick.verdict} />
+			<span class="shrink-0"><VerdictChip verdict={pick.verdict} /></span>
 		</button>
 		{#if pick.noted}
 			<button
@@ -123,7 +123,8 @@
 								{info?.name ?? 'Unknown card'}
 							</div>
 						{/if}
-						<p class="mt-1 flex items-center justify-between gap-1">
+						<p class="mt-1 truncate font-medium">{info?.name ?? 'Unknown card'}</p>
+						<p class="flex items-center justify-between gap-1">
 							<span class="tabular-nums">{formatWinRate(card.gih_wr)}</span>
 							{#if card.fitness_class}
 								<span class="rounded px-1 text-[11px] {VERDICT_STYLE[card.fitness_class].chip}"
