@@ -8,10 +8,13 @@ import pytest
 from boostertutor.analysis import fitness as fx
 from boostertutor.analysis.deck import deck_metrics
 from boostertutor.analysis.draft import FormatInputs, fitness_card
-from boostertutor.analysis.mana import ManaSource
+from boostertutor.analysis.mana import LandTarget, ManaSource
 from boostertutor.schemas.deck import Deck
 
 FORMAT_AVG = 55.0
+
+# A format with a 17 band: 16 lands below 2.2 average mana value, 18 from 3.2.
+THREE_BANDS = LandTarget(low=16, middle=17, high=18, low_below_mv=2.2, high_from_mv=3.2)
 
 
 class Set:
@@ -50,7 +53,11 @@ class Set:
         self.overall[oid] = (gih_wr, 5000)
         return oid
 
-    def inputs(self, edges: list[dict[str, Any]] | None = None) -> FormatInputs:
+    def inputs(
+        self,
+        edges: list[dict[str, Any]] | None = None,
+        land_target: LandTarget = THREE_BANDS,
+    ) -> FormatInputs:
         return FormatInputs(
             set_code="tst",
             event_type="PremierDraft",
@@ -59,6 +66,7 @@ class Set:
             stats=fx.Stats(format_avg_wr=FORMAT_AVG, overall=self.overall),
             edges=edges or [],
             mana_sources=self.mana_sources,
+            land_target=land_target,
             cfg=fx.FitnessConfig(target_curve={1: 2, 2: 8, 3: 7, 4: 4, 5: 2, 6: 1}),
         )
 
@@ -243,6 +251,23 @@ def test_a_high_curve_wants_18_lands() -> None:
     metrics = deck_metrics(white_deck(s, spells), s.inputs())
 
     assert (metrics.land_target, metrics.land_distance) == (18, 1.0)
+
+
+def test_a_format_may_have_no_17_band() -> None:
+    """HOB's measured rule: 16 lands below an average of 3.0, 18 from 3.0."""
+    hob = LandTarget(low=16, middle=17, high=18, low_below_mv=3.0, high_from_mv=3.0)
+    s = Set()
+    low = [s.card(f"Three {i}", "{2}{W}") for i in range(10)]  # averages 2.43
+    high = [s.card(f"Four {i}", "{3}{W}") for i in range(23)]  # averages exactly 4.0
+    even = [s.card(f"Four {i}", "{3}{W}") for i in range(8)] + low[:7]  # exactly 3.0
+
+    assert deck_metrics(white_deck(s, low), s.inputs(land_target=hob)).land_target == 16
+    assert (
+        deck_metrics(white_deck(s, high), s.inputs(land_target=hob)).land_target == 18
+    )
+    assert (
+        deck_metrics(white_deck(s, even), s.inputs(land_target=hob)).land_target == 18
+    )
 
 
 def test_the_notable_omission_is_the_best_playable_sideboard_card_well_above_the_weakest() -> (

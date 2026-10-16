@@ -22,7 +22,7 @@ from sqlalchemy.orm import Session
 from .analysis import fitness as fx
 from .analysis.deck_rating import DeckRatingModel
 from .analysis.draft import FormatInputs, fitness_card, synergy_expectations
-from .analysis.mana import ManaSource
+from .analysis.mana import LandTarget, ManaSource
 from .models import (
     BoosterCard,
     Card,
@@ -120,6 +120,17 @@ def fitness_config(row: FormatConstants) -> fx.FitnessConfig:
     )
 
 
+def land_target(row: FormatConstants) -> LandTarget:
+    """The format's land targets (ADR 0028 s4), as floats at the boundary."""
+    return LandTarget(
+        low=row.land_target_low,
+        middle=row.land_target_mid,
+        high=row.land_target_high,
+        low_below_mv=float(row.land_low_below_mv),
+        high_from_mv=float(row.land_high_from_mv),
+    )
+
+
 def load_format_inputs(
     session: Session, set_code: str, event_type: str
 ) -> FormatInputs:
@@ -185,6 +196,7 @@ def load_format_inputs(
         alsa=alsa,
         cfg=fitness_config(constants),
         mana_sources=load_mana_sources(session, set_code),
+        land_target=land_target(constants),
     )
 
 

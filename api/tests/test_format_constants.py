@@ -27,6 +27,12 @@ def test_it_carries_every_format_level_constant() -> None:
         "target_creatures",
         "target_removal",
         *(f"target_curve_{mv}" for mv in range(1, 7)),
+        # ADR 0028 s4's land targets.
+        "land_target_low",
+        "land_target_mid",
+        "land_target_high",
+        "land_low_below_mv",
+        "land_high_from_mv",
         "source",
         "updated_at",
     }

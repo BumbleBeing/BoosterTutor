@@ -26,7 +26,7 @@ from ..schemas.draft_analysis import (
     SynergyFiring,
 )
 from . import fitness as fx
-from .mana import ManaSource
+from .mana import LandTarget, ManaSource
 from .wheel import wheel_analysis
 
 # (oracle_id, pack_number, enabler, payoff, tag_on_card) -> E[n_eff], ADR 0017.
@@ -107,6 +107,8 @@ class FormatInputs:
     # The set's Fixers (ADR 0028), read only by the deck metrics. Empty for a
     # set whose `mana_sources` are not authored yet.
     mana_sources: dict[uuid.UUID, ManaSource] = field(default_factory=dict)
+    # The format's land targets (ADR 0028 s4), from `format_constants`.
+    land_target: LandTarget = field(default_factory=LandTarget)
 
 
 def synergy_expectations(

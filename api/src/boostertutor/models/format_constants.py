@@ -80,6 +80,17 @@ class FormatConstants(Base):
     target_curve_5: Mapped[int] = mapped_column(Integer())
     target_curve_6: Mapped[int] = mapped_column(Integer())
 
+    # The land targets of ADR 0028 s4: `land_target_low` lands for a deck whose
+    # nonland cards average under `land_low_below_mv`, `land_target_high`
+    # from `land_high_from_mv` up, `land_target_mid` between. Equal cuts
+    # leave no middle band. Measured from the game dump by
+    # scripts/derive_land_targets.py, which prints; a person transcribes.
+    land_target_low: Mapped[int] = mapped_column(Integer())
+    land_target_mid: Mapped[int] = mapped_column(Integer())
+    land_target_high: Mapped[int] = mapped_column(Integer())
+    land_low_below_mv: Mapped[Decimal] = mapped_column(Numeric(4, 2))
+    land_high_from_mv: Mapped[Decimal] = mapped_column(Numeric(4, 2))
+
     # Free text, because one row's values have mixed provenance: the curve
     # targets are script-derived, `format_avg_wr` measured, `picks_per_pack`
     # structural and `tax_value` hand-picked. A known compromise; per-column

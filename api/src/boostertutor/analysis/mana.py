@@ -187,22 +187,28 @@ def shortfalls(
 class LandTarget:
     """How many lands a deck wants, by the average mana value of its spells.
 
-    Every figure is a PLACEHOLDER tunable (ADR 0028 s4): 16 lands below
-    `low_curve_mv`, 18 above `high_curve_mv`, 17 otherwise, and being over
-    weighs `over_weight` of being short.
+    Per format, from `format_constants` (ADR 0028 s4, as amended): `low`
+    lands below `low_below_mv`, `high` from `high_from_mv` up, `middle`
+    between. The two cuts may be equal, leaving no middle band: HOB's
+    measured rule is 16 lands below 3.0 and 18 from 3.0, because 17 was
+    never the best count once card quality is accounted for.
+
+    The defaults are ADR 0028's original placeholders, for tests and for a
+    format whose row predates the land columns. `over_weight` stays a
+    placeholder: being over weighs half of being short.
     """
 
-    low_curve_mv: float = 2.2
-    high_curve_mv: float = 3.2
     low: int = 16
     middle: int = 17
     high: int = 18
+    low_below_mv: float = 2.2
+    high_from_mv: float = 3.2
     over_weight: float = 0.5
 
     def lands_for(self, average_mana_value: float) -> int:
-        if average_mana_value < self.low_curve_mv:
+        if average_mana_value < self.low_below_mv:
             return self.low
-        if average_mana_value > self.high_curve_mv:
+        if average_mana_value >= self.high_from_mv:
             return self.high
         return self.middle
 
