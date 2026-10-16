@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
 	import type { DraftReview } from '$lib/api/types';
+	import PickNotePanel from '$lib/coach/PickNotePanel.svelte';
 	import Chip from '$lib/ui/Chip.svelte';
 	import Panel from '$lib/ui/Panel.svelte';
 	import {
@@ -89,13 +90,8 @@
 	</div>
 
 	{#if noteOpen}
-		<!-- In 5b nobody sees prose: no Claude call is made from this page. -->
-		<p
-			id="pick-note-{entry.index}"
-			class="mx-3 mb-3 rounded-md border border-periwinkle-line bg-periwinkle p-3 text-sm text-periwinkle-ink"
-		>
-			Sign in for a coach's note on this pick.
-		</p>
+		<!-- The sign-in prompt, or on the admin page Claude's note (lib/coach). -->
+		<PickNotePanel {pick} id="pick-note-{entry.index}" />
 	{/if}
 
 	{#if open}
