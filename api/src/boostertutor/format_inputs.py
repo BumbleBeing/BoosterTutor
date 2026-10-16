@@ -20,12 +20,16 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from .analysis import fitness as fx
+from .analysis.deck_rating import DeckRatingModel
 from .analysis.draft import FormatInputs, fitness_card, synergy_expectations
+from .analysis.mana import LandTarget, ManaSource
 from .models import (
     BoosterCard,
     Card,
     CardDraftStats,
+    CardManaSource,
     CardTag,
+    DeckRatingModelRow,
     FormatConstants,
     SynergyBaseline,
     TagPair,
@@ -80,6 +84,22 @@ def load_edges(session: Session, set_code: str) -> list[dict[str, Any]]:
     ]
 
 
+def load_mana_sources(session: Session, set_code: str) -> dict[uuid.UUID, ManaSource]:
+    """The set's Fixers (ADR 0028), as the deck metrics read them."""
+    return {
+        row.oracle_id: ManaSource(
+            kind=row.kind,
+            colors=row.colors,
+            color_weight=row.color_weight,
+            land_weight=row.land_weight,
+            min_mana_value=row.min_mana_value,
+        )
+        for row in session.execute(
+            select(CardManaSource).where(CardManaSource.set_code == set_code)
+        ).scalars()
+    }
+
+
 def fitness_config(row: FormatConstants) -> fx.FitnessConfig:
     """The global settings, with this format's values swapped in (ADR 0013).
 
@@ -97,6 +117,17 @@ def fitness_config(row: FormatConstants) -> fx.FitnessConfig:
             5: row.target_curve_5,
             6: row.target_curve_6,
         },
+    )
+
+
+def land_target(row: FormatConstants) -> LandTarget:
+    """The format's land targets (ADR 0028 s4), as floats at the boundary."""
+    return LandTarget(
+        low=row.land_target_low,
+        middle=row.land_target_mid,
+        high=row.land_target_high,
+        low_below_mv=float(row.land_low_below_mv),
+        high_from_mv=float(row.land_high_from_mv),
     )
 
 
@@ -164,4 +195,38 @@ def load_format_inputs(
         baseline=synergy_expectations(histogram, edges),
         alsa=alsa,
         cfg=fitness_config(constants),
+        mana_sources=load_mana_sources(session, set_code),
+        land_target=land_target(constants),
+    )
+
+
+def load_deck_rating_model(
+    session: Session,
+    set_code: str,
+    event_type: str,
+    snapshot_date: dt.date | None = None,
+) -> DeckRatingModel | None:
+    """The format's fitted Deck Ratings, or None: "not enough data to rate".
+
+    At `snapshot_date` when given, so a practice draft is rated against its
+    own Stats Snapshot (ADR 0020); otherwise the newest fit.
+    """
+    query = select(DeckRatingModelRow).where(
+        DeckRatingModelRow.set_code == set_code,
+        DeckRatingModelRow.event_type == event_type,
+    )
+    if snapshot_date is not None:
+        query = query.where(DeckRatingModelRow.snapshot_date == snapshot_date)
+    row = session.scalars(
+        query.order_by(DeckRatingModelRow.snapshot_date.desc()).limit(1)
+    ).first()
+    if row is None:
+        return None
+    return DeckRatingModel(
+        intercept=row.intercept,
+        coefficients=row.coefficients,
+        standard_errors=row.standard_errors,
+        quantiles=row.quantiles,
+        decks=row.decks,
+        games=row.games,
     )

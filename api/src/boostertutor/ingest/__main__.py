@@ -4,11 +4,14 @@
     uv run python -m boostertutor.ingest 17lands  [--sets hob,abc] [--event-type PremierDraft] [--force]
     uv run python -m boostertutor.ingest taxonomy [--sets hob]
     uv run python -m boostertutor.ingest synergy-baseline [--sets hob] [--max-drafts N]
+    uv run python -m boostertutor.ingest deck-ratings [--sets hob]
 
 `taxonomy` loads the hand-authored tags from `data/taxonomy/`, not from
 upstream, so it also runs after Scryfall and replaces what was there.
 `synergy-baseline` measures ADR 0017's baseline from the cached draft dump;
 run it after `taxonomy` whenever which cards carry which tags changes.
+`deck-ratings` fits ADR 0026's Deck Ratings from the cached game dump; run
+it after `synergy-baseline`, and again whenever tags or Fixers change.
 
 Downloads are cached under `data/raw/`, so re-running is cheap. Each source
 records its run in `ingest_runs`, and skips itself when nothing upstream has
@@ -19,7 +22,7 @@ import argparse
 import sys
 
 from ..db import SessionLocal
-from . import scryfall, seventeen_lands, synergy_baseline, taxonomy
+from . import deck_ratings, scryfall, seventeen_lands, synergy_baseline, taxonomy
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -76,6 +79,16 @@ def main(argv: list[str] | None = None) -> int:
         "--max-drafts", type=int, help="measure only the first N drafts (a sample)"
     )
 
+    ratings = sources.add_parser(
+        "deck-ratings",
+        help="ADR 0026's Deck Ratings, fitted from the cached game dump (slow)",
+    )
+    ratings.add_argument(
+        "--sets",
+        help="comma-separated set codes (default: every ingested draftable set)",
+    )
+    ratings.add_argument("--event-type", default=seventeen_lands.DEFAULT_EVENT_TYPE)
+
     args = parser.parse_args(argv)
     codes = (
         [c.strip() for c in args.sets.split(",") if c.strip()] if args.sets else None
@@ -92,6 +105,10 @@ def main(argv: list[str] | None = None) -> int:
                 codes or taxonomy.available_sets(),
                 args.event_type,
                 max_drafts=args.max_drafts,
+            )
+        elif args.source == "deck-ratings":
+            deck_ratings.load(
+                session, codes or seventeen_lands.default_sets(session), args.event_type
             )
         elif args.source == "taxonomy":
             taxonomy.load(session, codes or taxonomy.available_sets())

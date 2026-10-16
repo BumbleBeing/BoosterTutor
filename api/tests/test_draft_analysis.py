@@ -11,6 +11,7 @@ purpose, regenerate it and read the diff:
 import json
 import os
 import uuid
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -23,7 +24,7 @@ from boostertutor.analysis.draft import (
     fitness_card,
     is_basic_land,
 )
-from boostertutor.format_inputs import fitness_config
+from boostertutor.format_inputs import fitness_config, land_target
 from boostertutor.models import FormatConstants
 from boostertutor.parsing.names import name_key
 from boostertutor.schemas import DraftLog
@@ -226,3 +227,16 @@ def test_format_constants_override_the_global_settings() -> None:
     assert isinstance(cfg.tax_value, float)
     assert cfg.target_curve == {1: 1, 2: 7, 3: 6, 4: 5, 5: 3, 6: 2}
     assert cfg.synergy_weight == fx.FitnessConfig().synergy_weight  # global, untouched
+
+
+def test_a_formats_land_targets_come_from_its_row() -> None:
+    row = FormatConstants(
+        land_target_low=16,
+        land_target_mid=17,
+        land_target_high=18,
+        land_low_below_mv=Decimal("3.00"),
+        land_high_from_mv=Decimal("3.00"),
+    )
+    target = land_target(row)
+    assert (target.lands_for(2.99), target.lands_for(3.0)) == (16, 18)
+    assert isinstance(target.low_below_mv, float)

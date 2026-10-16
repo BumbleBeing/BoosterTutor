@@ -137,7 +137,12 @@ def measure(
 
 def cached_draft_dump(set_code: str, event_type: str) -> Path:
     """The newest draft dump the 17Lands ingest has downloaded for the format."""
-    base = f"draft_data_public.{set_code.upper()}.{event_type}"
+    return cached_dump("draft_data_public", set_code, event_type)
+
+
+def cached_dump(kind: str, set_code: str, event_type: str) -> Path:
+    """The newest `kind` dump ("draft_data_public", "game_data_public") cached."""
+    base = f"{kind}.{set_code.upper()}.{event_type}"
     found = sorted(
         p
         for p in (settings.raw_data_dir / "17lands").glob(f"{base}.*.csv.gz")

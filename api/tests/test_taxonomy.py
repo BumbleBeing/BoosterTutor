@@ -24,7 +24,7 @@ def _names(*cards: str) -> dict[str, uuid.UUID]:
 def payload(**changes: Any) -> dict[str, Any]:
     """A small valid taxonomy: one ordinary edge and one self-payoff."""
     base: dict[str, Any] = {
-        "format_version": 1,
+        "format_version": 2,
         "set_code": "hob",
         "tags": [
             {"name": "artifact", "kind": "enabler", "notes": None},
@@ -52,12 +52,15 @@ def payload(**changes: Any) -> dict[str, Any]:
             "Front Face // Back Face": ["artifact_payoff", "artifact"],
             "Seven Dwarves": ["seven_dwarves"],
         },
+        "mana_sources": {},
     }
     base.update(changes)
     return base
 
 
-NAMES = _names("Thrór's Map", "Front Face // Back Face", "Seven Dwarves")
+NAMES = _names(
+    "Thrór's Map", "Front Face // Back Face", "Seven Dwarves", "Dori, Bearer of Friends"
+)
 
 
 def _problems(p: dict[str, Any], names: dict[str, uuid.UUID] = NAMES) -> list[str]:
@@ -131,7 +134,7 @@ def test_a_self_payoff_tag_sits_nowhere_else() -> None:
 
 
 def test_a_file_in_another_layout_is_refused() -> None:
-    assert _problems(payload(format_version=2)) == ["format_version is 2, expected 1"]
+    assert _problems(payload(format_version=1)) == ["format_version is 1, expected 2"]
 
 
 def test_the_committed_hob_taxonomy_is_valid() -> None:
@@ -165,3 +168,123 @@ def test_tag_pairs_foreign_keys_have_distinct_names() -> None:
         "fk_tag_pairs_enabler_tags",
         "fk_tag_pairs_payoff_tags",
     ]
+
+
+# --------------------------------------------------------------------------
+# Format version 2: Fixers (ADR 0028)
+# --------------------------------------------------------------------------
+
+
+def _mana_rows(p: dict[str, Any]) -> dict[uuid.UUID, dict[str, Any]]:
+    return {r["oracle_id"]: r for r in tx.rows_for(p, NAMES)["card_mana_sources"]}
+
+
+def test_a_fixer_takes_its_kinds_weights() -> None:
+    p = payload(
+        mana_sources={
+            "Thrór's Map": {"kind": "land_tutor", "colors": "basics"},
+            "Dori, Bearer of Friends": {
+                "kind": "treasure",
+                "colors": "WUBRG",
+                "expected": 2,
+            },
+        }
+    )
+    rows = _mana_rows(p)
+
+    tutor = rows[oracle("Thrór's Map")]
+    assert (tutor["kind"], tutor["colors"]) == ("land_tutor", "basics")
+    assert (tutor["color_weight"], tutor["land_weight"]) == (0.5, 0.5)
+    assert tutor["min_mana_value"] == 3
+    # A quarter per Treasure (Karsten), for two Treasures, counting no land.
+    dori = rows[oracle("Dori, Bearer of Friends")]
+    assert (dori["color_weight"], dori["land_weight"], dori["expected"]) == (0.5, 0, 2)
+
+
+def test_treasures_count_at_most_one_source() -> None:
+    p = payload(
+        mana_sources={
+            "Dori, Bearer of Friends": {
+                "kind": "treasure",
+                "colors": "WUBRG",
+                "expected": 6,
+            }
+        }
+    )
+    assert _mana_rows(p)[oracle("Dori, Bearer of Friends")]["color_weight"] == 1.0
+
+
+def test_an_entry_may_override_its_kind_with_a_note() -> None:
+    p = payload(
+        mana_sources={
+            "Thrór's Map": {
+                "kind": "mana_rock",
+                "colors": "WUBRG",
+                "land_weight": 0,
+                "notes": "It filters mana rather than adding any",
+            }
+        }
+    )
+    row = _mana_rows(p)[oracle("Thrór's Map")]
+    assert (row["color_weight"], row["land_weight"]) == (0.75, 0)
+    assert row["notes"] == "It filters mana rather than adding any"
+
+
+def test_a_set_may_override_a_default_kind() -> None:
+    p = payload(
+        source_kinds={
+            "land_tutor": {
+                "color_weight": 0.25,
+                "land_weight": 0.25,
+                "min_mana_value": 4,
+                "basis": "a slower format",
+            }
+        },
+        mana_sources={"Thrór's Map": {"kind": "land_tutor", "colors": "basics"}},
+    )
+    row = _mana_rows(p)[oracle("Thrór's Map")]
+    assert (row["color_weight"], row["min_mana_value"]) == (0.25, 4)
+
+
+def test_every_mana_source_problem_is_reported_at_once() -> None:
+    p = payload(
+        mana_sources={
+            "Thrór's Map": {"kind": "land_tutor", "colors": "basics", "land_weight": 1},
+            "Seven Dwarves": {"kind": "rummage", "colors": "R"},
+            "Front Face": {"kind": "treasure", "colors": "RX"},
+            "Dori, Bearer of Friends": {
+                "kind": "fetch_basic",
+                "colors": "R",
+                "expected": 1,
+            },
+            "Nobody Knows Me": {"kind": "mana_rock", "colors": "R", "colour": "R"},
+        }
+    )
+    assert _problems(p) == [
+        'mana source "Thrór\'s Map": overrides land_weight without notes saying why',
+        "mana source 'Seven Dwarves': unknown kind 'rummage'",
+        "mana source 'Front Face': colors must be 'basics' or WUBRG letters, not 'RX'",
+        "mana source 'Front Face': a treasure entry needs expected",
+        "mana source 'Dori, Bearer of Friends': only a treasure entry has expected",
+        "mana source 'Nobody Knows Me': unknown field(s) colour",
+        "mana source 'Nobody Knows Me' is not in hob's card list",
+    ]
+
+
+def test_the_shared_source_kinds_are_adr_0028s_table() -> None:
+    kinds = tx.default_source_kinds()
+    table = {
+        name: (k["color_weight"], k["min_mana_value"], k["land_weight"])
+        for name, k in kinds.items()
+    }
+    assert table == {
+        "fetch_basic": (1, 0, 1),
+        "mana_rock": (0.75, 0, 0.5),
+        "ramp_creature": (0.5, 2, 0.5),
+        "ramp_spell_2": (0.75, 3, 0.5),
+        "ramp_spell_3": (0.5, 5, 0.5),
+        "treasure": (0.25, 3, 0),
+        "land_tutor": (0.5, 3, 0.5),
+        "landcycler": (0.5, 3, 0.5),
+    }
+    assert kinds["treasure"]["per_expected"] is True

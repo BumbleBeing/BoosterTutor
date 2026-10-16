@@ -21,7 +21,7 @@
 - Record real decisions as short files in `docs/decisions/`. Prompts are versioned files in `docs/prompts/` and are never edited in place.
 - Be a good citizen with 17Lands: statistics come only from the public datasets, as cached snapshots, at most one request per set/format/day, with an identifying User-Agent, never called from a user request path. The one exception is a single draft's replay, fetched once when its owner submits the link, cached and rate-limited (ADR 0023).
 
-**Current phase:** Phase 4 — the LLM layer and deck analysis (designed in ADRs 0024–0027). 4a Pick Notes is built; it waits on Jackson rewriting the few-shot examples in `docs/prompts/pick_note.v1.md`, the API key, the `llm_calls` migration and a first live eval run. 4b deck analysis is next. Phase 3 is complete: the 17Lands draft link is the only draft input until the rest of v1 is built (Arena `Player.log` deferred, MTGO dropped). Phase 2 is done apart from the empty-database migration check. Update this line as phases complete; see `/docs/development_plan.md`.
+**Current phase:** Phase 4 — the LLM layer and deck analysis (designed in ADRs 0024–0027). 4a Pick Notes is done. 4b deck analysis is done, with HOB's Deck Ratings fitted. 4c the Draft Summary is next. v1 launches with HOB only; MSH and FRA come after launch (ADR 0029). Phase 3 is complete: the 17Lands draft link is the only draft input until the rest of v1 is built (Arena `Player.log` deferred, MTGO dropped). Phase 2 is done apart from the empty-database migration check. Update this line as phases complete; see `/docs/development_plan.md`.
 
 ## Agent skills
 
