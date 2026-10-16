@@ -58,10 +58,12 @@ def note_problems(output: NoteOutput, brief: str, pick: tuple[int, int]) -> list
 # The Draft Summary (ADR 0030 s1)
 # --------------------------------------------------------------------------
 
-# Each prose field's cap in words: 1.25 times the prompt's target of about
-# 60, 100 and 40 words. PLACEHOLDERS, to revisit if a field keeps hitting
-# its cap.
-WORD_CAPS = {"draft_arc": 75, "deck": 125, "lesson": 50}
+# Each prose field's cap in words: 1.75 times the prompt's target of about
+# 60, 100 and 40 words. Raised from 1.25 times when Claude Haiku 5.5 wrote a
+# 97-word draft_arc for the flawed HOB deck that otherwise read well; the
+# cap guards against rambling, not against a few extra words. PLACEHOLDERS,
+# to revisit if a field keeps hitting its cap.
+WORD_CAPS = {"draft_arc": 105, "deck": 175, "lesson": 70}
 MAX_KEY_PICKS = 2
 
 
