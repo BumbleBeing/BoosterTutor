@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import DeckBuilder from './DeckBuilder.svelte';
 import type { PoolCard } from './model';
+import { zoom } from './zoom.svelte';
 
 // 25 cards with images, spread over mana values 0 to 4.
 const pool: PoolCard[] = Array.from({ length: 25 }, (_, i) => ({
@@ -16,6 +17,18 @@ const pool: PoolCard[] = Array.from({ length: 25 }, (_, i) => ({
 const count = () => page.getByText(/\d+ \/ 40/);
 const submitButton = () => page.getByRole('button', { name: 'Submit deck' });
 const cardButton = (name: string) => page.getByRole('button', { name: new RegExp(name) });
+
+/** Press on `el`, drag it to (x, y) and let go, as a mouse would. */
+function dragTo(el: HTMLElement, x: number, y: number) {
+	const from = el.getBoundingClientRect();
+	const fire = (type: string, cx: number, cy: number) =>
+		el.dispatchEvent(
+			new PointerEvent(type, { bubbles: true, pointerId: 1, button: 0, clientX: cx, clientY: cy })
+		);
+	fire('pointerdown', from.left + 5, from.top + 5);
+	fire('pointermove', x, y);
+	fire('pointerup', x, y);
+}
 
 describe('DeckBuilder', () => {
 	it('shows the pool as card images in nine columns, all in the deck to start', async () => {
@@ -123,5 +136,38 @@ describe('DeckBuilder', () => {
 		const sent = onSubmit.mock.calls[0][0];
 		expect(sent.cards).toHaveLength(25);
 		expect(sent.basics).toEqual({ G: 15 });
+	});
+
+	it('moves focus between cards with the arrow keys', async () => {
+		render(DeckBuilder, { pool, onSubmit: vi.fn() });
+		const focused = () => document.activeElement?.getAttribute('aria-label');
+		// Mana value 0 holds Card 00, 05, 10, 15, 20 by name; 1 holds Card 01, 06...
+		cardButton('Card 05, deck').element().focus();
+		await userEvent.keyboard('{ArrowDown}');
+		expect(focused()).toContain('Card 10');
+		await userEvent.keyboard('{ArrowUp}{ArrowUp}{ArrowUp}'); // stops at the top
+		expect(focused()).toContain('Card 00');
+		await userEvent.keyboard('{ArrowRight}');
+		expect(focused()).toContain('Card 01');
+	});
+
+	it("won't let a basic land be dragged into the sideboard", async () => {
+		render(DeckBuilder, { pool, onSubmit: vi.fn() });
+		await page.getByRole('button', { name: '+ Swamp' }).click();
+		const swamp = page.getByRole('button', { name: /Swamp, deck/ });
+		const grid = document.querySelector('[data-pool-grid]')!.getBoundingClientRect();
+		dragTo(swamp.element() as HTMLElement, grid.right - 20, grid.top + 40);
+		await expect.element(swamp).toBeVisible();
+		await expect.element(count()).toHaveTextContent('26 / 40');
+	});
+
+	it('zooms a card on right-click and shrinks it when a drag starts', async () => {
+		render(DeckBuilder, { pool, onSubmit: vi.fn() });
+		const el = cardButton('Card 00, deck').element() as HTMLElement;
+		el.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true }));
+		expect(zoom.key).toBe('k0');
+		const grid = document.querySelector('[data-pool-grid]')!.getBoundingClientRect();
+		dragTo(el, grid.right - 20, grid.top + 40);
+		expect(zoom.key).toBeNull();
 	});
 });
