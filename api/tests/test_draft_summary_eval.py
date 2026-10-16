@@ -24,7 +24,7 @@ Two parts:
       DRAFT_SUMMARY_EVAL=1 uv run pytest tests/test_draft_summary_eval.py -s
 
   `DRAFT_SUMMARY_MODEL=claude-haiku-5-5` runs the same eval on Haiku, for
-  comparison (ADR 0024 s4). Summaries, with each call's tokens and cost,
+  comparison (ADR 0024 s4). Summaries, with each call's tokens, cost and latency,
   are written to `data/evals/`. Calls are not recorded in `llm_calls`.
 """
 
@@ -39,6 +39,7 @@ from typing import Any
 
 import pytest
 from conftest import FIXTURES, _json, load_card_facts, load_deck_inputs, load_inputs
+from eval_report import call_totals
 from test_summary_brief import brief_for
 
 from boostertutor.analysis.draft import analyze_draft
@@ -202,11 +203,7 @@ def test_claude_writes_a_valid_summary(
                         f: len(getattr(summary, f).split())
                         for f in ("draft_arc", "deck", "lesson")
                     },
-                    "attempts": [c.status for c in calls],
-                    "errors": [c.error for c in calls if c.error],
-                    "cost_usd": str(sum((c.cost_usd for c in calls), Decimal(0))),
-                    "cache_read_tokens": sum(c.cache_read_tokens for c in calls),
-                    "cache_write_tokens": sum(c.cache_write_tokens for c in calls),
+                    **call_totals(calls),
                 },
                 ensure_ascii=False,
             )

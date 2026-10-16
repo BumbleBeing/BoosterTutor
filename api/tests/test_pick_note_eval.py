@@ -15,7 +15,7 @@ dataset draft `hob.9f353fcb`. Two parts:
 
       PICK_NOTE_EVAL=1 uv run pytest tests/test_pick_note_eval.py -s
 
-  The notes, with each call's tokens and cost, are written to
+  The notes, with each call's tokens, cost and latency, are written to
   `data/evals/` for reading. Calls are not recorded in `llm_calls`: the
   eval keeps its own ledger, so it runs without a database.
 """
@@ -29,10 +29,11 @@ from decimal import Decimal
 from pathlib import Path
 
 import pytest
+from conftest import FIXTURES, _json, load_card_facts, load_inputs, load_public_draft
 
 # The tests directory is on sys.path (pytest's default import mode), so the
 # fixtures' loaders can be shared rather than copied.
-from conftest import FIXTURES, _json, load_card_facts, load_inputs, load_public_draft
+from eval_report import call_totals
 
 from boostertutor.analysis.draft import analyze_draft
 from boostertutor.analysis.fitness import FitnessConfig
@@ -165,11 +166,7 @@ def test_claude_writes_a_valid_note(case: str, brief: PickBrief) -> None:
                     "case": case,
                     "kind": brief.kind,
                     "note": note.note,
-                    "attempts": [c.status for c in calls],
-                    "errors": [c.error for c in calls if c.error],
-                    "cost_usd": str(sum((c.cost_usd for c in calls), Decimal(0))),
-                    "cache_read_tokens": sum(c.cache_read_tokens for c in calls),
-                    "cache_write_tokens": sum(c.cache_write_tokens for c in calls),
+                    **call_totals(calls),
                 }
             )
             + "\n"
