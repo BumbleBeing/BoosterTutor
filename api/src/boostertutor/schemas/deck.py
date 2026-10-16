@@ -12,12 +12,23 @@ so 40 is a rule rather than a minimum.
 
 import uuid
 from collections import Counter
-from typing import Literal
+from collections.abc import Mapping
+from typing import Any, Literal
 
 from pydantic import BaseModel
 
+from .draft_analysis import DraftAnalysis
+
 DECK_SIZE = 40
 BASIC_COLOURS = "WUBRG"
+# A basic land by name, as a deck list writes it.
+BASIC_NAMES = {
+    "Plains": "W",
+    "Island": "U",
+    "Swamp": "B",
+    "Mountain": "R",
+    "Forest": "G",
+}
 
 
 class DeckError(ValueError):
@@ -57,6 +68,46 @@ def deck_from_pool(
 
     sideboard = list((Counter(pool) - Counter(main)).elements())
     return Deck(main=list(main), basics=basics, sideboard=sideboard)
+
+
+def drafted_pool(
+    analysis: DraftAnalysis, cards: Mapping[uuid.UUID, Any]
+) -> list[uuid.UUID]:
+    """The cards a deck is built from: every pick but the basic lands (ADR 0025 s1).
+
+    `cards` maps each oracle id to anything with a `type_line`, such as
+    `CardFacts`.
+    """
+    return [
+        p.picked
+        for p in analysis.picks
+        if not cards[p.picked].type_line.startswith("Basic Land")
+    ]
+
+
+def deck_from_names(
+    pool: list[uuid.UUID], names: list[str], ids: Mapping[str, uuid.UUID]
+) -> Deck:
+    """A deck written as card names, one entry per copy, basics included.
+
+    How the eval's fixture decks are written. `ids` maps a card's name to
+    its oracle id; basics are counted by colour, as the deck builder adds
+    them. A name that is neither a basic nor known raises `DeckError`
+    naming it, and the deck is then checked as `deck_from_pool` checks it.
+    """
+    basics: Counter[str] = Counter()
+    main = []
+    unknown = []
+    for name in names:
+        if name in BASIC_NAMES:
+            basics[BASIC_NAMES[name]] += 1
+        elif name in ids:
+            main.append(ids[name])
+        else:
+            unknown.append(name)
+    if unknown:
+        raise DeckError(f"not a card in this draft: {', '.join(unknown)}")
+    return deck_from_pool(pool, main=main, basics=dict(basics))
 
 
 class DeckFiring(BaseModel):

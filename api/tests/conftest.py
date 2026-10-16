@@ -12,6 +12,7 @@ examples were drafted from, so the eval never grades a pick an example
 already answers. Both have Narrow Picks, which the saved draft does not.
 """
 
+import dataclasses
 import json
 import uuid
 from pathlib import Path
@@ -20,14 +21,20 @@ from typing import Any
 import pytest
 
 from boostertutor.analysis import fitness as fx
+from boostertutor.analysis.deck_rating import DeckRatingModel
 from boostertutor.analysis.draft import FormatInputs, analyze_draft
+from boostertutor.analysis.mana import LandTarget, ManaSource
 from boostertutor.briefing.card_facts import CardFacts
+from boostertutor.briefing.primer import PrimerFacts
 from boostertutor.parsing import seventeen_lands as sl
 from boostertutor.schemas import DraftLog
 from boostertutor.schemas.draft_analysis import DraftAnalysis
 
 FIXTURES = Path(__file__).parent / "fixtures"
 INPUTS = FIXTURES / "format_inputs" / "hob.PremierDraft.json"
+# What Phase 4b added: Fixers, land targets, the Deck Ratings model and the
+# Format Primer's facts (`scripts/snapshot_deck_inputs.py`).
+DECK_INPUTS = FIXTURES / "format_inputs" / "hob.PremierDraft.deck.json"
 CARD_FACTS = FIXTURES / "card_facts" / "hob.json"
 EVAL_DRAFT = "hob.9f353fcb"  # the eval's second draft
 EXAMPLES_DRAFT = "hob.5d9123f8"  # the few-shot examples' draft
@@ -66,6 +73,26 @@ def load_inputs() -> tuple[FormatInputs, dict[str, uuid.UUID]]:
         cfg=fx.FitnessConfig(**cfg),
     )
     return inputs, {k: uuid.UUID(v) for k, v in raw["names"].items()}
+
+
+def load_deck_inputs() -> tuple[FormatInputs, DeckRatingModel, PrimerFacts]:
+    """`load_inputs()` with HOB's Fixers and land targets, its model and primer."""
+    raw = _json(DECK_INPUTS)
+    inputs = load_inputs()[0]
+    inputs = dataclasses.replace(
+        inputs,
+        cards={
+            oid: {**card, "mana_cost": raw["mana_costs"][str(oid)]}
+            for oid, card in inputs.cards.items()
+        },
+        mana_sources={
+            uuid.UUID(oid): ManaSource(**source)
+            for oid, source in raw["mana_sources"].items()
+        },
+        land_target=LandTarget(**raw["land_target"]),
+    )
+    model = DeckRatingModel(**raw["deck_rating_model"])
+    return inputs, model, PrimerFacts.model_validate(raw["primer"])
 
 
 @pytest.fixture(scope="module")

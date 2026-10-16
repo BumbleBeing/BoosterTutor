@@ -40,3 +40,9 @@ def test_an_unpriced_model_is_refused() -> None:
     """A model with no rate card would record a call as free, so it fails loudly."""
     with pytest.raises(KeyError):
         cost_usd("claude-unknown", Usage())
+
+
+def test_claude_sonnet_5_is_priced_for_calls_a_fallback_served() -> None:
+    """ADR 0030 s4: a refused Sonnet 5.5 call may be served by Claude Sonnet 5."""
+    usage = Usage(input_tokens=1000, output_tokens=500)
+    assert cost_usd("claude-sonnet-5", usage) == Decimal("0.007000")

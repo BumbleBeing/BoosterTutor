@@ -604,17 +604,19 @@ Built on 2026-10-15 (`analysis/deck.py`, `analysis/mana.py`, `analysis/deck_rati
 - **`docs/prompts/draft_summary.v1.md`**, Claude Sonnet 5.5 at `low` effort. Cached block 1 holds the instructions and few-shot examples. Cached block 2 holds the format primer, built from `archetype_stats`. The draft's facts come last: the pick record, the wheels, the Reviewed Deck and its ratings.
 - Evals against a fixture deck that Jackson builds from the HOB pool.
 
+Built on 2026-10-15 (ADR 0030): `briefing/summary.py`, `briefing/primer.py`, `llm/draft_summary.py`, `scripts/write_draft_summary.py` and `tests/test_draft_summary_eval.py`, with two decks from the golden pool in `tests/fixtures/decks/`.
+
 ### Cost
 
 A Pick Note is about 1k tokens of brief after the cached block, around $0.0003 on Claude Haiku 5.5. A Draft Summary is about 3–5k tokens on Claude Sonnet 5.5, a few cents. Cached reads cost about a tenth of the normal input price. Reviews of the same draft are never paid for twice: notes and summaries are stored (ADR 0024 §8), and only the first Submitted Deck gets a summary. Use the Batch API (50% off) for anything not user-facing, such as regenerating stored prose after a prompt change.
 
 ### Done when
 
-- [ ] `llm_calls` and the spending cap exist, and cost per note and per summary can be stated from data
-- [ ] Prompt caching is on, and cache reads show in `llm_calls`
-- [ ] The eval harness passes for both prompts, including the invented-statistic check
+- [x] `llm_calls` and the spending cap exist, and cost per note and per summary can be stated from data (2026-10-15: a Pick Note $0.0002 with a cache read; a Draft Summary $0.034 writing the cache, $0.015 reading it)
+- [x] Prompt caching is on, and cache reads show in `llm_calls`
+- [x] The eval harness passes for both prompts, including the invented-statistic check (Pick Notes 20/20; Draft Summary 2/2 on Sonnet. Haiku failed the flawed deck's word cap, so Sonnet stays, ADR 0030)
 - [x] Deck Ratings are fitted for HOB from the game dump, and an unfitted format reads "not enough data to rate" (HOB only in v1, ADR 0029)
-- [ ] A Draft Summary for the HOB fixture deck returns validated JSON
+- [x] A Draft Summary for the HOB fixture deck returns validated JSON
 
 ---
 
