@@ -24,8 +24,7 @@ from pathlib import Path
 
 from boostertutor.card_facts import load_card_facts
 from boostertutor.db import SessionLocal
-from boostertutor.drafts import name_index
-from boostertutor.format_inputs import load_format_inputs
+from boostertutor.format_inputs import load_format_inputs, name_index
 from boostertutor.parsing import seventeen_lands
 from boostertutor.schemas import DraftLog
 

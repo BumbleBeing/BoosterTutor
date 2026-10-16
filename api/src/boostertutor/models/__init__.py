@@ -8,7 +8,7 @@ from .format_constants import FormatConstants
 from .ingest_run import IngestRun
 from .llm_call import LlmCall
 from .mana_sources import CardManaSource
-from .replay import Draft, FetchAttempt
+from .replay import Draft, RateLimitEvent
 from .stats import ArchetypeStats, CardArchetypeStats, CardDraftStats
 from .tags import CardTag, SynergyBaseline, Tag, TagPair
 
@@ -25,10 +25,10 @@ __all__ = [
     "CardTag",
     "DeckRatingModelRow",
     "Draft",
-    "FetchAttempt",
     "FormatConstants",
     "IngestRun",
     "LlmCall",
+    "RateLimitEvent",
     "SynergyBaseline",
     "Tag",
     "TagPair",

@@ -15,11 +15,11 @@ from typing import Any
 import pytest
 from pydantic import ValidationError
 
-from boostertutor import drafts
 from boostertutor.ingest.fetching import FetchError, HTTPStatusError
 from boostertutor.parsing import seventeen_lands as sl
 from boostertutor.parsing.errors import DraftInputError
 from boostertutor.parsing.names import name_key
+from boostertutor.review import fetch
 from boostertutor.schemas import DraftLog, Pick
 
 FIXTURES = Path(__file__).parent / "fixtures" / "seventeen_lands_draft"
@@ -300,9 +300,9 @@ def _fetch_raising(monkeypatch: pytest.MonkeyPatch, result: Any) -> str:
             raise result
         return bytes(result)
 
-    monkeypatch.setattr(drafts, "fetch_json_bytes", fake)
+    monkeypatch.setattr(fetch, "fetch_json_bytes", fake)
     with pytest.raises(DraftInputError) as err:
-        drafts.fetch_seventeen_lands_draft(DRAFT_ID)
+        fetch.fetch_seventeen_lands_draft(DRAFT_ID)
     return err.value.kind
 
 

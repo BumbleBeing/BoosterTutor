@@ -1,22 +1,21 @@
 """POST /api/drafts/{id}/deck: a Submitted Deck in, Deck Ratings out (Phase 5c).
 
 Anonymous and Python-only (ADR 0025 s3, ADR 0031 s5): nothing is stored, and
-nothing here calls Claude. Same harness as `test_drafts_api.py`: no network,
+nothing here calls Claude. The harness is `review_world.py`: no network,
 no database, HOB's saved statistics.
 """
 
 import uuid
+from collections import Counter
 from collections.abc import Iterator
 from typing import Any
 
 import pytest
 from conftest import load_deck_inputs
 from fastapi.testclient import TestClient
-from test_drafts_api import DRAFT_ID, World, error_kind, submit
+from review_world import DRAFT_ID, World, error_kind, submit
 
-from boostertutor.draft_services import get_services
-from boostertutor.main import app
-from boostertutor.rate_limit import FetchLimiter, FetchLimits
+from boostertutor.review.rate_limit import Limits
 
 
 @pytest.fixture
@@ -24,15 +23,13 @@ def world(names: dict[str, uuid.UUID]) -> World:
     """A world with HOB's Fixers, land targets and fitted Deck Ratings."""
     inputs, model, _ = load_deck_inputs()
     w = World(inputs, names)
-    w.deck_model = model
+    w.fitted_model = model
     return w
 
 
 @pytest.fixture
 def client(world: World) -> Iterator[TestClient]:
-    app.dependency_overrides[get_services] = world.services
-    yield TestClient(app)
-    app.dependency_overrides.clear()
+    yield from world.client()
 
 
 def url(draft_id: str = DRAFT_ID) -> str:
@@ -93,7 +90,7 @@ def test_a_format_without_a_fitted_model_is_unrated_not_an_error(
     client: TestClient, world: World
 ) -> None:
     submit(client)
-    world.deck_model = None
+    world.fitted_model = None
     body = client.post(url(), json=a_deck(world)).json()
     assert body["ratings"]["rated"] is False
     assert body["ratings"]["message"] == "not enough data to rate"
@@ -133,11 +130,14 @@ def test_more_copies_than_were_drafted_are_refused(
 ) -> None:
     submit(client)
     deck = a_deck(world)
-    deck["cards"][1] = deck["cards"][0]  # one drafted copy, played twice
-    # The pool may hold two copies of it; only the single-copy case is certain.
-    if pool(world).count(deck["cards"][0]) >= 2:
-        pytest.skip("this card was drafted twice")
-    assert client.post(url(), json=deck).status_code == 422
+    # A card drafted exactly once, played twice.
+    drafted = Counter(pool(world))
+    once = next(card for card in deck["cards"] if drafted[card] == 1)
+    other = next(i for i, card in enumerate(deck["cards"]) if card != once)
+    deck["cards"][other] = once
+    response = client.post(url(), json=deck)
+    assert response.status_code == 422
+    assert error_kind(response) == "invalid_deck"
 
 
 def test_a_basic_land_among_the_cards_is_refused(
@@ -197,7 +197,7 @@ def test_resubmitting_just_rates_again_with_the_new_deck(
 def test_over_the_limit_is_a_429_with_retry_after(
     client: TestClient, world: World
 ) -> None:
-    world.deck_limiter = FetchLimiter(world.ledger, FetchLimits(1, 50))
+    world.limits["deck"] = Limits(per_minute=1, per_day=50)
     submit(client)
     assert client.post(url(), json=a_deck(world)).status_code == 200
     response = client.post(url(), json=a_deck(world))
@@ -209,7 +209,7 @@ def test_over_the_limit_is_a_429_with_retry_after(
 def test_a_rejected_deck_still_counts_against_the_limit(
     client: TestClient, world: World
 ) -> None:
-    world.deck_limiter = FetchLimiter(world.ledger, FetchLimits(1, 50))
+    world.limits["deck"] = Limits(per_minute=1, per_day=50)
     submit(client)
     assert client.post(url(), json={"cards": [], "basics": {}}).status_code == 422
     assert client.post(url(), json=a_deck(world)).status_code == 429
@@ -218,8 +218,10 @@ def test_a_rejected_deck_still_counts_against_the_limit(
 def test_deck_submissions_and_fetches_have_separate_allowances(
     client: TestClient, world: World
 ) -> None:
-    world.deck_limiter = FetchLimiter(world.ledger, FetchLimits(1, 50))
-    submit(client)  # one fetch: the fetch limit is 5 a minute
-    client.post(url(), json=a_deck(world))
-    # The fetch allowance is untouched by the deck submission.
-    assert submit(client, "a" * 32).status_code in (200, 404, 422)
+    world.limits["fetch"] = Limits(per_minute=2, per_day=50)
+    world.limits["deck"] = Limits(per_minute=1, per_day=50)
+    submit(client)  # the first of two fetches
+    assert client.post(url(), json=a_deck(world)).status_code == 200
+    assert client.post(url(), json=a_deck(world)).status_code == 429
+    # Out of deck allowance, but the fetch allowance is untouched by it.
+    assert submit(client, "a" * 32).status_code == 200

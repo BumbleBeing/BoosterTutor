@@ -1,11 +1,13 @@
 """FastAPI application entry point for the BoosterTutor API."""
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sqlalchemy import text
 
 from .config import settings
 from .db import engine
+from .review.errors import ReviewError
 from .routes import drafts
 
 app = FastAPI(title="BoosterTutor API", version="0.1.0")
@@ -24,6 +26,21 @@ app.add_middleware(
 )
 
 app.include_router(drafts.router)
+
+
+@app.exception_handler(ReviewError)
+def review_error(request: Request, exc: ReviewError) -> JSONResponse:
+    """Every Draft Review failure, in the one shape the page reads.
+
+    `detail` wraps the body to match FastAPI's own errors, which the page
+    also has to read (a missing field is FastAPI's 422, not ours).
+    """
+    headers = (
+        {"Retry-After": str(exc.retry_after)} if exc.retry_after is not None else None
+    )
+    return JSONResponse(
+        status_code=exc.status, content={"detail": exc.body()}, headers=headers
+    )
 
 
 @app.get("/health")

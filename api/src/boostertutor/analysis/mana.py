@@ -107,6 +107,77 @@ class Shortfall:
         return max(0.0, self.required - self.available)
 
 
+class _DeckSources:
+    """A deck's lands and Fixers, counted as Colour Sources (ADR 0028 s2).
+
+    `shortfalls` (per spell) and `colour_sources` (per colour) both count
+    through this, so the two can't drift apart. Lands that make a colour
+    count whole; a Fixer counts at its colour weight; a basic-fetcher in a
+    deck of three or more basic types counts two thirds.
+
+    A land's colours are its colour identity, as elsewhere in the analysis
+    (ADR 0012 s6). That is exact for every land HOB prints; a land whose
+    identity says more than it taps for would be over-counted.
+    """
+
+    def __init__(
+        self,
+        cards: list[dict[str, Any]],
+        basics: dict[str, int],
+        mana_sources: dict[Any, ManaSource],
+    ) -> None:
+        self.basic_colours = {c for c, n in basics.items() if n}
+        self.basics_weight = (
+            BASICS_CHOICE_WEIGHT
+            if len(self.basic_colours) >= BASICS_CHOICE_COLOURS
+            else 1.0
+        )
+        # One entry per land: the colours it makes. A land that is also a
+        # Fixer is counted as a Fixer instead.
+        self.land_colours: list[set[str]] = [
+            set(c["color_identity"])
+            for c in cards
+            if LAND_TAG in c["tags"] and c["oracle_id"] not in mana_sources
+        ]
+        self.land_colours += [
+            {colour} for colour, n in basics.items() for _ in range(n)
+        ]
+        # One entry per copy of each Fixer.
+        self.fixers = [
+            (c["oracle_id"], mana_sources[c["oracle_id"]])
+            for c in cards
+            if c["oracle_id"] in mana_sources
+        ]
+
+    def count(
+        self,
+        wanted: set[str],
+        *,
+        mana_value: int | None = None,
+        own_card: Any = None,
+    ) -> float:
+        """Sources that make any colour in `wanted`.
+
+        With `mana_value`, a Fixer counts only toward a spell that meets its
+        minimum mana value. One copy of `own_card` is skipped, because a
+        Fixer can't pay for itself: Dori's Treasure can't cast Dori.
+        """
+        total = sum(1.0 for produced in self.land_colours if produced & wanted)
+        own_copy_skipped = False
+        for oracle_id, source in self.fixers:
+            if oracle_id == own_card and not own_copy_skipped:
+                own_copy_skipped = True
+                continue
+            if mana_value is not None and mana_value < source.min_mana_value:
+                continue
+            if source.colors == BASICS:
+                if self.basic_colours & wanted:
+                    total += source.color_weight * self.basics_weight
+            elif set(source.colors) & wanted:
+                total += source.color_weight
+        return total
+
+
 def shortfalls(
     cards: list[dict[str, Any]],
     basics: dict[str, int],
@@ -117,37 +188,9 @@ def shortfalls(
     `cards` are the deck's nonbasic cards as `fitness_card` dicts, with
     their `mana_cost`. A spell's sources for a pip are the lands that make
     one of its colours, counted whole, plus the Fixers whose minimum mana
-    value the spell meets, counted at their weight. A Fixer is never a
-    source for its own copy: Dori's Treasure can't pay for Dori.
-
-    A land's colours are its colour identity, as elsewhere in the analysis
-    (ADR 0012 s6). That is exact for every land HOB prints; a land whose
-    identity says more than it taps for would be over-counted.
+    value the spell meets, counted at their weight (`_DeckSources`).
     """
-    basic_colours = {c for c, n in basics.items() if n}
-    basics_weight = (
-        BASICS_CHOICE_WEIGHT if len(basic_colours) >= BASICS_CHOICE_COLOURS else 1.0
-    )
-
-    def fixes(source: ManaSource) -> set[str]:
-        return basic_colours if source.colors == BASICS else set(source.colors)
-
-    def weight(source: ManaSource) -> float:
-        scale = basics_weight if source.colors == BASICS else 1.0
-        return source.color_weight * scale
-
-    land_colours: list[set[str]] = [
-        set(c["color_identity"])
-        for c in cards
-        if LAND_TAG in c["tags"] and c["oracle_id"] not in mana_sources
-    ]
-    land_colours += [{colour} for colour, n in basics.items() for _ in range(n)]
-    fixers = [
-        (c["oracle_id"], mana_sources[c["oracle_id"]])
-        for c in cards
-        if c["oracle_id"] in mana_sources
-    ]
-
+    sources = _DeckSources(cards, basics, mana_sources)
     out: list[Shortfall] = []
     for card in cards:
         if LAND_TAG in card["tags"]:
@@ -160,15 +203,9 @@ def shortfalls(
         mana_value = int(card["cmc"])
         worst: Shortfall | None = None
         for colours, pips in groups.items():
-            wanted = set(colours)
-            available = sum(1.0 for produced in land_colours if produced & wanted)
-            own_copy_skipped = False
-            for oracle_id, source in fixers:
-                if oracle_id == card["oracle_id"] and not own_copy_skipped:
-                    own_copy_skipped = True
-                    continue
-                if mana_value >= source.min_mana_value and fixes(source) & wanted:
-                    available += weight(source)
+            available = sources.count(
+                set(colours), mana_value=mana_value, own_card=card["oracle_id"]
+            )
             required = sources_needed(pips, max(0, mana_value - pips), gold=gold)
             here = Shortfall(card["oracle_id"], colours, required, available)
             if worst is None or here.short > worst.short:
@@ -185,45 +222,19 @@ def colour_sources(
 ) -> dict[str, float]:
     """How many Colour Sources the deck has of each colour its spells use.
 
-    The same counting as `shortfalls`: lands that make the colour count
-    whole, Fixers count at their colour weight, and a basic-fetcher in a
-    deck of three or more basic types counts two thirds. This summary is
-    per colour, not per spell, so a Fixer's minimum mana value is ignored.
-    Colours no spell has a pip of are left out.
+    Counted as `shortfalls` counts them, but per colour rather than per
+    spell, so a Fixer's minimum mana value is ignored. Colours no spell has
+    a pip of are left out.
     """
-    basic_colours = {c for c, n in basics.items() if n}
-    basics_weight = (
-        BASICS_CHOICE_WEIGHT if len(basic_colours) >= BASICS_CHOICE_COLOURS else 1.0
-    )
-    spells = [c for c in cards if LAND_TAG not in c["tags"]]
+    sources = _DeckSources(cards, basics, mana_sources)
     used = {
         letter
-        for card in spells
+        for card in cards
+        if LAND_TAG not in card["tags"]
         for colours in pip_groups(card.get("mana_cost"))
         for letter in colours
     }
-    land_colours: list[set[str]] = [
-        set(c["color_identity"])
-        for c in cards
-        if LAND_TAG in c["tags"] and c["oracle_id"] not in mana_sources
-    ]
-    land_colours += [{colour} for colour, n in basics.items() for _ in range(n)]
-
-    out: dict[str, float] = {}
-    for colour in "WUBRG":
-        if colour not in used:
-            continue
-        total = sum(1.0 for produced in land_colours if colour in produced)
-        for card in cards:
-            source = mana_sources.get(card["oracle_id"])
-            if source is None:
-                continue
-            fixes = basic_colours if source.colors == BASICS else set(source.colors)
-            if colour in fixes:
-                scale = basics_weight if source.colors == BASICS else 1.0
-                total += source.color_weight * scale
-        out[colour] = total
-    return out
+    return {colour: sources.count({colour}) for colour in "WUBRG" if colour in used}
 
 
 # --------------------------------------------------------------------------

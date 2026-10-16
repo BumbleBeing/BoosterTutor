@@ -34,6 +34,22 @@ from .models import (
     SynergyBaseline,
     TagPair,
 )
+from .parsing.names import name_key
+
+
+def name_index(session: Session, set_code: str) -> dict[str, uuid.UUID]:
+    """`name_key` to oracle id, for every card the set's packs can hold.
+
+    Both the 17Lands statistics ingest and a draft's replay match card names
+    through this one index, so every card in a draft that resolves here also
+    has its statistics found.
+    """
+    rows = session.execute(
+        select(Card.name, BoosterCard.oracle_id)
+        .join(Card, Card.oracle_id == BoosterCard.oracle_id)
+        .where(BoosterCard.set_code == set_code)
+    )
+    return {name_key(name): oracle_id for name, oracle_id in rows}
 
 
 def stats_event_type(event_type: str) -> str:

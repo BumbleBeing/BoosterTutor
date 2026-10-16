@@ -47,8 +47,7 @@ from boostertutor.analysis import fitness as fx
 from boostertutor.analysis.deck import deck_metrics
 from boostertutor.analysis.draft import FormatInputs
 from boostertutor.db import SessionLocal
-from boostertutor.drafts import name_index
-from boostertutor.format_inputs import load_cards, load_mana_sources
+from boostertutor.format_inputs import load_cards, load_mana_sources, name_index
 from boostertutor.ingest.deck_ratings import decks_from_game_rows
 from boostertutor.ingest.synergy_baseline import cached_dump
 from boostertutor.models import CardDraftStats

@@ -1,7 +1,7 @@
 """A 17Lands draft link into a `DraftLog` (development plan 3.1, input 1).
 
 The two payloads come from `17lands.com/data/draft` and
-`data/event_metadata` (ADR 0023; fetched in `boostertutor.drafts`). This
+`data/event_metadata` (ADR 0023; fetched in `boostertutor.review.fetch`). This
 module only reads them.
 
 What the draft payload holds, confirmed on a real HOB draft (2026-09-18 and

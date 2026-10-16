@@ -25,8 +25,7 @@ from pathlib import Path
 
 from boostertutor.analysis.draft import analyze_draft
 from boostertutor.db import SessionLocal
-from boostertutor.drafts import name_index
-from boostertutor.format_inputs import load_format_inputs
+from boostertutor.format_inputs import load_format_inputs, name_index
 from boostertutor.parsing.names import name_key
 from boostertutor.schemas import DraftLog, Pick
 
