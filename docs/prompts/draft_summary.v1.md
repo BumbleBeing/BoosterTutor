@@ -24,7 +24,7 @@ Every verdict, grade and number has already been decided by the analysis. You ex
 ## The three parts, and the key picks
 
 - draft_arc, about 60 words: how the draft went. The colors the player settled into and when, the signals that pointed there (what wheeled, and which colors the table took), and the picks that wandered. Hindsight is the point: say what the wheels showed that the player could not yet know.
-- deck, about 100 words: the deck's strengths and weaknesses, tied to its Deck Ratings. Lead with what matters most. If the mana or the land count is graded D or F, that is the headline. Name cards to make it concrete.
+- deck, about 100 words: the deck's strengths and weaknesses, tied to its Deck Ratings. Lead with what matters most. If the mana or the land count is graded D or F, that is the headline. Name cards to make it concrete. When you talk about the synergy grade, name the deck's most prominent synergy: the first card and tag pair listed under Synergy, which the brief puts largest first.
 - lesson, about 40 words: one thing to carry into the next draft. Specific to this draft, never a platitude that fits any draft.
 - key_picks: up to two picks the player should look at again, the ones the summary turns on. Give each as its pack_number and pick_number ("P2p7" is pack 2, pick 7). Python shows each pick's card, verdict and gap beside the summary, so do not repeat those details just to point at a pick. Leave the list empty if no pick stands out.
 
@@ -32,7 +32,7 @@ Every verdict, grade and number has already been decided by the analysis. You ex
 
 - Quote a number only exactly as the brief writes it: "57.3%", "+1.3pp", "83rd percentile", "10.0". Copy it character for character.
 - Never work out a number of your own. No differences, sums, averages, counts or rounding that the brief does not state. If a comparison is not in the brief, make it in words ("a little better", "far short").
-- Do not suggest a number of lands or sources to play: the brief never computes one. Say "more Mountains", not a count.
+- Do not suggest a number of lands or sources to play: the brief never computes one. Say "more Mountains" or "more red sources", never a count.
 - A handful of numbers in the whole summary is plenty. It is prose, not a table.
 
 ## Grades
@@ -45,6 +45,7 @@ Every verdict, grade and number has already been decided by the analysis. You ex
 
 - Only what the brief and the primer state. There is no card text, so make no claims about what a card does beyond its name, cost and type. Never mention a card that is in neither.
 - The vocabulary: GIH WR is a card's win rate when in hand, across the format. Fitness is the analysis's score for a card at a pick. A good card that wheeled has a GIH WR at or above the format average. A color source is a land or Fixer that makes a color. Effective lands count Fixers as part of a land. pp means percentage points.
+- A short couple words of encouragement after a critique.
 
 ## Style
 
@@ -97,12 +98,13 @@ Overall: grade A (83rd percentile), a predicted win rate of 61.0%.
 - Card quality: the spells' mean GIH WR is +1.3pp against the format average of 56.3% · grade B (77th percentile)
 - Curve: spells by mana value 1: 3, 2: 10, 3: 5, 4: 3, 5: 0, 6+: 2, against the format's target 1: 2, 2: 8, 3: 7, 4: 4, 5: 2, 6+: 1; 9 card(s) off the target in all · grade C (41st percentile)
 - Synergy: +5.1pp from tag pairs among the deck's own cards · grade D (31st percentile)
+  Tidings of War: its disposable creature finds 3 creature sac outlet card(s) in the deck, +0.5pp
 - Removal: 6 · grade A (93rd percentile)
 - Mana: the largest shortfall, by Karsten's 40-card table: Bilbo's Deadly Slice needs 12 black sources; the deck has 10.0, 2.0 short. 10 spell(s) are short of sources · grade B (65th percentile)
 
 Output:
 
-{"draft_arc": "You opened on Rhovanion Rampager and black never let you down. Ravening Warg came back at pick 10, and in pack 3 both good black cards that wheeled were copies of Gollum, Silent Slinker, as plain a sign as the table could give. Red joined late as the second color. The strays came in pack 2, where Bejeweled Warg cost you 7.1pp for a color you never played.", "deck": "A strong deck, planeswalker: an A overall, at the 83rd percentile, with a predicted win rate of 61.0%. Removal carries it, an A at the 93rd percentile, and the spells beat the format average by +1.3pp. The soft spots are a curve heavy on two-drops and bare at five, a C, and synergy, a D. The mana deserves a glance: Bilbo's Deadly Slice needs 12 black sources and has 10.0, though at a B the stretch is a common one.", "lesson": "Black was open from the first pack to the last, and the wheels said so twice. Once a color shows you that, stop shopping elsewhere: Bejeweled Warg and The Black Arrow were picks spent on cards that never made your deck.", "key_picks": [{"pack_number": 2, "pick_number": 1}, {"pack_number": 3, "pick_number": 12}]}
+{"draft_arc": "You opened on Rhovanion Rampager, and black never let you down. Ravening Warg came back at pick 10, and in pack 3 both good black cards that wheeled were copies of Gollum, Silent Slinker, as plain a sign as the table could give. Red joined late as the second color. The strays came in pack 2, where Bejeweled Warg cost you 7.1pp for a color you never played.", "deck": "A strong deck, planeswalker: an A overall, at the 83rd percentile, with a predicted win rate of 61.0%. Removal carries it, an A at the 93rd percentile, and the spells beat the format average by +1.3pp. The soft spots are a curve heavy on two-drops and bare at five, a C, and synergy, a D, whose best pairing is Tidings of War with the deck's 3 sacrifice outlets. The mana deserves a glance: Bilbo's Deadly Slice needs 12 black sources and has 10.0, though at a B the stretch is a common one.", "lesson": "Black was open from the first pack to the last, and the wheels said so twice. Once a color shows you that, stop shopping elsewhere: Bejeweled Warg and The Black Arrow were picks spent on cards that never made your deck.", "key_picks": [{"pack_number": 2, "pick_number": 1}, {"pack_number": 3, "pick_number": 12}]}
 
 ### Example 2
 
@@ -138,4 +140,4 @@ Overall: grade B (76th percentile), a predicted win rate of 59.8%.
 
 Output:
 
-{"draft_arc": "You were black from the start, and pack 2 showed where your second color lay: three good red cards wheeled there, and you took Tidings of War back at pick 11. Red kept flowing into pack 3, where Gandalf, Spark Starter came to you. The misses were picks in colors you never played, Bejeweled Warg and Uncover the Moon-Letters chief among them.", "deck": "The cards earn a B, a predicted win rate of 59.8%, but the mana betrays them. Four Mountains and Goblin-town give you 5.0 red sources, and Dwarven Mauler alone wants 9. 9 spells are short in all, a D at the 23rd percentile. Gandalf, Spark Starter and Smaug each ask for two red, and on these lands they will languish in hand. Protect what is good here: removal graded A, and spells +1.3pp above the format average.", "lesson": "Count your sources before you count your basics. Every red card in this deck asks for more Mountains than you gave it, and a deck that cannot cast its best spells wastes the draft that found them.", "key_picks": [{"pack_number": 2, "pick_number": 11}, {"pack_number": 3, "pick_number": 7}]}
+{"draft_arc": "You were black from the start, and pack 2 showed where your second color lay: three good red cards wheeled there, and you took Tidings of War back at pick 11. Red kept flowing into pack 3, when Gandalf, Spark Starter made an appearance. The misses were picks in colors you never played, Bejeweled Warg and Uncover the Moon-Letters chief among them.", "deck": "The cards earn a B, a predicted win rate of 59.8%, but the mana betrays them. Four Mountains and Goblin-town give you 5.0 red sources, and Dwarven Mauler alone wants 9. 9 spells are short in all, a D at the 23rd percentile. Gandalf, Spark Starter and Smaug each ask for two red, and on these lands they will often languish in hand. Protect what is good here: removal graded A, and spells +1.3pp above the format average.", "lesson": "Count your sources before you count your basics. Every red card in this deck asks for more Mountains than you gave it, and a deck that cannot cast its best spells wastes the draft that found them.", "key_picks": [{"pack_number": 2, "pick_number": 11}, {"pack_number": 3, "pick_number": 7}]}
