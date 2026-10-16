@@ -4,6 +4,7 @@ from .base import Base
 from .booster import BoosterCard
 from .card import Card, CardPrint, CardSet
 from .deck_ratings import DeckRatingModelRow
+from .draft_review import DraftReviewRow, PickNoteRow
 from .format_constants import FormatConstants
 from .ingest_run import IngestRun
 from .llm_call import LlmCall
@@ -25,9 +26,11 @@ __all__ = [
     "CardTag",
     "DeckRatingModelRow",
     "Draft",
+    "DraftReviewRow",
     "FormatConstants",
     "IngestRun",
     "LlmCall",
+    "PickNoteRow",
     "RateLimitEvent",
     "SynergyBaseline",
     "Tag",
