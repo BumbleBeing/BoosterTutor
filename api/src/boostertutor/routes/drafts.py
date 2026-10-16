@@ -13,7 +13,7 @@ from ..config import settings
 from ..draft_import import import_draft
 from ..draft_review import build_review
 from ..draft_services import DraftServices, get_services
-from ..format_inputs import FormatNotReady
+from ..format_inputs import FormatNotReady, stats_event_type
 from ..parsing.errors import DraftInputError
 from ..rate_limit import RateLimited, client_key
 from ..schemas.draft_review import DraftReview
@@ -102,7 +102,7 @@ def get_draft(draft_id: str, services: Services) -> DraftReview:
             "That draft hasn't been imported yet. Submit its 17Lands link first.",
         )
     try:
-        inputs = services.inputs_for(log.set_code, log.event_type)
+        inputs = services.inputs_for(log.set_code, stats_event_type(log.event_type))
     except FormatNotReady:
         _fail(
             503,
@@ -112,6 +112,11 @@ def get_draft(draft_id: str, services: Services) -> DraftReview:
         )
     # Verdicts are recomputed here, every time, from the cached log and the
     # current statistics (ADR 0031 s5).
-    return build_review(
-        log, inputs, lambda ids: services.card_infos_for(log.set_code, ids)
+    # A Traditional or Open draft is rated with the Premier statistics, so it
+    # is analysed as one; the review still reports the event it really was.
+    analysed = log.model_copy(update={"event_type": inputs.event_type})
+    review = build_review(
+        analysed, inputs, lambda ids: services.card_infos_for(log.set_code, ids)
     )
+    review.event_type = log.event_type
+    return review

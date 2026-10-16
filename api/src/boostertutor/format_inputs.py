@@ -36,6 +36,19 @@ from .models import (
 )
 
 
+def stats_event_type(event_type: str) -> str:
+    """Which event type's statistics rate a draft of this event type.
+
+    Premier, Traditional and Open drafts are functionally the same game and
+    differ only slightly in their data, so all three are rated against the
+    Premier statistics (the only ones ingested). Pick-two drafts are not
+    interchangeable; the parser refuses them before they get here.
+    """
+    if event_type == "TradDraft" or event_type.startswith("OpenDraft"):
+        return "PremierDraft"
+    return event_type
+
+
 class FormatNotReady(LookupError):
     """The format is missing something the analysis needs. The message says what."""
 
