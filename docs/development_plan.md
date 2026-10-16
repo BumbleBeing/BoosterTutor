@@ -406,7 +406,7 @@ Write these as SQLAlchemy models in `api/src/boostertutor/models/`, then generat
 
 **Why `snapshot_date` is in every key:** win rates move a lot in the first two weeks of a set and then settle. Keeping snapshots means you can serve "current" data, explain a set as it looked when the user drafted it, and debug "why did the advice change?" A view called `card_draft_stats_current` selecting the latest snapshot per card keeps query code simple.
 
-**Application data** (schema detailed in Phase 5–7, listed here for completeness): `users`, `drafts`, `draft_reviews`, `review_jobs`, `stats_snapshots`, `practice_drafts`. (`decks` and `deck_reviews` arrive with Deck Review, Phase 10.)
+**Application data** (schema detailed in Phase 5–7, listed here for completeness): `users`, `drafts`, `draft_reviews`, `stats_snapshots`, `practice_drafts`. (`decks` and `deck_reviews` arrive with Deck Review, Phase 10.)
 
 ### 2.2 Scryfall ingestion
 
@@ -622,38 +622,42 @@ A Pick Note is about 1k tokens of brief after the cached block, around $0.0003 o
 
 ## Phase 5 — Draft Review, end to end
 
-Goal: the feature, live.
+Goal: the feature, live. Designed in ADR 0031: the public product is the anonymous, Python-only tier; Claude's prose sits behind an `X-Admin-Key` until Phase 6. One session and PR per sub-phase.
 
-### 5.1 Backend
+### 5a Import and verdicts API
 
-- `POST /api/drafts` — accepts `{source: "17lands_id" | "log_text", value: str}`. Validates, parses, and returns a `draft_id` plus a `job_id`.
-- Because a review takes 10–20 seconds, run it **asynchronously**: create a `review_jobs` row with status `pending`, kick off the work in a FastAPI `BackgroundTask`, and return immediately.
-- `GET /api/drafts/{id}` — returns the draft with its review, or the job status if still running.
-- The frontend polls every 1.5 seconds. Polling is unfashionable and completely adequate here; do not build websockets for this.
-- Cache on input hash before doing any work.
-- Pick Notes are written lazily: `POST /api/drafts/{id}/picks/{n}/note` writes a Noted Pick's note the first time it is opened, then stores it (ADR 0024).
-- `POST /api/drafts/{id}/deck` accepts a 40-card Submitted Deck and returns its Deck Ratings. The first submission also runs the Draft Summary (ADR 0025).
+- `POST /api/drafts` takes a 17Lands URL or draft ID (the only input; the Arena log is post-launch). It validates, fetches once (ADR 0023), parses, stores the parsed log in `drafts` (the Replay Cache) and returns the draft id.
+- `GET /api/drafts/{id}` recomputes every verdict from the cached log and current stats. Nothing is stored per review, and there is no job or polling.
+- A per-IP limit on submissions that need a fetch (cache hits do not count), Postgres-backed, numbers in config.
+- Clear errors: bad input, private or unknown draft, unsupported set, upstream failure.
 
-### 5.2 Frontend
+### 5b Review page
 
-The page is a vertical timeline of every pick, grouped into three packs. For each pick: the card taken, the notable alternatives with their win rates, and the verdict as a colored chip. Each Noted Pick carries a speech-bubble marker, and opening it shows its Pick Note. Card images from Scryfall URLs stored in `card_prints`, lazy-loaded — 42 picks of up to 14 cards each is a lot of images if you are careless, so show the pack contents only on expand.
+A vertical timeline of every pick in three packs: the card taken, notable alternatives with win rates, and the verdict as a coloured chip. Noted Picks carry a speech-bubble marker; for everyone but the admin, opening one says "Sign in for a coach's note on this pick". Pack contents and card images (Scryfall URLs in `card_prints`) load only on expand. A summary above (archetype, record if known, verdict counts), a plain skeleton while loading, the 17Lands credit, empty and error states, keyboard navigation, a shareable read-only URL `/draft/<id>` (never showing admin prose), and a phone layout.
 
-Above the timeline, a summary: final record if known, the archetype landed in, and the count of picks by verdict.
+### 5c Deck builder and Deck Ratings
 
-Below the timeline, the deck builder (ADR 0025), headed "Submit your final deck for a full Draft Review": the pool, five basic-land buttons to its left, double-click to move a card between deck and sideboard, a live "37 / 40" count, and an "are you sure" confirmation on submit. After submitting: the Deck Ratings, and, for the first deck, the Draft Summary. While Claude writes, show a loading state (the wizard-and-thought-cloud animation is planned, but functionality comes first).
+A standalone component (ADR 0025 §1), reused in Phase 7. `POST /api/drafts/{id}/deck` takes 40 cards and returns Deck Ratings; anonymous submissions are not stored, with per-IP limiting.
 
-Details that make it feel finished: a skeleton loading state with real progress ("analyzing pack 2 of 3"), keyboard navigation between picks, a shareable read-only URL, and a clear empty/error state for a private or malformed draft.
+### 5d Claude endpoints behind the Admin Key
 
-### 5.3 Verification
+- An `X-Admin-Key` dependency, which also serves issue #32.
+- The `draft_reviews` migration (`user_id` nullable until Phase 6).
+- The lazy Pick Note endpoint, `POST /api/drafts/{id}/picks/{n}/note`, and the Draft Summary on first deck submission, each a plain waiting request. Notes record their stats snapshot id and show "written against older stats" when it differs. If Draft Summary latency measures 30 s or more, stream it.
+- Latency and uncached input and output tokens added to eval reports; re-derive the cost and timing figures from `llm_calls`.
+- Everyone else sees "Sign in for a coach's note / Draft Summary".
 
-Run your own drafts through it — ones where you already know what you did wrong. If it does not surface the mistake you know you made, the analysis engine is wrong, not the prompt. Fix it upstream.
+### 5e Verification
+
+Run your own drafts through it, ones where you know what you did wrong. If it does not surface the mistake, the analysis engine is wrong, not the prompt. Fix it upstream.
 
 ### Done when
 
 - [ ] Paste a 17Lands draft link and get the verdicts within seconds, on the live site
-- [ ] Opening a Noted Pick writes and stores its Pick Note
-- [ ] Submitting a 40-card deck returns Deck Ratings, and the first submission a Draft Summary
-- [ ] Pasted MTGA log text works identically
+- [ ] A second review of the same link makes no 17Lands request
+- [ ] Submitting a 40-card deck returns Deck Ratings
+- [ ] With the Admin Key, opening a Noted Pick writes and stores its Pick Note, and the first deck gets a Draft Summary
+- [ ] Without it, neither endpoint calls Claude, verified by a test
 - [ ] Every number shown traces back to the database
 - [ ] Errors are handled: bad input, private draft, unsupported set, upstream failure
 - [ ] It works on a phone

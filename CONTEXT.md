@@ -259,3 +259,15 @@ decay and every copy counts in full; 0.5, the default, converges on twice the
 importance coefficient; 0 means only the first copy counts at all. See ADR
 0009.
 _Avoid_: cap, saturation, falloff, threshold synergy
+
+**Admin Key**:
+A shared secret sent as `X-Admin-Key` that lets the site owner reach the
+Claude endpoints before accounts exist (Phase 5). Replaced by "signed-in
+user" in Phase 6. See ADR 0031.
+_Avoid_: API key (that is Anthropic's), password
+
+**Replay Cache**:
+The `drafts` table: a 17Lands draft's parsed log, kept by draft id so the
+replay is fetched once. Public data; holds no user and no review. See
+ADR 0023 and 0031.
+_Avoid_: saved draft, stored review
