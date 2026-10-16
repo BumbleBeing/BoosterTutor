@@ -109,6 +109,27 @@ Like every metric, it is graded by percentile among the format's 40-card
 decks (ADR 0026). When it is built, check once that HOB's dump wins most
 near the target, and record the result here.
 
+**The check (2026-10-15): HOB's dump does not win most near the target.**
+It was run on the 65,444 distinct 40-card decks (302,296 games) in
+`game_data_public.HOB.PremierDraft.20261001`, before HOB's `mana_sources`
+were authored, so every effective land count here is a plain land count.
+No HOB deck averages under 2.2 mana value, so every deck's target is 17 or
+18. Game win rate by effective lands:
+
+| Target | 15 lands | 16 lands | 17 lands | 18 lands |
+|---|---|---|---|---|
+| 17 | 58.3% (2,322) | 57.7% (50,416) | 56.5% (186,596) | 51.5% (933) |
+| 18 | | 55.4% (6,439) | 54.7% (54,181) | 51.3% (599) |
+
+Wins rise as lands fall, one land below the target beats being on it, and
+the regression's land coefficient is positive (+0.042 log-odds per unit of
+distance, standard error 0.007), the opposite of the metric's intent.
+Part of this is selection rather than cause: fast, low-curve decks both
+run fewer lands and win more. The "Revisit when" trigger below has fired,
+and the targets stay placeholders until Jackson decides whether to move
+them (15/16/17 would put HOB's best-performing count on target) or to
+measure the land metric differently.
+
 ## Considered options
 
 - **Colour-suffixed tags** (`fixer_g`, `fixer_any`) were rejected. Tags
