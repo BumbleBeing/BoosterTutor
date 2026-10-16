@@ -176,3 +176,54 @@ def shortfalls(
         if worst is not None:
             out.append(worst)
     return out
+
+
+# --------------------------------------------------------------------------
+# The effective land count (ADR 0028 s4)
+# --------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class LandTarget:
+    """How many lands a deck wants, by the average mana value of its spells.
+
+    Every figure is a PLACEHOLDER tunable (ADR 0028 s4): 16 lands below
+    `low_curve_mv`, 18 above `high_curve_mv`, 17 otherwise, and being over
+    weighs `over_weight` of being short.
+    """
+
+    low_curve_mv: float = 2.2
+    high_curve_mv: float = 3.2
+    low: int = 16
+    middle: int = 17
+    high: int = 18
+    over_weight: float = 0.5
+
+    def lands_for(self, average_mana_value: float) -> int:
+        if average_mana_value < self.low_curve_mv:
+            return self.low
+        if average_mana_value > self.high_curve_mv:
+            return self.high
+        return self.middle
+
+    def distance(self, effective: float, target: int) -> float:
+        """Short weighs 1 a land, over weighs `over_weight` a land."""
+        return max(0.0, target - effective) + self.over_weight * max(
+            0.0, effective - target
+        )
+
+
+def effective_lands(
+    cards: list[dict[str, Any]],
+    basics: dict[str, int],
+    mana_sources: dict[Any, ManaSource],
+) -> float:
+    """Every land counts 1 and every Fixer its land weight, a fetch land included."""
+    total = float(sum(basics.values()))
+    for card in cards:
+        source = mana_sources.get(card["oracle_id"])
+        if source is not None:
+            total += source.land_weight
+        elif LAND_TAG in card["tags"]:
+            total += 1.0
+    return total

@@ -69,6 +69,16 @@ class DeckFiring(BaseModel):
     contributing: list[uuid.UUID]
 
 
+class NotableOmission(BaseModel):
+    """A sideboard card far better than the deck's weakest playable (ADR 0026 s1)."""
+
+    oracle_id: uuid.UUID
+    gih_wr: float
+    instead_of: uuid.UUID  # the deck's weakest nonland card
+    instead_of_gih_wr: float
+    gap: float  # gih_wr - instead_of_gih_wr, past FitnessConfig.mistake_gap
+
+
 class DeckMetrics(BaseModel):
     """Every fact Python states about a Submitted Deck (ADR 0026 s1, ADR 0028).
 
@@ -100,3 +110,12 @@ class DeckMetrics(BaseModel):
     mana_required: int | None
     mana_available: float | None
     spells_short: int  # copies short at all; a fact for the summary, not graded
+    # ADR 0028 s4: lands plus Fixers' land weights, against a target set by
+    # the nonland cards' average mana value. The distance weighs being short
+    # twice as hard as being over.
+    average_mana_value: float
+    effective_lands: float
+    land_target: int
+    land_distance: float
+    # At most one, and only as a fact: ranked swaps stay postponed (ADR 0025 s4).
+    notable_omission: NotableOmission | None

@@ -7,8 +7,8 @@ import pytest
 
 from boostertutor.analysis import fitness as fx
 from boostertutor.analysis.deck import deck_metrics
-from boostertutor.analysis.mana import ManaSource
 from boostertutor.analysis.draft import FormatInputs, fitness_card
+from boostertutor.analysis.mana import ManaSource
 from boostertutor.schemas.deck import Deck
 
 FORMAT_AVG = 55.0
@@ -215,3 +215,57 @@ def test_a_basic_fetcher_fixes_only_for_basics_the_deck_runs() -> None:
     assert deck_metrics(three_colours, s.inputs()).mana_available == pytest.approx(
         10 + 2 / 3
     )
+
+
+def test_a_low_curve_wants_16_lands_and_being_over_costs_half() -> None:
+    s = Set()
+    metrics = deck_metrics(white_deck(s, []), s.inputs())  # 23 two-drops
+
+    assert (metrics.average_mana_value, metrics.land_target) == (2.0, 16)
+    assert (metrics.effective_lands, metrics.land_distance) == (17.0, 0.5)
+
+
+def test_a_fixer_counts_its_land_weight_and_being_short_costs_in_full() -> None:
+    s = Set()
+    troop = s.card("Troop of Ponies", "{2}")
+    s.mana_sources[troop] = ManaSource("ramp_spell_3", "basics", 0.5, 0.5, 5)
+    spells = [troop] + [s.card(f"Three {i}", "{2}{W}") for i in range(10)]
+    metrics = deck_metrics(white_deck(s, spells, plains=15), s.inputs())
+
+    # 25 spells at an average of 2.4 want 17 lands; 15 Plains and a half.
+    assert metrics.land_target == 17
+    assert (metrics.effective_lands, metrics.land_distance) == (15.5, 1.5)
+
+
+def test_a_high_curve_wants_18_lands() -> None:
+    s = Set()
+    spells = [s.card(f"Five {i}", "{4}{W}") for i in range(23)]
+    metrics = deck_metrics(white_deck(s, spells), s.inputs())
+
+    assert (metrics.land_target, metrics.land_distance) == (18, 1.0)
+
+
+def test_the_notable_omission_is_the_best_playable_sideboard_card_well_above_the_weakest() -> (
+    None
+):
+    s = Set()
+    weak = s.card("Weak", gih_wr=50.0)
+    deck = white_deck(s, [weak])  # everything else is at 55
+    benched = s.card("Benched", "{2}{W}", gih_wr=58.0)
+    better = s.card("Better", "{3}{W}", gih_wr=60.0)
+    off_colour = s.card("Off colour", "{1}{B}", gih_wr=70.0)
+    deck = deck.model_copy(update={"sideboard": [benched, better, off_colour]})
+
+    omission = deck_metrics(deck, s.inputs()).notable_omission
+    # 60 - 50 = 10 points, past mistake_gap (4).
+    assert omission is not None
+    assert (omission.oracle_id, omission.gih_wr) == (better, 60.0)
+    assert (omission.instead_of, omission.instead_of_gih_wr) == (weak, 50.0)
+
+
+def test_there_is_no_notable_omission_within_the_mistake_gap() -> None:
+    s = Set()
+    deck = white_deck(s, [s.card("Weak", gih_wr=53.0)])
+    deck = deck.model_copy(update={"sideboard": [s.card("Benched", gih_wr=57.0)]})
+
+    assert deck_metrics(deck, s.inputs()).notable_omission is None

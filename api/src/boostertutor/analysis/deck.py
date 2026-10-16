@@ -8,17 +8,21 @@ lands are not in `FormatInputs.cards`; the deck counts them by colour.
 
 from typing import Any
 
-from ..schemas.deck import Deck, DeckFiring, DeckMetrics
+from ..schemas.deck import Deck, DeckFiring, DeckMetrics, NotableOmission
 from . import fitness as fx
 from .draft import FormatInputs
-from .mana import shortfalls
+from .mana import LandTarget, effective_lands, shortfalls
 
 # How many firings a deck reports, largest first. The summary names a few;
 # the total already prices the rest.
 TOP_FIRINGS = 5
 
+DEFAULT_LAND_TARGET = LandTarget()
 
-def deck_metrics(deck: Deck, inputs: FormatInputs) -> DeckMetrics:
+
+def deck_metrics(
+    deck: Deck, inputs: FormatInputs, land_target: LandTarget = DEFAULT_LAND_TARGET
+) -> DeckMetrics:
     cards = [inputs.cards[oid] for oid in deck.main]
     spells = [c for c in cards if fx.LAND_TAG not in c["tags"]]
     curve = _curve(spells)
@@ -27,6 +31,9 @@ def deck_metrics(deck: Deck, inputs: FormatInputs) -> DeckMetrics:
     worst = max(short, key=lambda sf: sf.short, default=None)
     if worst is not None and worst.short == 0:
         worst = None  # only a shortfall is a fact worth naming
+    average_mv = sum(c["cmc"] for c in spells) / len(spells) if spells else 0.0
+    lands = effective_lands(cards, deck.basics, inputs.mana_sources)
+    target = land_target.lands_for(average_mv)
     return DeckMetrics(
         card_quality=_card_quality(spells, inputs.stats),
         curve=curve,
@@ -43,6 +50,11 @@ def deck_metrics(deck: Deck, inputs: FormatInputs) -> DeckMetrics:
         mana_required=worst.required if worst else None,
         mana_available=worst.available if worst else None,
         spells_short=sum(1 for sf in short if sf.short > 0),
+        average_mana_value=average_mv,
+        effective_lands=lands,
+        land_target=target,
+        land_distance=land_target.distance(lands, target),
+        notable_omission=_notable_omission(spells, deck, inputs),
     )
 
 
@@ -92,3 +104,39 @@ def _synergy(
         ]
     firings.sort(key=lambda f: -f.pp)
     return total, firings[:TOP_FIRINGS]
+
+
+def _notable_omission(
+    spells: list[dict[str, Any]], deck: Deck, inputs: FormatInputs
+) -> NotableOmission | None:
+    """At most one: the best playable sideboard card, if far better than the weakest.
+
+    ADR 0026 s1. "Playable" means castable in the colours the deck's spells
+    already use; "better" is GIH WR, the same card quality the deck is
+    graded on; "far" is the fitness function's `mistake_gap`, the gap at
+    which a pick is a mistake. Lands are left out on both sides.
+    """
+    if not spells:
+        return None
+    colours = "".join(c for c in "WUBRG" if any(c in s["colors"] for s in spells))
+    gih = inputs.stats.gih_wr
+    weakest = min(spells, key=lambda c: gih(c["oracle_id"]))
+    candidates = [
+        inputs.cards[oid]
+        for oid in deck.sideboard
+        if fx.LAND_TAG not in inputs.cards[oid]["tags"]
+        and fx.playable_in(inputs.cards[oid], colours)
+    ]
+    best = max(candidates, key=lambda c: gih(c["oracle_id"]), default=None)
+    if best is None:
+        return None
+    gap = gih(best["oracle_id"]) - gih(weakest["oracle_id"])
+    if gap <= inputs.cfg.mistake_gap:
+        return None
+    return NotableOmission(
+        oracle_id=best["oracle_id"],
+        gih_wr=gih(best["oracle_id"]),
+        instead_of=weakest["oracle_id"],
+        instead_of_gih_wr=gih(weakest["oracle_id"]),
+        gap=gap,
+    )
