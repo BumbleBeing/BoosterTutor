@@ -12,9 +12,28 @@ jobs:
     defaults:
       run:
         working-directory: api
+    # A throwaway Postgres just for this job, so CI can prove the migrations
+    # build the whole schema on an empty database. Version 17 matches
+    # Supabase (17.6 as of 2026-10-15). It starts before the steps run and is
+    # thrown away when the job ends.
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: ci
+        ports:
+          - 5432:5432
+        # Don't start the steps until Postgres is accepting connections.
+        options: >-
+          --health-cmd "pg_isready -U ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
     env:
-      # Settings() requires this at import time. A fake value is fine here -
-      # nothing in the test suite opens a connection.
+      # Points at the postgres service above. The test suite itself never
+      # opens a connection; only the migration steps at the end use it.
       DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +45,20 @@ jobs:
       - run: uv run ruff format --check .
       - run: uv run mypy src
       - run: uv run pytest
+      # Build the schema from nothing, tear it all down again, then rebuild
+      # it. This catches a migration that only works on Supabase's existing
+      # data, and a downgrade() that was never actually run.
+      - name: Migrations build an empty database
+        run: uv run alembic upgrade head
+      - name: Migrations downgrade to nothing
+        run: uv run alembic downgrade base
+      - name: Migrations rebuild after a downgrade
+        run: uv run alembic upgrade head
+      # Fails if the SQLAlchemy models in src/boostertutor/models describe a
+      # schema the migrations don't build (e.g. a column added to a model
+      # with no migration for it).
+      - name: Models match the migrations
+        run: uv run alembic check
 
   web:
     name: Web (SvelteKit)

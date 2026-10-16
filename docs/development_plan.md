@@ -154,7 +154,7 @@ BoosterTutor/
 |---|---|---|---|
 | 0 | Environment, accounts, and Git | 1–2 sessions | Complete |
 | 1 | Walking skeleton, deployed | 2–3 sessions | Complete |
-| 2 | Data layer: schema + ingestion | 4–6 sessions | Nearly done: the empty-database migration check remains |
+| 2 | Data layer: schema + ingestion | 4–6 sessions | Complete |
 | 3 | Parsers and the analysis engine | 4–6 sessions | Complete (Arena input deferred) |
 | 4 | The LLM layer and deck analysis (4a Pick Notes, 4b deck analysis, 4c Draft Summary) | 7–10 sessions | Not started |
 | 5 | Draft Review, end to end | 4–5 sessions | Not started |
@@ -473,7 +473,7 @@ Log a row into an `ingest_runs` table for each job: source, started/finished tim
 
 ### Done when
 
-- [ ] `alembic upgrade head` builds the schema from scratch on an empty database
+- [x] `alembic upgrade head` builds the schema from scratch on an empty database (checked in CI on every PR from 2026-10-15, with a full downgrade and `alembic check`)
 - [ ] `cards` and `card_prints` are populated for at least the three most recent draftable sets
 - [ ] `card_draft_stats`, `card_archetype_stats`, and `archetype_stats` are populated for the current set
 - [ ] The computed statistics pass ADR 0002's internal checks: hand-worked tests, GIH = OH + GD and GP = GIH + GND for every card, and agreement with DraftDouble's independent run
