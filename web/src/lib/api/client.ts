@@ -35,7 +35,7 @@ export async function toApiError(res: Response): Promise<ApiError> {
 	try {
 		const body = await res.json();
 		const detail = body?.detail;
-		if (detail && typeof detail === 'object') {
+		if (detail && typeof detail === 'object' && !Array.isArray(detail)) {
 			if (KNOWN_KINDS.includes(detail.kind)) kind = detail.kind;
 			if (typeof detail.message === 'string') message = detail.message;
 		} else if (res.status === 422) {
