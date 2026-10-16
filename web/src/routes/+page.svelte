@@ -1,25 +1,21 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { PUBLIC_API_URL } from '$env/static/public';
-
-	// $state is Svelte 5's reactive declaration - when this changes, the DOM updates.
-	let status = $state('checking...');
-
-	onMount(async () => {
-		try {
-			const res = await fetch(`${PUBLIC_API_URL}/health`);
-			const data = await res.json();
-			status = data.status;
-		} catch (err) {
-			status = `unreachable: ${err instanceof Error ? err.message : String(err)}`;
-		}
-	});
+	import SubmitForm from '$lib/review/SubmitForm.svelte';
+	import SeventeenLandsCredit from '$lib/review/SeventeenLandsCredit.svelte';
 </script>
 
-<main class="mx-auto max-w-xl p-12 font-sans">
-	<h1 class="text-3xl font-bold">BoosterTutor</h1>
-	<p class="mt-4 text-slate-600">
-		API status:
-		<span class="font-mono font-semibold">{status}</span>
+<svelte:head><title>BoosterTutor — review your Magic draft</title></svelte:head>
+
+<main class="mx-auto max-w-2xl px-4 py-12 sm:py-20">
+	<h1 class="text-3xl font-bold sm:text-4xl">BoosterTutor</h1>
+	<p class="mt-3 text-lg text-slate-700">
+		Paste a 17Lands draft link and see every pick graded: what you took, what you passed, and which
+		picks are worth a second look.
 	</p>
+	<div class="mt-8">
+		<SubmitForm />
+	</div>
+	<p class="mt-4 text-sm text-slate-500">
+		On 17Lands, open your draft and copy its link. The draft must be shared publicly.
+	</p>
+	<div class="mt-12"><SeventeenLandsCredit /></div>
 </main>
