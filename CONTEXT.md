@@ -184,9 +184,18 @@ it, or a Fixer. Counted against the deck's pip requirements. See ADR 0026.
 _Avoid_: mana source, colour producer
 
 **Fixer**:
-A non-land card tagged by hand as producing coloured mana, such as a
-mana creature or a Treasure maker. See ADR 0026.
+Any card, land or not, with a hand-authored mana-source entry saying which
+colours it fixes for and how much it counts: a fetch land, a mana creature,
+a mana rock, a Treasure maker, a land tutor or a landcycler. Distinct from
+the `fixing` synergy tag. See ADR 0028.
 _Avoid_: ramp, mana fixing (as a noun for a card)
+
+**Effective Land Count**:
+A deck's lands plus the partial land weight of its Fixers, such as half a
+land per landcycler. Compared against a target set by the deck's average
+mana value. Being short is penalised twice as hard as being over. See ADR
+0028.
+_Avoid_: land count (when Fixers are meant), mana count
 
 ### Tags
 

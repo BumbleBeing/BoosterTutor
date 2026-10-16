@@ -593,8 +593,8 @@ Built in three steps, in order. Each is useful on its own.
 ### 4b — Deck analysis (pure `analysis/`)
 
 - A `Deck` input: exactly 40 cards, from the pool plus basics (ADR 0025).
-- The six metrics of ADR 0026: card quality, curve, synergy, creatures and removal, Colour Sources against Karsten's 40-card pip requirements, and at most one notable omission.
-- Fixer tags in each set's taxonomy. Which cards count, and how, is designed before this is built.
+- The six metrics of ADR 0026 (the mana metric as amended by ADR 0028): card quality, curve, synergy, creatures and removal, Colour Sources against Karsten's 40-card pip requirements, and at most one notable omission.
+- Fixers and the effective land count (ADR 0028): taxonomy format version 2 with per-set `source_kinds` and `mana_sources`, a `card_mana_sources` table (confirm the schema first), HOB's entries authored by Jackson, and a seventh metric, distance from the land target.
 - **Deck Ratings**: an ingest step scores the game dump's 40-card decks, fits percentile tables and a per-format logistic regression of win on the metrics, and stores them in a new table (confirm the schema first).
 
 ### 4c — The Draft Summary
