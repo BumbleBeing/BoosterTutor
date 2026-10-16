@@ -135,7 +135,7 @@ def _cards(
             lines += [
                 "",
                 f"Gap: the card taken scored {fmt.pp(pick.gap)} below the best card.",
-                *_comparison("best card minus card taken", best, taken),
+                *comparison("best card minus card taken", best, taken),
             ]
     if kind == "narrow":
         # The cards are sorted best first, and the card taken is the best.
@@ -145,7 +145,7 @@ def _cards(
             assert taken.total is not None and runner_up.total is not None
             lines += [
                 f"  {fmt.pp(taken.total - runner_up.total)} below the card taken.",
-                *_comparison("card taken minus this runner-up", taken, runner_up),
+                *comparison("card taken minus this runner-up", taken, runner_up),
             ]
 
     others = [c for c in pick.cards if c.oracle_id not in detailed]
@@ -199,7 +199,7 @@ def _pool_before(analysis: DraftAnalysis, pick: PickAnalysis) -> list[uuid.UUID]
 # --------------------------------------------------------------------------
 
 
-def _name_line(facts: CardFacts) -> str:
+def name_line(facts: CardFacts) -> str:
     """ "Lakeshore Apothecary {1}{U} · common · Creature — Human Cleric"."""
     name = f"{facts.name} {facts.mana_cost}" if facts.mana_cost else facts.name
     return f"{name} · {facts.rarity} · {facts.type_line}"
@@ -209,7 +209,7 @@ def _detail(
     label: str, card: CardScore, cards: dict[uuid.UUID, CardFacts]
 ) -> list[str]:
     facts = cards[card.oracle_id]
-    lines = [f"{label}: {_name_line(facts)}"]
+    lines = [f"{label}: {name_line(facts)}"]
     if facts.oracle_text:
         lines += [f"  Text: {line}" for line in facts.oracle_text.splitlines()]
     if not card.scored:
@@ -244,7 +244,7 @@ def _detail(
     return lines
 
 
-def _comparison(label: str, higher: CardScore, lower: CardScore) -> list[str]:
+def comparison(label: str, higher: CardScore, lower: CardScore) -> list[str]:
     """Where a gap between two scored cards comes from, part by part."""
     diffs = [
         (name, (getattr(higher, part) or 0.0) - (getattr(lower, part) or 0.0))
@@ -262,7 +262,7 @@ def _comparison(label: str, higher: CardScore, lower: CardScore) -> list[str]:
 def _one_line(
     card: CardScore, best: CardScore | None, cards: dict[uuid.UUID, CardFacts]
 ) -> str:
-    line = _name_line(cards[card.oracle_id])
+    line = name_line(cards[card.oracle_id])
     if not card.scored:
         return f"{line} · not scored (basic land)"
     assert card.total is not None and card.gih_wr is not None

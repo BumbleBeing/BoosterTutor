@@ -46,3 +46,21 @@ def count(value: float) -> str:
 
 def games(value: int) -> str:
     return f"{value:,} games"
+
+
+def mana_value(value: float) -> str:
+    """An average mana value, to two places: 2.96 -> "2.96".
+
+    Two, not one, because a land target turns on a cut such as 3.0, and
+    "3.0" for 2.96 would read as the wrong side of it.
+    """
+    return f"{value:.2f}"
+
+
+def percentile(value: int) -> str:
+    """62 -> "62nd percentile"."""
+    if value % 100 in (11, 12, 13):
+        suffix = "th"
+    else:
+        suffix = {1: "st", 2: "nd", 3: "rd"}.get(value % 10, "th")
+    return f"{value}{suffix} percentile"
