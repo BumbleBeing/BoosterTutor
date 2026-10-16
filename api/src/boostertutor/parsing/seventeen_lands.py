@@ -99,7 +99,11 @@ def parse_draft(
             "upstream_failure", "the 17Lands draft is not in the shape we expect"
         ) from exc
 
-    if any(len(e.get("picks") or [None]) > 1 for _, _, e in entries):
+    # Pick-two drafts change the layout and the strategy; they are a different
+    # game from every other event, not a variant of it.
+    if "picktwo" in str(meta.get("format") or "").lower() or any(
+        len(e.get("picks") or [None]) > 1 for _, _, e in entries
+    ):
         raise DraftInputError(
             "unsupported_format",
             "this draft took more than one card per pick, which isn't supported",

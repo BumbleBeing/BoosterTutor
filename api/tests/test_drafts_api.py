@@ -75,6 +75,8 @@ class World:
         self.inputs_loads = 0
         self.fetch_error: Exception | None = None
         self.not_ready = False
+        self.event_type = "PremierDraft"  # what 17Lands calls the event
+        self.stats_asked: list[str] = []  # event types the statistics were loaded for
         self.supported = frozenset({"hob"})
         self.limits = FetchLimits(per_minute=per_minute, per_day=50)
         self.ledger = MemoryLedger()
@@ -86,11 +88,18 @@ class World:
             raise self.fetch_error
         return (
             json.loads((FIXTURES / "draft.json").read_text()),
-            json.loads((FIXTURES / "event_metadata.json").read_text()),
+            self._metadata(),
         )
+
+    def _metadata(self) -> dict[str, Any]:
+        metadata = json.loads((FIXTURES / "event_metadata.json").read_text())
+        # The event's name sits in the nested `metadata` block when there is one.
+        metadata.get("metadata", metadata)["format"] = self.event_type
+        return metadata  # type: ignore[no-any-return]
 
     def inputs_for(self, set_code: str, event_type: str) -> FormatInputs:
         self.inputs_loads += 1
+        self.stats_asked.append(event_type)
         if self.not_ready:
             raise FormatNotReady("no statistics yet")
         return self.inputs
@@ -355,3 +364,23 @@ def test_a_format_without_statistics_is_a_503(client: TestClient, world: World) 
     response = client.get(f"/api/drafts/{DRAFT_ID}")
     assert response.status_code == 503
     assert error_kind(response) == "format_not_ready"
+
+
+@pytest.mark.parametrize("event", ["TradDraft", "OpenDraft_HOB_20261001"])
+def test_traditional_and_open_drafts_are_rated_with_the_premier_statistics(
+    client: TestClient, world: World, event: str
+) -> None:
+    world.event_type = event
+    submit(client)
+    response = client.get(f"/api/drafts/{DRAFT_ID}")
+    assert response.status_code == 200
+    assert world.stats_asked == ["PremierDraft"]
+    # The review still says what kind of draft it really was.
+    assert response.json()["event_type"] == event
+
+
+def test_a_pick_two_draft_is_refused_as_an_unsupported_format(
+    client: TestClient, world: World
+) -> None:
+    world.event_type = "PickTwoDraft"
+    assert error_kind(submit(client)) == "unsupported_format"
