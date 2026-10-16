@@ -597,7 +597,7 @@ Built in three steps, in order. Each is useful on its own.
 - Fixers and the effective land count (ADR 0028): taxonomy format version 2 with per-set `source_kinds` and `mana_sources`, a `card_mana_sources` table (confirm the schema first), HOB's entries authored by Jackson, and a seventh metric, distance from the land target.
 - **Deck Ratings**: an ingest step scores the game dump's 40-card decks, fits percentile tables and a per-format logistic regression of win on the metrics, and stores them in a new table (confirm the schema first).
 
-Built on 2026-10-15 (`analysis/deck.py`, `analysis/mana.py`, `analysis/deck_rating.py`, `ingest/deck_ratings.py`). HOB's `mana_sources` are authored and its Deck Ratings fitted. The land targets are measured per format (ADR 0028 s4, `scripts/derive_land_targets.py`). Still open: MSH, which has no `format_constants` row to fit against.
+Built on 2026-10-15 (`analysis/deck.py`, `analysis/mana.py`, `analysis/deck_rating.py`, `ingest/deck_ratings.py`). HOB's `mana_sources` are authored and its Deck Ratings fitted. The land targets are measured per format (ADR 0028 s4, `scripts/derive_land_targets.py`). v1 launches with HOB only; MSH and FRA are added after launch (ADR 0029).
 
 ### 4c — The Draft Summary
 
@@ -613,7 +613,7 @@ A Pick Note is about 1k tokens of brief after the cached block, around $0.0003 o
 - [ ] `llm_calls` and the spending cap exist, and cost per note and per summary can be stated from data
 - [ ] Prompt caching is on, and cache reads show in `llm_calls`
 - [ ] The eval harness passes for both prompts, including the invented-statistic check
-- [ ] Deck Ratings are fitted for HOB and MSH from the game dump, and an unfitted format reads "not enough data to rate"
+- [x] Deck Ratings are fitted for HOB from the game dump, and an unfitted format reads "not enough data to rate" (HOB only in v1, ADR 0029)
 - [ ] A Draft Summary for the HOB fixture deck returns validated JSON
 
 ---
