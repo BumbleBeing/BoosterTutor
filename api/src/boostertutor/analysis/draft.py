@@ -26,6 +26,7 @@ from ..schemas.draft_analysis import (
     SynergyFiring,
 )
 from . import fitness as fx
+from .mana import ManaSource
 from .wheel import wheel_analysis
 
 # (oracle_id, pack_number, enabler, payoff, tag_on_card) -> E[n_eff], ADR 0017.
@@ -64,10 +65,12 @@ def fitness_card(
         "cmc": cmc,
         "tags": all_tags,
         "type_line": type_line,
+        # Read by the deck's mana metric, which counts pips (ADR 0028).
+        "mana_cost": mana_cost,
     }
     # Hybrid cards are playable as either colour; a land takes its options
     # from its colour identity. After the tags, since this reads `land`.
-    card["color_options"] = fx.playable_colors({**card, "mana_cost": mana_cost})
+    card["color_options"] = fx.playable_colors(card)
     return card
 
 
@@ -101,6 +104,9 @@ class FormatInputs:
     # analysis reports ("usually gone by pick 3").
     alsa: dict[uuid.UUID, float] = field(default_factory=dict)
     cfg: fx.FitnessConfig = field(default_factory=fx.FitnessConfig)
+    # The set's Fixers (ADR 0028), read only by the deck metrics. Empty for a
+    # set whose `mana_sources` are not authored yet.
+    mana_sources: dict[uuid.UUID, ManaSource] = field(default_factory=dict)
 
 
 def synergy_expectations(
