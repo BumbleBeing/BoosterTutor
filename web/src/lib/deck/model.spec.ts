@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
 	SIDEBOARD,
 	deckSize,
+	faceMap,
 	flip,
 	initialLayout,
 	moveTo,
@@ -67,5 +68,21 @@ describe('toSubmission', () => {
 			{ key: 'b2', colour: 'W' }
 		];
 		expect(toSubmission(layout, pool, basics)).toEqual({ cards: ['id-a'], basics: { W: 2 } });
+	});
+});
+
+describe('faceMap', () => {
+	it("draws pool cards from the pool and basics from the set's art, if any", () => {
+		const faces = faceMap(
+			[card('a', 3, 'Abe')],
+			[
+				{ key: 'b1', colour: 'W' },
+				{ key: 'b2', colour: 'U' }
+			],
+			{ W: 'plains.jpg', U: null }
+		);
+		expect(faces.get('a')).toEqual({ name: 'Abe', cmc: 3, image: null, basic: null });
+		expect(faces.get('b1')).toEqual({ name: 'Plains', cmc: 0, image: 'plains.jpg', basic: 'W' });
+		expect(faces.get('b2')).toEqual({ name: 'Island', cmc: 0, image: null, basic: 'U' });
 	});
 });

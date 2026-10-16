@@ -99,3 +99,34 @@ export function toSubmission(layout: Layout, pool: PoolCard[], basics: BasicLand
 	}
 	return { cards, basics: counts };
 }
+
+/** What the builder draws for a card, and what Enter or a double-click needs to know about it. */
+export interface Face {
+	name: string;
+	cmc: number;
+	image: string | null; // null: drawn (a basic land) or a name box
+	basic: string | null; // a basic land's colour letter; null for a pool card
+}
+
+/**
+ * Every card's face by key: the pool's cards, then each basic land added.
+ * A basic land uses the set's art for its colour from `basicImages`, if any.
+ */
+export function faceMap(
+	pool: PoolCard[],
+	basics: BasicLand[],
+	basicImages: Record<string, string | null>
+): Map<string, Face> {
+	const faces = new Map<string, Face>();
+	for (const c of pool) faces.set(c.key, { name: c.name, cmc: c.cmc, image: c.image, basic: null });
+	for (const b of basics) {
+		const land = BASIC_LANDS.find((l) => l.colour === b.colour)!;
+		faces.set(b.key, {
+			name: land.name,
+			cmc: 0,
+			image: basicImages[b.colour] ?? null,
+			basic: b.colour
+		});
+	}
+	return faces;
+}
