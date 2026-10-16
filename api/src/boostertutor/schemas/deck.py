@@ -12,6 +12,7 @@ so 40 is a rule rather than a minimum.
 
 import uuid
 from collections import Counter
+from typing import Literal
 
 from pydantic import BaseModel
 
@@ -119,3 +120,30 @@ class DeckMetrics(BaseModel):
     land_distance: float
     # At most one, and only as a fact: ranked swaps stay postponed (ADR 0025 s4).
     notable_omission: NotableOmission | None
+
+
+Grade = Literal["A", "B", "C", "D", "F"]
+
+
+class MetricRating(BaseModel):
+    """One metric's value, and where it falls among the format's decks."""
+
+    metric: str
+    value: float
+    percentile: int | None = None  # 0-100: the share of decks it is as good as
+    grade: Grade | None = None
+
+
+class DeckRatings(BaseModel):
+    """A Submitted Deck's Deck Ratings (ADR 0026 s2).
+
+    Relative to 17Lands users, who play better than average: a C is an
+    average 17Lands deck. Unrated when the format has no fitted model.
+    """
+
+    rated: bool
+    message: str | None = None  # "not enough data to rate" when unrated
+    metrics: list[MetricRating]
+    predicted_win_rate: float | None = None  # the regression's, in percent
+    percentile: int | None = None
+    grade: Grade | None = None
