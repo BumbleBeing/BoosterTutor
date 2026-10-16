@@ -27,8 +27,7 @@ from sqlalchemy.orm import Session
 
 from ..analysis.deck import deck_metrics
 from ..analysis.deck_rating import ScoredDeck, fit_model, metric_values
-from ..drafts import name_index
-from ..format_inputs import FormatNotReady, load_format_inputs
+from ..format_inputs import FormatNotReady, load_format_inputs, name_index
 from ..models import DeckRatingModelRow
 from ..parsing.names import name_key
 from ..schemas.deck import DECK_SIZE, Deck

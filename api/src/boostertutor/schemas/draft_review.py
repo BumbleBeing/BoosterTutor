@@ -1,4 +1,7 @@
-"""What `GET /api/drafts/{id}` returns: everything the review page needs.
+"""What the `/api/drafts` import and review endpoints return.
+
+`DraftReview`, from `GET /api/drafts/{id}`, is everything the review page
+needs.
 
 All of it is computed by Python from the cached log and the current
 statistics. There is no prose here and no Claude field: the anonymous review
@@ -11,6 +14,13 @@ import uuid
 from pydantic import BaseModel
 
 from .draft_analysis import DraftAnalysis
+
+
+class ImportResponse(BaseModel):
+    """What `POST /api/drafts` returns: the id of the draft to open."""
+
+    draft_id: str
+    cached: bool  # True: answered from the Replay Cache, 17Lands not asked
 
 
 class CardInfo(BaseModel):

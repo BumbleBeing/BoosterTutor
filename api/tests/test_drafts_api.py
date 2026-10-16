@@ -1,162 +1,21 @@
 """POST and GET /api/drafts: import a 17Lands draft once, review it any time.
 
-No network and no database. The 17Lands fetch is replaced by the saved
-payloads, the Replay Cache by a dict, the statistics by the HOB snapshot in
-`fixtures/format_inputs`. What is under test is the wiring: what is fetched,
-what is cached, what is recomputed, and what each failure says.
+No network and no database (`review_world.py`). What is under test is the
+rules: what is fetched, what is cached, what is recomputed, and what each
+failure says.
 """
 
-import json
 import uuid
-from collections.abc import Iterable, Iterator
-from pathlib import Path
-from typing import Any
+from collections.abc import Iterator
 
 import pytest
 from fastapi.testclient import TestClient
+from review_world import DRAFT_ID, World, error_kind, submit
 
-from boostertutor.analysis.deck_rating import DeckRatingModel
 from boostertutor.analysis.draft import FormatInputs
-from boostertutor.draft_services import CardInfo, DraftServices, get_services
-from boostertutor.format_inputs import FormatNotReady
-from boostertutor.main import app
 from boostertutor.parsing.errors import DraftInputError
-from boostertutor.rate_limit import FetchLimiter, FetchLimits
+from boostertutor.review.rate_limit import Limits
 from boostertutor.schemas import DraftLog
-
-FIXTURES = Path(__file__).parent / "fixtures" / "seventeen_lands_draft"
-DRAFT_ID = "d9ac6765edeb499fb4084e4d018f8cee"
-URL = f"https://www.17lands.com/draft/{DRAFT_ID}"
-
-
-class MemoryStore:
-    """The Replay Cache: parsed logs by draft id."""
-
-    def __init__(self) -> None:
-        self.logs: dict[str, DraftLog] = {}
-
-    def get(self, draft_id: str) -> DraftLog | None:
-        return self.logs.get(draft_id)
-
-    def has(self, draft_id: str) -> bool:
-        return draft_id in self.logs
-
-    def add(self, log: DraftLog) -> None:
-        assert log.source_id is not None
-        self.logs[log.source_id] = log
-
-
-class MemoryLedger:
-    def __init__(self) -> None:
-        self.rows: list[tuple[str, Any]] = []
-
-    def count_since(self, key: str, since: Any) -> int:
-        return sum(1 for k, at in self.rows if k == key and at > since)
-
-    def record(self, key: str, at: Any) -> None:
-        self.rows.append((key, at))
-
-    def prune(self, before: Any) -> None:
-        pass
-
-
-class World:
-    """Everything the endpoints touch, with a count of how often 17Lands was asked."""
-
-    def __init__(
-        self,
-        inputs: FormatInputs,
-        names: dict[str, uuid.UUID],
-        per_minute: int = 5,
-    ) -> None:
-        self.inputs = inputs
-        self.names = names
-        self.store = MemoryStore()
-        self.fetches = 0
-        self.inputs_loads = 0
-        self.fetch_error: Exception | None = None
-        self.not_ready = False
-        self.event_type = "PremierDraft"  # what 17Lands calls the event
-        self.stats_asked: list[str] = []  # event types the statistics were loaded for
-        self.supported = frozenset({"hob"})
-        self.limits = FetchLimits(per_minute=per_minute, per_day=50)
-        self.ledger = MemoryLedger()
-        self.limiter = FetchLimiter(self.ledger, self.limits)
-        # Deck submissions share the ledger under their own key prefix.
-        self.deck_limiter = FetchLimiter(self.ledger, FetchLimits(5, 50))
-        self.deck_model: DeckRatingModel | None = None
-        # The set's basic lands, as the Scryfall ingest stores them.
-        self.basic_lands: dict[str, CardInfo] = {
-            colour: CardInfo(
-                name=name,
-                mana_cost=None,
-                type_line=f"Basic Land — {name}",
-                cmc=0.0,
-                colors="",
-                rarity="common",
-                image_normal=f"https://example.test/{name}.jpg",
-                image_art_crop=None,
-            )
-            for colour, name in zip(
-                "WUBRG",
-                ["Plains", "Island", "Swamp", "Mountain", "Forest"],
-                strict=True,
-            )
-        }
-
-    def fetch(self, draft_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
-        self.fetches += 1
-        if self.fetch_error is not None:
-            raise self.fetch_error
-        return (
-            json.loads((FIXTURES / "draft.json").read_text()),
-            self._metadata(),
-        )
-
-    def _metadata(self) -> dict[str, Any]:
-        metadata = json.loads((FIXTURES / "event_metadata.json").read_text())
-        # The event's name sits in the nested `metadata` block when there is one.
-        metadata.get("metadata", metadata)["format"] = self.event_type
-        return metadata  # type: ignore[no-any-return]
-
-    def inputs_for(self, set_code: str, event_type: str) -> FormatInputs:
-        self.inputs_loads += 1
-        self.stats_asked.append(event_type)
-        if self.not_ready:
-            raise FormatNotReady("no statistics yet")
-        return self.inputs
-
-    def card_infos_for(
-        self, set_code: str, ids: Iterable[uuid.UUID]
-    ) -> dict[uuid.UUID, CardInfo]:
-        return {
-            oid: CardInfo(
-                name=f"card {oid.hex[:6]}",
-                mana_cost=self.inputs.cards[oid].get("mana_cost"),
-                type_line=self.inputs.cards[oid]["type_line"],
-                cmc=self.inputs.cards[oid]["cmc"],
-                colors=self.inputs.cards[oid]["colors"],
-                rarity="common",
-                image_normal=None,
-                image_art_crop=None,
-            )
-            for oid in ids
-            if oid in self.inputs.cards
-        }
-
-    def services(self) -> DraftServices:
-        return DraftServices(
-            store=self.store,
-            limiter=self.limiter,
-            deck_limiter=self.deck_limiter,
-            deck_model_for=lambda set_code, event_type: self.deck_model,
-            names_for=lambda set_code: self.names,
-            inputs_for=self.inputs_for,
-            card_infos_for=self.card_infos_for,
-            basic_lands_for=lambda set_code: self.basic_lands,
-            fetch=self.fetch,
-            supported_sets=self.supported,
-        )
 
 
 @pytest.fixture
@@ -166,18 +25,7 @@ def world(inputs: FormatInputs, names: dict[str, uuid.UUID]) -> World:
 
 @pytest.fixture
 def client(world: World) -> Iterator[TestClient]:
-    app.dependency_overrides[get_services] = world.services
-    yield TestClient(app)
-    app.dependency_overrides.clear()
-
-
-def submit(client: TestClient, link: str = URL) -> Any:
-    return client.post("/api/drafts", json={"link": link})
-
-
-def error_kind(response: Any) -> str:
-    kind: str = response.json()["detail"]["kind"]
-    return kind
+    yield from world.client()
 
 
 # --------------------------------------------------------------------------
@@ -208,14 +56,13 @@ def test_a_second_submit_of_the_same_link_makes_no_17lands_request(
     assert world.fetches == 1
 
 
-def test_a_cache_hit_does_not_count_against_the_limit(world: World) -> None:
-    world.limiter = FetchLimiter(world.ledger, FetchLimits(per_minute=1, per_day=1))
-    app.dependency_overrides[get_services] = world.services
-    client = TestClient(app)
+def test_a_cache_hit_does_not_count_against_the_limit(
+    client: TestClient, world: World
+) -> None:
+    world.limits["fetch"] = Limits(per_minute=1, per_day=1)
     for _ in range(3):
         assert submit(client).status_code == 200
-    assert len(world.ledger.rows) == 1
-    app.dependency_overrides.clear()
+    assert world.ledger.count("fetch") == 1
 
 
 def test_text_with_no_draft_id_is_rejected_before_anything_is_fetched(
@@ -254,11 +101,12 @@ def test_an_upstream_failure_is_a_502_and_is_not_cached(
 def test_a_set_we_do_not_support_is_refused_and_not_cached(
     client: TestClient, world: World
 ) -> None:
-    world.supported = frozenset({"msh"})
+    world.supported = frozenset({"msh", "fra"})
     response = submit(client)
     assert response.status_code == 422
     assert error_kind(response) == "unsupported_set"
-    assert "HOB" in response.json()["detail"]["message"]
+    # The message names the sets that are supported, from config.
+    assert "FRA and MSH" in response.json()["detail"]["message"]
     assert world.store.logs == {}
 
 
@@ -268,18 +116,15 @@ def test_a_failed_fetch_still_counts_against_the_limit(
     # Otherwise a client could hammer 17Lands with ids that fail.
     world.fetch_error = DraftInputError("draft_not_found", "no")
     submit(client)
-    assert len(world.ledger.rows) == 1
+    assert world.ledger.count("fetch") == 1
 
 
 def test_over_the_limit_is_a_429_with_retry_after_and_no_fetch(
-    inputs: FormatInputs, names: dict[str, uuid.UUID]
+    client: TestClient, world: World
 ) -> None:
-    world = World(inputs, names, per_minute=1)
-    app.dependency_overrides[get_services] = world.services
-    client = TestClient(app)
-    assert submit(client, "a" * 32).status_code in (200, 404, 422)
+    world.limits["fetch"] = Limits(per_minute=1, per_day=50)
+    assert submit(client, "a" * 32).status_code == 200
     response = submit(client, "b" * 32)
-    app.dependency_overrides.clear()
     assert response.status_code == 429
     assert error_kind(response) == "rate_limited"
     assert response.headers["Retry-After"] == "60"
@@ -367,7 +212,7 @@ def test_verdicts_are_recomputed_on_every_get_never_stored(
     submit(client)
     client.get(f"/api/drafts/{DRAFT_ID}")
     client.get(f"/api/drafts/{DRAFT_ID}")
-    assert world.inputs_loads == 2
+    assert len(world.stats_asked) == 2
     # All the cache holds is the parsed log.
     assert all(isinstance(v, DraftLog) for v in world.store.logs.values())
 

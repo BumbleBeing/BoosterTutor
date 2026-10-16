@@ -1,28 +1,18 @@
-"""Getting a user's draft into a `DraftLog`: the I/O around `parsing/`.
+"""The one 17lands.com request BoosterTutor makes: a single draft's replay.
 
-The parsers are pure. This module does what they cannot: fetch a 17Lands
-draft, and read from the database which cards a set's packs can hold.
-
-The 17Lands fetch is the one 17lands.com request BoosterTutor makes, and
 ADR 0023 sets its limits: only when a user submits a link, the identifying
 User-Agent, a short timeout, and no retrying a 4xx. The other two limits
 (one fetch per draft, cached; a rate limit per client) are kept by
-`draft_import.py`, the Replay Cache and `rate_limit.py`.
+`ReviewService.import_draft`, the Replay Cache and `rate_limit.py`.
+
+The parsing is pure and lives in `parsing/seventeen_lands.py`.
 """
 
 import json
-import uuid
 from typing import Any
 
-from sqlalchemy import select
-from sqlalchemy.orm import Session
-
-from .ingest.fetching import FetchError, HTTPStatusError, fetch_json_bytes
-from .models import BoosterCard, Card
-from .parsing import seventeen_lands
-from .parsing.errors import DraftInputError
-from .parsing.names import name_key
-from .schemas import DraftLog
+from ..ingest.fetching import FetchError, HTTPStatusError, fetch_json_bytes
+from ..parsing.errors import DraftInputError
 
 DRAFT_URL = "https://www.17lands.com/data/draft?draft_id={draft_id}"
 METADATA_URL = "https://www.17lands.com/data/event_metadata?draft_id={draft_id}"
@@ -31,20 +21,6 @@ METADATA_URL = "https://www.17lands.com/data/event_metadata?draft_id={draft_id}"
 # (the second only after a 5xx or a network error).
 TIMEOUT_SECONDS = 15
 MAX_ATTEMPTS = 2
-
-
-def name_index(session: Session, set_code: str) -> dict[str, uuid.UUID]:
-    """`name_key` to oracle id, for every card the set's packs can hold.
-
-    The same index the 17Lands ingest matches statistics with, so every
-    card in a draft that resolves here also has its statistics found.
-    """
-    rows = session.execute(
-        select(Card.name, BoosterCard.oracle_id)
-        .join(Card, Card.oracle_id == BoosterCard.oracle_id)
-        .where(BoosterCard.set_code == set_code)
-    )
-    return {name_key(name): oracle_id for name, oracle_id in rows}
 
 
 def fetch_seventeen_lands_draft(draft_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -56,14 +32,6 @@ def fetch_seventeen_lands_draft(draft_id: str) -> tuple[dict[str, Any], dict[str
     metadata = _fetch_json(METADATA_URL.format(draft_id=draft_id))
     draft = _fetch_json(DRAFT_URL.format(draft_id=draft_id))
     return draft, metadata
-
-
-def draft_log_from_link(session: Session, text: str) -> DraftLog:
-    """Whatever the user pasted (a 17Lands URL or a draft id) into a `DraftLog`."""
-    draft_id = seventeen_lands.parse_draft_id(text)
-    draft, metadata = fetch_seventeen_lands_draft(draft_id)
-    names = name_index(session, seventeen_lands.draft_set_code(metadata))
-    return seventeen_lands.parse_draft(draft, metadata, names, draft_id=draft_id)
 
 
 def _fetch_json(url: str) -> dict[str, Any]:

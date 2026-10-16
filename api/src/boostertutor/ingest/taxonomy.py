@@ -40,7 +40,7 @@ from sqlalchemy.orm import Session
 
 from ..analysis.mana import BASICS
 from ..config import settings
-from ..drafts import name_index
+from ..format_inputs import name_index
 from ..models import CardManaSource, CardTag, Tag, TagPair
 from ..models.tags import TAG_KINDS
 from ..parsing.names import name_key

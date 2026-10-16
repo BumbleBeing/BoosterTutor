@@ -35,8 +35,7 @@ from sqlalchemy import delete, insert
 from sqlalchemy.orm import Session
 
 from ..config import settings
-from ..drafts import name_index
-from ..format_inputs import load_cards, load_edges
+from ..format_inputs import load_cards, load_edges, name_index
 from ..models import SynergyBaseline
 from ..parsing.names import name_key
 from .runs import recorded_run

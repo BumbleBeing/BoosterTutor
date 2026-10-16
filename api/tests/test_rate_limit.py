@@ -1,4 +1,4 @@
-"""The per-IP limit on submissions that need a 17Lands fetch (ADR 0031 s6).
+"""The per-IP rate limits (ADR 0031 s6).
 
 The limiter's counting is tested against an in-memory ledger; the Postgres
 ledger is the same three calls over one table.
@@ -7,29 +7,16 @@ ledger is the same three calls over one table.
 import datetime as dt
 
 import pytest
+from review_world import MemoryLedger
 
-from boostertutor.rate_limit import (
-    FetchLimiter,
-    FetchLimits,
+from boostertutor.review.rate_limit import (
+    Limits,
     RateLimited,
+    RateLimiter,
     client_key,
 )
 
 START = dt.datetime(2026, 10, 16, 12, 0, tzinfo=dt.UTC)
-
-
-class MemoryLedger:
-    def __init__(self) -> None:
-        self.rows: list[tuple[str, dt.datetime]] = []
-
-    def count_since(self, key: str, since: dt.datetime) -> int:
-        return sum(1 for k, at in self.rows if k == key and at > since)
-
-    def record(self, key: str, at: dt.datetime) -> None:
-        self.rows.append((key, at))
-
-    def prune(self, before: dt.datetime) -> None:
-        self.rows = [(k, at) for k, at in self.rows if at >= before]
 
 
 class Clock:
@@ -42,25 +29,26 @@ class Clock:
 
 def make(
     per_minute: int = 2, per_day: int = 4
-) -> tuple[FetchLimiter, Clock, MemoryLedger]:
+) -> tuple[RateLimiter, Clock, MemoryLedger]:
     clock, ledger = Clock(), MemoryLedger()
-    limiter = FetchLimiter(ledger, FetchLimits(per_minute, per_day), clock)
+    limits = Limits(per_minute, per_day)
+    limiter = RateLimiter(ledger, {"fetch": limits, "deck": Limits(1, 1)}, clock)
     return limiter, clock, ledger
 
 
 def test_submissions_under_the_limit_pass_and_are_recorded() -> None:
     limiter, _, ledger = make()
-    limiter.check_and_record("a")
-    limiter.check_and_record("a")
+    limiter.check_and_record("fetch", "a")
+    limiter.check_and_record("fetch", "a")
     assert len(ledger.rows) == 2
 
 
 def test_the_per_minute_limit_blocks_and_says_when_to_retry() -> None:
     limiter, _, ledger = make()
-    limiter.check_and_record("a")
-    limiter.check_and_record("a")
+    limiter.check_and_record("fetch", "a")
+    limiter.check_and_record("fetch", "a")
     with pytest.raises(RateLimited) as caught:
-        limiter.check_and_record("a")
+        limiter.check_and_record("fetch", "a")
     assert caught.value.window == "minute"
     assert caught.value.retry_after == 60
     assert len(ledger.rows) == 2  # a refused submission is not recorded
@@ -68,19 +56,19 @@ def test_the_per_minute_limit_blocks_and_says_when_to_retry() -> None:
 
 def test_the_minute_window_slides() -> None:
     limiter, clock, _ = make()
-    limiter.check_and_record("a")
-    limiter.check_and_record("a")
+    limiter.check_and_record("fetch", "a")
+    limiter.check_and_record("fetch", "a")
     clock.now += dt.timedelta(seconds=61)
-    limiter.check_and_record("a")
+    limiter.check_and_record("fetch", "a")
 
 
 def test_the_daily_limit_blocks_after_the_minute_windows_pass() -> None:
     limiter, clock, _ = make()
     for _ in range(4):
-        limiter.check_and_record("a")
+        limiter.check_and_record("fetch", "a")
         clock.now += dt.timedelta(minutes=2)
     with pytest.raises(RateLimited) as caught:
-        limiter.check_and_record("a")
+        limiter.check_and_record("fetch", "a")
     assert caught.value.window == "day"
     assert caught.value.retry_after == 3600
 
@@ -88,24 +76,36 @@ def test_the_daily_limit_blocks_after_the_minute_windows_pass() -> None:
 def test_the_day_window_slides() -> None:
     limiter, clock, _ = make()
     for _ in range(4):
-        limiter.check_and_record("a")
+        limiter.check_and_record("fetch", "a")
         clock.now += dt.timedelta(minutes=2)
     clock.now += dt.timedelta(hours=24)
-    limiter.check_and_record("a")
+    limiter.check_and_record("fetch", "a")
 
 
 def test_each_client_has_its_own_allowance() -> None:
     limiter, _, _ = make()
-    limiter.check_and_record("a")
-    limiter.check_and_record("a")
-    limiter.check_and_record("b")
+    limiter.check_and_record("fetch", "a")
+    limiter.check_and_record("fetch", "a")
+    limiter.check_and_record("fetch", "b")
+
+
+def test_each_bucket_has_its_own_allowance() -> None:
+    limiter, _, ledger = make()
+    limiter.check_and_record("deck", "a")
+    with pytest.raises(RateLimited) as caught:
+        limiter.check_and_record("deck", "a")
+    assert caught.value.bucket == "deck"
+    # The same client's fetch allowance is untouched.
+    limiter.check_and_record("fetch", "a")
+    limiter.check_and_record("fetch", "a")
+    assert (ledger.count("deck"), ledger.count("fetch")) == (1, 2)
 
 
 def test_old_rows_are_pruned() -> None:
     limiter, clock, ledger = make()
-    limiter.check_and_record("a")
+    limiter.check_and_record("fetch", "a")
     clock.now += dt.timedelta(days=3)
-    limiter.check_and_record("a")
+    limiter.check_and_record("fetch", "a")
     assert len(ledger.rows) == 1
 
 
