@@ -946,5 +946,24 @@
       "storied"
     ]
   },
-  "mana_sources": {}
+  "mana_sources": {
+    "Hobbit Hole": {"kind": "fetch_basic", "colors": "basics"},
+    "Elven Passage": {"kind": "fetch_basic", "colors": "basics"},
+    "Wood Elves": {"kind": "ramp_spell_3", "colors": "G"},
+    "Troop of Ponies": {"kind": "ramp_spell_3", "colors": "basics",
+                        "land_weight": 1, "notes": "Fetches two basics"},
+    "Thrór's Map": {"kind": "land_tutor", "colors": "basics"},
+    "Down in the Valley": {"kind": "land_tutor", "colors": "basics"},
+    "Old Thrush": {"kind": "land_tutor", "colors": "basics"},
+    "Giant's Boulder": {"kind": "mana_rock", "colors": "WUBRG",
+                        "land_weight": 0, "notes": "Filters mana rather than adding any"},
+    "Dori, Bearer of Friends": {"kind": "treasure", "colors": "WUBRG", "expected": 1},
+    "Long-Bodied Grey Dog": {"kind": "treasure", "colors": "WUBRG", "expected": 1},
+    "Bejeweled Warg": {"kind": "treasure", "colors": "WUBRG", "expected": 0},
+    "Orcrist, Goblin-cleaver": {"kind": "treasure", "colors": "WUBRG", "expected": 0},
+    "Smaug the Magnificent": {"kind": "treasure", "colors": "WUBRG", "expected": 0},
+    "Smaug, Wicked Worm": {"kind": "treasure", "colors": "WUBRG", "expected": 0},
+    "The Misty Mountains Cold": {"kind": "treasure", "colors": "WUBRG", "expected": 2},
+    "The Sackville-Bagginses": {"kind": "treasure", "colors": "WUBRG", "expected": 0.5}
+  }
 }

@@ -125,7 +125,17 @@ Wins rise as lands fall, one land below the target beats being on it, and
 the regression's land coefficient is positive (+0.042 log-odds per unit of
 distance, standard error 0.007), the opposite of the metric's intent.
 Part of this is selection rather than cause: fast, low-curve decks both
-run fewer lands and win more. The "Revisit when" trigger below has fired,
+run fewer lands and win more.
+
+Re-run the same day with HOB's `mana_sources` authored by Jackson (16
+entries), the result stands. At a target of 17: 15 effective lands win
+59.9%, 16 win 58.5%, 17 win 57.2%, 18 win 54.1%. The land coefficient
+falls to +0.033 (standard error 0.008), and the mana shortfall's
+strengthens from −0.017 to −0.024. One new pattern: every half-land
+count wins less than the whole counts beside it (16.5 lands: 55.9%,
+17.5: 54.6%). Only a Fixer with a ½ land weight makes a half, so decks
+running land tutors and ramp win less. That suggests these cards are
+weak in HOB, or that ½ overstates them as lands. The "Revisit when" trigger below has fired,
 and the targets stay placeholders until Jackson decides whether to move
 them (15/16/17 would put HOB's best-performing count on target) or to
 measure the land metric differently.
