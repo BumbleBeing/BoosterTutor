@@ -639,7 +639,9 @@ A vertical timeline of every pick in three packs: the card taken, notable altern
 
 A standalone component (ADR 0025 §1), reused in Phase 7. `POST /api/drafts/{id}/deck` takes 40 cards and returns Deck Ratings; anonymous submissions are not stored, with per-IP limiting.
 
-Built on 2026-10-16: `analysis/mana.py` gained `colour_sources`; `deck_submission.py` and `routes/drafts.py` hold the endpoint; the builder is `web/src/lib/deck/`. Deck submissions are limited per IP through the existing `fetch_attempts` table under a `deck:` key prefix (no new table), with `DECK_LIMIT_PER_MINUTE` / `DECK_LIMIT_PER_DAY` in config. The response carries the full `DeckMetrics` and the names of the cards it mentions, so the panel needs no second request.
+Built on 2026-10-16: `analysis/mana.py` gained `colour_sources`; the builder is `web/src/lib/deck/`. Deck submissions have their own per-IP allowance (`DECK_LIMIT_PER_MINUTE` / `DECK_LIMIT_PER_DAY`), counted in `rate_limit_events` under the `deck` bucket. The response carries the full `DeckMetrics` and the names of the cards it mentions, so the panel needs no second request.
+
+Restructured on 2026-10-16 (R1): the three endpoints' rules live in one `ReviewService` (`api/src/boostertutor/review/service.py`), which raises a single `ReviewError` that `main.py` turns into the response. The routes only read the request. The 5a migration was edited in place before it had been applied anywhere: `fetch_attempts` became `rate_limit_events`, with a `bucket` column. CI does not run migrations, so `alembic upgrade head` on a real Postgres is still unchecked.
 
 ### 5d Claude endpoints behind the Admin Key
 
