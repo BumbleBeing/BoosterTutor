@@ -6,8 +6,8 @@ draft, and read from the database which cards a set's packs can hold.
 The 17Lands fetch is the one 17lands.com request BoosterTutor makes, and
 ADR 0023 sets its limits: only when a user submits a link, the identifying
 User-Agent, a short timeout, and no retrying a 4xx. The other two limits
-(one fetch per draft, cached; a rate limit per user) need storage and
-request handling, so they arrive with the endpoint (Phases 5 and 8).
+(one fetch per draft, cached; a rate limit per client) are kept by
+`draft_import.py`, the Replay Cache and `rate_limit.py`.
 """
 
 import json

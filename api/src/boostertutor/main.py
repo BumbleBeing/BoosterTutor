@@ -6,6 +6,7 @@ from sqlalchemy import text
 
 from .config import settings
 from .db import engine
+from .routes import drafts
 
 app = FastAPI(title="BoosterTutor API", version="0.1.0")
 
@@ -21,6 +22,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(drafts.router)
 
 
 @app.get("/health")
