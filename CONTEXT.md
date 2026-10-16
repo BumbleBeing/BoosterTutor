@@ -162,6 +162,18 @@ hindsight: the colour arc, what wheeled, the deck's ratings and the lesson
 to carry forward. See ADR 0024.
 _Avoid_: overall note, recap, summary note
 
+**Key Pick**:
+One of at most two picks a Draft Summary points to. Claude names only the
+pick; Python shows its card, verdict and gap. See ADR 0030.
+_Avoid_: highlight, turning point
+
+**Format Primer**:
+What every Draft Summary is told about the format: each colour pair's
+win rate, the average GIH WR and the best commons of each colour, from
+the 17Lands statistics. Cached, and the same for every draft of the
+format. See ADR 0030.
+_Avoid_: meta summary, format brief
+
 **Submitted Deck**:
 A 40-card deck a drafter builds from their pool and submits after the
 draft. A later submission replaces the current one. See ADR 0025.

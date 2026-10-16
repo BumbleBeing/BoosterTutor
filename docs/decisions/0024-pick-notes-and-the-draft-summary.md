@@ -1,6 +1,6 @@
 # ADR 0024 — Pick Notes and the Draft Summary
 
-**Status:** Proposed · **Date:** 2026-10-15 · **Supersedes:** development plan §4.2 (per-pack batching, a blurb for every pick, the echoed verdict) and §4.4 item 4 (Haiku for card-name resolution) · **Amends:** ADR 0008 §3 (only a mistake earns a note), ADR 0020 §5 (what a practice draft stores) · **Relates to:** ADR 0021 (no account, no Claude), ADR 0025 (the Submitted Deck), ADR 0026 (Deck Ratings), ADR 0027 (limits)
+**Status:** Proposed · **Date:** 2026-10-15 · **Supersedes:** development plan §4.2 (per-pack batching, a blurb for every pick, the echoed verdict) and §4.4 item 4 (Haiku for card-name resolution) · **Amends:** ADR 0008 §3 (only a mistake earns a note), ADR 0020 §5 (what a practice draft stores) · **Amended by:** ADR 0030 (the Draft Summary's shape, inputs and evals) · **Relates to:** ADR 0021 (no account, no Claude), ADR 0025 (the Submitted Deck), ADR 0026 (Deck Ratings), ADR 0027 (limits)
 
 ---
 
