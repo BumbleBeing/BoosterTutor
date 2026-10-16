@@ -15,6 +15,7 @@ from typing import Any
 import pytest
 from fastapi.testclient import TestClient
 
+from boostertutor.analysis.deck_rating import DeckRatingModel
 from boostertutor.analysis.draft import FormatInputs
 from boostertutor.draft_services import CardInfo, DraftServices, get_services
 from boostertutor.format_inputs import FormatNotReady
@@ -81,6 +82,9 @@ class World:
         self.limits = FetchLimits(per_minute=per_minute, per_day=50)
         self.ledger = MemoryLedger()
         self.limiter = FetchLimiter(self.ledger, self.limits)
+        # Deck submissions share the ledger under their own key prefix.
+        self.deck_limiter = FetchLimiter(self.ledger, FetchLimits(5, 50))
+        self.deck_model: DeckRatingModel | None = None
 
     def fetch(self, draft_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
         self.fetches += 1
@@ -126,6 +130,8 @@ class World:
         return DraftServices(
             store=self.store,
             limiter=self.limiter,
+            deck_limiter=self.deck_limiter,
+            deck_model_for=lambda set_code, event_type: self.deck_model,
             names_for=lambda set_code: self.names,
             inputs_for=self.inputs_for,
             card_infos_for=self.card_infos_for,

@@ -178,6 +178,54 @@ def shortfalls(
     return out
 
 
+def colour_sources(
+    cards: list[dict[str, Any]],
+    basics: dict[str, int],
+    mana_sources: dict[Any, ManaSource],
+) -> dict[str, float]:
+    """How many Colour Sources the deck has of each colour its spells use.
+
+    The same counting as `shortfalls`: lands that make the colour count
+    whole, Fixers count at their colour weight, and a basic-fetcher in a
+    deck of three or more basic types counts two thirds. This summary is
+    per colour, not per spell, so a Fixer's minimum mana value is ignored.
+    Colours no spell has a pip of are left out.
+    """
+    basic_colours = {c for c, n in basics.items() if n}
+    basics_weight = (
+        BASICS_CHOICE_WEIGHT if len(basic_colours) >= BASICS_CHOICE_COLOURS else 1.0
+    )
+    spells = [c for c in cards if LAND_TAG not in c["tags"]]
+    used = {
+        letter
+        for card in spells
+        for colours in pip_groups(card.get("mana_cost"))
+        for letter in colours
+    }
+    land_colours: list[set[str]] = [
+        set(c["color_identity"])
+        for c in cards
+        if LAND_TAG in c["tags"] and c["oracle_id"] not in mana_sources
+    ]
+    land_colours += [{colour} for colour, n in basics.items() for _ in range(n)]
+
+    out: dict[str, float] = {}
+    for colour in "WUBRG":
+        if colour not in used:
+            continue
+        total = sum(1.0 for produced in land_colours if colour in produced)
+        for card in cards:
+            source = mana_sources.get(card["oracle_id"])
+            if source is None:
+                continue
+            fixes = basic_colours if source.colors == BASICS else set(source.colors)
+            if colour in fixes:
+                scale = basics_weight if source.colors == BASICS else 1.0
+                total += source.color_weight * scale
+        out[colour] = total
+    return out
+
+
 # --------------------------------------------------------------------------
 # The effective land count (ADR 0028 s4)
 # --------------------------------------------------------------------------

@@ -294,3 +294,17 @@ def test_there_is_no_notable_omission_within_the_mistake_gap() -> None:
     deck = deck.model_copy(update={"sideboard": [s.card("Benched", gih_wr=57.0)]})
 
     assert deck_metrics(deck, s.inputs()).notable_omission is None
+
+
+def test_colour_sources_count_lands_and_fixers_for_the_colours_spells_use() -> None:
+    from boostertutor.analysis.mana import colour_sources
+
+    s = Set()
+    white = s.card("White Knight", "{1}{W}")
+    red = s.card("Red Bolt", "{R}", type_line="Instant")
+    dori = s.card("Dori", "{2}", type_line="Artifact")
+    s.mana_sources[dori] = ManaSource("treasure", "WUBRG", 0.5, 0.5)
+    cards = [s.cards[white], s.cards[red], s.cards[dori]]
+    result = colour_sources(cards, {"W": 8, "R": 7}, s.mana_sources)
+    # Green and black have no pips among the spells, so they are left out.
+    assert result == {"W": 8.5, "R": 7.5}

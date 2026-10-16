@@ -41,6 +41,10 @@ class Settings(BaseSettings):
     # Phase 8. Only a submission that needs a fetch counts.
     fetch_limit_per_minute: int = 5
     fetch_limit_per_day: int = 40
+    # Deck submissions per client (ADR 0031 s6). They cost no 17Lands request
+    # and no Claude call, so the allowance is more generous; placeholders too.
+    deck_limit_per_minute: int = 20
+    deck_limit_per_day: int = 300
     # Clients are told apart by a salted hash of their address. Set a long
     # random value in production so the hashes can't be reversed by guessing.
     client_hash_salt: str = "dev-only-salt"

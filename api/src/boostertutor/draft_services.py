@@ -16,11 +16,12 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
+from .analysis.deck_rating import DeckRatingModel
 from .analysis.draft import FormatInputs
 from .config import settings
 from .db import SessionLocal
 from .drafts import fetch_seventeen_lands_draft, name_index
-from .format_inputs import load_format_inputs
+from .format_inputs import load_deck_rating_model, load_format_inputs
 from .models import Card, CardPrint, Draft
 from .rate_limit import FetchLimiter, FetchLimits, SqlLedger
 from .schemas import DraftLog
@@ -41,6 +42,11 @@ class ReplayStore(Protocol):
 class DraftServices:
     store: ReplayStore
     limiter: FetchLimiter
+    # Deck submissions have their own allowance (ADR 0031 s6). It is a
+    # FetchLimiter over the same table, under a different key prefix.
+    deck_limiter: FetchLimiter
+    # (set code, event type) -> the fitted Deck Ratings, or None if unfitted.
+    deck_model_for: Callable[[str, str], DeckRatingModel | None]
     # set code -> name_key -> oracle id, for matching a draft's card names.
     names_for: Callable[[str], dict[str, uuid.UUID]]
     # (set code, event type) -> the statistics a verdict is computed from.
@@ -123,6 +129,16 @@ def get_services(session: Annotated[Session, Depends(get_session)]) -> DraftServ
                 per_minute=settings.fetch_limit_per_minute,
                 per_day=settings.fetch_limit_per_day,
             ),
+        ),
+        deck_limiter=FetchLimiter(
+            SqlLedger(session),
+            FetchLimits(
+                per_minute=settings.deck_limit_per_minute,
+                per_day=settings.deck_limit_per_day,
+            ),
+        ),
+        deck_model_for=lambda set_code, event_type: load_deck_rating_model(
+            session, set_code, event_type
         ),
         names_for=lambda set_code: name_index(session, set_code),
         inputs_for=lambda set_code, event_type: load_format_inputs(
