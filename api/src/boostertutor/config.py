@@ -35,6 +35,26 @@ class Settings(BaseSettings):
     # call is made until tomorrow. About $5 a day while the app is small.
     daily_spend_cap_usd: Decimal = Decimal("5.00")
 
+    # Draft Review (ADR 0031). v1 launches with HOB only (ADR 0029).
+    supported_sets: str = "hob"
+    # The 17Lands fetch limit per client (ADR 0031 s6); placeholders, tuned in
+    # Phase 8. Only a submission that needs a fetch counts.
+    fetch_limit_per_minute: int = 5
+    fetch_limit_per_day: int = 40
+    # Clients are told apart by a salted hash of their address. Set a long
+    # random value in production so the hashes can't be reversed by guessing.
+    client_hash_salt: str = "dev-only-salt"
+    # How many proxies sit in front of the API and append to X-Forwarded-For.
+    # 0 trusts only the socket address. Check the value against the live
+    # headers on Render before relying on the limit there.
+    proxy_hops: int = 0
+
+    @property
+    def supported_set_codes(self) -> frozenset[str]:
+        return frozenset(
+            s.strip().lower() for s in self.supported_sets.split(",") if s.strip()
+        )
+
     @property
     def sqlalchemy_url(self) -> str:
         """Supabase hands out `postgresql://`, which SQLAlchemy reads as
