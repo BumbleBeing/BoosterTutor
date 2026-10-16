@@ -8,6 +8,9 @@ export type Verdict = 'indifferent' | FitnessClass;
 export interface CardScore {
 	oracle_id: string;
 	scored: boolean;
+	// The card's fitness: its value to this pool at this pick, in points of win
+	// rate. GIH WR, less a tax for colours the pool isn't in, plus the curve,
+	// removal and synergy terms. Picks are graded on it, not on GIH WR.
 	total: number | null;
 	gih_wr: number | null; // percent, e.g. 56.3
 	games: number;
@@ -26,6 +29,40 @@ export interface PickAnalysis {
 	noted: boolean;
 	pool: { size: number; predicted_archetype: string | null };
 	cards: CardScore[]; // one per distinct card in the pack, best first
+}
+
+// The wheel analysis (schemas/draft_analysis.py, analysis/wheel.py). Facts for
+// reading signals, not part of any pick's fitness.
+
+export interface WheelCard {
+	oracle_id: string;
+	colors: string; // e.g. "WU"; "" for colourless
+	gih_wr: number | null;
+	alsa: number | null; // the pick it is usually last seen at
+	above_average: boolean; // GIH WR at or above the format's average
+}
+
+/** One first-lap pick's pack, and what was left of it eight picks later. */
+export interface WheelLap {
+	first_pick: number;
+	returned_at: number; // first_pick + 8
+	wheeled: WheelCard[]; // the whole pack that came back
+	taken_by_table: WheelCard[]; // what the other seven drafters took
+}
+
+/** One colour across a pack's laps. Gold cards count for each of their colours. */
+export interface ColorSignal {
+	color: string;
+	good_cards_wheeled: number;
+	cards_wheeled: number;
+	cards_taken_by_table: number;
+	best_wheeled: string | null; // the best above-average card of this colour that came back
+}
+
+export interface PackWheel {
+	pack_number: number;
+	laps: WheelLap[];
+	colors: ColorSignal[]; // W, U, B, R, G
 }
 
 export interface CardInfo {
@@ -50,6 +87,7 @@ export interface DraftReview {
 	analysis: {
 		stats_snapshot: string;
 		picks: PickAnalysis[];
+		wheels: PackWheel[]; // one per pack: what came back, and what the table took
 	};
 	verdict_counts: Record<string, number>;
 	noted_picks: [number, number][];

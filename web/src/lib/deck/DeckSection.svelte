@@ -34,8 +34,8 @@
 	}
 </script>
 
-<section aria-labelledby="deck-heading" class="border-t border-slate-200 pt-8">
-	<h2 id="deck-heading" class="text-xl font-bold">
+<section aria-labelledby="deck-heading" class="border-t border-line pt-8">
+	<h2 id="deck-heading" class="text-3xl font-semibold">
 		Submit your final deck for a full Draft Review
 	</h2>
 	<div class="mt-4">
@@ -49,7 +49,10 @@
 	</div>
 
 	{#if error}
-		<p role="alert" class="mt-4 rounded border border-red-200 bg-red-50 p-3 text-sm text-red-900">
+		<p
+			role="alert"
+			class="mt-4 rounded border border-danger-line bg-danger p-3 text-sm text-danger-ink"
+		>
 			{error}
 		</p>
 	{/if}
@@ -58,8 +61,8 @@
 		<div class="mt-8 space-y-4" aria-live="polite">
 			<DeckRatingsPanel review={ratings} />
 			<!-- Where the Draft Summary will go; Claude's prose needs an account (ADR 0021). -->
-			<aside class="rounded-lg border border-dashed border-slate-300 p-4 text-sm text-slate-600">
-				<h3 class="font-semibold text-slate-800">Draft Summary</h3>
+			<aside class="rounded-lg border border-dashed border-line-strong p-4 text-sm text-muted">
+				<h3 class="text-lg font-semibold text-ink">Draft Summary</h3>
 				<p class="mt-1">Sign in for a Draft Summary</p>
 			</aside>
 		</div>

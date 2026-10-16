@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import VerdictChip from './VerdictChip.svelte';
-	import { VERDICT_STYLE, formatGap, formatWinRate, packLabel, type TimelinePick } from './model';
 	import type { DraftReview } from '$lib/api/types';
+	import Chip from '$lib/ui/Chip.svelte';
+	import Panel from '$lib/ui/Panel.svelte';
+	import {
+		VERDICT_LABEL,
+		formatFitness,
+		formatWinRate,
+		packLabel,
+		type TimelinePick
+	} from './model';
 
 	let {
 		entry,
@@ -23,7 +30,7 @@
 	const bestAlt = $derived(entry.alternatives[0]);
 </script>
 
-<li class="rounded-lg border border-slate-200 bg-white" id="pick-{entry.index}">
+<Panel as="li" padded={false} id="pick-{entry.index}">
 	<div class="flex items-stretch">
 		<!-- data-pick-toggle lets the timeline's arrow-key handler find every row. -->
 		<button
@@ -32,23 +39,31 @@
 			aria-expanded={open}
 			aria-controls="pick-detail-{entry.index}"
 			onclick={ontoggle}
-			class="flex min-w-0 flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left hover:bg-slate-50"
+			class="flex min-w-0 flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left hover:bg-page"
 		>
-			<span class="w-9 shrink-0 text-xs text-slate-500 tabular-nums">
+			<span class="w-9 shrink-0 text-xs text-muted tabular-nums">
 				<span class="sr-only">{packLabel(pick)}:</span>
 				<span aria-hidden="true">p{pick.pick_number}</span>
 			</span>
 			<span class="min-w-0 flex-1">
 				<span class="block font-medium sm:truncate">{takenName}</span>
 				{#if bestAlt && pick.verdict !== 'solid'}
-					<span class="block text-xs text-slate-500 sm:truncate">
+					<!-- Alternatives are ranked by fitness, so fitness is the number that
+					     says why one is better. GIH WR is there for context only: a
+					     "better" card can have the lower win rate if it suits the pool. -->
+					<span class="block text-xs text-muted sm:truncate">
 						Better: {bestAlt.info?.name ?? 'another card'}
-						({formatWinRate(bestAlt.score.gih_wr)} GIH WR)
-						{#if pick.gap != null}· {formatGap(pick.gap)} short{/if}
+						· fitness
+						<span class="tabular-nums"
+							>{formatFitness(bestAlt.score.total)} vs {formatFitness(
+								entry.takenScore?.total
+							)}</span
+						>
+						· GIH WR <span class="tabular-nums">{formatWinRate(bestAlt.score.gih_wr)}</span>
 					</span>
 				{/if}
 			</span>
-			<span class="shrink-0"><VerdictChip verdict={pick.verdict} /></span>
+			<Chip tone={pick.verdict} data-verdict={pick.verdict}>{VERDICT_LABEL[pick.verdict]}</Chip>
 		</button>
 		{#if pick.noted}
 			<button
@@ -57,7 +72,7 @@
 				aria-controls="pick-note-{entry.index}"
 				aria-label="Coach's note for {packLabel(pick)}"
 				onclick={() => (noteOpen = !noteOpen)}
-				class="px-3 text-slate-500 hover:text-slate-900"
+				class="px-3 text-muted hover:text-accent"
 			>
 				<!-- A speech bubble. Filled when its panel is open. -->
 				<svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
@@ -75,30 +90,50 @@
 
 	{#if noteOpen}
 		<!-- In 5b nobody sees prose: no Claude call is made from this page. -->
-		<p id="pick-note-{entry.index}" class="mx-3 mb-3 rounded-md bg-sky-50 p-3 text-sm text-sky-950">
+		<p
+			id="pick-note-{entry.index}"
+			class="mx-3 mb-3 rounded-md border border-periwinkle-line bg-periwinkle p-3 text-sm text-periwinkle-ink"
+		>
 			Sign in for a coach's note on this pick.
 		</p>
 	{/if}
 
 	{#if open}
-		<div id="pick-detail-{entry.index}" class="border-t border-slate-100 p-3" transition:slide>
+		<div id="pick-detail-{entry.index}" class="border-t border-line p-3" transition:slide>
 			{#if entry.alternatives.length}
-				<h3 class="text-sm font-semibold">Cards that scored higher</h3>
-				<ul class="mt-1 text-sm">
-					{#each entry.alternatives as alt (alt.score.oracle_id)}
-						<li class="flex justify-between gap-3 py-0.5">
-							<span class="truncate">{alt.info?.name ?? 'Unknown card'}</span>
-							<span class="shrink-0 text-slate-600 tabular-nums">
-								{formatWinRate(alt.score.gih_wr)} GIH WR
-							</span>
-						</li>
-					{/each}
-				</ul>
+				<table class="w-full text-sm">
+					<caption class="text-left font-display text-base font-semibold"
+						>Cards with a higher fitness</caption
+					>
+					<thead class="text-xs text-muted">
+						<tr>
+							<th scope="col" class="py-1 text-left font-normal">Card</th>
+							<th scope="col" class="py-1 text-right font-normal">Fitness</th>
+							<th scope="col" class="py-1 pl-3 text-right font-normal whitespace-nowrap">GIH WR</th>
+						</tr>
+					</thead>
+					<tbody class="tabular-nums">
+						{#each entry.alternatives as alt (alt.score.oracle_id)}
+							<tr>
+								<td class="w-full max-w-0 truncate py-0.5">{alt.info?.name ?? 'Unknown card'}</td>
+								<td class="py-0.5 text-right">{formatFitness(alt.score.total)}</td>
+								<td class="py-0.5 pl-3 text-right text-muted">{formatWinRate(alt.score.gih_wr)}</td>
+							</tr>
+						{/each}
+						<tr class="border-t border-line font-medium">
+							<td class="w-full max-w-0 truncate py-0.5">Your pick: {takenName}</td>
+							<td class="py-0.5 text-right">{formatFitness(entry.takenScore?.total)}</td>
+							<td class="py-0.5 pl-3 text-right text-muted"
+								>{formatWinRate(entry.takenScore?.gih_wr)}</td
+							>
+						</tr>
+					</tbody>
+				</table>
 			{:else}
-				<p class="text-sm text-slate-600">Nothing in this pack scored higher than your pick.</p>
+				<p class="text-sm text-muted">Nothing in this pack had a higher fitness than your pick.</p>
 			{/if}
 
-			<h3 class="mt-4 text-sm font-semibold">The pack ({pick.cards.length} different cards)</h3>
+			<h3 class="mt-4 text-base font-semibold">The pack ({pick.cards.length} different cards)</h3>
 			<!-- Images exist only while this is open, so a collapsed draft loads none of them. -->
 			<ul class="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5">
 				{#each pick.cards as card (card.oracle_id)}
@@ -113,30 +148,29 @@
 								width="488"
 								height="680"
 								class="h-auto w-full rounded-lg {taken
-									? 'ring-4 ring-slate-900 ring-offset-1'
+									? 'ring-4 ring-accent ring-offset-1 ring-offset-surface'
 									: ''}"
 							/>
 						{:else}
 							<div
-								class="flex aspect-[488/680] items-center justify-center rounded-lg bg-slate-200 p-1 text-center"
+								class="flex aspect-[488/680] items-center justify-center rounded-lg bg-sunken p-1 text-center"
 							>
 								{info?.name ?? 'Unknown card'}
 							</div>
 						{/if}
 						<p class="mt-1 truncate font-medium">{info?.name ?? 'Unknown card'}</p>
-						<p class="flex items-center justify-between gap-1">
-							<span class="tabular-nums">{formatWinRate(card.gih_wr)}</span>
-							{#if card.fitness_class}
-								<span class="rounded px-1 text-[11px] {VERDICT_STYLE[card.fitness_class].chip}"
-									>{VERDICT_STYLE[card.fitness_class].label}</span
-								>
-							{/if}
-						</p>
-						{#if taken}<p class="font-semibold">Your pick</p>{/if}
-						{#if card.insufficient_data}<p class="text-slate-500">few games</p>{/if}
+						<p class="tabular-nums">Fitness {formatFitness(card.total)}</p>
+						<p class="text-muted tabular-nums">GIH WR {formatWinRate(card.gih_wr)}</p>
+						{#if card.fitness_class}
+							<Chip tone={card.fitness_class} size="xs" class="mt-0.5"
+								>{VERDICT_LABEL[card.fitness_class]}</Chip
+							>
+						{/if}
+						{#if taken}<p class="font-semibold text-accent">Your pick</p>{/if}
+						{#if card.insufficient_data}<p class="text-muted">few games</p>{/if}
 					</li>
 				{/each}
 			</ul>
 		</div>
 	{/if}
-</li>
+</Panel>

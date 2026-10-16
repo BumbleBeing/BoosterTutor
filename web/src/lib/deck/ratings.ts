@@ -1,15 +1,9 @@
 // Plain-words labels for the Deck Ratings panel. Pure, so they are easy to test.
 // The server computes every number; this only decides how to say it.
 
-import type { DeckMetrics, DeckReview, Grade, MetricRating } from '$lib/api/types';
+// A grade's colours come from its chip tone (lib/ui/tones.ts, `gradeTone`).
 
-export const GRADE_STYLE: Record<Grade, string> = {
-	A: 'bg-emerald-100 text-emerald-900 ring-emerald-600/30',
-	B: 'bg-lime-100 text-lime-900 ring-lime-600/30',
-	C: 'bg-amber-100 text-amber-900 ring-amber-600/30',
-	D: 'bg-orange-100 text-orange-900 ring-orange-600/30',
-	F: 'bg-red-100 text-red-900 ring-red-600/30'
-};
+import type { DeckMetrics, DeckReview, MetricRating } from '$lib/api/types';
 
 const COLOUR_NAMES: Record<string, string> = {
 	W: 'white',

@@ -1,14 +1,22 @@
 // Pure helpers for the review page: no network, no DOM, so they are easy to test.
 
 import type { ApiError } from '$lib/api/client';
-import type { CardInfo, CardScore, DraftReview, PickAnalysis, Verdict } from '$lib/api/types';
+import type {
+	CardInfo,
+	CardScore,
+	DraftReview,
+	PickAnalysis,
+	Verdict,
+	WheelCard
+} from '$lib/api/types';
+import type { ManaColour } from '$lib/ui/tones';
 
-/** Label and Tailwind classes for each verdict chip. The words matter as much as the colour. */
-export const VERDICT_STYLE: Record<Verdict, { label: string; chip: string }> = {
-	solid: { label: 'Solid', chip: 'bg-emerald-100 text-emerald-900 ring-emerald-600/30' },
-	questionable: { label: 'Questionable', chip: 'bg-amber-100 text-amber-900 ring-amber-600/30' },
-	mistake: { label: 'Mistake', chip: 'bg-red-100 text-red-900 ring-red-600/30' },
-	indifferent: { label: 'No real choice', chip: 'bg-slate-100 text-slate-700 ring-slate-500/30' }
+/** The words on each verdict chip. Its colour comes from the chip's tone (lib/ui/tones.ts). */
+export const VERDICT_LABEL: Record<Verdict, string> = {
+	solid: 'Solid',
+	questionable: 'Questionable',
+	mistake: 'Mistake',
+	indifferent: 'No real choice'
 };
 
 // Display order for the summary counts.
@@ -19,7 +27,9 @@ export interface TimelinePick {
 	pick: PickAnalysis;
 	taken: CardInfo | undefined;
 	takenScore: CardScore | undefined;
-	// Better cards the drafter passed, best first (at most three).
+	// Cards with a higher fitness than the one taken, best first (at most
+	// three). Ranked by fitness (`score.total`), the number the verdict is
+	// decided on, so the page must show that number beside them, not GIH WR.
 	alternatives: { score: CardScore; info: CardInfo | undefined }[];
 }
 
@@ -34,8 +44,11 @@ export function buildTimeline(review: DraftReview): TimelinePack[] {
 	review.analysis.picks.forEach((pick, index) => {
 		const takenScore = pick.cards.find((c) => c.oracle_id === pick.picked);
 		const takenTotal = takenScore?.total ?? -Infinity;
+		// The API sends cards best first already; sorting here keeps "ranked by
+		// fitness" true even if that order ever changes.
 		const alternatives = pick.cards
 			.filter((c) => c.oracle_id !== pick.picked && c.scored && (c.total ?? -Infinity) > takenTotal)
+			.sort((a, b) => (b.total ?? -Infinity) - (a.total ?? -Infinity))
 			.slice(0, 3)
 			.map((score) => ({ score, info: review.cards[score.oracle_id] }));
 		const entry: TimelinePick = {
@@ -57,7 +70,15 @@ export function formatWinRate(wr: number | null | undefined): string {
 	return wr == null ? '—' : `${wr.toFixed(1)}%`;
 }
 
-/** 2.345 -> "2.3 pp" (percentage points short of the best card). */
+/**
+ * A fitness score, 57.84 -> "57.8". It is on the win-rate scale but is not a
+ * win rate, so it gets no % sign: it is GIH WR adjusted for this pool.
+ */
+export function formatFitness(total: number | null | undefined): string {
+	return total == null ? '—' : total.toFixed(1);
+}
+
+/** 2.345 -> "2.3 pp" (percentage points of fitness short of the best card). */
 export function formatGap(gap: number | null): string {
 	return gap == null ? '' : `${gap.toFixed(1)} pp`;
 }
@@ -93,8 +114,97 @@ export function formatRecord(review: DraftReview): string | null {
 	return `${review.wins}-${review.losses}`;
 }
 
+/**
+ * 17Lands' event type in words: "PremierDraft" -> "Premier Draft". Open
+ * drafts carry the set and a date ("OpenDraft_HOB_20261001"), which the page
+ * already shows elsewhere, so only the format is kept.
+ */
+export function eventName(eventType: string): string {
+	if (eventType === 'PremierDraft') return 'Premier Draft';
+	if (eventType === 'TradDraft') return 'Traditional Draft';
+	if (eventType.startsWith('OpenDraft')) return 'Open Draft';
+	if (eventType === 'QuickDraft') return 'Quick Draft';
+	// Anything else: drop a "_SUFFIX" and space out the words ("FooDraft" -> "Foo Draft").
+	return eventType.split('_')[0].replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
 export function packLabel(pick: PickAnalysis): string {
 	return `Pack ${pick.pack_number}, pick ${pick.pick_number}`;
+}
+
+// --- The wheel analysis --------------------------------------------------
+
+export interface NamedWheelCard extends WheelCard {
+	name: string;
+}
+
+export interface ColourRow {
+	colour: ManaColour;
+	name: string; // "Blue"
+	good: number; // above-average cards of this colour that came back
+	wheeled: number;
+	taken: number; // taken by the other seven drafters
+	best: NamedWheelCard | null; // the best good card of this colour that came back
+}
+
+export interface WheelLapView {
+	from: number; // the pick the pack was first seen at
+	to: number; // the pick it came back at
+	wheeled: NamedWheelCard[]; // best GIH WR first
+	taken: NamedWheelCard[]; // best GIH WR first
+}
+
+export interface WheelPackView {
+	pack: number;
+	colours: ColourRow[];
+	laps: WheelLapView[];
+}
+
+/** Best GIH WR first; cards with no win rate last. */
+function byWinRate(a: WheelCard, b: WheelCard): number {
+	return (b.gih_wr ?? -Infinity) - (a.gih_wr ?? -Infinity);
+}
+
+/** The wheel analysis with card names joined on, ready to list. */
+export function buildWheels(review: DraftReview): WheelPackView[] {
+	const name = (id: string) => review.cards[id]?.name ?? 'Unknown card';
+	const named = (c: WheelCard): NamedWheelCard => ({ ...c, name: name(c.oracle_id) });
+	return review.analysis.wheels.map((wheel) => {
+		// Find the full card behind `best_wheeled`, for its win rate.
+		const everyWheeled = wheel.laps.flatMap((lap) => lap.wheeled);
+		return {
+			pack: wheel.pack_number,
+			colours: wheel.colors.map((c) => {
+				const best = everyWheeled.find((w) => w.oracle_id === c.best_wheeled);
+				return {
+					colour: c.color as ManaColour,
+					name: COLOR_NAMES[c.color] ?? c.color,
+					good: c.good_cards_wheeled,
+					wheeled: c.cards_wheeled,
+					taken: c.cards_taken_by_table,
+					best: best ? named(best) : null
+				};
+			}),
+			laps: wheel.laps.map((lap) => ({
+				from: lap.first_pick,
+				to: lap.returned_at,
+				wheeled: lap.wheeled.map(named).sort(byWinRate),
+				taken: lap.taken_by_table.map(named).sort(byWinRate)
+			}))
+		};
+	});
+}
+
+/**
+ * One line to say before the details: which colours sent good cards back.
+ * "Good" is the API's `above_average`: a GIH WR at or above the format's average.
+ */
+export function wheelHeadline(view: WheelPackView): string {
+	const flowing = view.colours.filter((c) => c.good > 0).sort((a, b) => b.good - a.good);
+	if (!flowing.length) return 'No good card of any colour came back.';
+	const parts = flowing.map((c) => `${c.name} ${c.good}`);
+	const list = parts.length > 1 ? `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}` : parts[0];
+	return `Good cards that came back: ${list}.`;
 }
 
 export interface ErrorCopy {

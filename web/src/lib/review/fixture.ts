@@ -75,6 +75,63 @@ export const fixtureReview: DraftReview = {
 			pick(1, A, 'solid', false),
 			pick(2, B, 'questionable', true),
 			pick(3, C, 'mistake', true)
+		],
+		// Pretend the table was two seats: pick 1's pack came back at pick 2
+		// holding Beta Bear, and the other drafter took Gamma Imp.
+		wheels: [
+			{
+				pack_number: 1,
+				laps: [
+					{
+						first_pick: 1,
+						returned_at: 2,
+						wheeled: [
+							{ oracle_id: B, colors: 'U', gih_wr: 54.1, alsa: 4.2, above_average: false },
+							{ oracle_id: A, colors: 'W', gih_wr: 58.2, alsa: 2.1, above_average: true }
+						],
+						taken_by_table: [
+							{ oracle_id: C, colors: 'B', gih_wr: 49.9, alsa: 7.5, above_average: false }
+						]
+					}
+				],
+				colors: [
+					{
+						color: 'W',
+						good_cards_wheeled: 1,
+						cards_wheeled: 1,
+						cards_taken_by_table: 0,
+						best_wheeled: A
+					},
+					{
+						color: 'U',
+						good_cards_wheeled: 0,
+						cards_wheeled: 1,
+						cards_taken_by_table: 0,
+						best_wheeled: null
+					},
+					{
+						color: 'B',
+						good_cards_wheeled: 0,
+						cards_wheeled: 0,
+						cards_taken_by_table: 1,
+						best_wheeled: null
+					},
+					{
+						color: 'R',
+						good_cards_wheeled: 0,
+						cards_wheeled: 0,
+						cards_taken_by_table: 0,
+						best_wheeled: null
+					},
+					{
+						color: 'G',
+						good_cards_wheeled: 0,
+						cards_wheeled: 0,
+						cards_taken_by_table: 0,
+						best_wheeled: null
+					}
+				]
+			}
 		]
 	},
 	verdict_counts: { solid: 1, questionable: 1, mistake: 1 },
