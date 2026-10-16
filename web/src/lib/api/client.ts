@@ -2,7 +2,16 @@
 // whose `kind` the pages switch on, so no component parses HTTP by hand.
 
 import { PUBLIC_API_URL } from '$env/static/public';
-import type { DeckReview, DraftReview, ErrorKind, ImportResponse, SubmittedDeck } from './types';
+import type {
+	CoachedDeckReview,
+	CoachNote,
+	CoachReview,
+	DeckReview,
+	DraftReview,
+	ErrorKind,
+	ImportResponse,
+	SubmittedDeck
+} from './types';
 
 export class ApiError extends Error {
 	kind: ErrorKind;
@@ -26,7 +35,11 @@ const KNOWN_KINDS: ErrorKind[] = [
 	'upstream_failure',
 	'rate_limited',
 	'format_not_ready',
-	'invalid_deck'
+	'invalid_deck',
+	'not_noted',
+	'not_authorised',
+	'coach_retired',
+	'prose_failed'
 ];
 
 /** Turn a non-2xx response into an ApiError. The API's body is `{detail: {kind, message}}`. */
@@ -84,6 +97,56 @@ export function submitDeck(
 	return request<DeckReview>(fetchFn, `/api/drafts/${encodeURIComponent(id)}/deck`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(deck)
+	});
+}
+
+// --------------------------------------------------------------------------
+// Claude's prose, with the Admin Key (ADR 0031 s2). Phase 6 swaps the key for
+// the signed-in user's session; until then only the admin page calls these.
+// --------------------------------------------------------------------------
+
+function adminHeaders(adminKey: string): Record<string, string> {
+	return { 'X-Admin-Key': adminKey };
+}
+
+/** Everything stored for this draft: its Pick Notes, Draft Summary and decks. No Claude call. */
+export function fetchCoachReview(
+	id: string,
+	adminKey: string,
+	fetchFn: typeof fetch = fetch
+): Promise<CoachReview> {
+	return request<CoachReview>(fetchFn, `/api/drafts/${encodeURIComponent(id)}/coach`, {
+		headers: adminHeaders(adminKey)
+	});
+}
+
+/**
+ * The Pick Note for the draft's `n`th pick (1 is P1p1). The server returns the
+ * stored note, or asks Claude for one (a few seconds) and stores it.
+ */
+export function writePickNote(
+	id: string,
+	n: number,
+	adminKey: string,
+	fetchFn: typeof fetch = fetch
+): Promise<CoachNote> {
+	return request<CoachNote>(fetchFn, `/api/drafts/${encodeURIComponent(id)}/picks/${n}/note`, {
+		method: 'POST',
+		headers: adminHeaders(adminKey)
+	});
+}
+
+/** Rate a deck with the Admin Key: it is stored, and the first one gets a Draft Summary. */
+export function submitCoachedDeck(
+	id: string,
+	deck: SubmittedDeck,
+	adminKey: string,
+	fetchFn: typeof fetch = fetch
+): Promise<CoachedDeckReview> {
+	return request<CoachedDeckReview>(fetchFn, `/api/drafts/${encodeURIComponent(id)}/deck`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json', ...adminHeaders(adminKey) },
 		body: JSON.stringify(deck)
 	});
 }

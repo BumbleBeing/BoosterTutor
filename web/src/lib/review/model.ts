@@ -268,6 +268,30 @@ export function describeError(err: Pick<ApiError, 'kind' | 'message' | 'retryAft
 				body: 'We have not loaded this format’s win rates yet. Please check back later.',
 				retryable: true
 			};
+		case 'not_authorised':
+			return {
+				title: 'That admin key was not accepted',
+				body: 'Check the key and enter it again. Without it, the review still works, but the coach stays silent.',
+				retryable: false
+			};
+		case 'coach_retired':
+			return {
+				title: 'The coach has retired for the day',
+				body: err.message,
+				retryable: false
+			};
+		case 'prose_failed':
+			return {
+				title: "The coach couldn't write this",
+				body: 'Claude did not give an answer that passed our checks. Try again in a moment.',
+				retryable: true
+			};
+		case 'not_noted':
+			return {
+				title: 'No note for this pick',
+				body: 'Only Noted Picks get a coach’s note.',
+				retryable: false
+			};
 		case 'network':
 			return {
 				title: "Can't reach BoosterTutor",

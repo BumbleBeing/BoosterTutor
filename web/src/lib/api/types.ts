@@ -114,6 +114,10 @@ export type ErrorKind =
 	| 'rate_limited'
 	| 'format_not_ready'
 	| 'invalid_deck'
+	| 'not_noted'
+	| 'not_authorised'
+	| 'coach_retired'
+	| 'prose_failed'
 	| 'network'
 	| 'unknown';
 
@@ -173,4 +177,51 @@ export interface DeckReview {
 	metrics: DeckMetrics;
 	colour_sources: Record<string, number>; // only colours the deck's spells use
 	cards: Record<string, CardInfo>;
+}
+
+// Claude's prose (schemas/coach.py), for a caller with the Admin Key only
+// (ADR 0031 s2). The shareable /draft/<id> page never asks for any of it.
+
+/** One stored Pick Note. `stale`: written against older statistics. */
+export interface CoachNote {
+	pack_number: number;
+	pick_number: number;
+	kind: 'critical' | 'narrow';
+	note: string;
+	prompt_version: string;
+	model: string;
+	stats_snapshot: string; // ISO date of the 17Lands statistics it read
+	stale: boolean;
+}
+
+/** The Draft Summary (ADR 0030), about the Reviewed Deck. */
+export interface CoachSummary {
+	draft_arc: string;
+	deck: string;
+	lesson: string;
+	key_picks: { pack_number: number; pick_number: number }[];
+	prompt_version: string;
+	model: string;
+	stats_snapshot: string;
+	stale: boolean;
+}
+
+/** `GET /api/drafts/{id}/coach`: everything stored for this draft. */
+export interface CoachReview {
+	notes: CoachNote[];
+	summary: CoachSummary | null;
+	reviewed_deck: SubmittedDeck | null;
+	current_deck: SubmittedDeck | null;
+}
+
+/** Why a deck got ratings but no summary: an error kind and its message. */
+export interface ProseUnavailable {
+	kind: ErrorKind;
+	message: string;
+}
+
+/** A deck submitted with the Admin Key: the ratings, and the summary if one was written. */
+export interface CoachedDeckReview extends DeckReview {
+	summary: CoachSummary | null;
+	summary_unavailable: ProseUnavailable | null;
 }
