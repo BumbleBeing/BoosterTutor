@@ -639,6 +639,8 @@ A vertical timeline of every pick in three packs: the card taken, notable altern
 
 A standalone component (ADR 0025 §1), reused in Phase 7. `POST /api/drafts/{id}/deck` takes 40 cards and returns Deck Ratings; anonymous submissions are not stored, with per-IP limiting.
 
+Built on 2026-10-16: `analysis/mana.py` gained `colour_sources`; `deck_submission.py` and `routes/drafts.py` hold the endpoint; the builder is `web/src/lib/deck/`. Deck submissions are limited per IP through the existing `fetch_attempts` table under a `deck:` key prefix (no new table), with `DECK_LIMIT_PER_MINUTE` / `DECK_LIMIT_PER_DAY` in config. The response carries the full `DeckMetrics` and the names of the cards it mentions, so the panel needs no second request.
+
 ### 5d Claude endpoints behind the Admin Key
 
 - An `X-Admin-Key` dependency, which also serves issue #32.

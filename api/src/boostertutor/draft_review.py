@@ -13,6 +13,7 @@ def build_review(
     log: DraftLog,
     inputs: FormatInputs,
     card_infos: Callable[[Iterable[uuid.UUID]], dict[uuid.UUID, CardInfo]],
+    basic_lands: dict[str, CardInfo],
 ) -> DraftReview:
     """Recompute every verdict. Nothing here is stored; see `models.replay`."""
     analysis = analyze_draft(log, inputs)
@@ -42,4 +43,5 @@ def build_review(
         verdict_counts=dict(Counter(p.verdict for p in analysis.picks)),
         noted_picks=[(p.pack_number, p.pick_number) for p in analysis.picks if p.noted],
         cards=card_infos(mentioned),
+        basic_lands=basic_lands,
     )

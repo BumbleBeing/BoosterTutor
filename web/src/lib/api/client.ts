@@ -2,7 +2,7 @@
 // whose `kind` the pages switch on, so no component parses HTTP by hand.
 
 import { PUBLIC_API_URL } from '$env/static/public';
-import type { DraftReview, ErrorKind, ImportResponse } from './types';
+import type { DeckReview, DraftReview, ErrorKind, ImportResponse, SubmittedDeck } from './types';
 
 export class ApiError extends Error {
 	kind: ErrorKind;
@@ -25,7 +25,8 @@ const KNOWN_KINDS: ErrorKind[] = [
 	'malformed_draft',
 	'upstream_failure',
 	'rate_limited',
-	'format_not_ready'
+	'format_not_ready',
+	'invalid_deck'
 ];
 
 /** Turn a non-2xx response into an ApiError. The API's body is `{detail: {kind, message}}`. */
@@ -72,4 +73,17 @@ export function importDraft(link: string, fetchFn: typeof fetch = fetch): Promis
 /** Load a draft's review. Verdicts are recomputed by the server on every call. */
 export function fetchReview(id: string, fetchFn: typeof fetch = fetch): Promise<DraftReview> {
 	return request<DraftReview>(fetchFn, `/api/drafts/${encodeURIComponent(id)}`);
+}
+
+/** Rate a 40-card deck built from a draft's pool. Nothing is stored server-side. */
+export function submitDeck(
+	id: string,
+	deck: SubmittedDeck,
+	fetchFn: typeof fetch = fetch
+): Promise<DeckReview> {
+	return request<DeckReview>(fetchFn, `/api/drafts/${encodeURIComponent(id)}/deck`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(deck)
+	});
 }

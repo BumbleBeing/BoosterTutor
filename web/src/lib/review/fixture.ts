@@ -10,6 +10,7 @@ function card(name: string) {
 		name,
 		mana_cost: null,
 		type_line: 'Creature',
+		cmc: 2,
 		colors: 'W',
 		rarity: 'common',
 		image_normal: `https://cards.scryfall.io/${name}.jpg`,
@@ -81,5 +82,6 @@ export const fixtureReview: DraftReview = {
 		[1, 2],
 		[1, 3]
 	],
+	basic_lands: {},
 	cards: { [A]: card('Alpha Knight'), [B]: card('Beta Bear'), [C]: card('Gamma Imp') }
 };
